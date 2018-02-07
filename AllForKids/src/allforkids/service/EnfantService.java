@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  *
  * @author MacBook
  */
-public class EnfantService implements IService<Enfant> {
+public class EnfantService implements IAllForKids<Enfant> {
     Connection connexion;
 Statement st;
 ResultSet result;

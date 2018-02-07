@@ -5,6 +5,8 @@
  */
 package allforkids.test;
 
+import allforkids.entite.MoyenDetransport;
+import allforkids.service.MoyendeTransportService;
 import allforkids.technique.util.DataSource;
 
 /**
@@ -90,6 +92,24 @@ public class AllForKids {
            
            Parent P2=Pservice.search(10);
            System.out.println(P2);*/
+         /*****************imen*******************/
+        MoyenDetransport t=new MoyenDetransport("BMW", "181 tu 8982",2);
+        MoyenDetransport t2=new MoyenDetransport("Porche", "170 tu 12365",2);
+        MoyendeTransportService tService =  MoyendeTransportService.getInstance() ;
+       // tService.insert(t);  
+       // tService.insert(t2);
+        tService.getAll().forEach(e->System.out.println(e));
+        
+      //  MoyenDetransport t1 =new MoyenDetransport(4,"chouf trahh","179 tu 8982",5);
+       // tService.update(t1);
+        
+      //  MoyenDetransport p3= tService.getMoyenById(1) ; 
+        // System.out.println(p3.toString());
+        
+       /*   tService.delete(p3); 
+           MoyenDetransport p3= tService.search(1) ; 
+        System.out.println(p3.toString());*/
+        
     
     }
     

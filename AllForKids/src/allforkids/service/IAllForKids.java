@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author MacBook
  */
-public interface IService<T> {
+public interface IAllForKids<T> {
  
     
     public void insert(T t); 

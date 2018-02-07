@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author MacBook
  */
-public class AdminService implements IService<Admin> {
+public class AdminService implements IAllForKids<Admin> {
    Connection connexion;
 Statement st;
 ResultSet result;

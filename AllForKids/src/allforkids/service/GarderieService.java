@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author MacBook
  */
-public class GarderieService implements IService<Garderie> {
+public class GarderieService implements IAllForKids<Garderie> {
 
     Connection connexion;
 Statement st;
