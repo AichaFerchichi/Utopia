@@ -39,7 +39,7 @@ public class AllForKids {
         DataSource ds=DataSource.getInstance();
          System.out.println("DS:"+ds);
        // System.out.println("**************Houaida************");
-         //GARDERIE:jawou behy
+         //GARDERIE:
          /*Garderie G=new Garderie(7,"hoda", "ariana",1234455);
            GarderieService Gservice= GarderieService.getInstance();
            //Gservice.insert(G);
@@ -50,7 +50,7 @@ public class AllForKids {
            Garderie p3=Gservice.search(8);
            //System.out.println(p3);*/
          
-           //JARDIN D'ENFANT:jawou behy
+           //JARDIN D'ENFANT:
          /*JardinEnfant J=new JardinEnfant(9,"hoda", "ariana",1234455);
            JardinEnfantService Jservice=JardinEnfantService.getInstance();
            //Jservice.insert(J);
@@ -61,7 +61,7 @@ public class AllForKids {
            JardinEnfant J2=Jservice.search(5);
            System.out.println(J2);*/
           
-          //ENSEIGNANT:Jawou behy
+          //ENSEIGNANT:
          
          /*Enseignant E=new Enseignant(123,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn",12,"theatre");
          //  EnseignantService Eservice=new EnseignantService();
@@ -79,7 +79,7 @@ public class AllForKids {
            Eservice.delete(12);
            System.out.println(J2);
          */
-         //ENFANT:Jawou behy
+         //ENFANT:
        /* Enfant EN=new Enfant(4,"hoda", "ariana",12);
            EnfantService ENservice= EnfantService.getInstance();
           // ENservice.insert(EN);
@@ -89,7 +89,7 @@ public class AllForKids {
            Enfant E3=ENservice.search(7);
            System.out.println(E3);*/
          
-         //ADMIN:Jawou behy
+         //ADMIN:
         /*Admin A=new Admin("pseudo1","mdp1","email1");
            AdminService Aservice=AdminService.getInstance();
           //Aservice.insert(A);
@@ -99,7 +99,7 @@ public class AllForKids {
            Admin A3=Aservice.search(4);
            //System.out.println(A3);*/
         
-        //PARENT:Jawou behy
+        //PARENT:
     /* Parent P=new Parent(12345678,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn","ariana",100);
            ParentService Pservice=ParentService.getInstance();
            //Pservice.insert(P);
@@ -109,6 +109,8 @@ public class AllForKids {
            
            Parent P2=Pservice.search(10);
            System.out.println(P2);*/
+    
+    
          /*****************imen*******************/
         /*MoyenDetransport t=new MoyenDetransport("BMW", "181 tu 8982",2);
         MoyenDetransport t2=new MoyenDetransport("Porche", "170 tu 12365",2);
