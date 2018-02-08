@@ -5,6 +5,7 @@
         <group>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/service/QuestionService.java</file>
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/entite/Forum.java</file>
@@ -15,6 +16,12 @@
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/entite/Offre.java</file>
 =======
+=======
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ReclamationService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/QuestionService.java</file>
+=======
+<<<<<<< HEAD
+>>>>>>> b9a8f17e40dd35fbd0f2d585434f6d933ce965c2
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/entite/Covoiturage.java</file>
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/ReservationService.java</file>
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/MoyendeTransportService.java</file>
@@ -39,15 +46,28 @@
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Pub.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/BabysitterService.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ReponseService.java</file>
+>>>>>>> 834b0a1e27142a37b28d839564295536f96c84da
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/MembreService.java</file>
-            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/OffreService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/IAllForKids_1.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Evenement.java</file>
-            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/EvenementService.java</file>
-            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/BabysitterService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ClubService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Club.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/TicketService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Pub.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/CommandeService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/PubService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/OffreService.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ForumService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Membre.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Ticket.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ReponseService.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/DemandeService.java</file>
+<<<<<<< HEAD
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/EvenementService.java</file>
+=======
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/QuestionService.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/IAllForKids_1.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Membre.java</file>
