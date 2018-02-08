@@ -5,6 +5,7 @@
  */
 package allforkids.test;
 
+import allforkids.entite.Admin;
 import allforkids.entite.Commande;
 import allforkids.entite.Commentaire;
 import allforkids.entite.LigneCommande;
@@ -28,22 +29,33 @@ import java.sql.Date;
 import allforkids.entite.Babysitter;
 import allforkids.entite.Club;
 import allforkids.entite.Demande;
+import allforkids.entite.Enfant;
+import allforkids.entite.Enseignant;
 import allforkids.entite.Evenement;
 import allforkids.entite.Forum;
+import allforkids.entite.Garderie;
+import allforkids.entite.JardinEnfant;
 import allforkids.entite.Membre;
 import allforkids.entite.Offre;
+import allforkids.entite.Parent;
 import allforkids.entite.Pub;
 import allforkids.entite.Question;
 import allforkids.entite.Reclamation;
 import allforkids.entite.Reponse;
 import allforkids.entite.Ticket;
+import allforkids.service.AdminService;
 import allforkids.service.BabysitterService;
 import allforkids.service.ClubService;
 import allforkids.service.DemandeService;
+import allforkids.service.EnfantService;
+import allforkids.service.EnseignantService;
 import allforkids.service.EvenementService;
 import allforkids.service.ForumService;
+import allforkids.service.GarderieService;
+import allforkids.service.JardinEnfantService;
 import allforkids.service.MembreService;
 import allforkids.service.OffreService;
+import allforkids.service.ParentService;
 import allforkids.service.PubService;
 import allforkids.service.QuestionService;
 import allforkids.service.ReclamationService;
@@ -114,17 +126,17 @@ public class AllForKids {
            System.out.println(E3);*/
          
          //ADMIN:
-        /*Admin A=new Admin("pseudo1","mdp1","email1");
+        Admin A=new Admin("pseudo1","mdp1","email1");
            AdminService Aservice=AdminService.getInstance();
           //Aservice.insert(A);
            Aservice.getAll().forEach(e->System.out.println(e));
            Admin A2=new Admin(1,"pseudo2","mdp2","email2");
            Aservice.update(A2);
            Admin A3=Aservice.search(4);
-           //System.out.println(A3);*/
+           //System.out.println(A3);
         
         //PARENT:
-    /* Parent P=new Parent(12345678,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn","ariana",100);
+     /*Parent P=new Parent(12345678,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn","ariana",100);
            ParentService Pservice=ParentService.getInstance();
            //Pservice.insert(P);
            Pservice.getAll().forEach(e->System.out.println(e));
