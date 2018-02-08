@@ -5,8 +5,8 @@
  */
 package allforkids.service;
 
-import modulebabysitter.entite.Babysitter;
-import modulebabysitter.technique.util.DataSource;
+import allforkids.entite.Babysitter;
+import allforkids.technique.util.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;

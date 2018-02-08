@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modulebabysitter.entite.Babysitter;
-import modulebabysitter.entite.Demande;
-import static modulebabysitter.service.BabysitterService.instance;
-import modulebabysitter.technique.util.DataSource;
+import allforkids.entite.Babysitter;
+import allforkids.entite.Demande;
+import static allforkids.service.BabysitterService.instance;
+import allforkids.technique.util.DataSource;
 
 /**
  *

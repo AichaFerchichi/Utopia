@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modulebabysitter.entite.Question;
-import modulebabysitter.entite.Reclamation;
-import modulebabysitter.technique.util.DataSource;
+import allforkids.entite.Question;
+import allforkids.entite.Reclamation;
+import allforkids.technique.util.DataSource;
 
 /**
  *
