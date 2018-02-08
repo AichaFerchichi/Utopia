@@ -60,8 +60,8 @@ public class AllForKids {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        DataSource ds=DataSource.getInstance();
-         System.out.println("DS:"+ds);
+        //DataSource ds=DataSource.getInstance();
+        // System.out.println("DS:"+ds);
        // System.out.println("**************Houaida************");
          //GARDERIE:
          /*Garderie G=new Garderie(7,"hoda", "ariana",1234455);
