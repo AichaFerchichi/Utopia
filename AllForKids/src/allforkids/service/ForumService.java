@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import allforkids.entite.Demande;
+
 import allforkids.entite.Forum;
 import allforkids.technique.util.DataSource;
 
@@ -38,7 +38,7 @@ private ForumService(){
 public static ForumService getInstance()
     {
         if(instance==null)
-            instance = new ForumService();
+        {  instance = new ForumService();}
         return instance;
     }
 

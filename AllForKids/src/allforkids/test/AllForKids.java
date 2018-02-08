@@ -24,8 +24,7 @@ import allforkids.service.ProduitService;
 import allforkids.service.PromotionService;
 import allforkids.technique.util.DataSource;
 import java.sql.Date;
-//import moduleboutique.service.CommentaireService;
-//import moduleboutique.service.LigneCommandeService;
+
 import allforkids.entite.Babysitter;
 import allforkids.entite.Club;
 import allforkids.entite.Demande;
@@ -72,8 +71,8 @@ public class AllForKids {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //DataSource ds=DataSource.getInstance();
-        // System.out.println("DS:"+ds);
+        DataSource ds=DataSource.getInstance();
+         System.out.println("DS:"+ds);
        // System.out.println("**************Houaida************");
          //GARDERIE:
          /*Garderie G=new Garderie(7,"hoda", "ariana",1234455);
@@ -126,14 +125,14 @@ public class AllForKids {
            System.out.println(E3);*/
          
          //ADMIN:
-        Admin A=new Admin("pseudo1","mdp1","email1");
+     /*   Admin A=new Admin("pseudo1","mdp1","email1");
            AdminService Aservice=AdminService.getInstance();
           //Aservice.insert(A);
            Aservice.getAll().forEach(e->System.out.println(e));
            Admin A2=new Admin(1,"pseudo2","mdp2","email2");
            Aservice.update(A2);
            Admin A3=Aservice.search(4);
-           //System.out.println(A3);
+           //System.out.println(A3);*/
         
         //PARENT:
      /*Parent P=new Parent(12345678,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn","ariana",100);

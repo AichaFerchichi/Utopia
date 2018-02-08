@@ -13,15 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import allforkids.entite.Club;
+
 import allforkids.entite.Membre;
 import allforkids.technique.util.DataSource;
+import java.util.Map;
 
 /**
  *
  * @author hammamet
  */
-public class MembreService implements IAllForKids_1<Membre>{
+public class MembreService implements IAllForKids<Membre>{
     Connection connexion;
     Statement st;
     ResultSet result;
@@ -29,8 +30,8 @@ public class MembreService implements IAllForKids_1<Membre>{
     public static MembreService getInstance()
     {
         if(instance==null)
-    
-    instance = new MembreService();
+        {
+    instance = new MembreService();}
           return instance;
     }
     private MembreService() 
@@ -122,6 +123,11 @@ public class MembreService implements IAllForKids_1<Membre>{
        return true ;
    }
    return false;
+    }
+
+    @Override
+    public Map<String, Membre> getAllMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

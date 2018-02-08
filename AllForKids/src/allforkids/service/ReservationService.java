@@ -29,8 +29,8 @@ public class ReservationService implements IAllForKids<Reservation>{
  public static ReservationService getInstance()
     {
     if(instance==null)
-    
-    instance = new ReservationService();
+    {
+    instance = new ReservationService();}
     return instance;
     
     }

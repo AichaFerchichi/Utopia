@@ -9,7 +9,7 @@ import allforkids.entite.Produit;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
-//import java.sql.ResultSetMetaData;
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class ProduitService implements IAllForKids<Produit> {
  public static ProduitService getInstance()
     {
     if(instance==null)
-    
-    instance = new ProduitService();
+    {
+    instance = new ProduitService();}
     return instance;
     
     }

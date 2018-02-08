@@ -30,8 +30,8 @@ static AdminService instance;
  public static AdminService getInstance()
     {
     if(instance==null)
-    
-    instance = new AdminService();
+    {
+    instance = new AdminService();}
     return instance;
     
     }

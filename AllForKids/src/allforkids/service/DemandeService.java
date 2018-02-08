@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import allforkids.entite.Babysitter;
+
 import allforkids.entite.Demande;
-import static allforkids.service.BabysitterService.instance;
+
 import allforkids.technique.util.DataSource;
 
 /**

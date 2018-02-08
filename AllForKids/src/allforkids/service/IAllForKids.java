@@ -11,6 +11,7 @@ import java.util.Map;
 /**
  *
  * @author MacBook
+ * @param <T>
  */
 public interface IAllForKids<T> {
  

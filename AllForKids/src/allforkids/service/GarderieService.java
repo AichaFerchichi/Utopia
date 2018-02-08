@@ -31,8 +31,8 @@ static GarderieService instance;
  public static GarderieService getInstance()
     {
     if(instance==null)
-    
-    instance = new GarderieService();
+    {
+    instance = new GarderieService();}
     return instance;
     
     }
