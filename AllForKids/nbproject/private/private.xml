@@ -5,6 +5,31 @@
         <group>
 <<<<<<< HEAD
 <<<<<<< HEAD
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/PromotionService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/LigneCommande.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/AdminService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/NoteService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Commande.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Promotion.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Commentaire.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Note.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Covoiturage.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/LigneCommandeService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/IAllForKids.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/User.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Livreur.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/CommentaireService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ProduitService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/LivreurService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Produit.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/CommandeService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Livraison.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/LivraisonService.java</file>
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/service/QuestionService.java</file>
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
@@ -22,6 +47,7 @@
 =======
 <<<<<<< HEAD
 >>>>>>> b9a8f17e40dd35fbd0f2d585434f6d933ce965c2
+>>>>>>> c92a7c7862f2a4a13a9b8e7b2b83823cdc936a85
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/entite/Covoiturage.java</file>
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/ReservationService.java</file>
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/MoyendeTransportService.java</file>
