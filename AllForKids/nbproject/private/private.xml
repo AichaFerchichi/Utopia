@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/service/QuestionService.java</file>
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/entite/Forum.java</file>
@@ -13,6 +14,26 @@
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/service/OffreService.java</file>
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
             <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/entite/Offre.java</file>
+=======
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/entite/Covoiturage.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/ReservationService.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/MoyendeTransportService.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/entite/Reservation.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/CovoiturageService.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/IAllForKids.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/OffreService.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/entite/MoyenDetransport.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/EnfantService.java</file>
+            <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/AdminService.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/entite/User.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/EnfantService.java</file>
+>>>>>>> 834b0a1e27142a37b28d839564295536f96c84da
 =======
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/PubService.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Pub.java</file>
@@ -35,6 +56,10 @@
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Club.java</file>
             <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ReclamationService.java</file>
 >>>>>>> 28a634836caefff676cd0b02fb222f1d321b4101
+<<<<<<< HEAD
+=======
+>>>>>>> b34aabaa90f88284c31768b40c3adf7fbbdaf5f5
+>>>>>>> 834b0a1e27142a37b28d839564295536f96c84da
         </group>
     </open-files>
 </project-private>
