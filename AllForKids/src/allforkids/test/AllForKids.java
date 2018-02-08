@@ -25,6 +25,30 @@ import allforkids.technique.util.DataSource;
 import java.sql.Date;
 import moduleboutique.service.CommentaireService;
 import moduleboutique.service.LigneCommandeService;
+import allforkids.entite.Babysitter;
+import allforkids.entite.Club;
+import allforkids.entite.Demande;
+import allforkids.entite.Evenement;
+import allforkids.entite.Forum;
+import allforkids.entite.Membre;
+import allforkids.entite.Offre;
+import allforkids.entite.Pub;
+import allforkids.entite.Question;
+import allforkids.entite.Reclamation;
+import allforkids.entite.Reponse;
+import allforkids.entite.Ticket;
+import allforkids.service.BabysitterService;
+import allforkids.service.ClubService;
+import allforkids.service.DemandeService;
+import allforkids.service.EvenementService;
+import allforkids.service.ForumService;
+import allforkids.service.MembreService;
+import allforkids.service.OffreService;
+import allforkids.service.PubService;
+import allforkids.service.QuestionService;
+import allforkids.service.ReclamationService;
+import allforkids.service.ReponseService;
+import allforkids.service.TicketService;
 
 /**
  *
@@ -39,7 +63,7 @@ public class AllForKids {
         DataSource ds=DataSource.getInstance();
          System.out.println("DS:"+ds);
        // System.out.println("**************Houaida************");
-         //GARDERIE:jawou behy
+         //GARDERIE:
          /*Garderie G=new Garderie(7,"hoda", "ariana",1234455);
            GarderieService Gservice= GarderieService.getInstance();
            //Gservice.insert(G);
@@ -50,7 +74,7 @@ public class AllForKids {
            Garderie p3=Gservice.search(8);
            //System.out.println(p3);*/
          
-           //JARDIN D'ENFANT:jawou behy
+           //JARDIN D'ENFANT:
          /*JardinEnfant J=new JardinEnfant(9,"hoda", "ariana",1234455);
            JardinEnfantService Jservice=JardinEnfantService.getInstance();
            //Jservice.insert(J);
@@ -61,7 +85,7 @@ public class AllForKids {
            JardinEnfant J2=Jservice.search(5);
            System.out.println(J2);*/
           
-          //ENSEIGNANT:Jawou behy
+          //ENSEIGNANT:
          
          /*Enseignant E=new Enseignant(123,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn",12,"theatre");
          //  EnseignantService Eservice=new EnseignantService();
@@ -79,7 +103,7 @@ public class AllForKids {
            Eservice.delete(12);
            System.out.println(J2);
          */
-         //ENFANT:Jawou behy
+         //ENFANT:
        /* Enfant EN=new Enfant(4,"hoda", "ariana",12);
            EnfantService ENservice= EnfantService.getInstance();
           // ENservice.insert(EN);
@@ -89,7 +113,7 @@ public class AllForKids {
            Enfant E3=ENservice.search(7);
            System.out.println(E3);*/
          
-         //ADMIN:Jawou behy
+         //ADMIN:
         /*Admin A=new Admin("pseudo1","mdp1","email1");
            AdminService Aservice=AdminService.getInstance();
           //Aservice.insert(A);
@@ -99,7 +123,7 @@ public class AllForKids {
            Admin A3=Aservice.search(4);
            //System.out.println(A3);*/
         
-        //PARENT:Jawou behy
+        //PARENT:
     /* Parent P=new Parent(12345678,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn","ariana",100);
            ParentService Pservice=ParentService.getInstance();
            //Pservice.insert(P);
@@ -109,6 +133,8 @@ public class AllForKids {
            
            Parent P2=Pservice.search(10);
            System.out.println(P2);*/
+    
+    
          /*****************imen*******************/
         /*MoyenDetransport t=new MoyenDetransport("BMW", "181 tu 8982",2);
         MoyenDetransport t2=new MoyenDetransport("Porche", "170 tu 12365",2);
@@ -225,7 +251,215 @@ public class AllForKids {
         gestionCm.insertTotal(cm1);
         gestionCm.getAll().forEach(e->System.out.println(e));*/
         
-    
+           System.out.println("++++++++++++++++++++++++++////MODULE Babysitter////+++++++++++++++++++++++++++++");
+ /*
+        System.out.println("*****************GESTION Babysitter******************");
+        Babysitter b1=new Babysitter(15003930,"Aicha","Ferchichi","151JFT1766","123456789/","aicha.ferchichi@esprit.tn","Sidi bou said",25768582); 
+        Babysitter b2=new Babysitter(15773930,"Houwaida","Meknassi","155JFT1466","hoda123","houaida.meknassi@esprit.tn","El Ghazela",22508741);
+        Babysitter b4=new Babysitter(2,15773931,"Houwaida","Meknassi","155JFT1466","apresUpdate","houaida.meknassi@esprit.tn","El Ghazela",22508741); 
+        BabysitterService gestionB=  BabysitterService.getInstance() ;
+        System.out.println("<<<<< Insertion et affichage >>>>>");
+        //gestionB.insert(b1);
+        //gestionB.insert(b2) ;
+        gestionB.getAll().forEach(e->System.out.println(e));
+        
+        System.out.println("<<<<< Recherche >>>>>");
+        Babysitter b3=gestionB.search(2) ; 
+        System.out.println(b3);
+        System.out.println("<<<<< Modifier >>>>>");
+        gestionB.update(b4);
+        System.out.println("<<<<< Supprimer >>>>>");
+        gestionB.delete(1);
+        gestionB.getAll().forEach(e->System.out.println(e));
+       
+        System.out.println("*****************GESTION Demande******************");
+        Demande d1=new Demande(1,new Date(0),"Je veux avoir babysitter pour le vendredi soir"); 
+        Demande d2=new Demande(2,new Date(0),"Je veux avoir babysitter pour le lundi soir");
+        Demande d4=new Demande(13,4,new Date(0),"");
+        DemandeService gestionD=  DemandeService.getInstance();
+        System.out.println("<<<<< Insertion et affichage >>>>>");
+        gestionD.insert(d1);
+        gestionD.insert(d2) ;
+        gestionD.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Recherche >>>>>");
+        Demande d5=gestionD.search(13); 
+        System.out.println(d5);
+        System.out.println("<<<<< Modifier >>>>>");
+        gestionD.update(d4);
+        gestionD.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Supprimer >>>>>");
+        gestionD.delete(14);
+        gestionD.getAll().forEach(e->System.out.println(e));
+      
+      System.out.println("*****************GESTION Forum******************");
+        Forum f1=new Forum(1,2,"premier forum");
+        Forum f2=new Forum(2,3,"second forum");
+        Forum f4=new Forum(3,2,2,"3éme forum");
+        ForumService gestionF=  ForumService.getInstance();
+        System.out.println("<<<<< Insertion et affichage >>>>>");
+        gestionF.insert(f1);
+        gestionF.insert(f2) ;
+        gestionF.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Recherche >>>>>");
+        Forum f5=gestionF.search(3); 
+        System.out.println(f5);
+        System.out.println("<<<<< Modifier >>>>>");
+        gestionF.update(f4);
+        gestionF.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Supprimer >>>>>");
+        gestionF.delete(3);
+        gestionF.getAll().forEach(e->System.out.println(e)); 
+       System.out.println("*****************GESTION Offres******************");
+        Offre o1=new Offre(1,new Date(0),"Je veux travailler le weekend");
+        Offre o2=new Offre(2,new Date(0),"Je veux travailler du lundi au vendredi");
+        Offre o4=new Offre(8,3,new Date(0),"Je veux travailler juste deux jours");
+        OffreService gestionO=  OffreService.getInstance();
+        System.out.println("<<<<< Insertion et affichage >>>>>");
+        //gestionO.insert(o1);
+        //gestionO.insert(o2) ;
+        gestionO.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Recherche >>>>>");
+        Offre o5=gestionO.search(9); 
+        System.out.println(o5);
+        System.out.println("<<<<< Modifier >>>>>");
+        gestionO.update(o4);
+        gestionO.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Supprimer >>>>>");
+        gestionO.delete(8);
+        gestionO.getAll().forEach(e->System.out.println(e));
+      
+       System.out.println("*****************GESTION Questions******************");
+        Question q1=new Question(1,new Date(0),"Comment je peux regler cette erreur:null pointer?");
+        Question q2=new Question(2,new Date(0),"Comment je peux intégrer mon projet?");
+        Question q4=new Question(2,5,new Date(0),"");
+       
+        QuestionService gestionQ=  QuestionService.getInstance();
+        System.out.println("<<<<< Insertion et affichage >>>>>");
+        //gestionQ.insert(q1);
+        //gestionQ.insert(q2) ;
+        gestionQ.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Recherche >>>>>");
+        Question q5=gestionQ.search(3); 
+        System.out.println(q5);
+        System.out.println("<<<<< Modifier >>>>>");
+        gestionQ.update(q4);
+        gestionQ.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Supprimer >>>>>");
+        gestionQ.delete(3);
+        gestionQ.getAll().forEach(e->System.out.println(e)); 
+        
+       System.out.println("*****************GESTION Reclamations******************");
+        Reclamation r1=new Reclamation(1,1,"Un retard de deux heures cest pas normal",new Date(0));
+        Reclamation r2=new Reclamation(2,2,"Je ne peux pas supporter elle est maladroite",new Date(0));
+        Reclamation r4=new Reclamation(7,2,3,"Je veux rembourser mon argent",new Date(0));
+       
+        ReclamationService gestionR=  ReclamationService.getInstance();
+        System.out.println("<<<<< Insertion et affichage >>>>>");
+        //gestionR.insert(r1);
+        //gestionR.insert(r2) ;
+         gestionR.getAllMap().entrySet().stream().forEach(e->System.out.println(e));
+        //gestionR.getAll().forEach(e->System.out.println(e));
+        /*
+        System.out.println("<<<<< Recherche >>>>>");
+        Reclamation r5=gestionR.search(7); 
+        System.out.println(r5);
+        System.out.println("<<<<< Modifier >>>>>");
+        gestionR.update(r4);
+        gestionR.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Supprimer >>>>>");
+        gestionR.delete(8);
+        gestionR.getAll().forEach(e->System.out.println(e)); 
+        
+         System.out.println("*****************GESTION Reponses******************");
+        Reponse rep1=new Reponse(1,1,new Date(0),"Je vous conseille de faire des recherches");
+        Reponse rep2=new Reponse(4,2,new Date(0),"C est super,merci");
+        Reponse rep4=new Reponse(3,5,3,new Date(0),"Je vais essayer votre soluion merci!!");
+       
+        ReponseService gestionRep=  ReponseService.getInstance();
+        System.out.println("<<<<< Insertion et affichage >>>>>");
+        //gestionRep.insert(rep1);
+        //gestionRep.insert(rep2) ;
+        gestionRep.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Recherche >>>>>");
+        Reponse rep5=gestionRep.search(3); 
+        System.out.println(rep5);
+        System.out.println("<<<<< Modifier >>>>>");
+        gestionRep.update(rep4);
+        gestionRep.getAll().forEach(e->System.out.println(e));
+        System.out.println("<<<<< Supprimer >>>>>");
+        gestionRep.delete(4);
+        gestionRep.getAll().forEach(e->System.out.println(e));*/
+ System.out.println("++++++++++++++++++++++++++////Clubs et événements////+++++++++++++++++++++++++++++");
+       /* System.out.println("*****************GESTION Clubs******************");
+        Club c1=new Club("l'artiste","dessin","hammamet",3,12,10,30);
+        Club c2=new Club("musicien","musique","tunis",3,18,8,22);
+        Club c3=new Club("theatre","theatre","nabeul",6,20,10,18);
+        ClubService cl= ClubService.getInstance();
+        cl.insert(c1);
+        cl.insert(c2);
+        cl.insert(c3);
+        cl.getAll().forEach(e->System.out.println(e));
+        cl.delete(3);
+        cl.getAll().forEach(e->System.out.println(e));
+        Club c4=null;
+        c4=cl.search(1);
+        System.out.println(c4);
+        cl.update(c4);*/
+        /*System.out.println("*****************GESTION événements******************");
+        Evenement e1=new Evenement("yuma",new Date(0),"hammamet",20,2,10);
+        Evenement e2=new Evenement("labes",new Date(0),"sfax",20,3,30);
+        Evenement e3=new Evenement("mashrouu leila",new Date(0),"gabes",21,2,35);
+        EvenementService ev= EvenementService.getInstance();
+        ev.insert(e1);
+        ev.insert(e2);
+        ev.insert(e3);
+        ev.getAll().forEach(e->System.out.println(e));
+        ev.delete(3);
+        ev.getAll().forEach(e->System.out.println(e));
+        Evenement e4=null;
+        e4=ev.search(1);
+        System.out.println(e4);
+        ev.update(e4);*/
+        /*System.out.println("*****************GESTION membres******************");
+        Membre m1=new Membre("khedira","ghada",new Date(0),22,20362589,"ghada.khedira@esprit.tn");
+        Membre m2=new Membre("Ferchichi","aicha",new Date(0),10,97458523,"aicha.ferchichi@esprit.tn");
+        Membre m3=new Membre("ouaja","molka",new Date(0),12,25648859,"molka.ouaja@esprit.tn");
+        MembreService me= MembreService.getInstance();
+        me.insert(m1);
+        me.insert(m2);
+        me.insert(m3);
+        me.getAll().forEach(e->System.out.println(e));
+        me.delete(3);
+        me.getAll().forEach(e->System.out.println(e));
+        Membre m4=null;
+        m4=me.search(1);
+        System.out.println(m4);
+        me.update(m4);*/
+       /* System.out.println("*****************GESTION Pubs******************");
+        Pub p1=new Pub("samsung","portable",new Date(0),new Date(0),2,"expire");
+        Pub p2=new Pub("Zara","vetement",new Date(0),new Date(0),2,"en cours");
+        Pub p3=new Pub("monoprix","promo aid",new Date(0),new Date(0),3,"expire");
+        PubService pu= PubService.getInstance();
+        pu.insert(p1);
+        pu.insert(p2);
+        pu.insert(p3);
+        pu.getAll().forEach(e->System.out.println(e));
+        pu.delete(3);
+        pu.getAll().forEach(e->System.out.println(e));
+        Pub p4=null;
+        p4=pu.search(1);
+        System.out.println(p4);
+        pu.update(p4);*/
+       /*System.out.println("*****************GESTION Tickets******************");
+        Ticket t1=new Ticket(1,"***",20,"dispo");
+        Ticket t2=new Ticket(1,"***",20,"vendu");
+        Ticket t3=new Ticket(2,"***",25,"dispo");
+        TicketService ti= TicketService.getInstance();
+        ti.insert(t1);
+        ti.insert(t2);
+        ti.insert(t3);
+        ti.getAll().forEach(e->System.out.println(e));
+        */
     }
     
 }
