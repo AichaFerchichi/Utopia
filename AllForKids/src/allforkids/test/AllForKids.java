@@ -26,19 +26,29 @@ import java.sql.Date;
 import moduleboutique.service.CommentaireService;
 import moduleboutique.service.LigneCommandeService;
 import allforkids.entite.Babysitter;
+import allforkids.entite.Club;
 import allforkids.entite.Demande;
+import allforkids.entite.Evenement;
 import allforkids.entite.Forum;
+import allforkids.entite.Membre;
 import allforkids.entite.Offre;
+import allforkids.entite.Pub;
 import allforkids.entite.Question;
 import allforkids.entite.Reclamation;
 import allforkids.entite.Reponse;
+import allforkids.entite.Ticket;
 import allforkids.service.BabysitterService;
+import allforkids.service.ClubService;
 import allforkids.service.DemandeService;
+import allforkids.service.EvenementService;
 import allforkids.service.ForumService;
+import allforkids.service.MembreService;
 import allforkids.service.OffreService;
+import allforkids.service.PubService;
 import allforkids.service.QuestionService;
 import allforkids.service.ReclamationService;
 import allforkids.service.ReponseService;
+import allforkids.service.TicketService;
 
 /**
  *
@@ -379,6 +389,77 @@ public class AllForKids {
         System.out.println("<<<<< Supprimer >>>>>");
         gestionRep.delete(4);
         gestionRep.getAll().forEach(e->System.out.println(e));*/
+ System.out.println("++++++++++++++++++++++++++////Clubs et événements////+++++++++++++++++++++++++++++");
+       /* System.out.println("*****************GESTION Clubs******************");
+        Club c1=new Club("l'artiste","dessin","hammamet",3,12,10,30);
+        Club c2=new Club("musicien","musique","tunis",3,18,8,22);
+        Club c3=new Club("theatre","theatre","nabeul",6,20,10,18);
+        ClubService cl= ClubService.getInstance();
+        cl.insert(c1);
+        cl.insert(c2);
+        cl.insert(c3);
+        cl.getAll().forEach(e->System.out.println(e));
+        cl.delete(3);
+        cl.getAll().forEach(e->System.out.println(e));
+        Club c4=null;
+        c4=cl.search(1);
+        System.out.println(c4);
+        cl.update(c4);*/
+        /*System.out.println("*****************GESTION événements******************");
+        Evenement e1=new Evenement("yuma",new Date(0),"hammamet",20,2,10);
+        Evenement e2=new Evenement("labes",new Date(0),"sfax",20,3,30);
+        Evenement e3=new Evenement("mashrouu leila",new Date(0),"gabes",21,2,35);
+        EvenementService ev= EvenementService.getInstance();
+        ev.insert(e1);
+        ev.insert(e2);
+        ev.insert(e3);
+        ev.getAll().forEach(e->System.out.println(e));
+        ev.delete(3);
+        ev.getAll().forEach(e->System.out.println(e));
+        Evenement e4=null;
+        e4=ev.search(1);
+        System.out.println(e4);
+        ev.update(e4);*/
+        /*System.out.println("*****************GESTION membres******************");
+        Membre m1=new Membre("khedira","ghada",new Date(0),22,20362589,"ghada.khedira@esprit.tn");
+        Membre m2=new Membre("Ferchichi","aicha",new Date(0),10,97458523,"aicha.ferchichi@esprit.tn");
+        Membre m3=new Membre("ouaja","molka",new Date(0),12,25648859,"molka.ouaja@esprit.tn");
+        MembreService me= MembreService.getInstance();
+        me.insert(m1);
+        me.insert(m2);
+        me.insert(m3);
+        me.getAll().forEach(e->System.out.println(e));
+        me.delete(3);
+        me.getAll().forEach(e->System.out.println(e));
+        Membre m4=null;
+        m4=me.search(1);
+        System.out.println(m4);
+        me.update(m4);*/
+       /* System.out.println("*****************GESTION Pubs******************");
+        Pub p1=new Pub("samsung","portable",new Date(0),new Date(0),2,"expire");
+        Pub p2=new Pub("Zara","vetement",new Date(0),new Date(0),2,"en cours");
+        Pub p3=new Pub("monoprix","promo aid",new Date(0),new Date(0),3,"expire");
+        PubService pu= PubService.getInstance();
+        pu.insert(p1);
+        pu.insert(p2);
+        pu.insert(p3);
+        pu.getAll().forEach(e->System.out.println(e));
+        pu.delete(3);
+        pu.getAll().forEach(e->System.out.println(e));
+        Pub p4=null;
+        p4=pu.search(1);
+        System.out.println(p4);
+        pu.update(p4);*/
+       /*System.out.println("*****************GESTION Tickets******************");
+        Ticket t1=new Ticket(1,"***",20,"dispo");
+        Ticket t2=new Ticket(1,"***",20,"vendu");
+        Ticket t3=new Ticket(2,"***",25,"dispo");
+        TicketService ti= TicketService.getInstance();
+        ti.insert(t1);
+        ti.insert(t2);
+        ti.insert(t3);
+        ti.getAll().forEach(e->System.out.println(e));
+        */
     }
     
 }
