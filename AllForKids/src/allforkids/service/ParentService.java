@@ -29,8 +29,8 @@ static ParentService instance;
  public static ParentService getInstance()
     {
     if(instance==null)
-    
-    instance = new ParentService();
+    {
+    instance = new ParentService();}
     return instance;
     
     }

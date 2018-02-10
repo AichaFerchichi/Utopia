@@ -29,8 +29,7 @@ static EnfantService instance;
  public static EnfantService getInstance()
     {
     if(instance==null)
-    
-    instance = new EnfantService();
+    {instance = new EnfantService();}
     return instance;
     
     }

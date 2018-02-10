@@ -13,15 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import allforkids.entite.Club;
+
 import allforkids.entite.Pub;
 import allforkids.technique.util.DataSource;
+import java.util.Map;
 
 /**
  *
  * @author hammamet
  */
-public class PubService implements IAllForKids_1<Pub>{
+public class PubService implements IAllForKids<Pub>{
      Connection connexion;
     Statement st;
     ResultSet result;
@@ -29,8 +30,8 @@ public class PubService implements IAllForKids_1<Pub>{
     public static PubService getInstance()
     {
         if(instance==null)
-    
-    instance = new PubService();
+        {
+    instance = new PubService();}
           return instance;
     }
     private PubService() 
@@ -125,6 +126,11 @@ public class PubService implements IAllForKids_1<Pub>{
    }
    return false;
     }    
+
+    @Override
+    public Map<String, Pub> getAllMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }

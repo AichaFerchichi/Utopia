@@ -15,12 +15,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import allforkids.entite.Ticket;
 import allforkids.technique.util.DataSource;
+import java.util.Map;
 
 /**
  *
  * @author hammamet
  */
-public class TicketService implements IAllForKids_1<Ticket>{
+public class TicketService implements IAllForKids<Ticket>{
      Connection connexion;
     Statement st;
     ResultSet result;
@@ -28,8 +29,8 @@ public class TicketService implements IAllForKids_1<Ticket>{
     public static TicketService getInstance()
     {
         if(instance==null)
-    
-    instance = new TicketService();
+        {
+    instance = new TicketService();}
           return instance;
     }
     private TicketService() 
@@ -122,6 +123,11 @@ Ticket t=null;
        return true ;
    }
    return false;
+    }
+
+    @Override
+    public Map<String, Ticket> getAllMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

@@ -30,8 +30,8 @@ public class CovoiturageService implements IAllForKids<Covoiturage>{
  public static CovoiturageService getInstance()
     {
     if(instance==null)
-    
-    instance = new CovoiturageService();
+    {
+    instance = new CovoiturageService();}
     return instance;
     
     }

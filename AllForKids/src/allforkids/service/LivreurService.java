@@ -30,8 +30,8 @@ public class LivreurService implements IAllForKids<Livreur>{
  public static LivreurService getInstance()
     {
     if(instance==null)
-    
-    instance = new LivreurService();
+    {
+    instance = new LivreurService();}
     return instance;
     
     }

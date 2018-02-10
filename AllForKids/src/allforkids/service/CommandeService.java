@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import allforkids.entite.Commande;
-import allforkids.entite.Commentaire;
+
 import allforkids.technique.util.DataSource;
 import java.util.Map;
 
@@ -32,8 +32,8 @@ public class CommandeService implements IAllForKids<Commande> {
  public static CommandeService getInstance()
     {
     if(instance==null)
-    
-    instance = new CommandeService();
+    {
+    instance = new CommandeService();}
     return instance;
     
     }

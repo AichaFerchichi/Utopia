@@ -5,6 +5,10 @@
  */
 package allforkids.technique.util;
 
+/**
+ *
+ * @author MacBook
+ */
 import java.sql.Connection;
 import java.sql.*;
 import java.util.logging.Level;
@@ -39,10 +43,11 @@ public class DataSource {
     public static DataSource getInstance()
     {
     if(instance==null)
+    {
+    instance = new DataSource();}
     
-    instance = new DataSource();
     return instance;
-    
     }
     
 }
+

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import allforkids.entite.Reclamation;
+
 import allforkids.entite.Reponse;
 import allforkids.technique.util.DataSource;
 
@@ -38,7 +38,7 @@ private ReponseService(){
 public static ReponseService getInstance()
     {
         if(instance==null)
-            instance = new ReponseService();
+        { instance = new ReponseService();}
         return instance;
     }
 
