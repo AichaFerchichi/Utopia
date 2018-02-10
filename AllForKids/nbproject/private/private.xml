@@ -3,11 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/PI/AllForKids/Utopia/AllForKids/src/allforkids/service/BabysitterService.java</file>
-=======
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/LivraisonService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/PubService.java</file>
@@ -20,6 +15,7 @@
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/ForumService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/QuestionService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/ProduitService.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/acceuil_controller.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/MembreService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/EnseignantService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/LivreurService.java</file>
@@ -38,7 +34,6 @@
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/ReclamationService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/CommentaireService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/DemandeService.java</file>
->>>>>>> 713645b474091cd8986e87faa50e786a805e0187
         </group>
     </open-files>
 </project-private>
