@@ -39,8 +39,8 @@ private BabysitterService(){
 }
 public static BabysitterService getInstance()
     {
-        if(instance==null)
-            instance = new BabysitterService();
+        if(instance==null){
+            instance = new BabysitterService();}
         return instance;
     }
 

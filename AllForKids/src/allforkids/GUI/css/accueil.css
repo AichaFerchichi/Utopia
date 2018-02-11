@@ -7,7 +7,7 @@
 }
 
 .logo {
-    -fx-image: url("../img/logo-app.png");
+   -fx-image: url("../img/logo-app.png");
 }
 
 .box-logo {
