@@ -28,6 +28,7 @@ public class allforkids extends Application{
         stage.show();
         
     }
+    
      public static void main(String[] args) {
         launch(args);
         
