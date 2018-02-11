@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -58,9 +60,9 @@ public GarderieService()
     }
 
     @Override
-    public  List<Garderie> getAll() {
+    public  ObservableList<Garderie> getAll() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     List<Garderie> garderies=new ArrayList<>();
+      ObservableList<Garderie> garderies=FXCollections.observableArrayList();
         
     try {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -72,7 +74,7 @@ public GarderieService()
         System.out.println("");
     try {
         while(result.next()){
-            Garderie p=new Garderie(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5));
+            Garderie p=new Garderie(result.getString(3),result.getString(4),result.getInt(5),result.getString(6));
             garderies.add(p);
         }
     } catch (SQLException ex) {
@@ -114,7 +116,7 @@ public GarderieService()
         
         result=st.executeQuery("select * from garderies where id_garderie="+id);
           if(result.next())
-         p = new Garderie(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5));
+         p = new Garderie(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5),result.getString(6));
     } catch (SQLException ex) {
         Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -155,6 +157,8 @@ public GarderieService()
    }
    return false;
     }
+
+    
 
     
     

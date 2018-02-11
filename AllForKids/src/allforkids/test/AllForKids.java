@@ -138,13 +138,13 @@ public class AllForKids {
      /*Parent P=new Parent(12345678,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn","ariana",100);
            ParentService Pservice=ParentService.getInstance();
            //Pservice.insert(P);
-           Pservice.getAll().forEach(e->System.out.println(e));
+           //Pservice.getAll().forEach(e->System.out.println(e));
            Parent P1=new Parent(10,12345777,"houa", "mek","hoda","mdp2","houaida.meknassi@esprit.tn","ariana",999);
            Pservice.update(P1);
            
            Parent P2=Pservice.search(10);
-           System.out.println(P2);*/
-    
+           //System.out.println(P2);*/
+         
     
          /*****************imen*******************/
         /*MoyenDetransport t=new MoyenDetransport("BMW", "181 tu 8982",2);

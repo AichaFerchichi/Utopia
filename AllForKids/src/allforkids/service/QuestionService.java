@@ -134,6 +134,8 @@ Question p1=search(p.getId_question());
     public Map<String, Question> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
     }
 
  

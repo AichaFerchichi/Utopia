@@ -129,6 +129,8 @@ public static ForumService getInstance()
         //select titre,date_question,description_question,date_reponse,description_reponse from forums f join questions q on (f.id_question=q.id_question) join reponses r on (f.id_reponse=r.id_reponse)"
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
  }
 
    

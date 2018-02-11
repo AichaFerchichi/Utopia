@@ -33,6 +33,8 @@ public class acceuil_controller implements Initializable {
     @FXML
     private ToggleButton menu_babysitter;
     @FXML
+    private ToggleButton Education;
+    @FXML
     private ToggleGroup grupoMenus;
     @FXML
     private AnchorPane AnchorPane1;
@@ -54,7 +56,17 @@ public class acceuil_controller implements Initializable {
             Logger.getLogger(acceuil_controller.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
-       
+        @FXML
+    private void Education (ActionEvent event) {
+        try {
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+
+        } catch (IOException ex) {
+            Logger.getLogger(acceuil_controller.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
            
     }
     

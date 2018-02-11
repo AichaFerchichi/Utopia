@@ -25,6 +25,10 @@ public class Parent extends User{
         this.adresse = adresse;
         this.montant = montant;
     }
+    public Parent(String pseudo, String mdp,String email) {
+        super( pseudo, mdp, email);
+        
+    }
 
     public Parent(int cin, String nom, String prenom, String pseudo, String mdp, String email, String adresse,int montant) {
         super(pseudo, mdp, email);
