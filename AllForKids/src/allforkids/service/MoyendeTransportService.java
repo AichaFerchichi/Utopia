@@ -28,8 +28,8 @@ static MoyendeTransportService instance;
  public static MoyendeTransportService getInstance()
     {
     if(instance==null)
-    
-    instance = new MoyendeTransportService();
+    {
+    instance = new MoyendeTransportService();}
     return instance;
     
     }

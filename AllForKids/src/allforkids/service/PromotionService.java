@@ -5,7 +5,7 @@
  */
 package allforkids.service;
 
-import allforkids.entite.Produit;
+
 import allforkids.entite.Promotion;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
@@ -32,8 +32,8 @@ public class PromotionService implements IAllForKids<Promotion>{
  public static PromotionService getInstance()
     {
     if(instance==null)
-    
-    instance = new PromotionService();
+    {
+    instance = new PromotionService();}
     return instance;
     
     }

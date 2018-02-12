@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import allforkids.entite.Forum;
+
 import allforkids.entite.Offre;
 import allforkids.technique.util.DataSource;
 
@@ -38,7 +38,7 @@ private OffreService(){
 public static OffreService getInstance()
     {
         if(instance==null)
-            instance = new OffreService();
+        { instance = new OffreService();}
         return instance;
     }
 

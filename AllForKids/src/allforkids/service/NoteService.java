@@ -30,8 +30,8 @@ public class NoteService implements IAllForKids<Note>{
  public static NoteService getInstance()
     {
     if(instance==null)
-    
-    instance = new NoteService();
+    {
+    instance = new NoteService();}
     return instance;
     
     }

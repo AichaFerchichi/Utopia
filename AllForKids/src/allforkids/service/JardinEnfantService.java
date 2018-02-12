@@ -30,8 +30,8 @@ static JardinEnfantService instance;
  public static JardinEnfantService getInstance()
     {
     if(instance==null)
-    
-    instance = new JardinEnfantService();
+    {
+    instance = new JardinEnfantService();}
     return instance;
     
     }

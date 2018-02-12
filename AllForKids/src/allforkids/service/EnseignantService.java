@@ -30,7 +30,7 @@ static EnseignantService instance;
     {
     if(instance==null)
     
-    instance = new EnseignantService();
+    {instance = new EnseignantService();}
     return instance;
     
     }

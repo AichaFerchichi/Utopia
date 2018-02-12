@@ -17,12 +17,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import allforkids.technique.util.DataSource;
+import java.util.Map;
 
 /**
  *
  * @author hammamet
  */
-public class EvenementService implements IAllForKids_1<Evenement>{
+public class EvenementService implements IAllForKids<Evenement>{
      Connection connexion;
     Statement st;
     ResultSet result;
@@ -30,8 +31,8 @@ public class EvenementService implements IAllForKids_1<Evenement>{
      public static EvenementService getInstance()
     {
         if(instance==null)
-    
-    instance = new EvenementService();
+        {
+    instance = new EvenementService();}
           return instance;
     }
       private EvenementService() 
@@ -126,6 +127,11 @@ public class EvenementService implements IAllForKids_1<Evenement>{
    }
    return false;
     
+    }
+
+    @Override
+    public Map<String, Evenement> getAllMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

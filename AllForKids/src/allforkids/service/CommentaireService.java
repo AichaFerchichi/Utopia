@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package moduleboutique.service;
+package allforkids.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,8 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import allforkids.entite.Commentaire;
-import allforkids.entite.Produit;
-import allforkids.service.IAllForKids;
+
 import allforkids.technique.util.DataSource;
 import java.util.Map;
 
@@ -32,8 +31,8 @@ public class CommentaireService implements IAllForKids<Commentaire> {
  public static CommentaireService getInstance()
     {
     if(instance==null)
-    
-    instance = new CommentaireService();
+    {
+    instance = new CommentaireService();}
     return instance;
     
     }

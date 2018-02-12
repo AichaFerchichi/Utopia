@@ -24,8 +24,7 @@ import allforkids.service.ProduitService;
 import allforkids.service.PromotionService;
 import allforkids.technique.util.DataSource;
 import java.sql.Date;
-//import moduleboutique.service.CommentaireService;
-//import moduleboutique.service.LigneCommandeService;
+
 import allforkids.entite.Babysitter;
 import allforkids.entite.Club;
 import allforkids.entite.Demande;
@@ -264,7 +263,7 @@ public class AllForKids {
         gestionCm.getAll().forEach(e->System.out.println(e));*/
         
            System.out.println("++++++++++++++++++++++++++////MODULE Babysitter////+++++++++++++++++++++++++++++");
- /*
+        /*
         System.out.println("*****************GESTION Babysitter******************");
         Babysitter b1=new Babysitter(15003930,"Aicha","Ferchichi","151JFT1766","123456789/","aicha.ferchichi@esprit.tn","Sidi bou said",25768582); 
         Babysitter b2=new Babysitter(15773930,"Houwaida","Meknassi","155JFT1466","hoda123","houaida.meknassi@esprit.tn","El Ghazela",22508741);

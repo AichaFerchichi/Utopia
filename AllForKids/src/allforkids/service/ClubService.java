@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import allforkids.entite.Club;
 import allforkids.technique.util.DataSource;
+import java.util.Map;
 
 
 /**
@@ -22,7 +23,7 @@ import allforkids.technique.util.DataSource;
  * @author hammamet
  */
 
-public class ClubService implements IAllForKids_1<Club>{
+public class ClubService implements IAllForKids<Club>{
     Connection connexion;
     Statement st;
     ResultSet result;
@@ -30,8 +31,8 @@ public class ClubService implements IAllForKids_1<Club>{
     public static ClubService getInstance()
     {
         if(instance==null)
-    
-    instance = new ClubService();
+        {
+    instance = new ClubService();}
           return instance;
     }
     private ClubService() 
@@ -124,6 +125,11 @@ public class ClubService implements IAllForKids_1<Club>{
        return true ;
    }
    return false;
+    }
+
+    @Override
+    public Map<String, Club> getAllMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     }
     

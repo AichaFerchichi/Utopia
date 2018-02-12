@@ -5,6 +5,10 @@
  */
 package allforkids.technique.util;
 
+/**
+ *
+ * @author MacBook
+ */
 import java.sql.Connection;
 import java.sql.*;
 import java.util.logging.Level;
@@ -15,7 +19,8 @@ import java.util.logging.Logger;
  */
 public class DataSource {
     //final String url="jdbc:mysql://localhost:8889/PIDEV";
-    final String url="jdbc:mysql://127.0.0.1:3306/PIDEV";
+    final String url="jdbc:mysql://127.0.0.1:3306/pidev";
+
     final String login="root";
     final String password="";
      Connection connexion=null;
@@ -38,10 +43,11 @@ public class DataSource {
     public static DataSource getInstance()
     {
     if(instance==null)
+    {
+    instance = new DataSource();}
     
-    instance = new DataSource();
     return instance;
-    
     }
     
 }
+

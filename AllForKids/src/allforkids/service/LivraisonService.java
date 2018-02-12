@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import allforkids.entite.Livraison;
-import allforkids.entite.Produit;
+
 import allforkids.technique.util.DataSource;
 import java.util.Map;
 
@@ -31,8 +31,8 @@ public class LivraisonService implements IAllForKids<Livraison>{
  public static LivraisonService getInstance()
     {
     if(instance==null)
-    
-    instance = new LivraisonService();
+    {
+    instance = new LivraisonService();}
     return instance;
     
     }
