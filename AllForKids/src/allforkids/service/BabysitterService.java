@@ -70,7 +70,7 @@ public static BabysitterService getInstance()
             Babysitter p;
         
             p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
-                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"));
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"),rs.getString(12));
              Babysitters.add(p);
         }
     } catch (SQLException ex) { 
@@ -87,7 +87,7 @@ Babysitter p=null;
         rs=st.executeQuery("select * from users where id_user="+n);
           if(rs.next())
          p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
-                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"));
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"),rs.getString(12));
     } catch (SQLException ex) {  
         Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
     }

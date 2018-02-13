@@ -72,7 +72,7 @@ public ParentService()
         System.out.println("");
     try {
         while(result.next()){
-            Parent p=new Parent(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9));
+            Parent p=new Parent(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9),result.getString(12));
             Parents.add(p);
         }
     } catch (SQLException ex) {
@@ -89,7 +89,7 @@ public ParentService()
        
         result=st.executeQuery("select * from users where id_user="+id);
           if(result.next())
-         p = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9));
+         p = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9),result.getString(12));
     } catch (SQLException ex) {
         Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
     }

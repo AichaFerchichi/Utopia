@@ -20,8 +20,7 @@ public class Enseignant extends User{
     static Enseignant instance;
  
  
-
-    public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club) {
+public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club) {
         super(id_user, pseudo, mdp, email);
         this.nom = nom;
         this.prenom = prenom;
@@ -29,9 +28,25 @@ public class Enseignant extends User{
         this.nom_club = nom_club;
         this.montant = montant;
     }
-
-    public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club) {
+    public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club,String type) {
+        super(id_user, pseudo, mdp, email,type);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cin = cin;
+        this.nom_club = nom_club;
+        this.montant = montant;
+    }
+public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club) {
         super(pseudo, mdp, email);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cin = cin;
+        this.nom_club = nom_club;
+        this.montant = montant;
+    }
+
+    public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club,String type) {
+        super(pseudo, mdp, email,type);
         this.nom = nom;
         this.prenom = prenom;
         this.cin = cin;

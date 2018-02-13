@@ -12,5 +12,6 @@
       <Button fx:id="btn" layoutX="312.0" layoutY="276.0" mnemonicParsing="false" onAction="#Education" text="Se connecter" />
       <Label layoutX="104.0" layoutY="84.0" text="Identifiant" />
       <Label layoutX="104.0" layoutY="172.0" text="Mot de passe" />
+      <Label fx:id="iden" layoutX="483.0" layoutY="328.0" />
    </children>
 </AnchorPane>

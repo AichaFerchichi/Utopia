@@ -71,7 +71,7 @@ private AdminService()
         System.out.println("");
     try {
         while(result.next()){
-           Admin p=new Admin(result.getString(5),result.getString(6),result.getString(7));
+           Admin p=new Admin(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
             Admins.add(p);
         }
     } catch (SQLException ex) {
@@ -88,7 +88,7 @@ private AdminService()
        
         result=st.executeQuery("select * from users where id_user="+id);
           if(result.next())
-         p = new Admin(result.getString(5),result.getString(6),result.getString(7));
+         p = new Admin(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
     } catch (SQLException ex) {
         Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
     }

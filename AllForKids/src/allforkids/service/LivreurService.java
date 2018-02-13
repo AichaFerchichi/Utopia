@@ -71,7 +71,7 @@ private LivreurService()
             }
             System.out.println("***********"); */
             while (result.next()) {
-                Livreur p = new Livreur(result.getInt("id_user"),result.getString("pseudo"), result.getString("mdp"), result.getString("email"),result.getInt("disponibilite"));
+                Livreur p = new Livreur(result.getInt("id_user"),result.getString("pseudo"), result.getString("mdp"), result.getString("email"),result.getInt("disponibilite"),result.getString(12));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -87,7 +87,7 @@ private LivreurService()
     try{
         result = st.executeQuery(req) ; 
         result.next() ; 
-        p = new Livreur(result.getInt("id_user"),result.getString("pseudo"), result.getString("mdp"), result.getString("email"),result.getInt("disponibilite")) ; 
+        p = new Livreur(result.getInt("id_user"),result.getString("pseudo"), result.getString("mdp"), result.getString("email"),result.getInt("disponibilite"),result.getString(12)) ; 
     }   catch (SQLException ex) {
             Logger.getLogger(LivreurService.class.getName()).log(Level.SEVERE, null, ex);
         }
