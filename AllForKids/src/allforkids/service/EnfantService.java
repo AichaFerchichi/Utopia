@@ -45,7 +45,7 @@ public EnfantService()
     @Override
     public void insert(Enfant t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   String req="insert into enfants(id_parent,nom,prenom,age)values('"+t.getId_parent()+"','"+t.getNom()+"','"+t.getPrenom()+"','"+t.getAge()+"')";
+   String req="insert into enfants(id_parent,nom_enfant,prenom,age)values('"+t.getId_parent()+"','"+t.getNom()+"','"+t.getPrenom()+"','"+t.getAge()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -131,4 +131,6 @@ public EnfantService()
     public Map<String, Enfant> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 }

@@ -127,5 +127,6 @@ private LivreurService()
     public Map<String, Livreur> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }

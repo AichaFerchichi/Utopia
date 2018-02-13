@@ -32,6 +32,7 @@ public class User {
        
        
     }
+    
 
     public User(String pseudo, String mdp, String email) {
         this.pseudo = pseudo;

@@ -12,30 +12,49 @@ package allforkids.entite;
 public class Garderie {
     private int id_garderie;
     private int id_enfant;
-
+private String description;
    
     private String nom;
     private  String adresse;
     private int num_tel;
 
-    public Garderie(int id_garderie,int id_enfant,String nom, String adresse, int num_tel) {
+    public Garderie(int id_garderie,int id_enfant,String nom, String adresse, int num_tel,String description) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.id_garderie=id_garderie;
         this.id_enfant=id_enfant;
+        this.description=description;
     }
      public Garderie(String nom, String adresse, int num_tel) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
+        this.id_garderie=id_garderie;
+        this.id_enfant=id_enfant;
         
     }
-    public Garderie(int id_enfant,String nom, String adresse, int num_tel) {
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+     public Garderie(String nom, String adresse, int num_tel,String description) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.description=description;
+        
+    }
+    public Garderie(int id_enfant,String nom, String adresse, int num_tel,String description) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.id_enfant=id_enfant;
+        this.description=description;
     }
  public int getId_enfant() {
         return id_enfant;
@@ -81,7 +100,7 @@ public class Garderie {
 
     @Override
     public String toString() {
-        return "est le nom de l'enfant::Garderie{" + " nom=" + nom + ", adresse=" + adresse + ", num_tel=" + num_tel + '}';
+        return "est le nom de l'enfant::Garderie{" + " nom=" + nom + ", adresse=" + adresse + ", num_tel=" + num_tel +", descritpion=" + description + '}';
     }
     
     

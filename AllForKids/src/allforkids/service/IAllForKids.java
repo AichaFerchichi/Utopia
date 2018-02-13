@@ -5,6 +5,7 @@
  */
 package allforkids.service;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -22,5 +23,6 @@ public interface IAllForKids<T> {
     public T search(int id) ; 
     public boolean delete(int id) ; 
     public boolean update(T t) ;
+    //public T search(String pseudo);
     
 }

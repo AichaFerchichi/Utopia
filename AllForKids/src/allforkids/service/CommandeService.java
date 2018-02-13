@@ -137,5 +137,7 @@ public void insertTotal(Commande p) {
     public Map<String, Commande> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

@@ -134,6 +134,8 @@ Offre p1=search(p.getId_offre());
     public Map<String, Offre> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     }
 
  

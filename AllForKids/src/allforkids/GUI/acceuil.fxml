@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
+<<<<<<< HEAD
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilBabysitterController">
+=======
+<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="628.0" prefWidth="1128.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.acceuil_controller">
+>>>>>>> 7c647c4046522d194f92cc71cfc48359f432aae0
    <children>
       <BorderPane prefHeight="400.0" prefWidth="196.0">
          <top>
-            <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="box" BorderPane.alignment="CENTER">
+            <AnchorPane id="AnchorPane2" fx:id="AnchorPane2" prefHeight="629.0" prefWidth="199.0" styleClass="box" BorderPane.alignment="CENTER">
                <children>
                   <HBox prefHeight="13.0" prefWidth="115.0" styleClass="box-logo">
                      <children>
                         <ImageView fitHeight="62.0" fitWidth="198.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/27268059_1238933856241622_754818825_o%20(1).png" />
+                              <Image url="@img/logo.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -29,8 +36,9 @@
                            <children>
                               <VBox prefHeight="200.0" prefWidth="100.0" styleClass="box-menus">
                                  <children>
-                                    <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" selected="true" text="Babysitter">
-                                       <toggleGroup>
+                                    <ToggleButton fx:id="menu_babysitter" mnemonicParsing="false" onAction="#menu_babysitter" prefHeight="25.0" prefWidth="207.0" selected="true" text="Babysitter">
+                                     
+                                        <toggleGroup>
                                           <ToggleGroup fx:id="grupoMenus" />
                                        </toggleGroup>
                                        <styleClass>
@@ -39,7 +47,17 @@
                                           <String fx:value="menu-grupo" />
                                        </styleClass>
                                     </ToggleButton>
+<<<<<<< HEAD
                                     <ToggleButton mnemonicParsing="false" prefHeight="37.0" prefWidth="200.0" text="Transport" />
+=======
+                                    <ToggleButton fx:id="Education" mnemonicParsing="false" onAction="#Education" prefHeight="39.0" prefWidth="200.0" text="Education">
+                                       <styleClass>
+                                          <String fx:value="menus" />
+                                          <String fx:value="menu-catalogacao" />
+                                          <String fx:value="menu-grupo" />
+                                       </styleClass>
+                                    </ToggleButton>
+>>>>>>> 7c647c4046522d194f92cc71cfc48359f432aae0
                                  </children>
                               </VBox>
                            </children>

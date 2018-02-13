@@ -15,22 +15,23 @@ public class JardinEnfant {
     private String nom;
     private  String adresse;
     private int num_tel;
+    private String description;
 
-    public JardinEnfant(int id_jardinEnfant, int id_enfant, String nom, String adresse, int num_tel) {
+    public JardinEnfant(int id_jardinEnfant, int id_enfant, String nom, String adresse, int num_tel,String description) {
         this.id_jardinEnfant = id_jardinEnfant;
         this.id_enfant = id_enfant;
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
     }
-     public JardinEnfant(String nom, String adresse, int num_tel) {
+     public JardinEnfant(int id_enfant,String nom, String adresse, int num_tel) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         
     }
 
-    public JardinEnfant(int id_enfant, String nom, String adresse, int num_tel) {
+    public JardinEnfant( String nom, String adresse, int num_tel,String description) {
         this.id_enfant = id_enfant;
         this.nom = nom;
         this.adresse = adresse;
@@ -55,7 +56,7 @@ public class JardinEnfant {
 
     @Override
     public String toString() {
-        return "est le nom de l'enfant::JardinEnfant{" + " nom=" + nom + ", adresse=" + adresse + ", num_tel=" + num_tel + '}';
+        return "est le nom de l'enfant::JardinEnfant{" + " nom=" + nom + ", adresse=" + adresse + ", num_tel=" + num_tel + ", description=" + description + '}';
     }
 
    

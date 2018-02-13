@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/entite/Covoiturage.java</file>
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/MoyendeTransportService.java</file>
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
@@ -18,6 +19,13 @@
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/GUI/css/accueil.css</file>
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/EnfantService.java</file>
             <file>file:/C:/Users/imen/Desktop/Utopia/AllForKids/src/allforkids/service/AdminService.java</file>
+=======
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/css/accueil.css</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/allforkids.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/acceuil_controller.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/OffreDemandeController.java</file>
+>>>>>>> 7c647c4046522d194f92cc71cfc48359f432aae0
         </group>
     </open-files>
 </project-private>

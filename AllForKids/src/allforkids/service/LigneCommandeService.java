@@ -149,5 +149,7 @@ private LigneCommandeService()
     public Map<String, LigneCommande> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

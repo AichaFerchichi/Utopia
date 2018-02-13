@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -57,9 +59,9 @@ public JardinEnfantService()
     }
 
     @Override
-    public  List<JardinEnfant> getAll() {
+    public  ObservableList<JardinEnfant> getAll() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     List<JardinEnfant> JardinEnfants=new ArrayList<>();
+     ObservableList<JardinEnfant> JardinEnfants=FXCollections.observableArrayList();
         
     try {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -71,7 +73,7 @@ public JardinEnfantService()
         System.out.println("");
     try {
         while(result.next()){
-            JardinEnfant p=new JardinEnfant(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5));
+            JardinEnfant p=new JardinEnfant(result.getString(3),result.getString(4),result.getInt(5),result.getString(6));
             JardinEnfants.add(p);
         }
     } catch (SQLException ex) {
@@ -144,14 +146,16 @@ public JardinEnfantService()
         System.out.println("");
     try {
         while(result.next()){
-            JardinEnfant p=new JardinEnfant(result.getString(2),result.getString(3),result.getInt(4));
+            JardinEnfant p=new JardinEnfant(result.getString(2),result.getString(3),result.getInt(4),result.getString(6));
             JardinEnfants.put(result.getString(1),p);
         }
     } catch (SQLException ex) {
-        Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(JardinEnfantService.class.getName()).log(Level.SEVERE, null, ex);
     }
     return  JardinEnfants;
     }
+
+    
     
     
 }
