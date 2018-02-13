@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@css/authentification.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AuthentificationController">
+<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="850.0" prefWidth="1128.0" styleClass="mainFxmlClass" stylesheets="@css/authentification.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AuthentificationController">
    <children>
       <TextField fx:id="tfId" layoutX="268.0" layoutY="79.0" />
       <TextField fx:id="tfMdp" layoutX="268.0" layoutY="167.0" />

@@ -6,6 +6,7 @@
 package allforkids.GUI;
 
 import allforkids.entite.Parent;
+import allforkids.entite.User;
 import allforkids.service.ParentService;
 import java.io.IOException;
 import java.net.URL;
@@ -41,9 +42,8 @@ public class AuthentificationController implements Initializable {
     public TextField tfId;
 @FXML
     private TextField tfMdp;
-@FXML
-    public Label iden;
 
+public static User LoggedUser;
     /**
      * Initializes the controller class.
      */
@@ -57,6 +57,9 @@ public class AuthentificationController implements Initializable {
        int a = Integer.parseInt(tfId.getText());
         ParentService ips = new ParentService();
        // System.out.println(ips.search(a));
+       LoggedUser = new User();
+        LoggedUser.setId_user(a);
+        
    if( (ips.search(a).getId_user()==a)&&(ips.search(a).getMdp().equals(tfMdp.getText())))
     {//System.out.println(ips.search(a).getType());
        
@@ -68,7 +71,7 @@ public class AuthentificationController implements Initializable {
             AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
-            iden.setText(tfId.getText());
+            
 
         } catch (IOException ex) {
             Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,7 +86,22 @@ public class AuthentificationController implements Initializable {
             AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionEvaluation.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
-            iden.setText(tfId.getText());
+         
+
+        } catch (IOException ex) {
+            Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    
+    }
+         else if(ips.search(a).getType().equals("admin")){
+           
+    try {
+        System.out.println(tfId.getText());
+       
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+         
 
         } catch (IOException ex) {
             Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);

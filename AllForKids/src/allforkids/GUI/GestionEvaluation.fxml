@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1128.0" stylesheets="@css/gestionevaluation.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="allforkids.GUI.GestionEvaluationController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1128.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionEvaluationController">
    <children>
       <HBox layoutX="18.0" layoutY="11.0" prefHeight="60.0" prefWidth="1036.0" styleClass="box-topo">
          <children>
@@ -22,8 +22,8 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="afficher_entry" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
-            <ToggleButton mnemonicParsing="false" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
+            <TextField fx:id="entrer" onAction="#rechercher" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
+            <ToggleButton mnemonicParsing="false" onAction="#rechercher" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="pesquisar" />

@@ -6,10 +6,12 @@
 package allforkids.service;
 
 
+import allforkids.entite.Enseignant;
 import allforkids.entite.Evaluation;
 
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -85,6 +87,32 @@ public EvaluationService()
     }
     return Evaluations;
     }
+    
+    public  ObservableList<Evaluation> getAllByName(String nom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<Evaluation> Evaluations=FXCollections.observableArrayList();
+   String requete = "select * from evaluations where nom_enfant=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, nom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+            Evaluation p=new Evaluation(result.getInt(1),result.getString(2),result.getFloat(3),result.getString(4),result.getString(5),result.getString(6));
+            Evaluations.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(EvaluationService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return Evaluations;
+    }
 
     @Override
     public Evaluation search(int id) {
@@ -140,6 +168,12 @@ public EvaluationService()
     @Override
     public Map<String, Evaluation> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Evaluation getbyPseudo(String Nom) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
 
     

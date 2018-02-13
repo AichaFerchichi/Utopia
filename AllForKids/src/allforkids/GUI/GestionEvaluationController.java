@@ -33,6 +33,8 @@ import javafx.scene.layout.AnchorPane;
 public class GestionEvaluationController implements Initializable {
      @FXML
     private Button btn1;
+      @FXML
+    private TextField entrer;
      @FXML
     private TextField idEva;
      @FXML
@@ -78,8 +80,7 @@ public class GestionEvaluationController implements Initializable {
                 table.setItems(ips.getAll());
  Cid.setCellValueFactory(new PropertyValueFactory<>("id_evaluation"));
         Cnom.setCellValueFactory(new PropertyValueFactory<>("nom_enfant"));
-       
-        
+          
         Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom_enfant"));
         Cmatiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
               Cmoyenne.setCellValueFactory(new PropertyValueFactory<>("moyenne"));
@@ -134,5 +135,25 @@ public class GestionEvaluationController implements Initializable {
      ps.update(e);
      afficherEva();
      }
+public void rechercher()
+{
+Evaluation e=null;
+String nom=entrer.getText();
+ EvaluationService ps=new EvaluationService();
 
+
+        table.setItems(null);
+                table.setItems(ps.getAllByName(nom));
+ Cid.setCellValueFactory(new PropertyValueFactory<>("id_evaluation"));
+        Cnom.setCellValueFactory(new PropertyValueFactory<>("nom_enfant"));
+          
+        Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom_enfant"));
+        Cmatiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
+              Cmoyenne.setCellValueFactory(new PropertyValueFactory<>("moyenne"));
+              Cremarque.setCellValueFactory(new PropertyValueFactory<>("remarque"));
+              if(entrer.getText().isEmpty()){
+              afficherEva();
+              }
+
+}
 }

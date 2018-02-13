@@ -5,17 +5,19 @@
  */
 package allforkids.service;
 
+
 import allforkids.entite.Parent;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -58,13 +60,13 @@ public ParentService()
     }
 
     @Override
-    public List<Parent> getAll() {
+    public ObservableList<Parent> getAll() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     List<Parent> Parents=new ArrayList<>();
+      ObservableList<Parent> Parents=FXCollections.observableArrayList();
         
     try {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        result=st.executeQuery("select * from users");
+        result=st.executeQuery("select * from users where type='parent'");
     } catch (SQLException ex) {
         Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -133,6 +135,11 @@ public ParentService()
 
     @Override
     public Map<String, Parent> getAllMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Parent getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

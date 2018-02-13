@@ -59,6 +59,10 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
         this.montant = montant;
     }
 
+    public Parent() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getCin() {
         return cin;
     }

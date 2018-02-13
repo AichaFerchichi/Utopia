@@ -5,6 +5,9 @@
  */
 package allforkids.GUI;
 
+import allforkids.entite.User;
+import allforkids.service.AdminService;
+import allforkids.service.ParentService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -24,18 +28,18 @@ import javafx.scene.layout.Pane;
  */
 
 public class AccueilParentController implements Initializable {
-
+@FXML
+    private TextField id_user;
 @FXML
     private AnchorPane AnchorPane1;
-@FXML
-    public Label iden;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+        afficher(AuthentificationController.LoggedUser);
     }    
     public void GarJard()
     {
@@ -60,6 +64,13 @@ public class AccueilParentController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+    public void afficher(User u)
+    {
+        ParentService ius = new ParentService();
+        
+        id_user.setText(Integer.toString(ius.search(u.getId_user()).getId_user()));
+    
     }
 
     

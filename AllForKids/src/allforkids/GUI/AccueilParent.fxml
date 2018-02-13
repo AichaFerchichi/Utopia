@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -12,6 +13,6 @@
       <Label layoutX="747.0" layoutY="248.0" text="Contacter l'administrateur par Mail" textFill="WHITE" />
       <ToggleButton layoutX="488.0" layoutY="392.0" maxHeight="1428.0" maxWidth="1075.0" mnemonicParsing="false" onAction="#Evaluation" prefHeight="147.0" prefWidth="204.0" styleClass="buttonEva" stylesheets="@css/accueilparent.css" />
       <Label layoutX="480.0" layoutY="560.0" text="Consulter l'evaluation de votre enfant" textFill="WHITE" />
-      <Label fx:id="iden" layoutX="918.0" layoutY="28.0" />
+      <TextField id="id_user" fx:id="id_user" layoutX="951.0" layoutY="32.0" />
    </children>
 </AnchorPane>

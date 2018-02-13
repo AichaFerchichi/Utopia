@@ -158,6 +158,11 @@ public GarderieService()
    return false;
     }
 
+    @Override
+    public Garderie getbyPseudo(String pseudo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 
     
