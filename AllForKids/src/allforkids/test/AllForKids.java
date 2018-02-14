@@ -165,13 +165,13 @@ public class AllForKids {
         System.out.println(p3.toString());*/
        
        System.out.println("++++++++++++++++++++++++++////MODULE BOUTIQUE////+++++++++++++++++++++++++++++");
-       /*System.out.println("*****************GESTION DES PRODUITS******************");
-        Produit p1=new Produit("poupée Vaiana", "jouets", (float)26.99, "Embarquez pour des aventures extraordinaires avec la belle Vaiana ! ") ; 
+       System.out.println("*****************GESTION DES PRODUITS******************");
+        /*Produit p1=new Produit("poupée Vaiana", "jouets", (float)26.99, "Embarquez pour des aventures extraordinaires avec la belle Vaiana ! ") ; 
         Produit p2=new Produit("Trottinette", "jouets", (float)72.00, "Déplacez-vous avec style aux commandes de cette trottinette solide, évolutive et ultra-confortable !"); 
         ProduitService gestionP =  ProduitService.getInstance();
         System.out.println("<<<<< Insertion et affichage >>>>>");
-        gestionP.insert(p1);
-        gestionP.insert(p2) ;
+        //gestionP.insert(p1);
+        //gestionP.insert(p2) ;
         gestionP.getAll().forEach(e->System.out.println(e));
         System.out.println("<<<<< Recherche >>>>>");
         Produit p3=gestionP.search(1) ; 
@@ -180,16 +180,18 @@ public class AllForKids {
         
         
         System.out.println("*****************GESTION DES PROMOTIONS******************");
-        /*Promotion pr1 = new Promotion( 1,50, new Date(0) ,new Date(0) );
+        Promotion pr1 = new Promotion( 1,50, new Date(0) ,new Date(0) );
         Promotion pr2 = new Promotion( 1,50, new Date(0) ,new Date(0) );
         PromotionService gestionPr = PromotionService.getInstance() ; 
         System.out.println("<<<<< Insertion et affichage >>>>>");
-        gestionPr.insert(pr1);
-        gestionPr.insert(pr2);
+        //gestionPr.insertTotal(pr1);
+        gestionPr.insertTotal(pr2);
+        //gestionPr.insert(pr1);
+        //gestionPr.insert(pr2);
         gestionPr.getAll().forEach(e->System.out.println(e));
         System.out.println("<<<<< Recherche >>>>>");
-        Promotion pr3=gestionPr.search(7) ; 
-        System.out.println(pr3);*/
+        Promotion pr3=gestionPr.search(1) ; 
+        System.out.println(pr3);
        
         
                 
@@ -265,7 +267,7 @@ public class AllForKids {
            System.out.println("++++++++++++++++++++++++++////MODULE Babysitter////+++++++++++++++++++++++++++++");
  
         System.out.println("*****************GESTION Babysitter******************");
-        Babysitter b1=new Babysitter(15003930,"Aicha","Ferchichi","151JFT1766","123456789/","aicha.ferchichi@esprit.tn","Sidi bou said",25768582); 
+        /*Babysitter b1=new Babysitter(15003930,"Aicha","Ferchichi","151JFT1766","123456789/","aicha.ferchichi@esprit.tn","Sidi bou said",25768582); 
         Babysitter b2=new Babysitter(15773930,"Houwaida","Meknassi","155JFT1466","hoda123","houaida.meknassi@esprit.tn","El Ghazela",22508741);
         Babysitter b4=new Babysitter(2,15773931,"Houwaida","Meknassi","155JFT1466","apresUpdate","houaida.meknassi@esprit.tn","El Ghazela",22508741); 
         BabysitterService gestionB=  BabysitterService.getInstance() ;
@@ -281,7 +283,7 @@ public class AllForKids {
         gestionB.update(b4);
         System.out.println("<<<<< Supprimer >>>>>");
         gestionB.delete(6);
-        gestionB.getAll().forEach(e->System.out.println(e));
+        gestionB.getAll().forEach(e->System.out.println(e));*/
        /*
         System.out.println("*****************GESTION Demande******************");
         Demande d1=new Demande(1,new Date(0),"Je veux avoir babysitter pour le vendredi soir"); 

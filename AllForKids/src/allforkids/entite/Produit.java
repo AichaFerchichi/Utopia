@@ -18,6 +18,7 @@ public class Produit {
     private String catégorie;
     private float prix_produit ; 
     private String description ; 
+    private String image;
 
     public Produit(int id_produit, String nom, String catégorie, float prix_produit, String description) {
         this.id_produit = id_produit;
@@ -42,6 +43,38 @@ public class Produit {
         this.prix_produit = prix_produit;
         this.description = description;
     }
+
+    public Produit(int id_produit,String nom, String catégorie, float prix_produit, String description,String image) {
+        
+        this.id_produit = id_produit;
+        this.nom = nom;
+        this.catégorie = catégorie;
+        this.prix_produit = prix_produit;
+        this.description = description;
+        this.image = image;
+    }
+    public Produit(String nom, String catégorie, float prix_produit, String description,String image) {
+        
+        
+        this.nom = nom;
+        this.catégorie = catégorie;
+        this.prix_produit = prix_produit;
+        this.description = description;
+        this.image = image;
+    }
+
+    public Produit() {
+        
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+    
 
     
     public int getId_produit() {
@@ -74,9 +107,14 @@ public class Produit {
         this.nom = nom;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Produit{" + "id_produit=" + id_produit + ", nom=" + nom + ", cat\u00e9gorie=" + catégorie + ", prix_produit=" + prix_produit + ", description=" + description + '}';
+    }*/
+
+    @Override
+    public String toString() {
+        return "Produit{" + "id_produit=" + id_produit + ", nom=" + nom + ", catégorie=" + catégorie + ", prix_produit=" + prix_produit + ", description=" + description + ", image=" + image + '}';
     }
 
     public void setCatégorie(String catégorie) {

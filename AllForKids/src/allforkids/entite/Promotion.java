@@ -6,6 +6,8 @@
 package allforkids.entite;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -15,23 +17,54 @@ public class Promotion {
     private int id_promotion ; 
     private int id_produit ; 
     private int pourcentage ; 
-    private Date date_debut ; 
-    private Date date_fin ; 
+    private String date_debut ; 
+    private String date_fin ; 
+    private float prixPromo ; 
+    
+    public java.sql.Date convert(String date) throws ParseException {
 
-    public Promotion(int id_promotion, int id_produit, int pourcentage, Date date_debut, Date date_fin) {
+        SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date date1 = sdf1.parse(date);
+        java.sql.Date sqlDate = new java.sql.Date(date1.getTime());
+        return sqlDate;
+    }
+    
+    
+
+    public Promotion(int id_promotion, int id_produit, int pourcentage, String date_debut, String date_fin, float prixPromo) {
         this.id_promotion = id_promotion;
         this.id_produit = id_produit;
         this.pourcentage = pourcentage;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
+        this.prixPromo = prixPromo;
     }
 
-    public Promotion(int id_produit, int pourcentage, Date date_debut, Date date_fin) {
+    public Promotion(int id_produit, int pourcentage, String date_debut, String date_fin) {
         this.id_produit = id_produit;
         this.pourcentage = pourcentage;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
+        
     }
+    public Promotion(int id_promotion,int id_produit, int pourcentage, String date_debut, String date_fin) {
+       this.id_promotion = id_promotion ; 
+        this.id_produit = id_produit;
+        this.pourcentage = pourcentage;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        
+    }
+
+    public void setPrixPromo(float prixPromo) {
+        this.prixPromo = prixPromo;
+    }
+
+    public float getPrixPromo() {
+        return prixPromo;
+    }
+
+    
 
     public int getId_promotion() {
         return id_promotion;
@@ -45,11 +78,11 @@ public class Promotion {
         return pourcentage;
     }
 
-    public Date getDate_debut() {
+    public String getDate_debut() {
         return date_debut;
     }
 
-    public Date getDate_fin() {
+    public String getDate_fin() {
         return date_fin;
     }
 
@@ -65,18 +98,22 @@ public class Promotion {
         this.pourcentage = pourcentage;
     }
 
-    public void setDate_debut(Date date_debut) {
+    public void setDate_debut(String date_debut) {
         this.date_debut = date_debut;
     }
 
-    public void setDate_fin(Date date_fin) {
+    public void setDate_fin(String date_fin) {
         this.date_fin = date_fin;
     }
 
     @Override
     public String toString() {
-        return "Promotion{" + "id_promotion=" + id_promotion + ", id_produit=" + id_produit + ", pourcentage=" + pourcentage + ", date_debut=" + date_debut + ", date_fin=" + date_fin + '}';
+        return "Promotion{" + "id_promotion=" + id_promotion + ", id_produit=" + id_produit + ", pourcentage=" + pourcentage + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", prixPromo=" + prixPromo + '}';
     }
+    
+   
+
+   
     
     
     
