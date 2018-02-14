@@ -5,9 +5,11 @@
  */
 package allforkids.GUI;
 
+import allforkids.entite.Babysitter;
 import allforkids.entite.Enseignant;
 import allforkids.entite.Evaluation;
 import allforkids.entite.Parent;
+import allforkids.service.BabysitterService;
 import allforkids.service.EnseignantService;
 import allforkids.service.EvaluationService;
 import allforkids.service.ParentService;
@@ -16,11 +18,13 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -96,6 +100,14 @@ private RadioButton Rparent;
     private TextField id_user;
      @FXML
     private Button btn1;
+    @FXML
+    private Label lbTitulo1;
+    @FXML
+    private ToggleGroup menu;
+    @FXML
+    private ToggleGroup group;
+    @FXML
+    private RadioButton Babysitter;
     
     /**
      * Initializes the controller class.
@@ -124,10 +136,13 @@ private RadioButton Rparent;
      } 
 });
     }    
+    @FXML
     public void afficher()
     {
     if(Rparent.isSelected())
+        
     {  adresse.setDisable(false);
+       montant.setDisable(false);
        nom_club.setDisable(true);
        num_tel.setDisable(true);
         ParentService ps=new ParentService();
@@ -145,8 +160,9 @@ private RadioButton Rparent;
               Cadresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
               Cmontant.setCellValueFactory(new PropertyValueFactory<>("montant"));
              Cnom_club.setVisible(false);
-              Cnum_tel.setVisible(false);
-                Cadresse.setVisible(true);
+              Cnum_tel.setVisible(true);
+               Cmontant.setVisible(false);
+                
         
        
     }
@@ -154,6 +170,7 @@ private RadioButton Rparent;
     {
          
         EnseignantService ps=new EnseignantService();
+    montant.setDisable(false);
     adresse.setDisable(true);
     nom_club.setDisable(false);
     num_tel.setDisable(true);
@@ -168,11 +185,40 @@ private RadioButton Rparent;
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
               Cmontant.setCellValueFactory(new PropertyValueFactory<>("montant"));
               Cnom_club.setCellValueFactory(new PropertyValueFactory<>("nom_club"));
-        Cnom_club.setVisible(true);
+        Cnom_club.setVisible(false);
         Cadresse.setVisible(false);
-       Cnum_tel.setVisible(false);
+       Cnum_tel.setVisible(true);
+      Cmontant.setVisible(false);
+
+    }
+    else if(Babysitter.isSelected())
+    {
+         
+        BabysitterService ps1=BabysitterService.getInstance();
+    adresse.setDisable(false);
+    nom_club.setDisable(true);
+        montant.setDisable(true);
+
+    num_tel.setDisable(false);
+         table.setItems(null);
+                table.setItems(ps1.getAll());
+ Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
+        Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+          Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
+              Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
+              Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+                Cadresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+
+                      Cmontant.setVisible(false);
+
+        Cnom_club.setVisible(false);
+        Cadresse.setVisible(true);
+       Cnum_tel.setVisible(true);
     }
     }
+    @FXML
     public void ajouter()
     {if(Rparent.isSelected())
     {
@@ -207,6 +253,7 @@ private RadioButton Rparent;
         afficher();
     
     }}
+    @FXML
     public void supprimer()
     {
         if(Rparent.isSelected())
@@ -240,7 +287,24 @@ private RadioButton Rparent;
         
       ps.delete(i);
       } afficher();}
+        else if(Babysitter.isSelected())
+    {
+   
+   TableView<Babysitter> table1=table;
+     int i=table1.getSelectionModel().getSelectedItem().getId_user();
+         System.out.println(i);
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Suppression");
+            alert.setHeaderText("voulez-vous vraiment effacer ce babysitter");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+    BabysitterService ps=BabysitterService.getInstance();
+    
+      ps.delete(i);
+      
+      } afficher();}
     }
+    @FXML
     public void modifier(){
         if(Rparent.isSelected())
     {
@@ -272,6 +336,7 @@ private RadioButton Rparent;
     }
     
     }
+    @FXML
      public void mod2()
      {if(Rparent.isSelected())
     {
@@ -311,7 +376,8 @@ private RadioButton Rparent;
      
      }
      
-public void rechercher()
+    @FXML
+    public void rechercher()
 {if(Rparent.isSelected())
     {
 Parent e=null;
@@ -358,7 +424,35 @@ String nom=entrer.getText();
 
                if(entrer.getText().isEmpty()){
               afficher();
+              }
+if(Babysitter.isSelected())
+    {
+Babysitter e=null;
+String nom=entrer.getText();
+ BabysitterService ps2=BabysitterService.getInstance();
+
+
+        table.setItems(null);
+                table.setItems(ps2.getbyPseudo1(nom));
+ Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
+        Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+          Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
+              Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
+              Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+                Cadresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+        Cnom_club.setVisible(true);
+        Cadresse.setVisible(false);
+       Cnum_tel.setVisible(false);}
+
+               if(entrer.getText().isEmpty()){
+              afficher();
               }}
+
+    @FXML
+    private void afficherBabysitter(ActionEvent event) {
+    }
               
 
   
