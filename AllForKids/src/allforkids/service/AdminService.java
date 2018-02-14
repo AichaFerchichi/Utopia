@@ -6,8 +6,11 @@
 package allforkids.service;
 
 import allforkids.entite.Admin;
+import allforkids.entite.User;
 import allforkids.technique.util.DataSource;
+import allforkids.util.BCrypt;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,12 +21,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+
 /**
  *
  * @author MacBook
  */
 public class AdminService implements IAllForKids<Admin> {
    Connection connexion;
+     public static Admin LoggedUser;
 Statement st;
 ResultSet result;
 static AdminService instance;
@@ -35,7 +40,7 @@ static AdminService instance;
     return instance;
     
     }
-private AdminService() 
+public AdminService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -128,7 +133,55 @@ private AdminService()
    }
    return false;
     } 
+  
+    public Admin findbyLogin(String s) {
+        Admin user = null;
+        String req = "select * from user where pseudo =? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connexion.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             result = preparedStatement.executeQuery();
+            while (result.next()) {
+                user = new Admin(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
+                break;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return user;
+    }
+public  Admin Login(String pseudo) throws SQLException {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     // ObservableList<Admin> Evaluations=FXCollections.observableArrayList();
+   String requete = "select * from users where pseudo=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
 
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, pseudo);
+           result = preparedStatement.executeQuery();
+            
+ if (result.next()) {
+
+                LoggedUser = new Admin();
+                LoggedUser.setId_user(result.getInt("id_user"));
+               
+                LoggedUser.setPseudo(result.getString("pseudo"));
+                LoggedUser.setMdp(result.getString("mdp"));
+                LoggedUser.setEmail(result.getString("email"));
+                LoggedUser.setType(result.getString("type"));
+                
+
+ }
+return LoggedUser;
+}
+
+    
     @Override
     public Map<String, Admin> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

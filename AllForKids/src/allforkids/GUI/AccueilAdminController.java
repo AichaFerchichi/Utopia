@@ -38,7 +38,7 @@ public class AccueilAdminController implements Initializable {
        
              
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GrstionUser.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
          
 
