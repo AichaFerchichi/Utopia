@@ -8,7 +8,6 @@ package allforkids.service;
 import allforkids.entite.Garderie;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -51,7 +50,7 @@ public GarderieService()
     @Override
     public void insert(Garderie t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   String req="insert into garderies(nom,adresse,num_tel,description)values('"+t.getNom()+"','"+t.getAdresse()+"','"+t.getNum_tel()+"','"+t.getDescription()+"')";
+   String req="insert into garderies(id_enfant,nom,adresse,num_tel)values('"+t.getId_enfant()+"','"+t.getNom()+"','"+t.getAdresse()+"','"+t.getNum_tel()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -75,7 +74,7 @@ public GarderieService()
         System.out.println("");
     try {
         while(result.next()){
-            Garderie p=new Garderie(result.getInt(1),result.getString(2),result.getString(3),result.getInt(4),result.getString(5));
+            Garderie p=new Garderie(result.getString(3),result.getString(4),result.getInt(5),result.getString(6));
             garderies.add(p);
         }
     } catch (SQLException ex) {
@@ -98,7 +97,7 @@ public GarderieService()
         System.out.println("");
     try {
         while(result.next()){
-            Garderie p=new Garderie(result.getInt(1),result.getString(3),result.getString(4),result.getInt(2),result.getString(5));
+            Garderie p=new Garderie(result.getString(2),result.getString(3),result.getInt(4));
             garderies.put(result.getString(1),p);
         }
     } catch (SQLException ex) {
@@ -106,31 +105,7 @@ public GarderieService()
     }
     return  garderies;
     }
-public  ObservableList<Garderie> getAllByName(String nom) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-      ObservableList<Garderie> Garderies=FXCollections.observableArrayList();
-   String requete = "select * from garderies where nom=?";
-        //// "select * from user where username like '"+search+"
-        
-        System.out.println(requete);
-        
-        PreparedStatement preparedStatement;
 
-        try {
-          
-             preparedStatement = connexion.prepareStatement(requete);
-            preparedStatement.setString(1, nom);
-           result = preparedStatement.executeQuery();
-            while (result.next()) {
-
-            Garderie p=new Garderie(result.getInt(1),result.getString(2),result.getString(3),result.getInt(4),result.getString(5));
-            Garderies.add(p);
-        }
-    } catch (SQLException ex) {
-        Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    return Garderies;
-    }
     @Override
     public Garderie search(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -141,7 +116,7 @@ public  ObservableList<Garderie> getAllByName(String nom) {
         
         result=st.executeQuery("select * from garderies where id_garderie="+id);
           if(result.next())
-         p = new Garderie(result.getInt(1),result.getString(2),result.getString(3),result.getInt(4),result.getString(5));
+         p = new Garderie(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5),result.getString(6));
     } catch (SQLException ex) {
         Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -170,11 +145,11 @@ public  ObservableList<Garderie> getAllByName(String nom) {
     @Override
     public boolean update(Garderie t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    Garderie p1=search(t.getId_garderie());
+    Garderie p1=search(t.getId_enfant());
    if(p1!=null)
    {
         try {
-            st.executeUpdate("Update garderies set id_garderie='"+t.getId_garderie()+"',nom='"+t.getNom()+"', adresse='"+t.getAdresse()+"', num_tel='"+t.getNum_tel()+"', description='"+t.getDescription()+"' where id_garderie="+t.getId_garderie());
+            st.executeUpdate("Update garderies set id_enfant='"+t.getId_enfant()+"',nom='"+t.getNom()+"', adresse='"+t.getAdresse()+"', num_tel='"+t.getNum_tel()+"' where id_garderie="+t.getId_garderie());
         } catch (SQLException ex) {
             Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -15,8 +15,8 @@ public class Parent extends User{
     private String nom;
     private String prenom;
      private String adresse;
-    private float montant;
-public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant,String type) {
+    private int montant;
+public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, int montant,String type) {
         super(id_user, pseudo, mdp, email,type);
         this.cin = cin;
         this.nom = nom;
@@ -29,8 +29,7 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
         
     }
 
-    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, 
-            String email, String adresse,float montant) {
+    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, String email, String adresse,int montant) {
         super(pseudo, mdp, email);
         this.cin = cin;
         this.nom = nom;
@@ -38,7 +37,7 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
         this.adresse = adresse;
         this.montant = montant;
     }
-    public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant) {
+    public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, int montant) {
         super(id_user, pseudo, mdp, email);
         this.cin = cin;
         this.nom = nom;
@@ -51,7 +50,7 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
         
     }
 
-    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, String email, String adresse,float montant,String type) {
+    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, String email, String adresse,int montant,String type) {
         super(pseudo, mdp, email,type);
         this.cin = cin;
         this.nom = nom;
@@ -96,11 +95,11 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
         this.adresse = adresse;
     }
 
-    public float getMontant() {
+    public int getMontant() {
         return montant;
     }
 
-    public void setMontant(float montant) {
+    public void setMontant(int montant) {
         this.montant = montant;
     }
 

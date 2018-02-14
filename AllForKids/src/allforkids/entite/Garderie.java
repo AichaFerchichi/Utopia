@@ -5,29 +5,25 @@
  */
 package allforkids.entite;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author MacBook
  */
 public class Garderie {
     private int id_garderie;
-  
+    private int id_enfant;
 private String description;
-private List<Enfant> enfants=new ArrayList<>();
    
     private String nom;
     private  String adresse;
     private int num_tel;
 
-    public Garderie(int id_garderie, String nom, String adresse,int num_tel,String description) {
+    public Garderie(int id_garderie,int id_enfant,String nom, String adresse, int num_tel,String description) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.id_garderie=id_garderie;
-        
+        this.id_enfant=id_enfant;
         this.description=description;
     }
      public Garderie(String nom, String adresse, int num_tel) {
@@ -35,7 +31,7 @@ private List<Enfant> enfants=new ArrayList<>();
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.id_garderie=id_garderie;
-  
+        this.id_enfant=id_enfant;
         
     }
 
@@ -53,8 +49,20 @@ private List<Enfant> enfants=new ArrayList<>();
         this.description=description;
         
     }
-    
- 
+    public Garderie(int id_enfant,String nom, String adresse, int num_tel,String description) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.id_enfant=id_enfant;
+        this.description=description;
+    }
+ public int getId_enfant() {
+        return id_enfant;
+    }
+
+    public void setId_enfant(int id_enfant) {
+        this.id_enfant = id_enfant;
+    }
     public int getId_garderie() {
         return id_garderie;
     }
