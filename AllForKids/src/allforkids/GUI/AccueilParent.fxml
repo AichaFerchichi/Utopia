@@ -5,14 +5,14 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="706.0" prefWidth="1128.0" styleClass="AnchorAccueil" stylesheets="@css/accueilparent.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="800.0" prefWidth="1130.0" stylesheets="@css/accueilparent.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
    <children>
       <ToggleButton layoutX="240.0" layoutY="74.0" maxHeight="1428.0" maxWidth="1075.0" mnemonicParsing="false" onAction="#GarJard" prefHeight="147.0" prefWidth="204.0" styleClass="buttonGarderie" stylesheets="@css/accueilparent.css" />
-      <Label layoutX="192.0" layoutY="240.0" text="Consulter la liste des garderies et des jardins d'enfant" textFill="WHITE" />
+      <Label layoutX="192.0" layoutY="240.0" text="Consulter la liste des garderies et des jardins d'enfant" textFill="#d32525" />
       <ToggleButton layoutX="747.0" layoutY="74.0" maxHeight="1428.0" maxWidth="1075.0" mnemonicParsing="false" onAction="#GarJard" prefHeight="147.0" prefWidth="204.0" styleClass="buttonMail" stylesheets="@css/accueilparent.css" />
-      <Label layoutX="747.0" layoutY="248.0" text="Contacter l'administrateur par Mail" textFill="WHITE" />
+      <Label layoutX="747.0" layoutY="248.0" text="Contacter l'administrateur par Mail" textFill="#d32525" />
       <ToggleButton layoutX="488.0" layoutY="392.0" maxHeight="1428.0" maxWidth="1075.0" mnemonicParsing="false" onAction="#Evaluation" prefHeight="147.0" prefWidth="204.0" styleClass="buttonEva" stylesheets="@css/accueilparent.css" />
-      <Label layoutX="480.0" layoutY="560.0" text="Consulter l'evaluation de votre enfant" textFill="WHITE" />
-      <TextField id="id_user" fx:id="id_user" layoutX="951.0" layoutY="32.0" />
+      <Label layoutX="480.0" layoutY="560.0" text="Consulter l'evaluation de votre enfant" textFill="#d32525" />
+      <TextField id="id_user" fx:id="id_user" layoutX="951.0" layoutY="32.0" visible="false" />
    </children>
 </AnchorPane>

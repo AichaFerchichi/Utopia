@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,35 +17,35 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="832.0" prefWidth="1128.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionUserController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="856.0" prefWidth="1123.0" stylesheets="@css/gestionuser.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionUserController">
    <children>
-      <HBox layoutX="1.0" layoutY="27.0" prefHeight="60.0" prefWidth="1180.0" styleClass="box-topo">
+      <HBox layoutX="3.0" layoutY="12.0" prefHeight="60.0" prefWidth="1113.0" styleClass="box-topo">
          <children>
             <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" prefHeight="29.0" prefWidth="709.0" styleClass="titulo" text="Gestion Des Users" textFill="#45d328" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="entrer" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
-            <ToggleButton mnemonicParsing="false" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
+            <TextField fx:id="entrer" onAction="#rechercher" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
+            <ToggleButton mnemonicParsing="false" onAction="#rechercher" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="pesquisar" />
                </styleClass>
             </ToggleButton>
-            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="76.0" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-add" />
                </styleClass>
             </ToggleButton>
-            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-editar" />
                </styleClass>
             </ToggleButton>
-            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-excluir" />
@@ -51,83 +56,93 @@
             </ToggleButton>
          </children>
       </HBox>
-      <TableView fx:id="table" layoutX="321.0" layoutY="125.0" prefHeight="626.0" prefWidth="1088.0">
+      <TableView fx:id="table" layoutX="331.0" layoutY="131.0" prefHeight="522.0" prefWidth="786.0">
          <columns>
-            <TableColumn fx:id="Cid_user" prefWidth="56.0" text="id_user" />
-            <TableColumn fx:id="Ccin" prefWidth="61.0" text="cin" />
-            <TableColumn fx:id="Cnom" prefWidth="93.50177001953125" text="nom" />
-            <TableColumn fx:id="Cprenom" prefWidth="85.49822998046875" text="prenom" />
-            <TableColumn fx:id="Cpseudo" minWidth="0.0" prefWidth="99.8514404296875" text="pseudo" />
-            <TableColumn fx:id="Cmdp" prefWidth="88.78070068359375" text="mdp" />
-            <TableColumn fx:id="Cemail" prefWidth="132.21917724609375" text="email" />
-            <TableColumn fx:id="Cadresse" prefWidth="115.37152099609375" text="adresse" />
-            <TableColumn fx:id="Cmontant" prefWidth="83.95123291015625" text="montant" />
-            <TableColumn fx:id="Cnom_club" prefWidth="130.880615234375" text="nom_club" />
-            <TableColumn fx:id="Cnum_tel" prefWidth="145.442138671875" text="num_tel" />
+            <TableColumn fx:id="Cid_user" prefWidth="55.554412841796875" text="id_user" />
+            <TableColumn fx:id="Ccin" prefWidth="65.21270751953125" text="cin" />
+            <TableColumn fx:id="Cnom" prefWidth="64.92156982421875" text="nom" />
+            <TableColumn fx:id="Cprenom" prefWidth="65.529052734375" text="prenom" />
+            <TableColumn fx:id="Cpseudo" minWidth="0.0" prefWidth="66.8707275390625" text="pseudo" />
+            <TableColumn fx:id="Cmdp" prefWidth="63.4273681640625" text="mdp" />
+            <TableColumn fx:id="Cemail" prefWidth="76.8453369140625" text="email" />
+            <TableColumn fx:id="Cadresse" prefWidth="73.402099609375" text="adresse" />
+            <TableColumn fx:id="Cmontant" prefWidth="80.1109619140625" text="montant" />
+            <TableColumn fx:id="Cnom_club" prefWidth="88.82012939453125" text="nom_club" />
+            <TableColumn fx:id="Cnum_tel" prefWidth="414.179931640625" text="num_tel" />
             <TableColumn fx:id="Ctype" minWidth="0.0" prefWidth="0.0" text="type" />
          </columns>
       </TableView>
-      <RadioButton fx:id="Renseignant" layoutX="152.0" layoutY="90.0" mnemonicParsing="false" onAction="#afficher" text="Enseignant" />
-      <RadioButton fx:id="Rparent" layoutX="46.0" layoutY="91.0" mnemonicParsing="false" onAction="#afficher" text="Parent" />
-      <Label layoutX="33.0" layoutY="158.0" prefHeight="16.0" prefWidth="55.0" text="cin">
+      <Label layoutX="36.0" layoutY="158.0" prefHeight="16.0" prefWidth="55.0" text="cin">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="218.0" text="nom">
+      <Label layoutX="37.0" layoutY="220.0" text="nom">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="283.0" text="prenom">
+      <Label layoutX="36.0" layoutY="280.0" text="prenom">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="336.0" text="pseudo">
+      <Label layoutX="38.0" layoutY="335.0" text="pseudo">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="21.0" layoutY="392.0" text="mot de passe">
+      <Label layoutX="39.0" layoutY="393.0" text="mot de passe">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="23.0" layoutY="448.0" text="email">
+      <Label layoutX="39.0" layoutY="447.0" text="email">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="21.0" layoutY="503.0" text="adresse">
+      <Label layoutX="38.0" layoutY="503.0" text="adresse">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="33.0" layoutY="599.0" text="montant">
+      <Label layoutX="38.0" layoutY="564.0" text="montant">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="660.0" text="nom_club">
+      <Label layoutX="38.0" layoutY="623.0" text="nom_club">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="43.0" layoutY="701.0" text="num_tel">
+      <Label layoutX="39.0" layoutY="683.0" text="num_tel">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="123.0" layoutY="152.0" />
-      <TextField layoutX="126.0" layoutY="216.0" />
-      <TextField layoutX="126.0" layoutY="279.0" />
-      <TextField layoutX="138.0" layoutY="332.0" />
-      <TextField layoutX="140.0" layoutY="385.0" />
-      <TextField layoutX="142.0" layoutY="443.0" />
-      <TextField layoutX="149.0" layoutY="537.0" />
-      <TextField layoutX="148.0" layoutY="595.0" />
-      <TextField layoutX="148.0" layoutY="653.0" />
-      <TextField layoutX="151.0" layoutY="704.0" />
+      <TextField fx:id="cin" layoutX="142.0" layoutY="144.0" />
+      <TextField fx:id="nom" layoutX="144.0" layoutY="203.0" />
+      <TextField fx:id="prenom" layoutX="144.0" layoutY="265.0" />
+      <TextField fx:id="pseudo" layoutX="147.0" layoutY="326.0" />
+      <TextField fx:id="mdp" layoutX="149.0" layoutY="380.0" />
+      <TextField fx:id="email" layoutX="151.0" layoutY="435.0" />
+      <TextField fx:id="adresse" layoutX="151.0" layoutY="488.0" />
+      <TextField fx:id="montant" layoutX="152.0" layoutY="547.0" />
+      <TextField fx:id="nom_club" layoutX="154.0" layoutY="612.0" />
+      <TextField fx:id="num_tel" layoutX="157.0" layoutY="675.0" />
+      
+      
+    <RadioButton fx:id="Rparent" layoutX="162.0" layoutY="72.0" mnemonicParsing="false" onAction="#afficher" selected="true" text="Parent">
+        <toggleGroup>
+            <ToggleGroup fx:id="group" />
+        </toggleGroup>
+    </RadioButton>
+    <RadioButton fx:id="Renseignant" layoutX="34.0" layoutY="75.0" mnemonicParsing="false" onAction="#afficher" text="Enseignant" toggleGroup="$group" />
+      <RadioButton fx:id="Babysitter" layoutX="273.0" layoutY="72.0" mnemonicParsing="false" onAction="#afficher" text="Babysitter" toggleGroup="$group" />
+      <Button fx:id="btn1" disable="true" layoutX="102.0" layoutY="753.0" mnemonicParsing="false" onAction="#mod2" text="Valider Modification" />
+      <TextField id="id_user" fx:id="id_user" layoutX="23.0" layoutY="112.0" visible="false" />
+
    </children>
 </AnchorPane>

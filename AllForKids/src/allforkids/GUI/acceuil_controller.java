@@ -40,6 +40,8 @@ public class acceuil_controller implements Initializable {
     private AnchorPane AnchorPane1;
     @FXML
     private AnchorPane AnchorPane2;
+    @FXML
+    private ToggleButton forum1;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -61,6 +63,18 @@ public class acceuil_controller implements Initializable {
         try {
             AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+
+        } catch (IOException ex) {
+            Logger.getLogger(acceuil_controller.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+
+    @FXML
+    private void demande(ActionEvent event) {
+         try {
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
 
         } catch (IOException ex) {

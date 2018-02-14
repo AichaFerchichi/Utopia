@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToggleButton?>
@@ -11,15 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<<<<<<< HEAD
-<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="850.0" prefWidth="1128.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.acceuil_controller">
-=======
-<<<<<<< HEAD
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilBabysitterController">
-=======
-<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="628.0" prefWidth="1128.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.acceuil_controller">
->>>>>>> 7c647c4046522d194f92cc71cfc48359f432aae0
->>>>>>> 85b67cc26ca5a0aa77dce4220d952a3cb4bc0d50
+<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="628.0" prefWidth="1128.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.acceuil_controller">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="196.0">
          <top>
@@ -51,9 +47,6 @@
                                           <String fx:value="menu-grupo" />
                                        </styleClass>
                                     </ToggleButton>
-<<<<<<< HEAD
-                                    <ToggleButton mnemonicParsing="false" prefHeight="37.0" prefWidth="200.0" text="Transport" />
-=======
                                     <ToggleButton fx:id="Education" mnemonicParsing="false" onAction="#Education" prefHeight="39.0" prefWidth="200.0" text="Education">
                                        <styleClass>
                                           <String fx:value="menus" />
@@ -61,7 +54,7 @@
                                           <String fx:value="menu-grupo" />
                                        </styleClass>
                                     </ToggleButton>
->>>>>>> 7c647c4046522d194f92cc71cfc48359f432aae0
+                                    <ToggleButton fx:id="demande" mnemonicParsing="false" onAction="#demande" prefHeight="39.0" prefWidth="260.0" styleClass="menus" text="Demande" />
                                  </children>
                               </VBox>
                            </children>

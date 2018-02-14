@@ -16,8 +16,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import allforkids.entite.Demande;
+import allforkids.entite.Offre;
 
 import allforkids.technique.util.DataSource;
+import java.text.ParseException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -45,7 +49,13 @@ public static DemandeService getInstance()
 
     @Override
     public void insert(Demande p) {
-    String req="insert into demandes_parent(id_parent,date_publication,description)values('"+p.getId_parent()+"','"+p.getDate_publication()+"','"+p.getDescription()+"')";
+        String req = null;
+
+    try {
+        req = "insert into demandes_parent(id_parent,description,titre,date_debut,date_fin)values('"+p.getId_parent()+"','"+p.getDescription()+"','"+p.getTitre()+"','"+p.convert(p.getDate_debut())+"','"+p.convert(p.getDate_fin())+"')";
+    } catch (ParseException ex) {
+        Logger.getLogger(DemandeService.class.getName()).log(Level.SEVERE, null, ex);
+    }
      try {
             st.executeUpdate(req);
     } catch (SQLException ex) {
@@ -54,8 +64,8 @@ public static DemandeService getInstance()
     }
 
     @Override
-    public List<Demande> getAll() {
-List<Demande> Demandes=new ArrayList<>();
+    public ObservableList<Demande> getAll() {
+ObservableList<Demande> Demandes=FXCollections.observableArrayList();
         
     try {
         rs=st.executeQuery("SELECT * FROM `demandes_parent` d join users u on d.id_parent=u.id_user where type='parent'");
@@ -68,7 +78,7 @@ List<Demande> Demandes=new ArrayList<>();
         while(rs.next()){
             Demande p;
         
-            p = new Demande(rs.getInt("id_parent"),rs.getDate("date_publication"),rs.getString("description"));
+            p = new Demande(rs.getInt("id_demande"),rs.getInt("id_parent"),rs.getString("description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
              Demandes.add(p);
         }
     } catch (SQLException ex) { 
@@ -84,8 +94,9 @@ List<Demande> Demandes=new ArrayList<>();
        
         rs=st.executeQuery("select * from demandes_parent where id_demande="+n);
           if(rs.next())
-         p = new Demande(rs.getInt("id_parent"),rs.getDate("date_publication"),rs.getString("description"));
-    } catch (SQLException ex) { 
+            p = new Demande(rs.getInt("id_parent"),rs.getString("description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
+
+              } catch (SQLException ex) { 
         Logger.getLogger(DemandeService.class.getName()).log(Level.SEVERE, null, ex);
     }
     
@@ -115,7 +126,7 @@ List<Demande> Demandes=new ArrayList<>();
    if(p1!=null)
    {
         try {
-            st.executeUpdate("Update demandes_parent set id_parent='"+p.getId_parent()+"',date_publication='"+p.getDate_publication()+"',description='"+p.getDescription()+"' where id_demande="+p.getId_demande());
+            st.executeUpdate("Update demandes_parent set id_parent='"+p.getId_parent()+"',description='"+p.getDescription()+"' where id_demande="+p.getId_demande());
        	
 
         }   catch (SQLException ex) { 
@@ -131,13 +142,30 @@ List<Demande> Demandes=new ArrayList<>();
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+
+    public ObservableList<Demande> getbyPseudo1(String pseudo) {
+
+   ObservableList<Demande> liste = FXCollections.observableArrayList();
+   
+    try{
+rs = st.executeQuery("select * from demandes_parent where titre like '%"+pseudo+"%'") ;
+      while (rs.next()) { 
+            Demande p = new Demande(rs.getInt("id_parent"),rs.getString("Description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
+                liste.add(p); 
+    } } catch (SQLException ex) { 
+        Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return liste ; 
+    }
+
     @Override
     public Demande getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+ }
 
     
-    }
+    
     
 
 

@@ -1,17 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="850.0" prefWidth="1128.0" styleClass="mainFxmlClass" stylesheets="@css/authentification.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AuthentificationController">
+<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="800.0" prefWidth="1130.0" styleClass="mainFxmlClass" stylesheets="@css/authentification.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AuthentificationController">
    <children>
-      <TextField fx:id="tfId" layoutX="268.0" layoutY="79.0" />
-      <TextField fx:id="tfMdp" layoutX="268.0" layoutY="167.0" />
-      <Button fx:id="btn" layoutX="312.0" layoutY="276.0" mnemonicParsing="false" onAction="#Education" text="Se connecter" />
-      <Label layoutX="104.0" layoutY="84.0" text="Identifiant" />
-      <Label layoutX="104.0" layoutY="172.0" text="Mot de passe" />
       <Label fx:id="iden" layoutX="483.0" layoutY="328.0" />
+      <AnchorPane layoutX="271.0" layoutY="137.0" prefHeight="264.0" prefWidth="400.0" styleClass="box-login">
+         <children>
+            <TextField id="tfPseudo" fx:id="tfPseudo" layoutX="68.0" layoutY="65.0" prefHeight="40.0" prefWidth="336.0" promptText="Login" styleClass="nome" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField id="tfMdp" fx:id="tfMdp" layoutX="22.0" layoutY="110.0" prefHeight="40.0" prefWidth="333.0" promptText="Password" styleClass="senha" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="110.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="btn" layoutX="16.0" layoutY="169.0" mnemonicParsing="false" onAction="#Education" prefHeight="20.0" styleClass="bt-logar" text="Login" textFill="WHITE" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="18.0" layoutY="211.0" maxWidth="366.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="366.0" stylesheets="@css/authentification.css" text="SignUp" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="bt-logar1" />
+                  <String fx:value="menu-red" />
+               </styleClass>
+            </Button>
+            <StackPane layoutX="92.0" layoutY="-24.0" prefHeight="40.0" prefWidth="248.0">
+               <children>
+                  <ImageView fitHeight="61.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true" styleClass="login-img" />
+               </children>
+            </StackPane>
+            <Label alignment="CENTER" layoutX="147.0" layoutY="13.0" prefHeight="35.0" prefWidth="106.0" styleClass="login-txt" text="Login" textFill="#3c8655">
+               <font>
+                  <Font name="System Bold Italic" size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

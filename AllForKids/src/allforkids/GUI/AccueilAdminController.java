@@ -5,10 +5,6 @@
  */
 package allforkids.GUI;
 
-import allforkids.entite.Parent;
-import allforkids.entite.User;
-import allforkids.service.AdminService;
-import allforkids.service.ParentService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,8 +13,6 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -27,54 +21,55 @@ import javafx.scene.layout.Pane;
  *
  * @author MacBook
  */
-
-public class AccueilParentController implements Initializable {
-@FXML
-    private TextField id_user;
-@FXML
-    private AnchorPane AnchorPane1;
+public class AccueilAdminController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
+    @FXML
+    private AnchorPane AnchorPane1;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        afficher(AuthentificationController.LoggedParent);
     }    
-    public void GarJard()
+    public void user()
     {
-     try {
-        
+    try {
+       
+             
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+         
 
         } catch (IOException ex) {
             Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
-    public void Evaluation()
-    {
-     try {
-        
+    public void garderie(){
+    try {
+       
+             
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evaluation.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+         
 
         } catch (IOException ex) {
             Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
-    public void afficher(Parent u)
-    {
-        ParentService ius = new ParentService();
-        System.out.println(u);
-        id_user.setText(Integer.toString(u.getId_user()));
-        System.out.println(id_user.getText());
+    public void jardin(){
+    try {
         
-    
-    }
+             
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+         
 
-    
+        } catch (IOException ex) {
+            Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
 }

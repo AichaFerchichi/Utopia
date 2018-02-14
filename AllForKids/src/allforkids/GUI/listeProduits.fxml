@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="582.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListeProduitsController">
+   <children>
+      <TableView fx:id="listeP" layoutX="14.0" layoutY="344.0" onMouseClicked="#afficherimage" prefHeight="224.0" prefWidth="758.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="344.0">
+        <columns>
+          <TableColumn fx:id="Identifiant" minWidth="0.0" prefWidth="52.0" text="Produit" />
+            <TableColumn fx:id="Nom" prefWidth="136.0" text="Nom" />
+            <TableColumn fx:id="Cat" prefWidth="106.0" text="Catégorie" />
+            <TableColumn fx:id="Prix" prefWidth="91.0" text="Prix" />
+            <TableColumn fx:id="Description" prefWidth="372.0" text="Description" />
+        </columns>
+      </TableView>
+      <Button fx:id="ajouter" layoutX="422.0" layoutY="276.0" mnemonicParsing="false" onAction="#ajouterProduit" text="Ajouter" />
+      <Button fx:id="supprimer" layoutX="580.0" layoutY="276.0" mnemonicParsing="false" onAction="#supprimerProduit" text="Supprimer" />
+      <Button fx:id="modifier" layoutX="502.0" layoutY="276.0" mnemonicParsing="false" onAction="#modifierProduit" text="Modifier" />
+      <Label layoutX="81.0" layoutY="31.0" text="Nom*" />
+      <Label layoutX="71.0" layoutY="73.0" text="Catégorie*" />
+      <Label layoutX="74.0" layoutY="123.0" text="Prix*" />
+      <Label layoutX="66.0" layoutY="189.0" text="Description*" />
+      <Label layoutX="68.0" layoutY="271.0" text="Image*" />
+      <TextField fx:id="NomP" layoutX="140.0" layoutY="27.0" />
+      <TextArea fx:id="Desc" layoutX="139.0" layoutY="165.0" prefHeight="81.0" prefWidth="192.0" />
+      <ComboBox fx:id="comBox" layoutX="139.0" layoutY="69.0" prefWidth="150.0" promptText="veuillez choisir une catégorie" />
+      <Button layoutX="304.0" layoutY="267.0" mnemonicParsing="false" onAction="#actionBrowser" text="Browse" />
+      <TextField fx:id="imgPath" layoutX="140.0" layoutY="267.0" />
+      <ComboBox fx:id="comBox2" layoutX="140.0" layoutY="119.0" prefWidth="150.0" promptText="veuillez saisir le prix" />
+      <Button layoutX="689.0" layoutY="57.0" mnemonicParsing="false" onAction="#rechercherProduit" text="rechercher" />
+      <TextField fx:id="search" layoutX="532.0" layoutY="57.0" />
+      <Text fx:id="textSearch" layoutX="27.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="524.9999967217445" />
+      <ImageView fx:id="imgV" fitHeight="179.0" fitWidth="129.0" layoutX="516.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="promotion" layoutX="677.0" layoutY="276.0" mnemonicParsing="false" onAction="#onclickPromotion" text="Promotion" />
+      <Button layoutX="713.0" layoutY="19.0" mnemonicParsing="false" text="retour" />
+   </children>
+</AnchorPane>

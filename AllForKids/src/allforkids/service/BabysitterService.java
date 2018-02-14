@@ -6,10 +6,10 @@
 package allforkids.service;
 
 import allforkids.entite.Babysitter;
+import allforkids.entite.Demande;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
-
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 /**
@@ -55,8 +57,8 @@ public static BabysitterService getInstance()
     }}
 
     @Override
-    public List<Babysitter> getAll() {
-    List<Babysitter> Babysitters=new ArrayList<>();
+   public ObservableList<Babysitter> getAll() {
+ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
         
     try {
         rs=st.executeQuery("select * from users where type='babysitter'");
@@ -69,8 +71,8 @@ public static BabysitterService getInstance()
         while(rs.next()){
             Babysitter p;
         
-            p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
-                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"),rs.getString(12));
+            p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"),rs.getString("type"));
              Babysitters.add(p);
         }
     } catch (SQLException ex) { 
@@ -133,12 +135,31 @@ Babysitter p=null;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+
+        public ObservableList<Babysitter> getbyPseudo1(String pseudo) {
+
+   ObservableList<Babysitter> liste = FXCollections.observableArrayList();
+   
+    try{
+rs = st.executeQuery("select * from users where type='babysitter' and nom like '%"+pseudo+"%'") ;
+      while (rs.next()) { 
+           Babysitter p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"),rs.getString("type"));                liste.add(p); 
+    } } catch (SQLException ex) { 
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return liste ; 
+    }
+
     @Override
     public Babysitter getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+ }
 
     
-    }
+
+    
+    
     
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="565.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListePromotionsController">
+   <children>
+      <TableView fx:id="tableP" layoutX="20.0" layoutY="337.0" prefHeight="224.0" prefWidth="758.0">
+         <columns>
+            <TableColumn fx:id="Identifiant" minWidth="0.0" text="Promo" />
+            <TableColumn fx:id="produit" prefWidth="167.0" text="Produit" />
+            <TableColumn fx:id="pourcentage" prefWidth="166.0" text="Pourcentage" />
+            <TableColumn fx:id="date_d" prefWidth="173.0" text="Date début" />
+            <TableColumn fx:id="date_f" prefWidth="171.0" text="Date fin" />
+         </columns>
+      </TableView>
+      <DatePicker fx:id="dated" layoutX="147.0" layoutY="164.0" />
+      <Label layoutX="61.0" layoutY="62.0" text="Produit*" />
+      <ComboBox fx:id="pourc" layoutX="147.0" layoutY="103.0" prefWidth="150.0" promptText="veuillez saisir un pourcentage" />
+      <Label layoutX="61.0" layoutY="107.0" prefHeight="17.0" prefWidth="78.0" text="Pourcentage*" />
+      <Label layoutX="61.0" layoutY="168.0" text="Date début*" />
+      <Label layoutX="61.0" layoutY="214.0" text="Date fin*" />
+      <DatePicker fx:id="datef" layoutX="147.0" layoutY="210.0" />
+      <Button fx:id="retour" layoutX="729.0" layoutY="21.0" mnemonicParsing="false" onAction="#onclickRetour" text="retour" />
+      <Button fx:id="ajouter" layoutX="446.0" layoutY="265.0" mnemonicParsing="false" onAction="#ajouterPromotion" text="Ajouter" />
+      <Button fx:id="supprimer" layoutX="597.0" layoutY="266.0" mnemonicParsing="false" onAction="#supprimerPromotion" text="Supprimer" />
+      <Button fx:id="modifier" layoutX="521.0" layoutY="266.0" mnemonicParsing="false" onAction="#modifierProduit" text="Modifier" />
+      <ImageView fx:id="imgV" fitHeight="209.0" fitWidth="165.0" layoutX="469.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="textSearch" layoutX="37.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="524.9999967217445" />
+      <TextField fx:id="imagePath" layoutX="477.0" layoutY="304.0" visible="false" />
+      <TextField fx:id="prod" disable="true" layoutX="148.0" layoutY="58.0" />
+   </children>
+</AnchorPane>

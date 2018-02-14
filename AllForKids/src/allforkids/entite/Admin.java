@@ -25,6 +25,10 @@ public Admin( String pseudo, String mdp, String email) {
         super( pseudo, mdp, email);
     }
 
+    public Admin() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public String toString() {
        return "Admin{" + super.toString()+ '}';
