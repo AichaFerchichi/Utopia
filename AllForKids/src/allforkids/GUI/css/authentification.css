@@ -1,7 +1,10 @@
 /*
  * Empty Stylesheet file.
  */
+.Anchor{
 
+      -fx-background-image: url("../img/back1.png");
+}
 .mainFxmlClass {
 -fx-background-image: url("../img/bd1.png");
  -fx-background-size: 1130 800;
@@ -14,6 +17,15 @@
 
 .menus-acoes:pressed {
     -fx-graphic-text-gap: 12;
+}
+.menu-green {
+    -fx-background-color: linear-gradient(to top right, #55c8fe, #34bdfe);
+    -fx-border-color: linear-gradient(to top right, #55c8fe, #34bdfe);
+}
+
+.menu-green:pressed {
+    -fx-background-color: #55c8fe;
+    -fx-border-color: #34bdfe;
 }
 
 .menu-blue {
@@ -37,8 +49,8 @@
 }
 
 .menu-green {
-    -fx-background-color: linear-gradient(to top right, #7ecb8a, #73cb80);
-    -fx-border-color: linear-gradient(to top right, #7ecb8a, #73cb80);
+    -fx-background-color:  #1D702D;
+    -fx-border-color:  #1D702D;
 }
 
 .menu-green:pressed {
