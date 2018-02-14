@@ -24,7 +24,7 @@ public class allforkids extends Application{
     public void start(Stage stage) throws IOException {
 
    //     Parent root = FXMLLoader.load(getClass().getResource("ListeProduits.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
 //                Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
 
 

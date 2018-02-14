@@ -9,8 +9,8 @@
 
 }
 .menu-green {
-    -fx-background-color: linear-gradient(to top right, #55c8fe, #34bdfe);
-    -fx-border-color: linear-gradient(to top right, #55c8fe, #34bdfe);
+    -fx-background-color: linear-gradient(to top right, #1D702D, #1D702D);
+    -fx-border-color: linear-gradient(to top right, #1D702D, #1D702D);
 }
 
 .menu-green:pressed {
@@ -18,19 +18,30 @@
     -fx-border-color: #34bdfe;
 }
 .menu-red {
-    -fx-background-color: linear-gradient(to top right, #ff5b5b, #ff5359);
-    -fx-border-color: linear-gradient(to top right, #ff5b5b, #ff5359);
+    -fx-background-color: linear-gradient(to top right,  #C9001A,  #C9001A);
+    -fx-border-color: linear-gradient(to top right,  #C9001A,  #C9001A);
 }
 
 .menu-red:pressed {
-    -fx-background-color: #ff5b5b;
-    -fx-border-color: #ff5b5b;
+    -fx-background-color:  #C9001A;
+    -fx-border-color:  #C9001A;
 }
 .menu{
-    -fx-background-color: #55c8fe;
-    -fx-border-color:#55c8fe;
+   -fxcolor: linear-gradient(to top right, #1D702D, #1D702D);
+    -fx-color: linear-gradient(to top right, #1D702D, #1D702D);
+    
 }
 .menu:pressed{
-    -fx-background-color: #ff5b5b;
-    -fx-border-color:#ff5b5b;
+    -fx-color: #ff5b5b;
+    -fx-color: #ff5b5b;
+    
+}
+.menu-2{
+    -fx-color: #ff5b5b;
+    -fx-color: #ff5b5b;
+}
+.menu-2:pressed{
+    -fx-background-color: linear-gradient(to top right, #1D702D, #1D702D);
+    -fx-border-color: linear-gradient(to top right, #1D702D, #1D702D);
+   
 }
