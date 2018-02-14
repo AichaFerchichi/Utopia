@@ -22,11 +22,12 @@ public class allforkids extends Application{
 
 @Override
     public void start(Stage stage) throws IOException {
-<<<<<<< HEAD
-        Parent root = FXMLLoader.load(getClass().getResource("ListeProduits.fxml"));
-=======
+
+   //     Parent root = FXMLLoader.load(getClass().getResource("ListeProduits.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
->>>>>>> 676447e17ddd27c1d1bf92e9d40259c80ef2c4a8
+//                Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
+
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

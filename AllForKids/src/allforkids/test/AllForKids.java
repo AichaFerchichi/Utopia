@@ -175,13 +175,13 @@ public class AllForKids {
         gestionP.getAll().forEach(e->System.out.println(e));
         System.out.println("<<<<< Recherche >>>>>");
         Produit p3=gestionP.search(1) ; 
-        System.out.println(p3);*/
+        System.out.println(p3);
        
         
         
         System.out.println("*****************GESTION DES PROMOTIONS******************");
-        Promotion pr1 = new Promotion( 1,50, new Date(0) ,new Date(0) );
-        Promotion pr2 = new Promotion( 1,50, new Date(0) ,new Date(0) );
+     //   Promotion pr1 = new Promotion( 1,50, new Date(0) ,new Date(0) );
+      //  Promotion pr2 = new Promotion( 1,50, new Date(0) ,new Date(0) );
         PromotionService gestionPr = PromotionService.getInstance() ; 
         System.out.println("<<<<< Insertion et affichage >>>>>");
         //gestionPr.insertTotal(pr1);
