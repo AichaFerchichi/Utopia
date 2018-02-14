@@ -141,6 +141,7 @@ public ProduitService()
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+<<<<<<< HEAD
      public  ObservableList<Produit>  SearchCatégorie(String s) {
         //Produit p = null ;
         ObservableList<Produit> liste = FXCollections.observableArrayList();
@@ -155,6 +156,13 @@ public ProduitService()
         }
     return liste ; 
     }
+=======
+    @Override
+    public Produit getbyPseudo(String pseudo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+>>>>>>> 676447e17ddd27c1d1bf92e9d40259c80ef2c4a8
     
 
 }

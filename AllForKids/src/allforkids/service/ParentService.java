@@ -5,17 +5,21 @@
  */
 package allforkids.service;
 
+
 import allforkids.entite.Parent;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -58,13 +62,13 @@ public ParentService()
     }
 
     @Override
-    public List<Parent> getAll() {
+    public ObservableList<Parent> getAll() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     List<Parent> Parents=new ArrayList<>();
+      ObservableList<Parent> Parents=FXCollections.observableArrayList();
         
     try {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        result=st.executeQuery("select * from users");
+        result=st.executeQuery("select * from users where type='parent'");
     } catch (SQLException ex) {
         Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -72,7 +76,7 @@ public ParentService()
         System.out.println("");
     try {
         while(result.next()){
-            Parent p=new Parent(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9));
+            Parent p=new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12));
             Parents.add(p);
         }
     } catch (SQLException ex) {
@@ -86,10 +90,10 @@ public ParentService()
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     Parent p=null;
         try {
-       
+            System.out.println(id);
         result=st.executeQuery("select * from users where id_user="+id);
           if(result.next())
-         p = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9));
+         p = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12));
     } catch (SQLException ex) {
         Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -102,13 +106,15 @@ public ParentService()
     public boolean delete(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     Parent p=search(id);
+        System.out.println(id);
    if(p!=null)
-   {
+   {System.out.println(p);
        try {
            st.executeUpdate("delete from users where id_user="+id);
             return true;
        } catch (SQLException ex) {
-           Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
+           System.out.println("parent ne peut pas être supprimer à cause de son enfant");
+           //Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
        }
   
    }return false;
@@ -133,6 +139,36 @@ public ParentService()
 
     @Override
     public Map<String, Parent> getAllMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+public  ObservableList<Parent> getAllByName(String nom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<Parent> Parents=FXCollections.observableArrayList();
+   String requete = "select * from users where type='parent' and nom=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, nom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+            Parent p=new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12));
+            Parents.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return Parents;
+    }
+
+    @Override
+    public Parent getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

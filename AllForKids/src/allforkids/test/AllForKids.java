@@ -125,7 +125,7 @@ public class AllForKids {
            System.out.println(E3);*/
          
          //ADMIN:
-     /*   Admin A=new Admin("pseudo1","mdp1","email1");
+    /*    Admin A=new Admin("pseudo1","mdp1","email1");
            AdminService Aservice=AdminService.getInstance();
           //Aservice.insert(A);
            Aservice.getAll().forEach(e->System.out.println(e));
@@ -138,18 +138,18 @@ public class AllForKids {
      /*Parent P=new Parent(12345678,"houaida", "meknassi","hoda","mdp1","houaida.meknassi@esprit.tn","ariana",100);
            ParentService Pservice=ParentService.getInstance();
            //Pservice.insert(P);
-           //Pservice.getAll().forEach(e->System.out.println(e));
+           Pservice.getAll().forEach(e->System.out.println(e));
            Parent P1=new Parent(10,12345777,"houa", "mek","hoda","mdp2","houaida.meknassi@esprit.tn","ariana",999);
            Pservice.update(P1);
            
            Parent P2=Pservice.search(10);
-           //System.out.println(P2);*/
+           System.out.println(P2);*/
          
     
          /*****************imen*******************/
-        /*MoyenDetransport t=new MoyenDetransport("BMW", "181 tu 8982",2);
+        MoyenDetransport t=new MoyenDetransport("II", "181 tu 8982",2);
         MoyenDetransport t2=new MoyenDetransport("Porche", "170 tu 12365",2);
-        MoyendeTransportService tService =  MoyendeTransportService.getInstance() ;*/
+        //MoyendeTransportService tService =  MoyendeTransportService.getInstance() ;
        // tService.insert(t);  
        // tService.insert(t2);
         //tService.getAll().forEach(e->System.out.println(e));
@@ -265,15 +265,15 @@ public class AllForKids {
         gestionCm.getAll().forEach(e->System.out.println(e));*/
         
            System.out.println("++++++++++++++++++++++++++////MODULE Babysitter////+++++++++++++++++++++++++++++");
- 
+        /*
         System.out.println("*****************GESTION Babysitter******************");
         /*Babysitter b1=new Babysitter(15003930,"Aicha","Ferchichi","151JFT1766","123456789/","aicha.ferchichi@esprit.tn","Sidi bou said",25768582); 
         Babysitter b2=new Babysitter(15773930,"Houwaida","Meknassi","155JFT1466","hoda123","houaida.meknassi@esprit.tn","El Ghazela",22508741);
         Babysitter b4=new Babysitter(2,15773931,"Houwaida","Meknassi","155JFT1466","apresUpdate","houaida.meknassi@esprit.tn","El Ghazela",22508741); 
         BabysitterService gestionB=  BabysitterService.getInstance() ;
         System.out.println("<<<<< Insertion et affichage >>>>>");
-        gestionB.insert(b1);
-        gestionB.insert(b2) ;
+        //gestionB.insert(b1);
+        //gestionB.insert(b2) ;
         gestionB.getAll().forEach(e->System.out.println(e));
         
         System.out.println("<<<<< Recherche >>>>>");
@@ -282,9 +282,15 @@ public class AllForKids {
         System.out.println("<<<<< Modifier >>>>>");
         gestionB.update(b4);
         System.out.println("<<<<< Supprimer >>>>>");
+<<<<<<< HEAD
         gestionB.delete(6);
         gestionB.getAll().forEach(e->System.out.println(e));*/
        /*
+=======
+        gestionB.delete(1);
+        gestionB.getAll().forEach(e->System.out.println(e));
+       
+>>>>>>> 676447e17ddd27c1d1bf92e9d40259c80ef2c4a8
         System.out.println("*****************GESTION Demande******************");
         Demande d1=new Demande(1,new Date(0),"Je veux avoir babysitter pour le vendredi soir"); 
         Demande d2=new Demande(2,new Date(0),"Je veux avoir babysitter pour le lundi soir");
@@ -303,7 +309,7 @@ public class AllForKids {
         System.out.println("<<<<< Supprimer >>>>>");
         gestionD.delete(14);
         gestionD.getAll().forEach(e->System.out.println(e));
-      /*
+      
       System.out.println("*****************GESTION Forum******************");
         Forum f1=new Forum(1,2,"premier forum");
         Forum f2=new Forum(2,3,"second forum");

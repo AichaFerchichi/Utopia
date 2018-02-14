@@ -155,6 +155,11 @@ Reclamation p1=search(id);
     return  reclamations;
     }
 
+    @Override
+    public Reclamation getbyPseudo(String pseudo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     }
     

@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/PromotionService.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ParentService.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListeGardJardController.java</file>
@@ -20,6 +21,15 @@
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/CommandeService.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/allforkids.java</file>
+=======
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/GestionUserController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/GestionEnfantController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/GestionGarderieController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/EnfantService.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/AuthentificationController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/entite/Enfant.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/AccueilAdminController.java</file>
+>>>>>>> 676447e17ddd27c1d1bf92e9d40259c80ef2c4a8
         </group>
     </open-files>
 </project-private>

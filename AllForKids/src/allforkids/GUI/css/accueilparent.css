@@ -1,0 +1,30 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.AnchorAccueil{
+    -fx-background-color:  #3b3b3b;
+}
+
+.buttonGarderie{
+     -fx-background-image: url("../img/hoda.png");
+    -fx-background-size: 204 147;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:left;  
+
+}
+.buttonMail{
+     -fx-background-image: url("../img/mail.png");
+    -fx-background-size: 204 147;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:left;  
+
+}
+.buttonEva{
+     -fx-background-image: url("../img/eva.png");
+    -fx-background-size: 204 147;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:left;  
+
+}

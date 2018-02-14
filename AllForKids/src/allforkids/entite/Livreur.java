@@ -12,13 +12,21 @@ package allforkids.entite;
 public class Livreur extends User {
     
     private int disponibilite ; 
-
-    public Livreur(int id, String pseudo, String mdp, String mail,int disponibilite) {
+ public Livreur(int id, String pseudo, String mdp, String mail,int disponibilite) {
         super(id, pseudo, mdp, mail);
         this.disponibilite = disponibilite ;
     }
     public Livreur( String pseudo, String mdp, String mail,int disponibilite) {
         super( pseudo, mdp, mail);
+        this.disponibilite = disponibilite ;
+    }
+
+    public Livreur(int id, String pseudo, String mdp, String mail,int disponibilite,String type) {
+        super(id, pseudo, mdp, mail,type);
+        this.disponibilite = disponibilite ;
+    }
+    public Livreur( String pseudo, String mdp, String mail,int disponibilite,String type) {
+        super( pseudo, mdp, mail,type);
         this.disponibilite = disponibilite ;
     }
 

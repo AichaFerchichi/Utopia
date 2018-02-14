@@ -154,6 +154,11 @@ public void insertTotal(Promotion p) {
          return p.getPrixPromo() ; 
     }
 
+    @Override
+    public Promotion getbyPseudo(String pseudo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
     /*public  ObservableList<Promotion>  SearchDate(float f) {
         //Produit p = null ;

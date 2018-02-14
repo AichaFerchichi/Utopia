@@ -15,10 +15,9 @@ public class Parent extends User{
     private String nom;
     private String prenom;
      private String adresse;
-    private int montant;
-
-    public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, int montant) {
-        super(id_user, pseudo, mdp, email);
+    private float montant;
+public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant,String type) {
+        super(id_user, pseudo, mdp, email,type);
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -30,13 +29,39 @@ public class Parent extends User{
         
     }
 
-    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, String email, String adresse,int montant) {
+    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, 
+            String email, String adresse,float montant) {
         super(pseudo, mdp, email);
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.montant = montant;
+    }
+    public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant) {
+        super(id_user, pseudo, mdp, email);
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.montant = montant;
+    }
+    public Parent(String pseudo, String mdp,String email,String type) {
+        super( pseudo, mdp, email,type);
+        
+    }
+
+    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, String email, String adresse,float montant,String type) {
+        super(pseudo, mdp, email,type);
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.montant = montant;
+    }
+
+    public Parent() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getCin() {
@@ -71,11 +96,11 @@ public class Parent extends User{
         this.adresse = adresse;
     }
 
-    public int getMontant() {
+    public float getMontant() {
         return montant;
     }
 
-    public void setMontant(int montant) {
+    public void setMontant(float montant) {
         this.montant = montant;
     }
 

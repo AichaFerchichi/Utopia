@@ -17,9 +17,26 @@ public class Babysitter extends User{
     private String adresse;
     private int num_tel;
 
-    public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,int num_tel ) {
+    public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,int num_tel,String type ) {
+        super(id_user, pseudo, mdp, Email,type);
+
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+    }
+public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,int num_tel ) {
         super(id_user, pseudo, mdp, Email);
 
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+    }
+    public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, int num_tel,String type) {
+        super(pseudo, mdp, Email,type);
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -35,8 +52,6 @@ public class Babysitter extends User{
         this.adresse = adresse;
         this.num_tel = num_tel;
     }
-
-    
 
 
     public int getCin() {

@@ -6,6 +6,7 @@
 package allforkids.GUI;
 
 import allforkids.entite.Parent;
+import allforkids.entite.User;
 import allforkids.service.ParentService;
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -37,10 +39,11 @@ public class AuthentificationController implements Initializable {
 @FXML
     private AnchorPane AnchorPane1;
 @FXML
-    private TextField tfId;
+    public TextField tfId;
 @FXML
     private TextField tfMdp;
 
+public static User LoggedUser;
     /**
      * Initializes the controller class.
      */
@@ -54,18 +57,57 @@ public class AuthentificationController implements Initializable {
        int a = Integer.parseInt(tfId.getText());
         ParentService ips = new ParentService();
        // System.out.println(ips.search(a));
+       LoggedUser = new User();
+        LoggedUser.setId_user(a);
+        
    if( (ips.search(a).getId_user()==a)&&(ips.search(a).getMdp().equals(tfMdp.getText())))
-    {
+    {//System.out.println(ips.search(a).getType());
+       
+        if(ips.search(a).getType().equals("parent")){
+           
     try {
-        int id=a;
+        System.out.println(tfId.getText());
+       
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+            
 
         } catch (IOException ex) {
             Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     
+    }
+        else if(ips.search(a).getType().equals("enseignant")){
+           
+    try {
+        System.out.println(tfId.getText());
+       
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionEvaluation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+         
+
+        } catch (IOException ex) {
+            Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    
+    }
+         else if(ips.search(a).getType().equals("admin")){
+           
+    try {
+        System.out.println(tfId.getText());
+             
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilAdmin.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+         
+
+        } catch (IOException ex) {
+            Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    
+    }
     }
     else
    {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -88,5 +130,6 @@ public class AuthentificationController implements Initializable {
         } 
    }
    }}
-      
+
+    
 }

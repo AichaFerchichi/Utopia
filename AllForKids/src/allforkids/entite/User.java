@@ -16,13 +16,20 @@ public class User {
     private String mdp;
    
     private String email;
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public User() {
     }
    
-    
-
-    public User(int id_user, String pseudo, String mdp, String email) {
+     public User(int id_user, String pseudo, String mdp, String email) {
         this.id_user = id_user;
        
         this.pseudo = pseudo;
@@ -32,12 +39,31 @@ public class User {
        
        
     }
+
+    public User(int id_user, String pseudo, String mdp, String email,String type) {
+        this.id_user = id_user;
+       
+        this.pseudo = pseudo;
+        this.mdp = mdp;
+        
+        this.email = email;
+       this.type=type;
+       
+    }
     
 
-    public User(String pseudo, String mdp, String email) {
+    public User(String pseudo, String mdp, String email,String type) {
         this.pseudo = pseudo;
         this.mdp = mdp;
         this.email = email;
+        this.type=type;
+        
+    }
+     public User(String pseudo, String mdp, String email) {
+        this.pseudo = pseudo;
+        this.mdp = mdp;
+        this.email = email;
+        
         
     }
 
