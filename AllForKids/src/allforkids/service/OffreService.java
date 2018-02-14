@@ -5,6 +5,7 @@
  */
 package allforkids.service;
 
+import allforkids.entite.Garderie;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +18,12 @@ import java.util.logging.Logger;
 
 import allforkids.entite.Offre;
 import allforkids.technique.util.DataSource;
+import java.sql.PreparedStatement;
+import java.text.ParseException;
+import java.util.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *
@@ -45,7 +52,12 @@ public static OffreService getInstance()
     @Override
     public void insert(Offre p) {
         		
-String req="insert into offres_babysitter(id_babysitter,date_publication,description)values('"+p.getId_babysitter()+"','"+p.getDate_publication()+"','"+p.getDescription()+"')";
+String req = null;
+    try {
+        req = "insert into offres_babysitter(id_babysitter,description,titre,date_debut,date_fin)values('"+p.getId_babysitter()+"','"+p.getDescription()+"','"+p.getTitre()+"','"+p.convert(p.getDate_debut())+"','"+p.convert(p.getDate_fin())+"')";
+    } catch (ParseException ex) {
+        Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
+    }
      try {
             st.executeUpdate(req);
     } catch (SQLException ex) {
@@ -54,8 +66,10 @@ String req="insert into offres_babysitter(id_babysitter,date_publication,descrip
     }
 
     @Override
-    public List<Offre> getAll() {
-    List<Offre> Offres=new ArrayList<>();
+    public ObservableList<Offre> getAll() {
+              ObservableList<Offre> Offres=FXCollections.observableArrayList();
+
+    
         
     try {
         rs=st.executeQuery("SELECT * FROM `offres_babysitter` d join users u on d.id_babysitter=u.id_user where type='babysitter'");
@@ -67,8 +81,7 @@ String req="insert into offres_babysitter(id_babysitter,date_publication,descrip
     try {
         while(rs.next()){
            Offre p;
-        
-            p = new Offre(rs.getInt("id_babysitter"),rs.getDate("date_publication"),rs.getString("Description"));
+            p = new Offre(rs.getInt("id_offre"),rs.getInt("id_babysitter"),rs.getString("description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
             Offres.add(p);
         }
     } catch (SQLException ex) { 
@@ -85,7 +98,7 @@ Offre p=null;
        
         rs=st.executeQuery("select * from offres_babysitter where id_offre="+n);
           if(rs.next())
-   p = new Offre(rs.getInt("id_babysitter"),rs.getDate("date_publication"),rs.getString("Description"));
+            p = new Offre(rs.getInt("id_babysitter"),rs.getString("Description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
 
     } catch (SQLException ex) { 
         Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
@@ -119,7 +132,7 @@ Offre p1=search(p.getId_offre());
         try {
             		
 
-            st.executeUpdate("Update offres_babysitter set id_babysitter='"+p.getId_babysitter()+"',date_publication='"+p.getDate_publication()+"',description='"+p.getDescription()+"'where id_offre="+p.getId_offre());
+            st.executeUpdate("Update offres_babysitter set description='"+p.getDescription()+"',titre='"+p.getTitre()+"',date_debut='"+p.getDate_debut()+"',date_fin='"+p.getDate_fin()+"'where id_offre="+p.getId_offre());
        	
 
         } catch (SQLException ex) { 
@@ -135,13 +148,37 @@ Offre p1=search(p.getId_offre());
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+
+    public ObservableList<Offre> getbyPseudo1(String pseudo) {
+    ObservableList<Offre> liste = FXCollections.observableArrayList();
+   
+    try{
+rs = st.executeQuery("select * from offres_babysitter where titre like '%"+pseudo+"%'") ;
+      while (rs.next()) { 
+            Offre p = new Offre(rs.getInt("id_babysitter"),rs.getString("Description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
+                liste.add(p); 
+    } } catch (SQLException ex) { 
+        Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return liste ; 
+    }
+
     @Override
     public Offre getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    } 
+
+
+     
+        
+    
+    
+
+   
 
     
-    }
+    
 
  
 

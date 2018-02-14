@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -38,7 +40,7 @@ public class ProduitService implements IAllForKids<Produit> {
     
     }
  
-private ProduitService() 
+public ProduitService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -49,7 +51,7 @@ private ProduitService()
 }
     @Override
     public void insert(Produit p) {
-         String req = "insert into produits(nom,categorie,prix_produit,description) values ('" + p.getNom() + "','" + p.getCatégorie()+ "','" + p.getPrix_produit()+ "','" + p.getDescription()+ "')";
+         String req = "insert into produits(nom,categorie,prix_produit,description,image) values ('" + p.getNom() + "','" + p.getCatégorie()+ "','" + p.getPrix_produit()+ "','" + p.getDescription()+ "','" + p.getImage()+ "')";
         //System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -59,18 +61,13 @@ private ProduitService()
     }
 
     @Override
-    public List<Produit> getAll() {
-         List<Produit> list = new ArrayList<>();
+    public ObservableList<Produit> getAll() {
+         ObservableList<Produit> list=FXCollections.observableArrayList();
         try {
             result = st.executeQuery("select * from produits");
-           /* ResultSetMetaData resultMeta = result.getMetaData() ; 
-            System.out.println("**********");
-            for(int i = 1 ; i<= resultMeta.getColumnCount() ; i++){
-                System.out.println(resultMeta.getColumnName(i).toUpperCase());
-            }
-            System.out.println("***********"); */
+          
             while (result.next()) {
-                Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"));
+                Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -78,6 +75,23 @@ private ProduitService()
         }
         return list;
     }
+    
+   /* public Byte getImage(int id) {
+        
+        try {
+            result = st.executeQuery("select image from produits where id_produit="+id);
+          
+            while (result.next()) {
+                Byte b ; 
+                b =result.getByte("image") ;
+              
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return b;
+    }
+    */
 
     @Override
     public Produit search(int id) {
@@ -113,7 +127,7 @@ private ProduitService()
         Produit p1 = search(p.getId_produit()) ; 
     if(p1!=null){
         try{
-            st.executeUpdate("update produits set nom='"+p.getNom()+"', categorie='"+p.getCatégorie()+"', prix_produit='"+p.getPrix_produit()+"', description='"+p.getDescription()+"' where id_produit="+p.getId_produit()) ; 
+            st.executeUpdate("update produits set nom='"+p.getNom()+"', categorie='"+p.getCatégorie()+"', prix_produit='"+p.getPrix_produit()+"', description='"+p.getDescription()+"', image='"+p.getImage()+"' where id_produit="+p.getId_produit()) ; 
         } catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -125,6 +139,22 @@ private ProduitService()
     @Override
     public Map<String, Produit> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+     public  ObservableList<Produit>  SearchCatégorie(String s) {
+        //Produit p = null ;
+        ObservableList<Produit> liste = FXCollections.observableArrayList();
+   
+    try{
+        result = st.executeQuery("select * from produits where categorie like '"+s+"' ") ; 
+      while (result.next()) { 
+        Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"));
+                liste.add(p); 
+    } }  catch (SQLException ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return liste ; 
     }
 
     @Override
