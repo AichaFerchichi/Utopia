@@ -5,8 +5,11 @@
  */
 package allforkids.GUI;
 
+import static allforkids.GUI.AuthentificationController.LoggedUser;
 import allforkids.entite.Parent;
 import allforkids.entite.User;
+import allforkids.service.AdminService;
+import static allforkids.service.AdminService.LoggedUser;
 import allforkids.service.ParentService;
 import java.io.IOException;
 import java.net.URL;
@@ -25,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -39,83 +43,87 @@ public class AuthentificationController implements Initializable {
 @FXML
     private AnchorPane AnchorPane1;
 @FXML
-    public TextField tfId;
+    public TextField tfPseudo;
 @FXML
-    private TextField tfMdp;
+    private PasswordField tfMdp;
 
 public static User LoggedUser;
+public static Parent LoggedParent;
+
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
     
     
-    public void Education(){
-       int a = Integer.parseInt(tfId.getText());
-        ParentService ips = new ParentService();
+    public void Education() throws SQLException, IOException{
+      
+       AdminService ips = new AdminService();
        // System.out.println(ips.search(a));
-       LoggedUser = new User();
-        LoggedUser.setId_user(a);
-        
-   if( (ips.search(a).getId_user()==a)&&(ips.search(a).getMdp().equals(tfMdp.getText())))
-    {//System.out.println(ips.search(a).getType());
        
-        if(ips.search(a).getType().equals("parent")){
-           
-    try {
-        System.out.println(tfId.getText());
-       
+       // System.out.println(tfPseudo.getText()+tfMdp.getText());
+       String pseudo=tfPseudo.getText();
+     String mdp=tfMdp.getText();
+     User u=ips.Login(pseudo);
+     
+                  
+   if (u.getMdp().equals(mdp)){
+            System.out.println(pseudo);
+                
+             String type=  u.getType();
+      System.out.println(type);
+          if(type.equals("parent")){
+              
+   LoggedParent = new Parent();
+                LoggedParent.setId_user(u.getId_user());
+       System.out.println(u);
             AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
             
 
-        } catch (IOException ex) {
-            Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    
-    }
-        else if(ips.search(a).getType().equals("enseignant")){
+        
+
+              }
+          else if(type.equals("enseignant")){
            
-    try {
-        System.out.println(tfId.getText());
+    
+        System.out.println(tfPseudo.getText());
        
             AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionEvaluation.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
          
 
-        } catch (IOException ex) {
-            Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    
     }
-         else if(ips.search(a).getType().equals("admin")){
-           
-    try {
-        System.out.println(tfId.getText());
+        
+          else if(type.equals("admin")){
+        System.out.println(tfPseudo.getText());
              
             AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilAdmin.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
          
 
-        } catch (IOException ex) {
-            Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+       
     
     }
     }
-    else
-   {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+   
+    if (!u.getMdp().equals(mdp))
+    {
+    
+          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Authentification ");
             alert.setHeaderText("vérifiez vos parametres");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                 tfId.clear();
+                 tfPseudo.clear();
         tfMdp.clear();
        
     }

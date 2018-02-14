@@ -5,6 +5,7 @@
  */
 package allforkids.GUI;
 
+import allforkids.entite.Parent;
 import allforkids.entite.User;
 import allforkids.service.AdminService;
 import allforkids.service.ParentService;
@@ -39,7 +40,7 @@ public class AccueilParentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        afficher(AuthentificationController.LoggedUser);
+        afficher(AuthentificationController.LoggedParent);
     }    
     public void GarJard()
     {
@@ -65,11 +66,13 @@ public class AccueilParentController implements Initializable {
             Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
-    public void afficher(User u)
+    public void afficher(Parent u)
     {
         ParentService ius = new ParentService();
+        System.out.println(u);
+        id_user.setText(Integer.toString(u.getId_user()));
+        System.out.println(id_user.getText());
         
-        id_user.setText(Integer.toString(ius.search(u.getId_user()).getId_user()));
     
     }
 

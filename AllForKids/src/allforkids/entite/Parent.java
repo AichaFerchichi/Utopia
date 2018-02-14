@@ -61,7 +61,7 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
     }
 
     public Parent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getCin() {
