@@ -22,7 +22,7 @@ public class allforkids extends Application{
 
 @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -36,3 +36,4 @@ public class allforkids extends Application{
 
     
 }
+

@@ -8,6 +8,7 @@ package allforkids.service;
 import allforkids.entite.Enfant;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -45,13 +48,38 @@ public EnfantService()
     @Override
     public void insert(Enfant t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   String req="insert into enfants(id_parent,nom_enfant,prenom,age)values('"+t.getId_parent()+"','"+t.getNom()+"','"+t.getPrenom()+"','"+t.getAge()+"')";
+   String req="insert into enfants(id_parent,id_garderie,nom_enfant,prenom,age)values('"+t.getId_parent()+"','"+t.getId_garderie()+"','"+t.getNom()+"','"+t.getPrenom()+"','"+t.getAge()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
             Logger.getLogger(EnfantService.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+ public  ObservableList<Enfant> getAllByName(String nom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<Enfant> Enfants=FXCollections.observableArrayList();
+   String requete = "select * from enfants where nom_enfant=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, nom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+            Enfant p=new Enfant(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+            Enfants.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(EnfantService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return Enfants;
     }
 
     @Override
@@ -86,7 +114,7 @@ public EnfantService()
        
         result=st.executeQuery("select * from enfants where id_enfant="+id);
           if(result.next())
-         p = new Enfant(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5));
+         p = new Enfant(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
     } catch (SQLException ex) {
         Logger.getLogger(EnfantService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -115,10 +143,11 @@ public EnfantService()
     public boolean update(Enfant t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     Enfant p1=search(t.getId_enfant());
+        System.out.println(p1);
    if(p1!=null)
    {
         try {
-            st.executeUpdate("Update enfants set id_parent='"+t.getId_parent()+"',nom='"+t.getNom()+"', prenom='"+t.getPrenom()+"', age='"+t.getAge()+"' where id_enfant="+t.getId_enfant());
+            st.executeUpdate("Update enfants set nom_enfant='"+t.getNom()+"', prenom='"+t.getPrenom()+"', age='"+t.getAge()+"' where id_enfant="+t.getId_enfant());
         } catch (SQLException ex) {
             Logger.getLogger(EnfantService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -137,5 +166,28 @@ public EnfantService()
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    public  ObservableList<Enfant> getListeEnfant(String nom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     ObservableList<Enfant> garderies=FXCollections.observableArrayList();
+        System.out.println(nom);
+    try {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        result=st.executeQuery("select * from enfants g join garderies e on g.id_garderie=e.id_garderie where e.nom like '%"+nom+"'");
+    } catch (SQLException ex) {
+        Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  
+        
+    try {
+        while(result.next()){
+            Enfant p=new Enfant(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+            
+            System.out.println(p.toString());
+            garderies.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return  garderies;
+    }
 }

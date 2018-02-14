@@ -16,11 +16,11 @@ public class Enseignant extends User{
     private String prenom;
     private int cin;
     private String nom_club;
-    private int montant;
+    private float montant;
     static Enseignant instance;
  
  
-public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club) {
+public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club) {
         super(id_user, pseudo, mdp, email);
         this.nom = nom;
         this.prenom = prenom;
@@ -28,7 +28,7 @@ public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo
         this.nom_club = nom_club;
         this.montant = montant;
     }
-    public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club,String type) {
+    public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String type) {
         super(id_user, pseudo, mdp, email,type);
         this.nom = nom;
         this.prenom = prenom;
@@ -36,7 +36,7 @@ public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo
         this.nom_club = nom_club;
         this.montant = montant;
     }
-public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club) {
+public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club) {
         super(pseudo, mdp, email);
         this.nom = nom;
         this.prenom = prenom;
@@ -45,7 +45,7 @@ public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,S
         this.montant = montant;
     }
 
-    public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,int montant, String nom_club,String type) {
+    public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String type) {
         super(pseudo, mdp, email,type);
         this.nom = nom;
         this.prenom = prenom;
@@ -93,11 +93,11 @@ public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,S
         this.nom_club = nom_club;
     }
 
-    public int getMontant() {
+    public float getMontant() {
         return montant;
     }
 
-    public void setMontant(int montant) {
+    public void setMontant(float montant) {
         this.montant = montant;
     }
 
