@@ -76,7 +76,7 @@ public EnseignantService()
         System.out.println("");
     try {
         while(result.next()){
-            Enseignant p=new Enseignant(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getInt(9),result.getString(10),result.getString(12));
+            Enseignant p=new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12));
             Enseignants.add(p);
         }
     } catch (SQLException ex) {
@@ -93,7 +93,7 @@ public EnseignantService()
        
         result=st.executeQuery("select * from users where id_user="+id);
           if(result.next())
-         p = new Enseignant(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getInt(9),result.getString(10),result.getString(12));
+         p = new Enseignant(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12));
     } catch (SQLException ex) {
         Logger.getLogger(EnseignantService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -153,7 +153,7 @@ public EnseignantService()
             while (result.next()) {
 
                 
-                p = new Enseignant(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getInt(9),result.getString(10));
+                p = new Enseignant(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10));
             }
        
         } catch (SQLException ex) {
@@ -161,6 +161,31 @@ public EnseignantService()
             
         }
         return p;
+    }
+    public  ObservableList<Enseignant> getAllByName(String nom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<Enseignant> Enseignants=FXCollections.observableArrayList();
+   String requete = "select * from users where type='enseignant' and nom=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, nom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+           Enseignant p=new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12));
+            Enseignants.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(EnseignantService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return Enseignants;
     }
     @Override
     public Map<String, Enseignant> getAllMap() {
