@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -8,8 +9,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1128.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.MoyenTransportController">
+<AnchorPane id="AnchorPane" prefHeight="732.0" prefWidth="1107.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.MoyenTransportController">
    <children>
+      <ImageView fitHeight="857.0" fitWidth="1123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/bd2.jpg" />
+         </image>
+      </ImageView>
       <HBox layoutX="18.0" layoutY="11.0" prefHeight="60.0" prefWidth="1036.0" styleClass="box-topo">
          <children>
             <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Gestion Des Moyens de transport" textFill="#45d328" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
@@ -47,16 +53,25 @@
             </ToggleButton>
          </children>
       </HBox>
-      <Label layoutX="65.0" layoutY="143.0" text="Type" />
-      <Label layoutX="23.0" layoutY="187.0" text="Immatriculation" />
-      <Label layoutX="19.0" layoutY="236.0" text="Nombre de place" />
+      <Label layoutX="34.0" layoutY="143.0" text="Type">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="33.0" layoutY="187.0" prefHeight="27.0" prefWidth="149.0" text="Immatriculation">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="29.0" layoutY="236.0" prefHeight="27.0" prefWidth="157.0" text="Nombre de place">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Label layoutX="26.0" layoutY="207.0" />
-      <TextField id="nbr" fx:id="nbr" layoutX="135.0" layoutY="232.0" />
-      <TextField id="immatriculation" fx:id="immatriculation" layoutX="135.0" layoutY="183.0" />
-      <TextField id="type" fx:id="type" layoutX="135.0" layoutY="143.0" />
+      <TextField id="nbr" fx:id="nbr" layoutX="197.0" layoutY="237.0" promptText="nombre de place" />
+      <TextField id="immatriculation" fx:id="immatriculation" layoutX="197.0" layoutY="188.0" promptText="immatriculation" />
+      <TextField id="type" fx:id="type" layoutX="197.0" layoutY="144.0" promptText="type" />
       <TableView fx:id="table" layoutX="502.0" layoutY="123.0" prefHeight="394.0" prefWidth="525.0">
          <columns>
-            <TableColumn fx:id="Cid" prefWidth="148.0" text="id_Moyen de transport" />
+            <TableColumn fx:id="Cid" prefWidth="148.0" text="Id moyen de transport" />
             <TableColumn fx:id="Ctype" prefWidth="99.0" text="Type" />
             <TableColumn fx:id="Cim" prefWidth="129.0" text="Immatriculation" />
             <TableColumn fx:id="Cnbr" prefWidth="148.0" text="Nombre de place" />
