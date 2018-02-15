@@ -5,17 +5,19 @@
  */
 package allforkids.service;
 
+
 import allforkids.entite.Reservation;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -36,7 +38,7 @@ public class ReservationService implements IAllForKids<Reservation>{
     }
  
 
-    private ReservationService() {
+    public ReservationService() {
         try {
             DataSource ds = DataSource.getInstance();
             connexion= ds.getConnexion();
@@ -72,8 +74,9 @@ public class ReservationService implements IAllForKids<Reservation>{
     }
 
     @Override
-    public List<Reservation> getAll() {
-        List<Reservation> list = new ArrayList<>();
+    public  ObservableList<Reservation> getAll() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<Reservation>list=FXCollections.observableArrayList();
         try {
             result = st.executeQuery("select * from reservations join users on users.id_user=reservations.id_user where users.type='parent'");
          
