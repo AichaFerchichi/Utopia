@@ -10,9 +10,14 @@
 
 <AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="565.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListePromotionsController">
    <children>
+      <ImageView fitHeight="565.0" fitWidth="792.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/b2.jpg" />
+         </image>
+      </ImageView>
       <TableView fx:id="tableP" layoutX="20.0" layoutY="337.0" prefHeight="224.0" prefWidth="758.0">
          <columns>
-            <TableColumn fx:id="Identifiant" minWidth="0.0" text="Promo" />
+            <TableColumn fx:id="Identifiant" minWidth="0.0" text="Promotion" />
             <TableColumn fx:id="produit" prefWidth="167.0" text="Produit" />
             <TableColumn fx:id="pourcentage" prefWidth="166.0" text="Pourcentage" />
             <TableColumn fx:id="date_d" prefWidth="173.0" text="Date début" />
@@ -26,7 +31,7 @@
       <Label layoutX="61.0" layoutY="168.0" text="Date début*" />
       <Label layoutX="61.0" layoutY="214.0" text="Date fin*" />
       <DatePicker fx:id="datef" layoutX="147.0" layoutY="210.0" />
-      <Button fx:id="retour" layoutX="729.0" layoutY="21.0" mnemonicParsing="false" onAction="#onclickRetour" text="retour" />
+      <Button fx:id="retour" layoutX="729.0" layoutY="21.0" mnemonicParsing="false" onAction="#onclickRetour" text="Retour" />
       <Button fx:id="ajouter" layoutX="446.0" layoutY="265.0" mnemonicParsing="false" onAction="#ajouterPromotion" text="Ajouter" />
       <Button fx:id="supprimer" layoutX="597.0" layoutY="266.0" mnemonicParsing="false" onAction="#supprimerPromotion" text="Supprimer" />
       <Button fx:id="modifier" layoutX="521.0" layoutY="266.0" mnemonicParsing="false" onAction="#modifierProduit" text="Modifier" />
