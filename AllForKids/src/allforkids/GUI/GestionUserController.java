@@ -108,6 +108,26 @@ private RadioButton Rparent;
     private ToggleGroup group;
     @FXML
     private RadioButton Babysitter;
+    @FXML
+    private Label Lcin;
+    @FXML
+    private Label Lnom;
+    @FXML
+    private Label Lprenom;
+    @FXML
+    private Label Lpseudo;
+    @FXML
+    private Label Lmdp;
+    @FXML
+    private Label Lemail;
+    @FXML
+    private Label Ladresse;
+    @FXML
+    private Label Lmontant;
+    @FXML
+    private Label Lnom_club;
+    @FXML
+    private Label Lnum_tel;
     
     /**
      * Initializes the controller class.
@@ -216,6 +236,30 @@ private RadioButton Rparent;
         Cnom_club.setVisible(false);
         Cadresse.setVisible(true);
        Cnum_tel.setVisible(true);
+       
+       
+       //False les champs de saisie
+       cin.setVisible(false);
+       nom.setVisible(false);
+       prenom.setVisible(false);
+       pseudo.setVisible(false);
+       mdp.setVisible(false);
+       email.setVisible(false);
+       adresse.setVisible(false);
+       montant.setVisible(false);
+       nom_club.setVisible(false);
+       num_tel.setVisible(false);
+       //les labels false
+       Lcin.setVisible(false);
+       Lnom.setVisible(false);
+       Lprenom.setVisible(false);
+       Lpseudo.setVisible(false);
+       Lmdp.setVisible(false);
+       Lemail.setVisible(false);
+       Ladresse.setVisible(false);
+       Lmontant.setVisible(false);
+       Lnom_club.setVisible(false);
+       Lnum_tel.setVisible(false);
     }
     }
     @FXML
@@ -450,9 +494,6 @@ String nom=entrer.getText();
               afficher();
               }}
 
-    @FXML
-    private void afficherBabysitter(ActionEvent event) {
-    }
               
 
   
