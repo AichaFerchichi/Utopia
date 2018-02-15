@@ -5,6 +5,9 @@
  */
 package allforkids.entite;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author imen
@@ -14,23 +17,37 @@ public class Covoiturage {
    private int id;
    private int id_user;
    private String depart;
+   private String dateDepart;
    private String destination;
+   private String dateArrive;
    private int nbre_place_dispo; 
+   public java.sql.Date convert(String date) throws ParseException {
 
-    public Covoiturage(int id_user, String depart, String destination, int nbre_place_dispo) {
-        this.id_user = id_user;
-        this.depart = depart;
-        this.destination = destination;
-        this.nbre_place_dispo = nbre_place_dispo;
+        SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date date1 = sdf1.parse(date);
+        java.sql.Date sqlDate = new java.sql.Date(date1.getTime());
+        return sqlDate;
     }
 
-    public Covoiturage(int id, int id_user, String depart, String destination, int nbre_place_dispo) {
+    public Covoiturage(int id, int id_user, String depart, String dateDepart, String destination, String dateArrive, int nbre_place_dispo) {
         this.id = id;
         this.id_user = id_user;
         this.depart = depart;
+        this.dateDepart = dateDepart;
         this.destination = destination;
+        this.dateArrive = dateArrive;
         this.nbre_place_dispo = nbre_place_dispo;
     }
+
+    public Covoiturage(int id_user, String depart, String dateDepart, String destination, String dateArrive, int nbre_place_dispo) {
+        this.id_user = id_user;
+        this.depart = depart;
+        this.dateDepart = dateDepart;
+        this.destination = destination;
+        this.dateArrive = dateArrive;
+        this.nbre_place_dispo = nbre_place_dispo;
+    }
+    
 
     public int getId() {
         return id;
@@ -56,12 +73,28 @@ public class Covoiturage {
         this.depart = depart;
     }
 
+    public String getDateDepart() {
+        return dateDepart;
+    }
+
+    public void setDateDepart(String dateDepart) {
+        this.dateDepart = dateDepart;
+    }
+
     public String getDestination() {
         return destination;
     }
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public String getDateArrive() {
+        return dateArrive;
+    }
+
+    public void setDateArrive(String dateArrive) {
+        this.dateArrive = dateArrive;
     }
 
     public int getNbre_place_dispo() {
@@ -74,7 +107,10 @@ public class Covoiturage {
 
     @Override
     public String toString() {
-        return "Covoiturage{" + "id=" + id + ", id_user=" + id_user + ", depart=" + depart + ", destination=" + destination + ", nbre_place_dispo=" + nbre_place_dispo + '}';
+        return "Covoiturage{" + "id=" + id + ", id_user=" + id_user + ", depart=" + depart + ", dateDepart=" + dateDepart + ", destination=" + destination + ", dateArrive=" + dateArrive + ", nbre_place_dispo=" + nbre_place_dispo + '}';
     }
+    
+
+    
    
 }
