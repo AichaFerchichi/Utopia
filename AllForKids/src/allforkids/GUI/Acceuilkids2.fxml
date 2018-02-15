@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" opacity="0.64" prefHeight="800.0" prefWidth="1130.0" styleClass="mainFxmlClass" stylesheets="@css/acceuilkids2.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.Acceuilkids2Controller">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" opacity="0.64" prefHeight="800.0" prefWidth="1130.0" styleClass="back" stylesheets="@css/acceuilkids2.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.Acceuilkids2Controller">
    <children>
       <Label fx:id="lb1" layoutX="321.0" layoutY="180.0" onMouseClicked="#afficher1" onMouseEntered="#changerColor" onMouseExited="#changerColor2" prefHeight="149.0" prefWidth="614.0" text="Gestion des utilisateurs">
          <font>
-            <Font name="System Italic" size="43.0" />
+            <Font name="System Italic" size="32.0" />
          </font>
       </Label>
-      <Label fx:id="lb2" layoutX="327.0" layoutY="432.0" onMouseClicked="#afficher" onMouseEntered="#changerColor" onMouseExited="#changerColor2" prefHeight="75.0" prefWidth="663.0" stylesheets="@css/acceuilkids2.css" text="Gestion des jardins d'enfant">
+      <Label fx:id="lb2" layoutX="327.0" layoutY="432.0" onMouseClicked="#afficher2" onMouseEntered="#changerColor" onMouseExited="#changerColor2" prefHeight="75.0" prefWidth="663.0" stylesheets="@css/acceuilkids2.css" text="Gestion des jardins d'enfant">
          <font>
-            <Font size="43.0" />
+            <Font size="32.0" />
          </font>
       </Label>
-      <Label fx:id="lb3" layoutX="324.0" layoutY="325.0" onMouseClicked="#afficher" onMouseEntered="#changerColor" onMouseExited="#changerColor2" prefHeight="73.0" prefWidth="576.0" text="Gestion des garderies">
+      <Label fx:id="lb3" layoutX="324.0" layoutY="325.0" onMouseClicked="#afficher3" onMouseEntered="#changerColor" onMouseExited="#changerColor2" prefHeight="73.0" prefWidth="576.0" text="Gestion des garderies">
          <font>
-            <Font size="43.0" />
+            <Font size="32.0" />
          </font>
       </Label>
    </children>

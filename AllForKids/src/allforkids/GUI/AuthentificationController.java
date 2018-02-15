@@ -106,7 +106,7 @@ public static Parent LoggedParent;
         System.out.println(tfPseudo.getText());
              
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilAdmin.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Acceuilkids2.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
          
 

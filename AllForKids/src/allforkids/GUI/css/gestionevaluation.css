@@ -1,6 +1,10 @@
 /*
  * Empty Stylesheet file.
  */
+.Anchor{
+    -fx-background-image: url("../img/bd2.jpg");
+    
+}
 
 @font-face {
     font-family: 'Open Sans';
@@ -39,7 +43,7 @@
 .conteudo-vazio {
     -fx-font-size: 12px;
     -fx-font-family: "Open Sans", sans-serif;
-    -fx-text-fill: #333333;
+    -fx-text-fill: #000000;
     -fx-alignment: center;
     -fx-graphic: url("../img/img2/icon/dados.png");
     -fx-content-display: top;
@@ -72,16 +76,16 @@
 }
 
 .bt-left:hover, .bt-center:hover, .bt-right:hover {
-    -fx-background-color: #fff;
+    -fx-background-color: #000;
     -fx-border-color: #68b374;
-    -fx-text-fill: #333;
+    -fx-text-fill: #000;
     -fx-background-insets: 0;
 }
 
 .bt-left:selected, .bt-center:selected, .bt-right:selected {
-    -fx-background-color: #fff;
+    -fx-background-color: #000;
     -fx-border-color: #68b374;
-    -fx-text-fill: #333;
+    -fx-text-fill: #000;
     -fx-background-insets: 0;
 }
 
@@ -454,7 +458,7 @@
 /* ....... Tela Identificação .....*/
 
 .box-titulo-identificacao {
-    -fx-background-color: transparent;
+  
     -fx-border-color: #e8e8e8;
     -fx-border-width: 0 0 1 0;
     -fx-border-style: segments(3, 2);
@@ -480,7 +484,7 @@
 .titulo-identificao {
     -fx-font-size: 13px;
     -fx-font-family: "Open Sans Semibold", sans-serif;
-    -fx-text-fill: #333;
+    -fx-text-fill: #000;
 }
 
 .titulo-id-catalogacao {
@@ -573,8 +577,7 @@
 }
 
 .box-legenda {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+    
     -fx-padding: 0 10;
     -fx-background-radius: 4;
     -fx-border-radius: 4;
@@ -588,7 +591,7 @@
     -fx-border-color: #68b374;
     -fx-pref-width: 80px;
     -fx-pref-height: 34px;
-    -fx-text-fill: #fff;
+    -fx-text-fill: #000;
     -fx-border-insets: 0;
     -fx-background-insets: 0;
     -fx-cursor: hand;
@@ -605,14 +608,14 @@
 }
 
 .bt-status-validado:hover, .bt-status-validado:selected, .bt-status-invalidado:hover, .bt-status-invalidado:selected {
-    -fx-background-color: #fff;
+    -fx-background-color: #000;
     -fx-border-color: #68b374;
     -fx-text-fill: #333;
 }
 
 .clear-info-validacao {
     -fx-graphic: url("../img/img2/icon/fechar.png");
-    -fx-background-color: transparent;
+    
     -fx-content-display: graphic-only;
     -fx-cursor: hand;
     -fx-opacity: 0.8;
@@ -631,8 +634,7 @@
 }
 
 .box-validacao > *.viewport {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+  
     -fx-background-insets: 0;
     -fx-border-insets: 0;
 }
@@ -647,7 +649,7 @@
     -fx-font-size: 12px;
     -fx-font-family: "Open Sans Semibold", sans-serif;
     -fx-text-fill: #535353;
-    -fx-background-color: transparent;
+    
     -fx-min-width: 50px;
     -fx-cursor: hand;
 }
@@ -712,7 +714,7 @@
 }
 
 .lb-contagem-valor:hover {
-    -fx-text-fill: #333;
+    -fx-text-fill: #000;
 }
 
 /* ....... Dashboard App  .....*/
@@ -734,7 +736,7 @@
 .titulo-dash {
     -fx-font-size: 14px;
     -fx-font-family: "Open Sans Semibold", sans-serif;
-    -fx-text-fill: #333333;
+    -fx-text-fill: #000000;
 }
 
 .titulo-dash-cinza {
@@ -812,7 +814,7 @@
     -fx-font-family: "Open Sans Semibold", sans-serif;
     -fx-text-fill: #aaa;
     -fx-cursor: hand;
-    -fx-background-color: transparent;
+   
     -fx-alignment: center-left;
     -fx-padding: 5 0;
     -fx-min-width: 70px;
@@ -824,7 +826,7 @@
     -fx-text-fill: #C4DA5A;
     -fx-border-width: 0 0 1 0;
     -fx-border-color: transparent;
-    -fx-background-color: transparent;
+    
 }
 
 .box-subtitulos-solido {
@@ -864,7 +866,7 @@
 
 .submenus {
     -fx-content-display: graphic-only;
-    -fx-background-color: transparent;
+    
     -fx-cursor: hand;
     -fx-min-width: 30;
     -fx-min-height: 30;
@@ -888,12 +890,12 @@
 .box-contagem-quantidade {
     -fx-font-size: 13px;
     -fx-font-family: "Open Sans Semibold", sans-serif;
-    -fx-text-fill: #333;
+    -fx-text-fill: #000;
 }
 
 .scroll-dash > *.scroll-bar > *.decrement-button > *.decrement-arrow,
 .scroll-dash > *.scroll-bar > *.increment-button > *.increment-arrow {
-    -fx-background-color: transparent;
+    
 }
 
 .scroll-dash > *.scroll-bar:vertical > *.thumb {
@@ -901,20 +903,20 @@
 }
 
 .scroll-dash > *.scroll-bar:vertical {
-    -fx-background-color: transparent;
+    
     -fx-background-insets: 0px;
     -fx-padding: 0 0 0 2;
     -fx-pref-width: 10;
 }
 
 .scroll-dash > *.scroll-bar > *.decrement-button {
-    -fx-background-color: transparent;
+    
     -fx-padding: 0;
     -fx-background-insets: 0;
 }
 
 .scroll-dash > *.scroll-bar > *.increment-button {
-    -fx-background-color: transparent;
+    
     -fx-padding: 0;
     -fx-background-insets: 0;
 }
@@ -947,7 +949,7 @@
     -fx-pref-height: 20px;
     -fx-min-height: 20px;
     -fx-max-height: 20px;
-    -fx-background-color: transparent;
+    
     -fx-border-radius: 10;
     -fx-border-width: 2;
     -fx-border-insets: 4;
@@ -1039,7 +1041,7 @@
     -fx-pref-height: 20px;
     -fx-min-height: 20px;
     -fx-max-height: 20px;
-    -fx-background-color: transparent;
+   
     -fx-border-radius: 10;
     -fx-border-width: 2;
     -fx-border-insets: 4;
@@ -1088,8 +1090,7 @@
 }
 
 .box-titulo-acompanhamento {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+    
     -fx-border-width: 0 0 1 0;
     -fx-padding: 5 10;
 }
@@ -1115,17 +1116,17 @@
 }
 
 .scroll-acompanhamento {
-    -fx-background-color: #333333;
-    -fx-border-color: #333333;
+    -fx-background-color:  #000000;
+    -fx-border-color: #000000;
 }
 
 .scroll-acompanhamento > *.viewport {
-    -fx-background-color: #333333;
+    -fx-background-color: #000000;
 }
 
 .scroll-acompanhamento > *.scroll-bar > *.decrement-button > *.decrement-arrow,
 .scroll-acompanhamento > *.scroll-bar > *.increment-button > *.increment-arrow {
-    -fx-background-color: transparent;
+    
 }
 
 .scroll-acompanhamento > *.scroll-bar:vertical > *.thumb {
@@ -1133,20 +1134,20 @@
 }
 
 .scroll-acompanhamento > *.scroll-bar:vertical {
-    -fx-background-color: transparent;
+    
     -fx-background-insets: 0px;
     -fx-padding: 0 0 0 2;
     -fx-pref-width: 10;
 }
 
 .scroll-acompanhamento > *.scroll-bar > *.decrement-button {
-    -fx-background-color: transparent;
+   
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
 
 .scroll-acompanhamento > *.scroll-bar > *.increment-button {
-    -fx-background-color: transparent;
+    
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
