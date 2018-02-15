@@ -9,11 +9,14 @@ package allforkids.GUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -38,6 +41,14 @@ private Label lb3;
 private Label lb4;
 @FXML 
 private Label lb5;
+    @FXML
+    private Label lb11;
+    @FXML
+    private Label lb111;
+    @FXML
+    private Label lb21;
+    @FXML
+    private Button btretour;
     /**
      * Initializes the controller class.
      */
@@ -47,23 +58,27 @@ private Label lb5;
         // TODO 
       
     }
+    @FXML
      public void changercolor2()
     {
    
     lb2.setTextFill(Color.BLACK);
     }
+    @FXML
      public void changercolor3()
     {
    
     lb2.setTextFill(Color.RED);
     }
    
+    @FXML
     public void changercolor()
     {
     lb1.setTextFill(Color.RED);
    
     
     }
+    @FXML
     public void changercolor4()
     {
     lb1.setTextFill(Color.BLACK);
@@ -71,6 +86,7 @@ private Label lb5;
     
     }
     
+    @FXML
     public void afficher() throws IOException
     { 
     AnchorPane1.getChildren().clear();
@@ -100,5 +116,39 @@ private Label lb5;
     AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void boutique(MouseEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    public void retour() throws IOException
+    {
+    
+    AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AcceuilKids2.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void offre(MouseEvent event) throws IOException {
+     
+    
+    AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    
+    }
+
+    @FXML
+    private void demande(MouseEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    
     }
 }

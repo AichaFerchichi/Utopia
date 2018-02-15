@@ -1,35 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="800.0" prefWidth="1130.0" styleClass="mainFxmlClass" stylesheets="@css/accueilkids.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilKidsController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="718.0" prefWidth="1164.0" stylesheets="@css/accueilkids.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilKidsController">
    <children>
-      <Label fx:id="lb1" layoutX="448.0" layoutY="142.0" onMouseClicked="#afficher" onMouseDragEntered="#changercolor" onMouseDragExited="#changercolor4" prefHeight="90.0" prefWidth="332.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Boutique">
+      <ImageView fitHeight="730.0" fitWidth="1175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/bd1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lb1" layoutX="456.0" layoutY="2.0" onMouseClicked="#boutique" prefHeight="90.0" prefWidth="332.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Boutique">
          <font>
-            <Font name="System Italic" size="47.0" />
+            <Font name="System Italic" size="32.0" />
          </font>
       </Label>
-      <Label fx:id="lb2" layoutX="448.0" layoutY="231.0" onMouseClicked="#afficher" onMouseDragEntered="#changercolor3" onMouseDragExited="#changercolor2" prefHeight="95.0" prefWidth="326.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Education">
+      <Label fx:id="lb2" layoutX="459.0" layoutY="223.0" onMouseClicked="#afficher" onMouseDragEntered="#changercolor3" onMouseDragExited="#changercolor2" prefHeight="95.0" prefWidth="326.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Education">
          <font>
-            <Font size="50.0" />
+            <Font name="System Italic" size="32.0" />
          </font>
       </Label>
-      <Label fx:id="lb3" layoutX="452.0" layoutY="316.0" onMouseClicked="#afficher" prefHeight="32.0" prefWidth="333.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Transport">
+      <Label fx:id="lb3" layoutX="465.0" layoutY="305.0" onMouseClicked="#afficher" prefHeight="32.0" prefWidth="333.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Transport">
          <font>
-            <Font size="50.0" />
+            <Font size="32.0" />
          </font>
       </Label>
-      <Label fx:id="lb4" layoutX="466.0" layoutY="518.0" onMouseClicked="#afficher" prefHeight="95.0" prefWidth="198.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Club">
+      <Label fx:id="lb4" layoutX="476.0" layoutY="431.0" onMouseClicked="#afficher" prefHeight="95.0" prefWidth="198.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Club">
          <font>
-            <Font size="50.0" />
+            <Font size="32.0" />
          </font>
       </Label>
-      <Label fx:id="lb5" layoutX="459.0" layoutY="419.0" onMouseClicked="#afficher" prefHeight="95.0" prefWidth="372.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Evènement">
+      <Label fx:id="lb5" layoutX="469.0" layoutY="358.0" onMouseClicked="#afficher" prefHeight="95.0" prefWidth="372.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Evènement">
          <font>
-            <Font size="50.0" />
+            <Font size="32.0" />
          </font>
       </Label>
+      <Label fx:id="lb11" layoutX="458.0" layoutY="66.0" onMouseDragEntered="#changercolor" onMouseDragExited="#changercolor4" prefHeight="90.0" prefWidth="332.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Babysitter">
+         <font>
+            <Font name="System Italic" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb111" layoutX="534.0" layoutY="128.0" onMouseClicked="#offre" onMouseDragEntered="#changercolor" onMouseDragExited="#changercolor4" prefHeight="54.0" prefWidth="332.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Offre d'emploi" textFill="#329763">
+         <font>
+            <Font name="System Italic" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb21" layoutX="536.0" layoutY="178.0" onMouseClicked="#demande" onMouseDragEntered="#changercolor3" onMouseDragExited="#changercolor2" prefHeight="61.0" prefWidth="381.0" styleClass="menu" stylesheets="@css/accueilkids.css" text="Demande babysitter" textFill="#329763">
+         <font>
+            <Font name="System Italic" size="32.0" />
+         </font>
+      </Label>
+      <Button fx:id="btretour" layoutX="1096.0" layoutY="14.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
    </children>
 </AnchorPane>
