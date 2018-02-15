@@ -13,17 +13,21 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -65,6 +69,14 @@ public class GestionGarderieController implements Initializable {
     private TableColumn<Garderie, Integer> Cnum_tel;
     @FXML
     private TableColumn<Garderie, String> Cdescription;
+    @FXML
+    private Label lbTitulo1;
+    @FXML
+    private ToggleGroup menu;
+    @FXML
+    private TextField idEva;
+    @FXML
+    private Button btretour;
   
     /**
      * Initializes the controller class.
@@ -89,6 +101,7 @@ public class GestionGarderieController implements Initializable {
              
 
        }
+    @FXML
      public void ajouter()
      {
      GarderieService ps=new GarderieService();
@@ -102,6 +115,7 @@ public class GestionGarderieController implements Initializable {
         afficherEva();
         
      }
+    @FXML
      public void supprimer()
      {
          int i=table.getSelectionModel().getSelectedItem().getId_garderie();
@@ -117,6 +131,7 @@ public class GestionGarderieController implements Initializable {
       afficherEva();}
         
      }
+    @FXML
      public void modifier()
      {
           btn1.setDisable(false);
@@ -128,6 +143,7 @@ public class GestionGarderieController implements Initializable {
      
     
      }
+    @FXML
      public void mod2()
      {
      GarderieService ps=new GarderieService();
@@ -136,7 +152,8 @@ public class GestionGarderieController implements Initializable {
      ps.update(e);
      afficherEva();
      }
-public void rechercher()
+    @FXML
+    public void rechercher()
 {
 Garderie e=null;
 String nom=entrer.getText();
@@ -155,6 +172,7 @@ String nom=entrer.getText();
               if(entrer.getText().isEmpty()){
               afficherEva();
               }}
+    @FXML
               public void chargerListe()
               {
               LoggedUser = new Garderie();
@@ -173,7 +191,19 @@ String nom=entrer.getText();
         } catch (IOException ex) {
             Logger.getLogger(GestionGarderieController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+       
               }
+
+    @FXML
+    private void retour(MouseEvent event) throws IOException {
+          
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Acceuilkids2.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    
+    }
+
+    
 
 
     

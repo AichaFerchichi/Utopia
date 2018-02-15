@@ -25,6 +25,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -64,8 +65,6 @@ public class ListePromotionsController implements Initializable {
     private TableColumn<Promotion, Integer> produit;
     @FXML
     private TableColumn<Promotion, Integer> pourcentage;
-     @FXML
-    private TableColumn<Promotion, String> prix;
       @FXML
     private TableColumn<Promotion, String> date_d;
        @FXML
@@ -84,9 +83,15 @@ public class ListePromotionsController implements Initializable {
          @FXML
      private TextField imagePath ;
          @FXML
-     private TextField search ;
-         @FXML
      private Text textSearch ;
+    @FXML
+    private Button retour;
+    @FXML
+    private Button ajouter;
+    @FXML
+    private Button supprimer;
+    @FXML
+    private Button modifier;
       
     /**
      * Initializes the controller class.
@@ -216,7 +221,6 @@ public class ListePromotionsController implements Initializable {
     
     
     
-     @FXML 
     public void onclickRetour(ActionEvent event)throws IOException, InterruptedException{
       ///if(!listeP.getSelectionModel().isEmpty()){
           //Produit p = new Produit(NomP.getText(), comBox.getValue(),comBox2.getValue(),Desc.getText(),imgPath.getText()) ; 
@@ -255,5 +259,12 @@ public class ListePromotionsController implements Initializable {
      } 
        
     }
+    }
+
+     @FXML
+    private void retour(MouseEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 }

@@ -1,72 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="628.0" prefWidth="1128.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.OffreDemandeController">
+<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1130.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.OffreDemandeController">
    <children>
-      <BorderPane prefHeight="400.0" prefWidth="196.0">
-         <top>
-            <AnchorPane id="AnchorPane2" fx:id="AnchorPane2" prefHeight="717.0" prefWidth="199.0" styleClass="box" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox prefHeight="13.0" prefWidth="115.0" styleClass="box-logo">
-                     <children>
-                        <ImageView fitHeight="66.0" fitWidth="198.0" pickOnBounds="true">
-                           <image>
-                              <Image url="@img/logo.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <ScrollPane layoutX="-2.0" layoutY="62.0" prefHeight="246.0" prefWidth="200.0" styleClass="scroll">
-                     <content>
-                        <VBox prefHeight="244.0" prefWidth="199.0">
-                           <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" styleClass="box-menus">
-                                 <children>
-                                    <ToggleButton fx:id="menu_babysitter" mnemonicParsing="false" onAction="#menu_babysitter" prefHeight="25.0" prefWidth="207.0" selected="true" text="Babysitter">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="grupoMenus" />
-                                       </toggleGroup>
-                                       <styleClass>
-                                          <String fx:value="menus" />
-                                          <String fx:value="menu-catalogacao" />
-                                          <String fx:value="menu-grupo" />
-                                       </styleClass>
-                                    </ToggleButton>
-                                    <ToggleButton fx:id="Education" mnemonicParsing="false" onAction="#Education" prefHeight="39.0" prefWidth="200.0" text="Education">
-                                       <styleClass>
-                                          <String fx:value="menus" />
-                                          <String fx:value="menu-catalogacao" />
-                                          <String fx:value="menu-grupo" />
-                                       </styleClass>
-                                    </ToggleButton>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-               </children>
-            </AnchorPane>
-         </top>
-      </BorderPane>
-      <AnchorPane fx:id="anchor_offre" layoutX="199.0" prefHeight="54.0" prefWidth="463.0" style="-fx-background-color: #7FFFD4;">
+      <ImageView fitHeight="804.0" fitWidth="1154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/bd2.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anchor_offre" layoutX="199.0" prefHeight="54.0" prefWidth="463.0">
          <children>
-            <AnchorPane id="AnchorPane" layoutX="5.0" layoutY="14.0" prefHeight="702.0" prefWidth="678.0">
+            <AnchorPane id="AnchorPane" layoutX="-206.0" prefHeight="716.0" prefWidth="1161.0">
                <children>
                   <HBox layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="1125.0" styleClass="box-topo">
                      <children>
                         <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Les offres disponible :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS" />
                         <TextField fx:id="trecherche" prefHeight="50.0" prefWidth="417.0" promptText="chercher" styleClass="pesquisar" />
-                        <ToggleButton fx:id="ajout" mnemonicParsing="false" onAction="#ajouter" text="">
+                        <ToggleButton fx:id="ajout" mnemonicParsing="false" onAction="#ajouter" stylesheets="@css/gestionevaluation.css" text="">
                            <styleClass>
                               <String fx:value="menus-tela" />
                               <String fx:value="menu-add" />
@@ -97,6 +64,7 @@
                      <stylesheets>
                         <URL value="@css/default.css" />
                         <URL value="@css/custom.css" />
+                        <URL value="@css/gestionevaluation.css" />
                      </stylesheets>
                   </HBox>
                   <Text fx:id="txtnom" layoutX="51.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre  :" />
@@ -124,6 +92,7 @@
                   <DatePicker fx:id="tdate_fin" layoutX="130.0" layoutY="204.0" prefHeight="25.0" prefWidth="149.0" />
                   <Button id="btn1" fx:id="btn1" disable="true" layoutX="977.0" layoutY="217.0" mnemonicParsing="false" onAction="#mod2" text="Valider Modification" />
                   <TextField fx:id="id_offre1" layoutX="130.0" layoutY="256.0" visible="false" />
+                  <Button fx:id="btretour" layoutX="1029.0" layoutY="655.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
                </children>
             </AnchorPane>
          </children>

@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="582.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListeProduitsController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListeProduitsController">
    <children>
-      <ImageView fitHeight="582.0" fitWidth="786.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="714.0" fitWidth="1159.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/b2.jpg" />
+            <Image url="@img/hou.png" />
          </image>
       </ImageView>
       <TableView fx:id="listeP" layoutX="14.0" layoutY="344.0" onMouseClicked="#afficherimage" prefHeight="224.0" prefWidth="758.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="344.0">
@@ -44,6 +47,6 @@
       <Text fx:id="textSearch" layoutX="27.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="524.9999967217445" />
       <ImageView fx:id="imgV" fitHeight="179.0" fitWidth="129.0" layoutX="516.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="promotion" layoutX="677.0" layoutY="276.0" mnemonicParsing="false" onAction="#onclickPromotion" text="Promotion" />
-      <Button layoutX="713.0" layoutY="19.0" mnemonicParsing="false" text="Retour" />
+      <Button fx:id="btretour" layoutX="769.0" layoutY="18.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
    </children>
 </AnchorPane>

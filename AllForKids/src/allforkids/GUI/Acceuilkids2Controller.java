@@ -62,7 +62,7 @@ public void accueil() throws IOException
     public void afficher2() throws IOException{
         
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evaluation.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
 
          

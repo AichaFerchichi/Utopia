@@ -49,6 +49,10 @@ private Label lb5;
     private Label lb21;
     @FXML
     private Button btretour;
+    @FXML
+    private Label lb1111;
+    @FXML
+    private Label lb1112;
     /**
      * Initializes the controller class.
      */
@@ -58,7 +62,7 @@ private Label lb5;
         // TODO 
       
     }
-    @FXML
+   /* @FXML
      public void changercolor2()
     {
    
@@ -116,7 +120,7 @@ private Label lb5;
     AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
-    }
+    }*/
 
     @FXML
     private void boutique(MouseEvent event) throws IOException {
@@ -150,5 +154,26 @@ private Label lb5;
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     
+    }
+
+    @FXML
+    private void education(MouseEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void moyen(MouseEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("MoyenTransport.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void covoiturage(MouseEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Covoiturage.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 }

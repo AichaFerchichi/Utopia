@@ -76,6 +76,13 @@ public class ListeGardJardController implements Initializable {
         afficherJardin();
         
     }    
+    public void retour() throws IOException
+    {
+    
+    AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
      public void afficherGarderie()
        {
            

@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="709.0" prefWidth="1068.0" styleClass="root" stylesheets="@css/listegardjard.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListeGardJardController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="715.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListeGardJardController">
    <children>
-      <ImageView fitHeight="709.0" fitWidth="1148.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="755.0" fitWidth="1096.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/b2.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="5.0" layoutY="41.0" onMouseDragOver="#afficherGarderie" prefHeight="21.0" prefWidth="1076.0" styleClass="text" text="Liste des garderies">
+      <Label layoutX="5.0" onMouseDragOver="#afficherGarderie" prefHeight="6.0" prefWidth="1076.0" styleClass="text" text="Liste des garderies">
          <font>
-            <Font size="41.0" />
+            <Font size="26.0" />
          </font>
       </Label>
-      <TableView id="table" fx:id="table" layoutX="30.0" layoutY="64.0" onSort="#afficherGarderie" prefHeight="233.0" prefWidth="1051.0">
+      <TableView id="table" fx:id="table" layoutX="30.0" layoutY="33.0" onSort="#afficherGarderie" prefHeight="233.0" prefWidth="1051.0">
         <columns>
           <TableColumn id="garderie" fx:id="garderie" prefWidth="281.56338119506836" text="Garderie" />
             <TableColumn id="num_tel" fx:id="num_tel" prefWidth="190.4365997314453" text="Numero de téléphone" />
@@ -32,12 +29,12 @@
             <TableColumn id="garderie" fx:id="info" prefWidth="389.0" text="Information" />
         </columns>
       </TableView>
-      <Label layoutY="338.0" onMouseDragOver="#afficherJardin" prefHeight="21.0" prefWidth="1076.0" styleClass="text" text="Liste des jardins d'enfant" textFill="MAROON">
+      <Label layoutY="291.0" onMouseDragOver="#afficherJardin" prefHeight="21.0" prefWidth="1076.0" styleClass="text" text="Liste des jardins d'enfant" textFill="MAROON">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView id="table" fx:id="table1" layoutX="28.0" layoutY="373.0" onSort="#afficherJardin" prefHeight="322.0" prefWidth="1051.0">
+      <TableView id="table" fx:id="table1" layoutX="28.0" layoutY="327.0" onSort="#afficherJardin" prefHeight="322.0" prefWidth="1051.0">
          <columns>
             <TableColumn id="garderie" fx:id="jardin" prefWidth="281.56338119506836" text="Jardin d'enfant" />
             <TableColumn id="num_tel" fx:id="num_telJ" prefWidth="190.4365997314453" text="Numero de téléphone" />
@@ -45,6 +42,7 @@
             <TableColumn id="garderie" fx:id="info1" prefWidth="415.4404296875" text="Information" />
          </columns>
       </TableView>
-      <Button fx:id="btinscrit" layoutX="980.0" layoutY="303.0" mnemonicParsing="false" onAction="#inscrire" text="S'inscrire" />
+      <Button fx:id="btinscrit" layoutX="980.0" layoutY="271.0" mnemonicParsing="false" onAction="#inscrire" text="S'inscrire" />
+      <Button fx:id="btretour" layoutX="971.0" layoutY="662.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
    </children>
 </AnchorPane>
