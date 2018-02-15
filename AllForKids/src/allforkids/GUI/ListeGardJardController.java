@@ -120,9 +120,9 @@ public class ListeGardJardController implements Initializable {
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
 
-        } catch (IOException ex) {
-            Logger.getLogger(acceuil_controller.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }       catch (IOException ex) { 
+                    Logger.getLogger(ListeGardJardController.class.getName()).log(Level.SEVERE, null, ex);
+                } 
             }
 
         }

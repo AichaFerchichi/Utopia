@@ -30,10 +30,22 @@ public class allforkids extends Application{
        Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
 
 //                Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+=======
+>>>>>>> 60d0f5bdb61b0034ec0b33067110b30ddc0ad6b1
 
 //Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
 
 //Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1bff410f93deb3069391b461572bc42a8240582b
+>>>>>>> 60d0f5bdb61b0034ec0b33067110b30ddc0ad6b1
 
 
         Scene scene = new Scene(root);
