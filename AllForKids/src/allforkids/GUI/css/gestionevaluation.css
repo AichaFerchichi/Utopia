@@ -1,16 +1,10 @@
-/*
+﻿/*
  * Empty Stylesheet file.
  */
 
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../font/OpenSans-Regular.ttf');
-}
 
-@font-face {
-    font-family: 'Open Sans Semibold';
-    src: url('../font/OpenSans-Semibold.ttf');
-}
+
+
 
 /*....... Genericos .....*/
 
@@ -933,9 +927,7 @@
 }
 
 .box-titulos-acompanhamento > *.label {
-    -fx-font-size: 10px;
-    -fx-font-family: "Open Sans Semibold", sans-serif;
-    -fx-text-fill: #eee;
+   
 }
 
 /*.... Acompanhamento Excursão  .....*/
@@ -1111,7 +1103,7 @@
 }
 
 .item-acompanhamento > .label {
-    -fx-text-fill: #a9a9a9;
+    
 }
 
 .scroll-acompanhamento {
