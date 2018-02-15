@@ -26,6 +26,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -49,6 +50,8 @@ public class AuthentificationController implements Initializable {
 
 public static User LoggedUser;
 public static Parent LoggedParent;
+    @FXML
+    private Button btn;
 
 
     /**
@@ -61,6 +64,7 @@ public static Parent LoggedParent;
     }    
     
     
+    @FXML
     public void Education() throws SQLException, IOException{
       
        AdminService ips = new AdminService();
@@ -138,6 +142,13 @@ public static Parent LoggedParent;
         } 
    }
    }}
+
+    @FXML
+    private void inscrire(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("InscriptionUser.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
 
     
 }

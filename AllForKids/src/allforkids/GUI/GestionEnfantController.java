@@ -12,6 +12,7 @@ import allforkids.entite.User;
 import allforkids.service.EnfantService;
 import allforkids.service.LivraisonService;
 import allforkids.technique.util.DataSource;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,17 +24,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -80,6 +86,12 @@ ComboBox<Integer> idCombo;
        Connection connexion;
     Statement st;
     ResultSet result;
+    @FXML
+    private Label lbTitulo1;
+    @FXML
+    private ToggleGroup menu;
+    @FXML
+    private Button btretour;
    
 
  
@@ -137,7 +149,8 @@ while (result.next())
 
     }    
    
-public void ajouter2(){
+    @FXML
+    public void ajouter2(){
  ajouter(GestionGarderieController.LoggedUser);
 }
     public void ajouter(Garderie u)
@@ -156,6 +169,7 @@ public void ajouter2(){
         afficher(GestionGarderieController.LoggedUser);
         
      }
+    @FXML
      public void supprimer()
      {
          int i=table.getSelectionModel().getSelectedItem().getId_enfant();
@@ -172,6 +186,7 @@ public void ajouter2(){
       afficher(GestionGarderieController.LoggedUser);}
         
      }
+    @FXML
      public void modifier()
      {
           btn1.setDisable(false);
@@ -183,6 +198,7 @@ public void ajouter2(){
      
     
      }
+    @FXML
      public void mod2()
      {
      EnfantService ps=new EnfantService();
@@ -191,7 +207,8 @@ public void ajouter2(){
      ps.update(e);
      afficher(GestionGarderieController.LoggedUser);
      }
-public void rechercher()
+    @FXML
+    public void rechercher()
 {
 Garderie e=null;
 String nom=entrer.getText();
@@ -211,5 +228,12 @@ EnfantService ps=new EnfantService();
               afficher(GestionGarderieController.LoggedUser);
 
               }}
+
+    @FXML
+    private void retour(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
     
 }

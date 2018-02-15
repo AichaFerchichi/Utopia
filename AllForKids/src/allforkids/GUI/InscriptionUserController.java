@@ -11,17 +11,29 @@ import allforkids.entite.Parent;
 import allforkids.service.BabysitterService;
 import allforkids.service.EnseignantService;
 import allforkids.service.ParentService;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -29,7 +41,6 @@ import javafx.scene.control.TextField;
  * @author MacBook
  */
 public class InscriptionUserController implements Initializable {
-@FXML
     private ComboBox comBox;
 @FXML
     private TextField nom;
@@ -53,18 +64,38 @@ public class InscriptionUserController implements Initializable {
     private TextField cin;
 @FXML
     private TextField montant;
+    @FXML
+    private AnchorPane AnchorPane1;
+    @FXML
+    private Button btretour;
+    @FXML
+    private RadioButton Renseignant;
+    @FXML
+    private ToggleGroup group;
+    @FXML
+    private RadioButton Rparent;
+    @FXML
+    private RadioButton Rbabysitter;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ObservableList<String> ol = FXCollections.observableArrayList();
-        ol.add("parent") ; 
-        ol.add("enseignant") ; 
-        ol.add("babysitter") ; 
-        ol.add("Livreur") ; 
-       comBox.setItems(ol);
+        afficher();
+        ToggleGroup group = new ToggleGroup();
+    RadioButton Renseignant = new RadioButton("select first");
+   Renseignant.setToggleGroup(group);
+    Renseignant.setSelected(true);
+    RadioButton Rparent = new RadioButton("select second");
+    Rparent.setToggleGroup(group);
+    group.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
+         @Override
+    public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
+
+         if (group.getSelectedToggle() != null) {
+
+             System.out.println(group.getSelectedToggle().getUserData().toString());
          /*cin.setDisable(true);
         nom.setDisable(true);
         prenom.setDisable(true);
@@ -76,27 +107,41 @@ public class InscriptionUserController implements Initializable {
         montant.setDisable(true);
     num_tel.setDisable(true);
       club.setDisable(true);*/
-         cin.setDisable(false);
-        nom.setDisable(false);
-        prenom.setDisable(false);
-        pseudo.setDisable(false);
-        mdp.setDisable(false);
-        mdp2.setDisable(false);
-        adresse.setDisable(false);
-        email.setDisable(false);
-        montant.setDisable(false);
+        
+      //comBox.getSelectionModel().selectFirst();
+         }
+
+     } 
+});
+    } 
+     @FXML
+    public void afficher(){
+     if(Rparent.isSelected()){
+         
     num_tel.setDisable(true);
       club.setDisable(true);
-      comBox.getSelectionModel().selectFirst();
-        
-    }    
-    
+      montant.setDisable(false);}
+     
+     else if(Renseignant.isSelected())
+    {
+     num_tel.setDisable(true);
+        club.setDisable(false);
+        montant.setDisable(false);
+    }
+      else if(Rbabysitter.isSelected()){
+          
+        montant.setDisable(true);
+     num_tel.setDisable(false);
+      club.setDisable(true);
+      
+      }
+    }
+    @FXML
     public void inscrire()
     {
-        String i=comBox.getValue().toString();
-        System.out.println(i);
-    if(comBox.getValue().toString().equals("parent")){
         
+    if(Rparent.isSelected()){
+         
       String m2=mdp2.getText();
       String m=mdp.getText();
       if(m.equals(m2)){
@@ -116,6 +161,7 @@ public class InscriptionUserController implements Initializable {
       num_tel.clear();
       num_tel.setDisable(false);
       club.setDisable(false);
+      afficher();
     }
       else {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Inscription");
@@ -128,9 +174,8 @@ public class InscriptionUserController implements Initializable {
     }
     
     }
-     if(comBox.getValue().toString().equals("enseignant")){
-        num_tel.setDisable(true);
-        club.setDisable(false);
+        else if(Renseignant.isSelected()){
+        
       String m2=mdp2.getText();
       String m=mdp.getText();
       if(m.equals(m2)){
@@ -149,6 +194,7 @@ public class InscriptionUserController implements Initializable {
       club.clear();
       num_tel.clear();
        num_tel.setDisable(false);
+       afficher();
     }
       else {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Inscription");
@@ -161,8 +207,8 @@ public class InscriptionUserController implements Initializable {
     }
     
     }
-     if(comBox.getValue().toString().equals("babysitter")){
-        club.setDisable(true);
+     else if(Rbabysitter.isSelected()){
+       
       String m2=mdp2.getText();
       String m=mdp.getText();
       if(m.equals(m2)){
@@ -181,6 +227,7 @@ public class InscriptionUserController implements Initializable {
       club.clear();
       num_tel.clear();
       club.setDisable(false);
+      afficher();
               
     }
       else {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -196,6 +243,15 @@ public class InscriptionUserController implements Initializable {
     }
     
     }
+
+    @FXML
+    private void retour(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    }
     
     
-}
+

@@ -47,14 +47,6 @@ public class demandeController implements Initializable {
        @FXML
     private AnchorPane AnchorPane1;
     @FXML
-    private AnchorPane AnchorPane2;
-    @FXML
-    private ToggleButton menu_babysitter;
-    @FXML
-    private ToggleGroup grupoMenus;
-    @FXML
-    private ToggleButton Education;
-    @FXML
     private AnchorPane anchor_offre;
     @FXML
     private Label lbTitulo1;
@@ -117,6 +109,8 @@ public class demandeController implements Initializable {
     private TextField id_demande1;
     @FXML
     private TableColumn<Demande, String> id_demande2;
+    @FXML
+    private Button btretour;
      
 
     
@@ -156,13 +150,6 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
 
 
        }
-    @FXML
-    private void menu_babysitter(ActionEvent event) {
-    }
-
-    @FXML
-    private void Education(ActionEvent event) {
-    }
 
     @FXML
     private void ajouterdemande(ActionEvent event) throws ParseException{

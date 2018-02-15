@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,9 +12,9 @@
 
 <AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="772.0" prefWidth="576.0" styleClass="mainFxmlClass" stylesheets="@css/inscriptionuser.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.InscriptionUserController">
    <children>
-      <ImageView fitHeight="772.0" fitWidth="614.0" layoutX="61.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="591.0" fitWidth="576.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/b2.png" />
+            <Image url="@img/ghada.png" />
          </image>
       </ImageView>
       <Label layoutX="223.0" layoutY="16.0" prefHeight="16.0" prefWidth="183.0" text="Inscription">
@@ -41,10 +42,18 @@
       <TextField fx:id="club" layoutX="277.0" layoutY="546.0" prefHeight="26.0" prefWidth="180.0" promptText="votre club" />
       <TextField fx:id="num_tel" layoutX="281.0" layoutY="600.0" prefHeight="26.0" prefWidth="179.0" promptText="votre numéro:+216" />
       <Button layoutX="227.0" layoutY="693.0" mnemonicParsing="false" onAction="#inscrire" text="Valider Inscription" />
-      <ComboBox fx:id="comBox" layoutX="270.0" layoutY="69.0" prefHeight="28.0" prefWidth="178.0" />
       <Label layoutX="111.0" layoutY="651.0" text="Montant" />
       <TextField fx:id="montant" layoutX="282.0" layoutY="647.0" prefHeight="26.0" prefWidth="178.0" promptText="votre montant" />
       <Label layoutX="111.0" layoutY="128.0" text="Cin" />
       <TextField fx:id="cin" layoutX="270.0" layoutY="120.0" prefHeight="26.0" prefWidth="184.0" promptText="votre cin" />
+      
+      <RadioButton fx:id="Renseignant" layoutX="238.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" text="enseignant">
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Rparent" layoutX="367.0" layoutY="72.0" mnemonicParsing="false" selected="true" text="parent" toggleGroup="$group" />
+      <RadioButton fx:id="Rbabysitter" layoutX="456.0" layoutY="72.0" mnemonicParsing="false" text="babysitter" toggleGroup="$group" />
+      <Button fx:id="btretour" layoutX="460.0" layoutY="709.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
    </children>
 </AnchorPane>

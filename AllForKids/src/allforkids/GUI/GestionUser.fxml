@@ -155,7 +155,7 @@
             </TableView>
          </children>
       </AnchorPane>
-      <Button fx:id="btretour" layoutX="1040.0" layoutY="668.0" mnemonicParsing="false" onAction="#retour" onMouseClicked="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+      <Button fx:id="btretour" layoutX="1040.0" layoutY="668.0" mnemonicParsing="false" onAction="#retour"  style="-fx-background-color: #FFFAF4;" text="Retour" />
 
    </children>
 </AnchorPane>

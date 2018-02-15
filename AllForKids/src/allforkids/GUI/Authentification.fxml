@@ -24,7 +24,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button layoutX="13.0" layoutY="283.0" maxWidth="467.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="361.0" style="-fx-background-color: #C9001A; -fx-border-color: #C9001A;" stylesheets="@css/authentification.css" text="S'inscrire" textFill="WHITE">
+            <Button layoutX="13.0" layoutY="283.0" maxWidth="467.0" mnemonicParsing="false" onAction="#inscrire" prefHeight="33.0" prefWidth="361.0" style="-fx-background-color: #C9001A; -fx-border-color: #C9001A;" stylesheets="@css/authentification.css" text="S'inscrire" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
