@@ -14,11 +14,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="800.0" prefWidth="1130.0" styleClass="mainFxmlClass" stylesheets="@css/authentification.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AuthentificationController">
-=======
+
+
 <AnchorPane fx:id="AnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1130.0" styleClass="back" stylesheets="@css/authentification.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AuthentificationController">
->>>>>>> 4b753c1f1c8720feb87d95e7eba97c9619de3fb8
    <children>
       <AnchorPane layoutX="654.0" layoutY="169.0" opacity="0.66" prefHeight="392.0" prefWidth="386.0" styleClass="Anchor" stylesheets="@css/authentification.css">
          <children>
