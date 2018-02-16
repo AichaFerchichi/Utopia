@@ -27,6 +27,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -65,6 +66,11 @@ public class ListeGardJardController implements Initializable {
     @FXML
     private TableColumn<JardinEnfant, Integer> num_telJ;
     @FXML
+    private Button btinscrit;
+    @FXML
+    private Button btretour;
+    @FXML
+    private Button btretour1;
  
     /**
      * Initializes the controller class.
@@ -76,6 +82,15 @@ public class ListeGardJardController implements Initializable {
         afficherJardin();
         
     }    
+    @FXML
+    public void retour() throws IOException
+    {
+    
+    AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+    @FXML
      public void afficherGarderie()
        {
            
@@ -91,6 +106,7 @@ public class ListeGardJardController implements Initializable {
               info.setCellValueFactory(new PropertyValueFactory<>("description"));
 
        }
+    @FXML
      public void afficherJardin()
        {
            
@@ -127,6 +143,13 @@ public class ListeGardJardController implements Initializable {
 
         }
     
+    }
+
+    @FXML
+    private void retour2(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 }
 

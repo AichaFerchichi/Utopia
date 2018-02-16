@@ -9,21 +9,27 @@ package allforkids.GUI;
 import allforkids.entite.MoyenDetransport;
 
 import allforkids.service.MoyendeTransportService;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 /*import javafx.scene.control.Label;*/
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 /*import javafx.scene.control.ToggleGroup;*/
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -44,7 +50,7 @@ public class MoyenTransportController implements Initializable {
      @FXML
     private TextField nbr;
 
-    
+   
  @FXML
     private TableView<MoyenDetransport> table;
  @FXML
@@ -55,6 +61,16 @@ public class MoyenTransportController implements Initializable {
     private TableColumn<MoyenDetransport, String> Cim;
  @FXML
     private TableColumn<MoyenDetransport, Integer> Cnbr;
+    @FXML
+    private Label lbTitulo1;
+    @FXML
+    private TextField afficher_entry;
+    @FXML
+    private ToggleGroup menu;
+    @FXML
+    private AnchorPane AnchorPane1;
+    @FXML
+    private Button btretour;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -73,6 +89,14 @@ public class MoyenTransportController implements Initializable {
         Cnbr.setCellValueFactory(new PropertyValueFactory<>("nombre_de_place"));
               
        }
+    @FXML
+    public void retour() throws IOException
+    {
+    
+    AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
     @FXML
      public void ajouter()
      {

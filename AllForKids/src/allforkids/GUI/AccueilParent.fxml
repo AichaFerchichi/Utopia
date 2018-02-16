@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="800.0" prefWidth="1130.0" stylesheets="@css/accueilparent.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="800.0" prefWidth="1130.0" stylesheets="@css/accueilparent.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
    <children>
       <ImageView fitHeight="800.0" fitWidth="1130.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,15 +29,15 @@
             <Image url="@img/eva.png" />
          </image>
       </ImageView>
-      <Label layoutX="210.0" layoutY="243.0" prefHeight="27.0" prefWidth="306.0" text="Consulter la liste des garderies " textFill="#d32525">
+      <Label layoutX="210.0" layoutY="243.0" onMouseClicked="#afficher1" prefHeight="27.0" prefWidth="306.0" text="Consulter la liste des garderies " textFill="#d32525">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label layoutX="716.0" layoutY="248.0" text="Contacter l'administrateur par mail" textFill="#d32525">
+      <Label layoutX="716.0" layoutY="248.0" onMouseClicked="#afficher2" text="Contacter l'administrateur par mail" textFill="#d32525">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label layoutX="446.0" layoutY="560.0" text="Consulter l'evaluation de votre enfant" textFill="#d32525">
+      <Label layoutX="446.0" layoutY="560.0" onMouseClicked="#afficher3" text="Consulter l'evaluation de votre enfant" textFill="#d32525">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>

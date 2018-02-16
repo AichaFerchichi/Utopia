@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.AnchorPane;
@@ -31,15 +32,23 @@ public class Acceuilkids2Controller implements Initializable {
     private Label lb2;
     @FXML
     private Label lb3;
-
+ @FXML
+    private Button btaccueil;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
+    } 
+     @FXML
+public void accueil() throws IOException
+{
+ AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+}
+ 
     @FXML
     public void afficher1() throws IOException{
         
@@ -53,7 +62,7 @@ public class Acceuilkids2Controller implements Initializable {
     public void afficher2() throws IOException{
         
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evaluation.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
 
          

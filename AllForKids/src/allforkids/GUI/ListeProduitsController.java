@@ -148,6 +148,14 @@ public class ListeProduitsController implements Initializable {
         
         
     }
+    @FXML
+    public void retour() throws IOException
+    {
+    
+    AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
     public void afficherListeProduits()
        {
            

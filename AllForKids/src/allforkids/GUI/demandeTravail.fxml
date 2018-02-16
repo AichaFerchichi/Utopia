@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.DemandeTravailController">
+<AnchorPane id="AnchorPane" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.demandeTravailController">
     <stylesheets>
         <URL value="@demandetravail.css" />
     </stylesheets>
@@ -107,7 +107,7 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Button layoutX="906.0" layoutY="631.0" mnemonicParsing="false" onAction="#ajouter_grp" prefHeight="69.0" prefWidth="232.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: #B4AF91;" text="Postuler" textFill="WHITE">
+      <Button layoutX="906.0" layoutY="631.0" mnemonicParsing="false"  prefHeight="69.0" prefWidth="232.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: #B4AF91;" text="Postuler" textFill="WHITE">
          <font>
             <Font size="34.0" />
          </font>

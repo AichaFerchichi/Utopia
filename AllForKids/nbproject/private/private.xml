@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/authentification.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AccueilKidsController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/CovoiturageController.java</file>
@@ -48,6 +49,13 @@
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/gestionevaluation.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/evaluation.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/OffreService.java</file>
+=======
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/InscriptionUserController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/GestionUserController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/GestionUser.fxml</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/AuthentificationController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/InscriptionUser.fxml</file>
+>>>>>>> 17244dd9f4d9148588beb08ab9ec40592a91e7f5
         </group>
     </open-files>
 </project-private>

@@ -31,7 +31,7 @@ Statement st;
 ResultSet rs;
 static BabysitterService instance;
 
-private BabysitterService(){
+public BabysitterService(){
  cnx=DataSource.getInstance().getConnexion();
     try {
         st=cnx.createStatement();

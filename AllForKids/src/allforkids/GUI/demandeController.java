@@ -16,6 +16,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -30,6 +31,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 /**
@@ -44,14 +46,6 @@ public class demandeController implements Initializable {
      */
        @FXML
     private AnchorPane AnchorPane1;
-    @FXML
-    private AnchorPane AnchorPane2;
-    @FXML
-    private ToggleButton menu_babysitter;
-    @FXML
-    private ToggleGroup grupoMenus;
-    @FXML
-    private ToggleButton Education;
     @FXML
     private AnchorPane anchor_offre;
     @FXML
@@ -115,6 +109,8 @@ public class demandeController implements Initializable {
     private TextField id_demande1;
     @FXML
     private TableColumn<Demande, String> id_demande2;
+    @FXML
+    private Button btretour;
      
 
     
@@ -129,6 +125,14 @@ public class demandeController implements Initializable {
          afficherDemande();
      
     }    
+    @FXML
+    public void retour() throws IOException
+    {
+    
+    AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
  public void afficherDemande()
        {
            
@@ -146,13 +150,6 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
 
 
        }
-    @FXML
-    private void menu_babysitter(ActionEvent event) {
-    }
-
-    @FXML
-    private void Education(ActionEvent event) {
-    }
 
     @FXML
     private void ajouterdemande(ActionEvent event) throws ParseException{

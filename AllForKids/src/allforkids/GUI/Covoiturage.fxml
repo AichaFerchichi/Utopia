@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="date_arrivee" prefHeight="462.0" prefWidth="530.0" styleClass="mainFxmlClass" stylesheets="@css/covoiturage.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.CovoiturageController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1130.0" styleClass="mainFxmlClass" stylesheets="@css/covoiturage.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.CovoiturageController">
    <children>
       <ImageView fitHeight="742.0" fitWidth="1139.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -93,5 +98,6 @@
          </font></Label>
       <Button id="btn1" fx:id="btn1" disable="true" layoutX="660.0" layoutY="455.0" mnemonicParsing="false" onAction="#mod2" prefHeight="8.0" prefWidth="124.0" text="Valider Modification" />
       <TextField fx:id="iduser" layoutX="217.0" layoutY="416.0" visible="false" />
+      <Button fx:id="btretour" layoutX="991.0" layoutY="626.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
    </children>
 </AnchorPane>
