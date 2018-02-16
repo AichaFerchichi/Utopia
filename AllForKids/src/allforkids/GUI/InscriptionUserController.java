@@ -27,6 +27,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
@@ -41,33 +42,9 @@ import javafx.scene.layout.Pane;
  * @author MacBook
  */
 public class InscriptionUserController implements Initializable {
-    private ComboBox comBox;
-@FXML
-    private TextField nom;
-@FXML
-    private TextField prenom;
-@FXML
-    private TextField pseudo;
-@FXML
-    private TextField mdp;
-@FXML
-    private TextField mdp2;
-@FXML
-    private TextField adresse;
-@FXML
-    private TextField num_tel;
-@FXML
-    private TextField email;
-@FXML
-    private TextField club;
-@FXML
-    private TextField cin;
-@FXML
-    private TextField montant;
-    @FXML
+    
+
     private AnchorPane AnchorPane1;
-    @FXML
-    private Button btretour;
     @FXML
     private RadioButton Renseignant;
     @FXML
@@ -76,13 +53,57 @@ public class InscriptionUserController implements Initializable {
     private RadioButton Rparent;
     @FXML
     private RadioButton Rbabysitter;
+    @FXML
+    private Label Lcin;
+    @FXML
+    private Label Lnom;
+    @FXML
+    private Label Lprenom;
+    @FXML
+    private Label Lpseudo;
+    @FXML
+    private Label Lmdp;
+    @FXML
+    private Label Lemail;
+    @FXML
+    private Label Ladresse;
+    @FXML
+    private Label Lmontant;
+    @FXML
+    private Label Lnom_club;
+    @FXML
+    private Label Lnum_tel;
+    @FXML
+    private TextField club;
+    @FXML
+    private TextField cin;
+    @FXML
+    private TextField nom;
+    @FXML
+    private TextField prenom;
+    @FXML
+    private TextField pseudo;
+    @FXML
+    private TextField mdp;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField adresse;
+    @FXML
+    private TextField montant;
+    @FXML
+    private TextField num_tel;
+    @FXML
+    private TextField mdp2;
+    @FXML
+    private Label Lmdp1;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        afficher();
+         afficher();
         ToggleGroup group = new ToggleGroup();
     RadioButton Renseignant = new RadioButton("select first");
    Renseignant.setToggleGroup(group);
@@ -92,28 +113,17 @@ public class InscriptionUserController implements Initializable {
     group.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
          @Override
     public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
-
+ToggleGroup group = new ToggleGroup();
          if (group.getSelectedToggle() != null) {
 
              System.out.println(group.getSelectedToggle().getUserData().toString());
-         /*cin.setDisable(true);
-        nom.setDisable(true);
-        prenom.setDisable(true);
-        pseudo.setDisable(true);
-        mdp.setDisable(true);
-        mdp2.setDisable(true);
-        adresse.setDisable(true);
-        email.setDisable(true);
-        montant.setDisable(true);
-    num_tel.setDisable(true);
-      club.setDisable(true);*/
-        
-      //comBox.getSelectionModel().selectFirst();
+             // Do something here with the userData of newly selected radioButton
+
          }
 
      } 
 });
-    } 
+    }    
      @FXML
     public void afficher(){
      if(Rparent.isSelected()){
@@ -122,13 +132,13 @@ public class InscriptionUserController implements Initializable {
       club.setDisable(true);
       montant.setDisable(false);}
      
-     else if(Renseignant.isSelected())
+     if(Renseignant.isSelected())
     {
      num_tel.setDisable(true);
         club.setDisable(false);
         montant.setDisable(false);
     }
-      else if(Rbabysitter.isSelected()){
+      if(Rbabysitter.isSelected()){
           
         montant.setDisable(true);
      num_tel.setDisable(false);
@@ -136,7 +146,6 @@ public class InscriptionUserController implements Initializable {
       
       }
     }
-    @FXML
     public void inscrire()
     {
         
@@ -163,15 +172,7 @@ public class InscriptionUserController implements Initializable {
       club.setDisable(false);
       afficher();
     }
-      else {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Inscription");
-            alert.setHeaderText("Vérifiez votre mot de passe");
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {}
-    mdp.clear();
-    mdp2.clear();
-    
-    }
+     
     
     }
         else if(Renseignant.isSelected()){
@@ -196,15 +197,7 @@ public class InscriptionUserController implements Initializable {
        num_tel.setDisable(false);
        afficher();
     }
-      else {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Inscription");
-            alert.setHeaderText("Vérifiez votre mot de passe");
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {}
-    mdp.clear();
-    mdp2.clear();
-    
-    }
+      
     
     }
      else if(Rbabysitter.isSelected()){
@@ -230,21 +223,12 @@ public class InscriptionUserController implements Initializable {
       afficher();
               
     }
-      else {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Inscription");
-            alert.setHeaderText("Vérifiez votre mot de passe");
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {}
-    mdp.clear();
-    mdp2.clear();
-    
-    }
+      
     
     }
     
     }
 
-    @FXML
     private void retour(ActionEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Authentification.fxml"));

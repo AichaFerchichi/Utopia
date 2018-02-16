@@ -145,10 +145,11 @@ public static Parent LoggedParent;
 
     @FXML
     private void inscrire(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
+         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("InscriptionUser.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 
+   
     
 }

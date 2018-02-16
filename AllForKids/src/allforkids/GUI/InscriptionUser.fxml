@@ -5,55 +5,85 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="772.0" prefWidth="576.0" styleClass="mainFxmlClass" stylesheets="@css/inscriptionuser.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.InscriptionUserController">
+<AnchorPane id="AnchorPane" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.InscriptionUserController">
    <children>
-      <ImageView fitHeight="591.0" fitWidth="576.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/ghada.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="223.0" layoutY="16.0" prefHeight="16.0" prefWidth="183.0" text="Inscription">
+       <RadioButton fx:id="Rparent" layoutX="477.0" layoutY="72.0" mnemonicParsing="false" onAction="#afficher" selected="true" text="Parent">
+        <toggleGroup>
+            <ToggleGroup fx:id="group" />
+        </toggleGroup>
+    </RadioButton>
+    <RadioButton fx:id="Renseignant" layoutX="339.0" layoutY="72.0" mnemonicParsing="false" onAction="#afficher" text="Enseignant" toggleGroup="$group" />
+      <RadioButton fx:id="Rbabysitter" layoutX="593.0" layoutY="72.0" mnemonicParsing="false" onAction="#afficher" text="Babysitter" toggleGroup="$group" />
+        
+      <Label fx:id="Lcin" layoutX="47.0" layoutY="148.0" prefHeight="16.0" prefWidth="55.0" text="CIN">
          <font>
-            <Font size="27.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="109.0" layoutY="77.0" text="Type de compte" />
-      <Label layoutX="107.0" layoutY="174.0" text="Nom" />
-      <Label layoutX="108.0" layoutY="226.0" text="Prenom" />
-      <Label layoutX="109.0" layoutY="278.0" text="Pseudo" />
-      <Label layoutX="104.0" layoutY="332.0" text="Mot de passe" />
-      <Label layoutX="100.0" layoutY="395.0" text="vérifier mot de passe" />
-      <Label layoutX="105.0" layoutY="447.0" text="Email" />
-      <Label layoutX="107.0" layoutY="495.0" text="Adresse" />
-      <Label layoutX="100.0" layoutY="550.0" text="Nom de votre club" />
-      <Label layoutX="99.0" layoutY="604.0" text="Numero de téléphone" />
-      <TextField fx:id="nom" layoutX="269.0" layoutY="170.0" prefHeight="26.0" prefWidth="179.0" promptText="votre nom" />
-      <TextField fx:id="prenom" layoutX="270.0" layoutY="222.0" prefHeight="26.0" prefWidth="180.0" promptText="votre prénom" />
-      <TextField fx:id="pseudo" layoutX="271.0" layoutY="274.0" prefHeight="26.0" prefWidth="176.0" promptText="votre pseudo" />
-      <TextField fx:id="mdp" layoutX="274.0" layoutY="328.0" prefHeight="26.0" prefWidth="177.0" promptText="votre mot de passe" />
-      <TextField fx:id="mdp2" layoutX="279.0" layoutY="382.0" prefHeight="26.0" prefWidth="176.0" promptText="votre mot de passe" />
-      <TextField fx:id="email" layoutX="276.0" layoutY="433.0" prefHeight="26.0" prefWidth="176.0" promptText="exemple:nom@yahoo.com" />
-      <TextField fx:id="adresse" layoutX="277.0" layoutY="491.0" prefHeight="26.0" prefWidth="177.0" promptText="votre adresse" />
-      <TextField fx:id="club" layoutX="277.0" layoutY="546.0" prefHeight="26.0" prefWidth="180.0" promptText="votre club" />
-      <TextField fx:id="num_tel" layoutX="281.0" layoutY="600.0" prefHeight="26.0" prefWidth="179.0" promptText="votre numéro:+216" />
-      <Button layoutX="227.0" layoutY="693.0" mnemonicParsing="false" onAction="#inscrire" text="Valider Inscription" />
-      <Label layoutX="111.0" layoutY="651.0" text="Montant" />
-      <TextField fx:id="montant" layoutX="282.0" layoutY="647.0" prefHeight="26.0" prefWidth="178.0" promptText="votre montant" />
-      <Label layoutX="111.0" layoutY="128.0" text="Cin" />
-      <TextField fx:id="cin" layoutX="270.0" layoutY="120.0" prefHeight="26.0" prefWidth="184.0" promptText="votre cin" />
-      
-      <RadioButton fx:id="Renseignant" layoutX="238.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" text="enseignant">
-         <toggleGroup>
-            <ToggleGroup fx:id="group" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="Rparent" layoutX="367.0" layoutY="72.0" mnemonicParsing="false" selected="true" text="parent" toggleGroup="$group" />
-      <RadioButton fx:id="Rbabysitter" layoutX="456.0" layoutY="72.0" mnemonicParsing="false" text="babysitter" toggleGroup="$group" />
-      <Button fx:id="btretour" layoutX="460.0" layoutY="709.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+      <Label fx:id="Lnom" layoutX="435.0" layoutY="148.0" text="Nom">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lprenom" layoutX="849.0" layoutY="146.0" text="Prenom">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lpseudo" layoutX="46.0" layoutY="202.0" text="Pseudo">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lmdp" layoutX="391.0" layoutY="200.0" text="Mot de passe">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lemail" layoutX="863.0" layoutY="209.0" prefHeight="32.0" prefWidth="75.0" text="Email">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Ladresse" layoutX="50.0" layoutY="256.0" text="Adresse">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lmontant" layoutX="421.0" layoutY="263.0" text="Montant">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lnom_club" layoutX="861.0" layoutY="272.0" text="Nom club">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lnum_tel" layoutX="54.0" layoutY="312.0" text="Numero">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cin" layoutX="185.0" layoutY="142.0" promptText="carte d'identité" />
+      <TextField fx:id="nom" layoutX="527.0" layoutY="148.0" promptText="nom" />
+      <TextField fx:id="prenom" layoutX="966.0" layoutY="144.0" promptText="prenom" />
+      <TextField fx:id="pseudo" layoutX="185.0" layoutY="196.0" promptText="pseudo" />
+      <TextField fx:id="mdp" layoutX="528.0" layoutY="195.0" promptText="mot de passe" />
+      <TextField fx:id="email" layoutX="976.0" layoutY="203.0" promptText="Exp:nom@yahoo.com" />
+      <TextField fx:id="adresse" layoutX="184.0" layoutY="246.0" promptText="adresse" />
+      <TextField fx:id="montant" layoutX="535.0" layoutY="253.0" promptText="montant" />
+      <TextField fx:id="club" layoutX="985.0" layoutY="266.0" promptText="nom du club" />
+      <TextField fx:id="num_tel" layoutX="183.0" layoutY="305.0" promptText="numero téléphone" />
+      <Button layoutX="707.0" layoutY="398.0" mnemonicParsing="false" onAction="#inscrire" prefHeight="32.0" prefWidth="120.0" text="Valider" />
+      <TextField fx:id="mdp2" layoutX="568.0" layoutY="315.0" promptText="mot de passe" />
+      <Label fx:id="Lmdp1" layoutX="402.0" layoutY="319.0" text="Mot de passe">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
