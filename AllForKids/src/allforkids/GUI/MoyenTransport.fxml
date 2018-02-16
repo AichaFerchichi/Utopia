@@ -16,9 +16,9 @@
 
 <AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1085.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.MoyenTransportController">
    <children>
-      <ImageView fitHeight="707.0" fitWidth="1144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="707.0" fitWidth="1085.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Downloads/28124998_1762045137180557_1822492796_o.jpg" />
+            <Image url="@img/hou.png" />
          </image>
       </ImageView>
       <HBox layoutX="18.0" layoutY="11.0" prefHeight="60.0" prefWidth="1036.0" styleClass="box-topo">

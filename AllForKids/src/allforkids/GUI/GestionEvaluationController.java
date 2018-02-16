@@ -8,22 +8,28 @@ package allforkids.GUI;
 import allforkids.entite.Evaluation;
 
 import allforkids.service.EvaluationService;
+import java.io.IOException;
 
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -49,8 +55,6 @@ public class GestionEvaluationController implements Initializable {
     private TextArea remarque;
     
  @FXML
-    private AnchorPane AnchorPane1;
- @FXML
     private TableView<Evaluation> table;
  @FXML
     private TableColumn<Evaluation, Integer> Cid;
@@ -64,6 +68,14 @@ public class GestionEvaluationController implements Initializable {
     private TableColumn<Evaluation, Float> Cmoyenne;
     @FXML
     private TableColumn<Evaluation, String> Cremarque;
+    @FXML
+    private Label lbTitulo1;
+    @FXML
+    private ToggleGroup menu;
+    @FXML
+    private Button btretour;
+    @FXML
+    private AnchorPane AnchorPane1;
     /**
      * Initializes the controller class.
      */
@@ -87,6 +99,7 @@ public class GestionEvaluationController implements Initializable {
               Cremarque.setCellValueFactory(new PropertyValueFactory<>("remarque"));
 
        }
+    @FXML
      public void ajouter()
      {
      EvaluationService ps=new EvaluationService();
@@ -100,6 +113,7 @@ public class GestionEvaluationController implements Initializable {
         afficherEva();
         
      }
+    @FXML
      public void supprimer()
      {
          int i=table.getSelectionModel().getSelectedItem().getId_evaluation();
@@ -115,6 +129,7 @@ public class GestionEvaluationController implements Initializable {
       afficherEva();}
         
      }
+    @FXML
      public void modifier()
      {
           btn1.setDisable(false);
@@ -126,6 +141,7 @@ public class GestionEvaluationController implements Initializable {
      remarque.setText(table.getSelectionModel().getSelectedItem().getRemarque());
     
      }
+    @FXML
      public void mod2()
      {
      EvaluationService ps=new EvaluationService();
@@ -135,7 +151,8 @@ public class GestionEvaluationController implements Initializable {
      ps.update(e);
      afficherEva();
      }
-public void rechercher()
+    @FXML
+    public void rechercher()
 {
 Evaluation e=null;
 String nom=entrer.getText();
@@ -156,4 +173,14 @@ String nom=entrer.getText();
               }
 
 }
+
+
+    @FXML
+    private void retour(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    
 }
