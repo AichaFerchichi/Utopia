@@ -75,7 +75,7 @@ public GarderieService()
         System.out.println("");
     try {
         while(result.next()){
-            Garderie p=new Garderie(result.getInt(1),result.getString(2),result.getString(3),result.getInt(4),result.getString(5));
+            Garderie p=new Garderie(result.getInt(1),result.getString(2),result.getString(3),result.getInt(4),result.getString(5),result.getString("image"));
             garderies.add(p);
         }
     } catch (SQLException ex) {

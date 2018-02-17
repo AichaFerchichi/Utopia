@@ -38,7 +38,7 @@ public class Enfant {
         this.prenom = prenom;
         
     }
-public Enfant(int id_garderie, int id_parent, String nom, String prenom, int age) {
+public Enfant(int id_parent,int id_garderie, String nom, String prenom, int age) {
        
         this.id_parent = id_parent;
         this.nom = nom;
@@ -56,7 +56,7 @@ public Enfant(int id_garderie, int id_parent, String nom, String prenom, int age
     }
 
     public Enfant() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
   

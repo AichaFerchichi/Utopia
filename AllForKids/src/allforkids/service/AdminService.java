@@ -136,7 +136,7 @@ public AdminService()
   
     public Admin findbyLogin(String s) {
         Admin user = null;
-        String req = "select * from user where pseudo =? ";
+        String req = "select * from users where pseudo =? ";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connexion.prepareStatement(req);
