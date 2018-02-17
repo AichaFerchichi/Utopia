@@ -16,7 +16,9 @@ import allforkids.service.EnfantService;
 import allforkids.service.EnseignantService;
 import allforkids.service.GarderieService;
 import allforkids.service.ParentService;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -34,6 +36,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -44,6 +47,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -119,6 +123,7 @@ private AnchorPane AnchorPane1;
     @FXML
     private Label Lnum_tel4;
     @FXML
+<<<<<<< HEAD
     private Label Lnum_tel11;
     @FXML
     private Label Lnum_tel12;
@@ -139,6 +144,17 @@ private AnchorPane AnchorPane1;
     @FXML
     private Button btP;
  
+=======
+    private Label Lmdp1;
+    @FXML
+    private Label Lcin1;
+    @FXML
+    private DatePicker naissance;
+    @FXML
+    private TextField imgPath;
+    @FXML
+    private ImageView imgV;
+>>>>>>> 3db797bc14b3af9e46e3dd6a411f0654da6d5e90
     /**
      * Initializes the controller class.
      */
@@ -245,7 +261,11 @@ ToggleGroup etude = new ToggleGroup();
       
     }
     @FXML
+<<<<<<< HEAD
     public void inscrire() throws IOException
+=======
+    public void inscrire()
+>>>>>>> 3db797bc14b3af9e46e3dd6a411f0654da6d5e90
     {
         
      if(Renseignant.isSelected()){
@@ -273,7 +293,7 @@ ToggleGroup etude = new ToggleGroup();
        
       
       Babysitter p=new Babysitter(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
-      email.getText(),adresse.getText(),Integer.parseInt(num_tel.getText()));
+      email.getText(),adresse.getText(),Integer.parseInt(num_tel.getText()),naissance.getEditor().getText(),imgPath.getText());
       BabysitterService ps= new BabysitterService();
       ps.insert(p);
       cin.clear();
@@ -285,6 +305,7 @@ ToggleGroup etude = new ToggleGroup();
       email.clear();
       club.clear();
       num_tel.clear();
+      imgPath.clear();
       club.setDisable(false);
       afficher();
               
@@ -302,6 +323,7 @@ ToggleGroup etude = new ToggleGroup();
     }
 
     @FXML
+<<<<<<< HEAD
     private void listegarderie(ActionEvent event) throws IOException {
         
         LoggedEnfant = new Enfant();
@@ -334,6 +356,24 @@ ToggleGroup etude = new ToggleGroup();
     }
 
 }
+=======
+    private void actionBrowser(ActionEvent event) throws MalformedURLException{  
+        String imageFile;
+      
+        FileChooser fc = new FileChooser();
+        File selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null) {
+            imageFile = selectedFile.toURI().toURL().toString();
+            System.out.println(imageFile);
+            Image image1 = new Image(imageFile);
+            imgV.setImage(image1);
+            imgPath.setText(imageFile);
+        } else {
+            System.out.println("file doesn't exist");
+        }
+     
+    }}
+>>>>>>> 3db797bc14b3af9e46e3dd6a411f0654da6d5e90
     
     
 

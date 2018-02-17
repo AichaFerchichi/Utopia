@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="608.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ProduitDetailsController">
+   <children>
+      <Text fx:id="nom" layoutX="479.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="categorie" layoutX="479.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="prix" layoutX="479.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="desc" layoutX="478.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="281.0000142157078" />
+      <Button layoutX="689.0" layoutY="203.0" mnemonicParsing="false" text="Add To cart" />
+      <TextArea fx:id="commentaire" layoutX="463.0" layoutY="264.0" prefHeight="74.0" prefWidth="288.0" />
+      <Button layoutX="705.0" layoutY="402.0" mnemonicParsing="false" text="Comment" />
+      <ListView fx:id="listeC" layoutX="463.0" layoutY="434.0" prefHeight="153.0" prefWidth="312.0" />
+      <ImageView fx:id="image" fitHeight="418.0" fitWidth="431.0" layoutX="17.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="714.0" layoutY="14.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+   </children>
+</AnchorPane>

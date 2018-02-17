@@ -6,6 +6,7 @@
 package allforkids.GUI;
 
 import static allforkids.GUI.AuthentificationController.LoggedUser;
+import allforkids.entite.Babysitter;
 import allforkids.entite.Parent;
 import allforkids.entite.User;
 import allforkids.service.AdminService;
@@ -48,8 +49,10 @@ public class AuthentificationController implements Initializable {
 @FXML
     private PasswordField tfMdp;
 
-public static User LoggedUser;
+
 public static Parent LoggedParent;
+public static Babysitter LoggedBabysitter;
+public static User LoggedUser;
     @FXML
     private Button btn;
 
@@ -83,7 +86,7 @@ public static Parent LoggedParent;
       System.out.println(type);
           if(type.equals("parent")){
               
-   LoggedParent = new Parent();
+                LoggedParent = new Parent();
                 LoggedParent.setId_user(u.getId_user());
        System.out.println(u);
             AnchorPane1.getChildren().clear();
@@ -111,6 +114,20 @@ public static Parent LoggedParent;
              
             AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Acceuilkids2.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+         
+
+       
+    
+    }
+                    else if(type.equals("babysitter")){
+                        LoggedBabysitter = new Babysitter();
+                LoggedBabysitter.setId_user(u.getId_user());
+       //System.out.println(u.getId_user());
+       // System.out.println(tfPseudo.getText());
+             
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilGeneral.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
          
 
