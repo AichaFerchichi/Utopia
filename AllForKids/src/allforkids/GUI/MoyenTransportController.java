@@ -69,6 +69,8 @@ public class MoyenTransportController implements Initializable {
     private ToggleGroup menu;
     @FXML
     private AnchorPane AnchorPane1;
+    @FXML
+    private Button btretour;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,6 +89,7 @@ public class MoyenTransportController implements Initializable {
         Cnbr.setCellValueFactory(new PropertyValueFactory<>("nombre_de_place"));
               
        }
+    @FXML
     public void retour() throws IOException
     {
     

@@ -151,7 +151,7 @@ private RadioButton Rparent;
     group.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
          @Override
     public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
-
+ToggleGroup group = new ToggleGroup();
          if (group.getSelectedToggle() != null) {
 
              System.out.println(group.getSelectedToggle().getUserData().toString());

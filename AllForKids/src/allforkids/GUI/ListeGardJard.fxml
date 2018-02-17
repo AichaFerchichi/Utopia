@@ -44,5 +44,6 @@
       </TableView>
       <Button fx:id="btinscrit" layoutX="980.0" layoutY="271.0" mnemonicParsing="false" onAction="#inscrire" text="S'inscrire" />
       <Button fx:id="btretour" layoutX="971.0" layoutY="662.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+      <Button fx:id="btretour1" layoutX="885.0" layoutY="662.0" mnemonicParsing="false" onAction="#retour2" style="-fx-background-color: #FFFAF4;" text="precedent" />
    </children>
 </AnchorPane>

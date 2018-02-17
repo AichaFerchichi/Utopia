@@ -1,0 +1,20 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.toggle {
+      -fx-background-color: transparent;
+      -fx-border-radius: 50%;
+      
+      
+
+}
+.button{
+    
+   -fx-background-color:  #800000;
+   
+}
+.button:pressed{
+    -fx-background-color: #000000;
+    
+}

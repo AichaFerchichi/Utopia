@@ -274,7 +274,7 @@ public class ListePromotionsController implements Initializable {
     }
 
      @FXML
-    private void retour(MouseEvent event) throws IOException {
+    private void retour(ActionEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeProduits.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);

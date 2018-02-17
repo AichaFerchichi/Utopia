@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -74,6 +75,24 @@ public class AccueilParentController implements Initializable {
         System.out.println(id_user.getText());
         
     
+    }
+
+    @FXML
+    private void afficher1(MouseEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void afficher2(MouseEvent event) {
+    }
+
+    @FXML
+    private void afficher3(MouseEvent event) throws IOException {
+       AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evaluation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 
     

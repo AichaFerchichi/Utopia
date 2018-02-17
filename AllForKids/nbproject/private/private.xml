@@ -6,7 +6,6 @@
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/PromotionService.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ParentService.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Promotion.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListeGardJardController.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/InscriptionUserController.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/InscriptionController.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListViewTestController.java</file>
@@ -14,15 +13,17 @@
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/listeProduits.fxml</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListePromotions.fxml</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListeProduitsController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ProduitDetails.fxml</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListePromotionsController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/util/ControlesaisieJ.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/GestionUserController.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/listViewTest.fxml</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ProduitService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ProduitDetailsController.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/OffreDemandeController.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Produit.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/CommandeService.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/allforkids.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
         </group>
     </open-files>
