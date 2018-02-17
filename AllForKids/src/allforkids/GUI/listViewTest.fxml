@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="624.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListViewTestController">
+   <children>
+      <TabPane fx:id="tab" layoutY="62.0" prefHeight="562.0" prefWidth="883.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab onSelectionChanged="#afficherListeProduits2" text="jouets">
+               <content>
+                  <ListView fx:id="liste1" onMouseClicked="#onselect" prefHeight="544.0" prefWidth="804.0" />
+               </content>
+            </Tab>
+          <Tab onSelectionChanged="#afficherListeProduits2" text="vêtements">
+               <content>
+                  <ListView fx:id="liste2" onMouseClicked="#onselect" prefHeight="544.0" prefWidth="804.0" />
+               </content>
+            </Tab>
+            <Tab text="fournitures">
+               <content>
+                  <ListView fx:id="liste3" onMouseClicked="#onselect" prefHeight="544.0" prefWidth="804.0" />
+               </content>
+            </Tab>
+            <Tab text="view all">
+               <content>
+                  <ListView fx:id="liste4" onMouseClicked="#onselect" prefHeight="544.0" prefWidth="804.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Text layoutX="28.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des produits : " wrappingWidth="268.17578125">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

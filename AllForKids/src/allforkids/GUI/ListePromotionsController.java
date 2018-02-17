@@ -18,6 +18,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +30,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,6 +42,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -131,6 +135,15 @@ public class ListePromotionsController implements Initializable {
                 Logger.getLogger(ListePromotionsController.class.getName()).log(Level.SEVERE, null, ex);
             }
                 });
+        
+     /*   Identifiant.setCellValueFactory(new Callback<CellDataFeatures<Promotion, Image>, ObservableValue<Image>>() {
+            @Override
+            public ObservableValue<Image> call(CellDataFeatures<Promotion, Image> param) {
+                Promotion p = param.getValue() ; 
+                return new SimpleObjectProperty<>(new Image(.toURI().toString(), 100, 100, true, true, true));
+            }
+            
+        });*/
          
          afficherListePromotions() ; 
     }    
@@ -178,8 +191,7 @@ public class ListePromotionsController implements Initializable {
         pourcentage.setCellValueFactory(new PropertyValueFactory<>("pourcentage"));     
         date_d.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
         date_f.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
-        
-      
+     
        }
     
     @FXML
@@ -264,7 +276,7 @@ public class ListePromotionsController implements Initializable {
      @FXML
     private void retour(MouseEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeProduits.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 }

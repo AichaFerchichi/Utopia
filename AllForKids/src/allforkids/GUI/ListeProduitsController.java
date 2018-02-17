@@ -33,6 +33,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TableCell;
@@ -42,6 +43,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -72,7 +74,7 @@ public class ListeProduitsController implements Initializable {
     private TableColumn<Produit, String> Image ;
             //= new TableColumn<Produit, String>("image") ;
     @FXML
-    private TableColumn<Produit, Integer> Identifiant;
+    private TableColumn<Produit, Image> Identifiant;
     @FXML
     private TableColumn<Produit, String> Nom;
     @FXML
@@ -162,37 +164,45 @@ public class ListeProduitsController implements Initializable {
             ProduitService ps = new ProduitService();
             listeP.setItems(null);
             listeP.setItems(ps.getAll());
-
-        
-        Identifiant.setCellValueFactory(new PropertyValueFactory<>("id_produit"));
-       // idProd.cellFactoryProperty();
-        Nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-       // nom.cellFactoryProperty();
-        Cat.setCellValueFactory(new PropertyValueFactory<>("catégorie"));
-           // Cat.cellFactoryProperty();
-        Prix.setCellValueFactory(new PropertyValueFactory<>("prix_produit"));
-       // prix.cellFactoryProperty();
-        Description.setCellValueFactory(new PropertyValueFactory<>("description"));
-       // description.cellFactoryProperty();
-       /*String imageFile = imgPath.getText() ;
-       System.out.println(imageFile);
-       ImageView image1 = new ImageView(imageFile);*/
+            
+            Identifiant.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Produit, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<Produit, Image> param) {
+                    Produit p = param.getValue() ; 
+                    return new SimpleObjectProperty<>(new Image(p.getImage(), 100, 100, true, true, true));
+                }
+            }) ; 
+            Identifiant.setCellFactory(new Callback<TableColumn<Produit, Image>, TableCell<Produit, Image>>() {
+                @Override
+                public TableCell<Produit, Image> call(TableColumn<Produit, Image> param) {
+                    return new TableCell<Produit, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        ImageView imageView = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        setGraphic(imageView);
+                    }
+                } ; 
+                }
+            });
       
-      // Image.setCellValueFactory(new PropertyValueFactory<>("image"));
-       //imgV.setImage(image1);
+   
+        Nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+     
+        Cat.setCellValueFactory(new PropertyValueFactory<>("catégorie"));
+          
+        Prix.setCellValueFactory(new PropertyValueFactory<>("prix_produit"));
+     
+        Description.setCellValueFactory(new PropertyValueFactory<>("description"));
+      
       
        }
      
     public void actionBrowser()throws MalformedURLException {
         
         String imageFile;
-        /*JFileChooser chooser = new JFileChooser() ; 
-        chooser.showOpenDialog(null) ; 
-        File f = chooser.getSelectedFile() ; 
-        String filename = f.getAbsolutePath() ; 
-        imgPath.setText(filename);
-        Image image = new Image(filename) ; 
-        imgV.setImage(image);*/
         FileChooser fc = new FileChooser();
         File selectedFile = fc.showOpenDialog(null);
         if (selectedFile != null) {
