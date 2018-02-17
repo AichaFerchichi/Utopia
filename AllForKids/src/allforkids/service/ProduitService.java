@@ -75,6 +75,21 @@ public ProduitService()
         }
         return list;
     }
+       
+    public ObservableList<Produit> getAll2() {
+         ObservableList<Produit> list=FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select * from produits");
+          
+            while (result.next()) {
+                Produit p = new Produit(result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
     
    /* public Byte getImage(int id) {
         
@@ -97,6 +112,19 @@ public ProduitService()
     public Produit search(int id) {
         Produit p = null ; 
     String req = "select * from produits where id_produit="+id ; 
+    try{
+        result = st.executeQuery(req) ; 
+        result.next() ; 
+        p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description")) ; 
+    }   catch (SQLException ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return p ; 
+    }
+    
+    public Produit searchImg(String img) {
+        Produit p = null ; 
+    String req = "select * from produits where image   '"+img+"' "; 
     try{
         result = st.executeQuery(req) ; 
         result.next() ; 
@@ -149,7 +177,7 @@ public ProduitService()
     try{
         result = st.executeQuery("select * from produits where categorie like '"+s+"' ") ; 
       while (result.next()) { 
-        Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"));
+        Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"));
                 liste.add(p); 
     } }  catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
