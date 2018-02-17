@@ -23,12 +23,12 @@ public class allforkids extends Application{
 @Override
     public void start(Stage stage) throws IOException {
 
-      Parent root = FXMLLoader.load(getClass().getResource("ListViewTest.fxml"));
+      //Parent root = FXMLLoader.load(getClass().getResource("ListViewTest.fxml"));
 
        // Parent root = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
 
 
-     //  Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
 
        //Parent root = FXMLLoader.load(getClass().getResource("MoyenTransport.fxml"));
 

@@ -123,7 +123,7 @@ private AnchorPane AnchorPane1;
     @FXML
     private Label Lnum_tel4;
     @FXML
-<<<<<<< HEAD
+
     private Label Lnum_tel11;
     @FXML
     private Label Lnum_tel12;
@@ -143,8 +143,6 @@ private AnchorPane AnchorPane1;
     private Button btV;
     @FXML
     private Button btP;
- 
-=======
     private Label Lmdp1;
     @FXML
     private Label Lcin1;
@@ -154,19 +152,17 @@ private AnchorPane AnchorPane1;
     private TextField imgPath;
     @FXML
     private ImageView imgV;
->>>>>>> 3db797bc14b3af9e46e3dd6a411f0654da6d5e90
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        try {
+        
             // TODO
             afficher();
-        } catch (IOException ex) {
-            Logger.getLogger(InscriptionUserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         ToggleGroup group = new ToggleGroup();
     RadioButton Renseignant = new RadioButton("select first");
    Renseignant.setToggleGroup(group);
@@ -207,9 +203,10 @@ ToggleGroup etude = new ToggleGroup();
 });
     }    
      @FXML
-    public void afficher() throws IOException{
+    public void afficher() {
      if(Rparent.isSelected()){
-         
+      imgPath.setDisable(true);
+    naissance.setDisable(true);
     num_tel.setDisable(true);
       club.setDisable(true);
       montant.setDisable(false);
@@ -233,7 +230,8 @@ ToggleGroup etude = new ToggleGroup();
      }
      
      if(Renseignant.isSelected())
-    {
+    {imgPath.setDisable(true);
+    naissance.setDisable(true);
      num_tel.setDisable(true);
         club.setDisable(false);
         montant.setDisable(false);
@@ -244,9 +242,11 @@ ToggleGroup etude = new ToggleGroup();
     an3.setVisible(false);
     btV.setVisible(true);
      btP.setVisible(false);
+    
     }
       if(Rbabysitter.isSelected()){
-          
+          imgPath.setDisable(false);
+    naissance.setDisable(false);
         montant.setDisable(true);
      num_tel.setDisable(false);
       club.setDisable(true);
@@ -261,11 +261,7 @@ ToggleGroup etude = new ToggleGroup();
       
     }
     @FXML
-<<<<<<< HEAD
-    public void inscrire() throws IOException
-=======
-    public void inscrire()
->>>>>>> 3db797bc14b3af9e46e3dd6a411f0654da6d5e90
+    public void inscrire() 
     {
         
      if(Renseignant.isSelected()){
@@ -285,9 +281,7 @@ ToggleGroup etude = new ToggleGroup();
       num_tel.clear();
        num_tel.setDisable(false);
        afficher();
-    
-      
-    
+   
     }
      else if(Rbabysitter.isSelected()){
        
@@ -308,11 +302,7 @@ ToggleGroup etude = new ToggleGroup();
       imgPath.clear();
       club.setDisable(false);
       afficher();
-              
-    
-      
-    
-    }
+             }
     
     }
 
@@ -323,7 +313,7 @@ ToggleGroup etude = new ToggleGroup();
     }
 
     @FXML
-<<<<<<< HEAD
+
     private void listegarderie(ActionEvent event) throws IOException {
         
         LoggedEnfant = new Enfant();
@@ -355,9 +345,8 @@ ToggleGroup etude = new ToggleGroup();
         
     }
 
-}
-=======
-    private void actionBrowser(ActionEvent event) throws MalformedURLException{  
+ @FXML
+    public void actionBrowser(ActionEvent event) throws MalformedURLException{  
         String imageFile;
       
         FileChooser fc = new FileChooser();
@@ -372,8 +361,10 @@ ToggleGroup etude = new ToggleGroup();
             System.out.println("file doesn't exist");
         }
      
-    }}
->>>>>>> 3db797bc14b3af9e46e3dd6a411f0654da6d5e90
+    }
+
+}
+
     
     
 
