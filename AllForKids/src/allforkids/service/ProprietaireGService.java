@@ -6,6 +6,7 @@
 package allforkids.service;
 
 import allforkids.entite.Admin;
+import allforkids.entite.Enfant;
 import allforkids.entite.ProprietaireG;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
@@ -18,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -60,9 +63,9 @@ public ProprietaireGService()
     }
 
     @Override
-    public  List<ProprietaireG> getAll() {
+    public   ObservableList<ProprietaireG> getAll() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     List<ProprietaireG> ProprietaireGs=new ArrayList<>();
+     ObservableList<ProprietaireG> ProprietaireGs=FXCollections.observableArrayList();
         
     try {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -205,7 +205,7 @@ ToggleGroup etude = new ToggleGroup();
      @FXML
     public void afficher() {
      if(Rparent.isSelected()){
-      imgPath.setDisable(true);
+      imgPath.setDisable(false);
     naissance.setDisable(true);
     num_tel.setDisable(true);
       club.setDisable(true);
