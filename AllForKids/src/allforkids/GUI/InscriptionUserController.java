@@ -11,7 +11,9 @@ import allforkids.entite.Parent;
 import allforkids.service.BabysitterService;
 import allforkids.service.EnseignantService;
 import allforkids.service.ParentService;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -27,14 +29,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -97,6 +103,14 @@ public class InscriptionUserController implements Initializable {
     private TextField mdp2;
     @FXML
     private Label Lmdp1;
+    @FXML
+    private Label Lcin1;
+    @FXML
+    private DatePicker naissance;
+    @FXML
+    private TextField imgPath;
+    @FXML
+    private ImageView imgV;
     /**
      * Initializes the controller class.
      */
@@ -146,6 +160,7 @@ ToggleGroup group = new ToggleGroup();
       
       }
     }
+    @FXML
     public void inscrire()
     {
         
@@ -206,7 +221,7 @@ ToggleGroup group = new ToggleGroup();
       String m=mdp.getText();
       if(m.equals(m2)){
       Babysitter p=new Babysitter(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
-      email.getText(),adresse.getText(),Integer.parseInt(num_tel.getText()));
+      email.getText(),adresse.getText(),Integer.parseInt(num_tel.getText()),naissance.getEditor().getText(),imgPath.getText());
       BabysitterService ps= new BabysitterService();
       ps.insert(p);
       cin.clear();
@@ -219,6 +234,7 @@ ToggleGroup group = new ToggleGroup();
       email.clear();
       club.clear();
       num_tel.clear();
+      imgPath.clear();
       club.setDisable(false);
       afficher();
               
@@ -235,7 +251,23 @@ ToggleGroup group = new ToggleGroup();
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 
-    }
+    @FXML
+    private void actionBrowser(ActionEvent event) throws MalformedURLException{  
+        String imageFile;
+      
+        FileChooser fc = new FileChooser();
+        File selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null) {
+            imageFile = selectedFile.toURI().toURL().toString();
+            System.out.println(imageFile);
+            Image image1 = new Image(imageFile);
+            imgV.setImage(image1);
+            imgPath.setText(imageFile);
+        } else {
+            System.out.println("file doesn't exist");
+        }
+     
+    }}
     
     
 
