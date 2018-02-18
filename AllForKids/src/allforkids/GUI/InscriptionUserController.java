@@ -205,6 +205,7 @@ ToggleGroup etude = new ToggleGroup();
      @FXML
     public void afficher() {
      if(Rparent.isSelected()){
+         imgV.setVisible(false);
       imgPath.setDisable(false);
     naissance.setDisable(true);
     num_tel.setDisable(true);
@@ -230,7 +231,7 @@ ToggleGroup etude = new ToggleGroup();
      }
      
      if(Renseignant.isSelected())
-    {imgPath.setDisable(true);
+    {imgPath.setDisable(false);
     naissance.setDisable(true);
      num_tel.setDisable(true);
         club.setDisable(false);
@@ -267,7 +268,7 @@ ToggleGroup etude = new ToggleGroup();
      if(Renseignant.isSelected()){
         
     Enseignant p=new Enseignant (Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
-      email.getText(),Float.parseFloat(montant.getText()),club.getText());
+      email.getText(),Float.parseFloat(montant.getText()),club.getText(),imgPath.getText());
       EnseignantService ps= new EnseignantService();
       ps.insert(p);
       cin.clear();
@@ -326,6 +327,7 @@ ToggleGroup etude = new ToggleGroup();
          
       LoggedParent = new Parent();
         LoggedParent.setCin(Integer.parseInt(cin.getText()));
+        LoggedParent.setImage(imgPath.getText());
         LoggedParent.setNom(nom.getText());
         LoggedParent.setPrenom(prenom.getText());
          LoggedParent.setPseudo(pseudo.getText());
@@ -336,7 +338,7 @@ ToggleGroup etude = new ToggleGroup();
         System.out.println(LoggedParent.getNom());
         
         Parent p=new Parent(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
-      email.getText(),adresse.getText(),Float.parseFloat(montant.getText()));
+      email.getText(),adresse.getText(),Float.parseFloat(montant.getText()),imgPath.getText());
       ParentService ps= new ParentService();
       ps.insert(p);
         AnchorPane1.getChildren().clear();

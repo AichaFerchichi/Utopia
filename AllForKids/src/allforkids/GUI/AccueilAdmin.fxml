@@ -27,7 +27,7 @@
                   <Image url="@img/logo.png" />
                </image>
             </ImageView>
-            <ToggleButton fx:id="demandes" layoutX="-2.0" layoutY="162.0" mnemonicParsing="false" onAction="#afficher1" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion des demandes de travail" textFill="WHITE" />
+            <ToggleButton fx:id="demandes" layoutX="-2.0" layoutY="162.0" mnemonicParsing="false" onAction="#afficher1" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion des demandes de travail" textFill="WHITE" visible="false" />
             <ToggleButton layoutX="231.0" layoutY="11.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
                <graphic>
                   <ImageView fx:id="retire" fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">

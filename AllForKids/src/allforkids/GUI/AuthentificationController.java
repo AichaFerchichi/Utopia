@@ -7,12 +7,17 @@ package allforkids.GUI;
 
 import static allforkids.GUI.AuthentificationController.LoggedUser;
 import allforkids.entite.Babysitter;
+import allforkids.entite.Enseignant;
 import allforkids.entite.Parent;
 import allforkids.entite.ProprietaireG;
 import allforkids.entite.User;
 import allforkids.service.AdminService;
 import static allforkids.service.AdminService.LoggedUser;
+import allforkids.service.Email;
+import allforkids.service.EnseignantService;
 import allforkids.service.ParentService;
+import allforkids.service.ProprietaireGService;
+import allforkids.service.UserService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -33,8 +38,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -57,6 +65,24 @@ public static Babysitter LoggedBabysitter;
 public static User LoggedUser;
     @FXML
     private Button btn;
+    @FXML
+    private Label mdp;
+    @FXML
+    private AnchorPane an2;
+    @FXML
+    private AnchorPane anMail;
+    @FXML
+    private TextField tfmail;
+    @FXML
+    private Button annuler;
+    @FXML
+    private AnchorPane an3;
+    @FXML
+    private Label pseudo;
+    @FXML
+    private TextField mail;
+    @FXML
+    private ImageView img;
 
 
     /**
@@ -92,7 +118,7 @@ public static User LoggedUser;
                 LoggedParent.setId_user(u.getId_user());
        System.out.println(u);
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilGeneral.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
             
 
@@ -101,7 +127,6 @@ public static User LoggedUser;
               }
           else if(type.equals("enseignant")){
            
-    
         System.out.println(tfPseudo.getText());
        
             AnchorPane1.getChildren().clear();
@@ -181,7 +206,119 @@ public static User LoggedUser;
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("InscriptionUser.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
+    @FXML
+ public void changerStyle()
+ {
+  mdp.setTextFill(Color.BLUE);
+ }
+    @FXML
+ public void PARAMMDP(){
+     an2.setVisible(false);
+  anMail.setVisible(true);
+  an3.setVisible(false);
+ }
 
+    @FXML
+    private void retour(ActionEvent event) {
+        an2.setVisible(true);
+  anMail.setVisible(false);
+  an3.setVisible(false);
+    }
+public static String adress;
+public static String motdepasse;
+    @FXML
+    private void continuer(ActionEvent event) {
+    
+        Email emailS = new Email();
+        
+        String[] to = {adress};
+        /*from = "Tunisia Mall administration";
+             subject = "This is confirmation number for your expertprogramming account. Please insert this number to activate your account.";
+            String messageText = "Bonjour, félicitation nous avons pris votre demande d'emploi en considération et vous êtes accepté pour ce poste\n Responsable ";
+         */
+        String adresse = "espritmail2@gmail.com";
+        System.out.println(adresse);
+        String subject = "AllForKids";
+        String messageText = "Bonjour, notre cher utilisateur vous avez réclamez que vous avez oubliez votre mot de passe et afin de continuer d'utiliser votre compte AllForKids, on vous accorde votre mot de passe qui est le suivant : "+motdepasse ;
+
+        if (emailS.sendMail(adresse,"Esprit15", messageText, subject, to)) {
+        
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        //alert.initOwner(adresse.getScene().getWindow());
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Email Envoyer Avec Succées ");
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+ an2.setVisible(true);
+  anMail.setVisible(false);
+  an3.setVisible(false);
+            }
+        });}
+
+    }
+
+    @FXML
+    private void annuler(ActionEvent event) {
+        an2.setVisible(false);
+  anMail.setVisible(true);
+  an3.setVisible(false);
+    }
+public static Image image1=null;
+    @FXML
+    private void rechercher(ActionEvent event) {
+        UserService us=new UserService();
+        String Mail=tfmail.getText();
+        User u=null;
+         u=us.findbyMail(Mail);
+        if(u==null) {Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Mail introuvable");
+            alert.setHeaderText("veuillez vérifiez votre mail");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                an2.setVisible(false);
+  anMail.setVisible(true);
+  an3.setVisible(false);
+            }}
+        else if(!u.equals(null)){
+         an2.setVisible(false);
+  anMail.setVisible(false);
+  an3.setVisible(true);
+  
+  String m=u.getEmail();
+        System.out.println(m);
+
+  mail.setText(u.getEmail());
+  adress=u.getEmail();
+  motdepasse=u.getMdp();
+  pseudo.setText(u.getPseudo());
+        if(u.getType().equals("parent")){
+        ParentService ps=new ParentService();
+        Parent p=ps.findbyMail(Mail);
+        
+        Image image1 = new Image(p.getImage());
+            img.setImage(image1);
+        
+        }
+          else if(u.getType().equals("enseignant")){
+        EnseignantService ps=new EnseignantService();
+        Enseignant p=ps.findbyMail(Mail);
+         
+        Image image1 = new Image(p.getImage());
+            img.setImage(image1);
+        
+        }
+        else if(u.getType().equals("proprietaireg")){
+        ProprietaireGService ps=new ProprietaireGService();
+        ProprietaireG p=ps.findbyMail(Mail);
+         
+        Image image1 = new Image(p.getImage());
+            img.setImage(image1);
+        
+        }
+        }
+
+    }
    
     
 }

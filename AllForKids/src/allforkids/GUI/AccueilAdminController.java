@@ -95,8 +95,7 @@ public class AccueilAdminController implements Initializable{
             bt2.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ApprouverDemande.fxml"));
            bt2.getChildren().add(newLoadedPane);
-
-        
+  
     }
 
     @FXML
@@ -104,11 +103,11 @@ public class AccueilAdminController implements Initializable{
          bt2.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
            bt2.getChildren().add(newLoadedPane);
-        
     }
 
     @FXML
     private void changer2(MouseEvent event) {
+        
     }
 
     

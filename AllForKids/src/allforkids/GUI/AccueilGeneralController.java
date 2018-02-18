@@ -104,19 +104,14 @@ public class AccueilGeneralController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        affichage(AuthentificationController.LoggedBabysitter);
+       
          imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/enfant.jpg"));
          imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/garderie.jpg"));
          imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/children-4.jpg"));
     bt1.setDisable(true);
      bt.setDisable(false);
     }
-public void affichage(Babysitter u)
-{
-    BabysitterService B=BabysitterService.getInstance();
-    id_user.setText(Integer.toString(u.getId_user()));
-    
-}
+
     
 
     @FXML
@@ -131,13 +126,12 @@ public void affichage(Babysitter u)
 
     @FXML
     private void gotoDemandeTravail(MouseEvent event) throws IOException {
-     
-     
-        
-            
+    
         bt2.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
             bt2.getChildren().add(newLoadedPane);
-    }}
+    }
+
+}
     
 

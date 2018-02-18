@@ -16,8 +16,11 @@ public class Parent extends User{
     private String prenom;
      private String adresse;
     private float montant;
-public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant,String type) {
+    private String image;
+   
+public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant,String type,String image) {
         super(id_user, pseudo, mdp, email,type);
+        this.image=image;
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -27,19 +30,30 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
     public Parent(String pseudo, String mdp,String email) {
         super( pseudo, mdp, email);
         
-    }
-
-    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, 
+    }public Parent(int id_user,int cin, String nom, String prenom, String pseudo, String mdp, 
             String email, String adresse,float montant) {
-        super(pseudo, mdp, email);
+        super(id_user,pseudo, mdp, email);
+      
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.montant = montant;
     }
-    public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant) {
+
+    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, 
+            String email, String adresse,float montant,String image) {
+        super(pseudo, mdp, email);
+        this.image=image;
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.montant = montant;
+    }
+    public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant,String image) {
         super(id_user, pseudo, mdp, email);
+        this.image=image;
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -51,8 +65,9 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
         
     }
 
-    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, String email, String adresse,float montant,String type) {
+    public Parent(int cin, String nom, String prenom, String pseudo, String mdp, String email, String adresse,float montant,String type,String image) {
         super(pseudo, mdp, email,type);
+        this.image=image;
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -74,6 +89,14 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
 
     public String getNom() {
         return nom;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setNom(String nom) {

@@ -17,6 +17,7 @@ public class User {
    
     private String email;
     private String type;
+    
 
     public String getType() {
         return type;

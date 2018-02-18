@@ -61,6 +61,23 @@ public ProprietaireGService()
             Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public ProprietaireG findbyMail(String s) {
+        ProprietaireG user = null;
+        String req = "select * from users where email =? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connexion.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             result = preparedStatement.executeQuery();
+            while (result.next()) {
+                user = new ProprietaireG(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(13));
+                break;
+            }
+        } catch (SQLException ex) {
+            System.out.println("mail not found ");
+        }
+        return user;
+    }
 
     @Override
     public   ObservableList<ProprietaireG> getAll() {
@@ -210,7 +227,7 @@ return LoggedUser;
            result = preparedStatement.executeQuery();
             while (result.next()) {
 
-            ProprietaireG p=new ProprietaireG(result.getInt(1),result.getString(5),result.getString(6),result.getString(7));
+            ProprietaireG p=new ProprietaireG(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(13));
             ProprietaireGs.add(p);
         }
     } catch (SQLException ex) {
