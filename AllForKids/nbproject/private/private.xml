@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/authentification.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/CovoiturageController.java</file>
-            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/demandetravail.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/acceuilkids2.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/demandeController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/listegardjard.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/Babysitter.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/PromotionService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AccueilGeneralController.java</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/ListviewApprouver.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/GestionGarderieController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/Ticket.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/DemandeService.java</file>
@@ -23,14 +22,15 @@
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/inscription.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/TicketService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/GestionUserController.java</file>
-            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/Acceuilkids2Controller.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/ListeGardJardController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/ListeProduitsController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/gestionuser.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/ParentService.java</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/listviewapprouver.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/MoyenDetransport.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/IAllForKids.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/OffreDemande.fxml</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AccueilAdminController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/Offre.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/allforkids.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/accueilparent.css</file>
@@ -38,8 +38,9 @@
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AuthentificationController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/OffreService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AccueilKidsController.java</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/ListviewApprouverController.java</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/approuverdemande.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/OffreDemandeController.java</file>
-            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/demande_travail.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/gestionenfant.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/BabysitterService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/ProduitService.java</file>
@@ -49,41 +50,18 @@
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/ReservationService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/demande.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/Produit.java</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/ListViewTestController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AccueilGeneral.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/Authentification.fxml</file>
-            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/Acceuilkids2.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/accueil.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/AdminService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AccueilAdmin.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/ReponseService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/InscriptionUserController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/demandeTravail.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/evaluation.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/gestionevaluation.css</file>
-=======
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/PromotionService.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ParentService.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Promotion.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/InscriptionUserController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/InscriptionController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListViewTestController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/AuthentificationController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/listeProduits.fxml</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListePromotions.fxml</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListeProduitsController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ProduitDetails.fxml</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListePromotionsController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/util/ControlesaisieJ.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/GestionUserController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/listViewTest.fxml</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/technique/util/DataSource.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ProduitService.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ProduitDetailsController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/OffreDemandeController.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Produit.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/CommandeService.java</file>
-            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/test/AllForKids.java</file>
->>>>>>> b44e7351c8efce868e5eee901025eeba1ae780ec
         </group>
     </open-files>
 </project-private>

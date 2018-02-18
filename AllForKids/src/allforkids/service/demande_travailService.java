@@ -58,9 +58,31 @@ req = "insert into demande_travail(id_babysitter,niveau_etude,poste_actuel,langu
      
     }
 
-    @Override
-    public List<demandetravail> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   @Override
+    public ObservableList<demandetravail> getAll() {
+  ObservableList<demandetravail> demandes=FXCollections.observableArrayList();
+
+    
+        
+    try {
+        rs=st.executeQuery("select * from demande_travail");
+    } catch (SQLException ex) {
+        Logger.getLogger(demande_travailService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+  
+      
+    try {
+        while(rs.next()){
+           demandetravail p;
+            p = new demandetravail(rs.getString("niveau_etude"),rs.getString("poste_actuel"),rs.getString("langue"));
+           demandes.add(p);
+        }
+    } catch (SQLException ex) { 
+        Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    return demandes;
     }
 
     @Override
@@ -70,6 +92,22 @@ req = "insert into demande_travail(id_babysitter,niveau_etude,poste_actuel,langu
 
     @Override
     public demandetravail search(int id) {
+demandetravail p=null;
+        try {
+       
+        rs=st.executeQuery("select * from demande_travail where id_babysitter="+id);
+          if(rs.next())
+            p = new demandetravail(rs.getString("niveau_etude"),rs.getString("poste_actuel"),rs.getString("langue"));
+
+    } catch (SQLException ex) { 
+        Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+        return p; 
+    }
+
+    @Override
+    public void insert(demandetravail t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -87,11 +125,7 @@ req = "insert into demande_travail(id_babysitter,niveau_etude,poste_actuel,langu
     public demandetravail getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void insert(demandetravail t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
-}
+

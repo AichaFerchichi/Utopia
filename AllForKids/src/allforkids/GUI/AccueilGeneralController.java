@@ -104,7 +104,6 @@ public class AccueilGeneralController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        affichage(AuthentificationController.LoggedBabysitter);
          imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/enfant.jpg"));
          imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/garderie.jpg"));
          imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/children-4.jpg"));
