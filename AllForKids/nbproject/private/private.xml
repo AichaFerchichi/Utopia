@@ -9,6 +9,7 @@
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/demandeController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/listegardjard.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/Babysitter.java</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/ClubService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/PromotionService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AccueilGeneralController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/ListviewApprouver.fxml</file>
@@ -50,6 +51,7 @@
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/service/ReservationService.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/demande.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/Produit.java</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/Admin.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/ListViewTestController.java</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/AccueilGeneral.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/Authentification.fxml</file>
@@ -62,6 +64,7 @@
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/demandeTravail.fxml</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/evaluation.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/gestionevaluation.css</file>
+            <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/demandetravail.java</file>
         </group>
     </open-files>
 </project-private>

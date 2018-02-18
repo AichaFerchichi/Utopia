@@ -20,7 +20,7 @@
             </ImageView>
          </graphic>
       </ToggleButton>
-      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutX="-2.0" layoutY="-11.0" prefHeight="879.0" prefWidth="259.0" style="-fx-background-color: #800000;">
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutX="-2.0" layoutY="-11.0" prefHeight="879.0" prefWidth="259.0" style="-fx-background-color: #800000;" visible="false">
          <children>
             <ImageView fitHeight="232.0" fitWidth="258.0" layoutX="1.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,8 +29,10 @@
             </ImageView>
             <ToggleButton fx:id="demandes" layoutX="-2.0" layoutY="162.0" mnemonicParsing="false" onMouseClicked="#afficherApprouver" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion des demandes de travail" textFill="WHITE" />
             <ToggleButton fx:id="retire" layoutX="231.0" layoutY="11.0" mnemonicParsing="false" onAction="#retire" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+            <ToggleButton fx:id="demandes" layoutX="-2.0" layoutY="162.0" mnemonicParsing="false" onAction="#afficher1" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion des demandes de travail" textFill="WHITE" />
+            <ToggleButton layoutX="231.0" layoutY="11.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
                <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="retire" fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/moins.png" />
                      </image>
@@ -45,24 +47,9 @@
             <Font name="Baoli SC Regular" size="40.0" />
          </font>
       </Label>
-      <ToggleButton fx:id="bt" layoutX="808.0" layoutY="342.0" mnemonicParsing="false" onAction="#changer1" prefHeight="53.0" prefWidth="58.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
-         <graphic>
-            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/suivant.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </ToggleButton>
-      <ToggleButton fx:id="bt1" layoutX="734.0" layoutY="344.0" mnemonicParsing="false" onAction="#changer2" prefHeight="53.0" prefWidth="58.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
-         <graphic>
-            <ImageView fitHeight="35.0" fitWidth="39.0" onDragDetected="#changer2" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/precedent.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </ToggleButton>
+      
+       
+      
       <ImageView fx:id="imgView1" fitHeight="161.0" fitWidth="324.0" layoutX="646.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgView2" fitHeight="161.0" fitWidth="324.0" layoutX="1037.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="509.0" layoutY="97.0" text="L'enfance est le temps de l'innocence">
@@ -71,5 +58,23 @@
          </font>
       </Label>
       <TextField fx:id="id_user" layoutX="136.0" layoutY="85.0" visible="false" />
+      <ToggleButton fx:id="bt" layoutX="818.0" layoutY="366.0" mnemonicParsing="false" onAction="#changer1" prefHeight="53.0" prefWidth="58.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/suivant.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="bt1" layoutX="744.0" layoutY="368.0" mnemonicParsing="false" onAction="#changer2" prefHeight="53.0" prefWidth="58.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="39.0" onDragDetected="#changer2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/precedent.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
    </children>
 </AnchorPane>

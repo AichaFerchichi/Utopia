@@ -8,6 +8,7 @@ package allforkids.GUI;
 import static allforkids.GUI.AuthentificationController.LoggedUser;
 import allforkids.entite.Babysitter;
 import allforkids.entite.Parent;
+import allforkids.entite.ProprietaireG;
 import allforkids.entite.User;
 import allforkids.service.AdminService;
 import static allforkids.service.AdminService.LoggedUser;
@@ -51,6 +52,7 @@ public class AuthentificationController implements Initializable {
 
 
 public static Parent LoggedParent;
+public static ProprietaireG LoggedProprietaireG;
 public static Babysitter LoggedBabysitter;
 public static User LoggedUser;
     @FXML
@@ -131,6 +133,19 @@ public static User LoggedUser;
             AnchorPane1.getChildren().add(newLoadedPane);
          
 
+       
+    
+    }
+          
+                    else if(type.equals("proprietaireg")){
+                        LoggedProprietaireG = new ProprietaireG();
+               LoggedProprietaireG.setId_user(u.getId_user());
+       //System.out.println(u.getId_user());
+       // System.out.println(tfPseudo.getText());
+             
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
        
     
     }

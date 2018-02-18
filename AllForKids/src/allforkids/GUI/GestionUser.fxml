@@ -10,28 +10,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionUserController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionUserController">
    <children>
-      <ImageView fitHeight="732.0" fitWidth="1137.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/bd2.jpg" />
-         </image>
-      </ImageView>
-      <HBox layoutX="3.0" layoutY="12.0" prefHeight="60.0" prefWidth="1113.0" styleClass="box-topo">
+      <HBox layoutY="15.0" prefHeight="39.0" prefWidth="1344.0">
          <children>
-            <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" prefHeight="29.0" prefWidth="709.0" text="Gestion des users" textFill="#4da13a" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+            <Label fx:id="lbTitulo1" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="1005.0" text="     Gestion des users" textFill="MAROON">
                <font>
-                  <Font name="System Italic" size="26.0" />
+                  <Font name="AdobeHebrew-Regular" size="30.0" />
                </font>
             </Label>
             <TextField fx:id="entrer" onAction="#rechercher" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
-            <ToggleButton mnemonicParsing="false" onAction="#rechercher" textFill="#a10f0f">
+            <ToggleButton mnemonicParsing="false" onAction="#rechercher" style="-fx-border-color: #800000;" textFill="#a10f0f">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="pesquisar" />
@@ -41,19 +34,19 @@
                   <URL value="@css/gestionevaluation.css" />
                </stylesheets>
             </ToggleButton>
-            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" style="-fx-border-color: #800000;" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-add" />
                </styleClass>
             </ToggleButton>
-            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton mnemonicParsing="false" onAction="#modifier" style="-fx-border-color: #800000;" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-editar" />
                </styleClass>
             </ToggleButton>
-            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton mnemonicParsing="false" onAction="#supprimer" style="-fx-border-color: #800000;" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-excluir" />
@@ -64,66 +57,66 @@
             </ToggleButton>
          </children>
       </HBox>
-      <Label fx:id="Lcin" layoutX="823.0" layoutY="76.0" prefHeight="16.0" prefWidth="55.0" text="CIN">
+      <Label fx:id="Lcin" layoutX="990.0" layoutY="174.0" prefHeight="16.0" prefWidth="55.0" text="CIN">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Lnom" layoutX="823.0" layoutY="138.0" text="Nom">
+      <Label fx:id="Lnom" layoutX="993.0" layoutY="222.0" text="Nom">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Lprenom" layoutX="827.0" layoutY="189.0" text="Prenom">
+      <Label fx:id="Lprenom" layoutX="993.0" layoutY="268.0" text="Prenom">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Lpseudo" layoutX="829.0" layoutY="244.0" text="Pseudo">
+      <Label fx:id="Lpseudo" layoutX="993.0" layoutY="315.0" text="Pseudo">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Lmdp" layoutX="819.0" layoutY="306.0" text="Mot de passe">
+      <Label fx:id="Lmdp" layoutX="993.0" layoutY="363.0" text="Mot de passe">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Lemail" layoutX="824.0" layoutY="366.0" prefHeight="32.0" prefWidth="75.0" text="Email">
+      <Label fx:id="Lemail" layoutX="992.0" layoutY="403.0" prefHeight="32.0" prefWidth="75.0" text="Email">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Ladresse" layoutX="826.0" layoutY="422.0" text="Adresse">
+      <Label fx:id="Ladresse" layoutX="993.0" layoutY="451.0" text="Adresse">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Lmontant" layoutX="825.0" layoutY="478.0" text="Montant">
+      <Label fx:id="Lmontant" layoutX="996.0" layoutY="500.0" text="Montant">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Lnom_club" layoutX="823.0" layoutY="533.0" text="Nom club">
+      <Label fx:id="Lnom_club" layoutX="997.0" layoutY="551.0" text="Nom club">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="Lnum_tel" layoutX="827.0" layoutY="582.0" text="Numero">
+      <Label fx:id="Lnum_tel" layoutX="997.0" layoutY="601.0" text="Numero">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="cin" layoutX="952.0" layoutY="75.0" promptText="carte d'identité" />
-      <TextField fx:id="nom" layoutX="952.0" layoutY="125.0" promptText="nom" />
-      <TextField fx:id="prenom" layoutX="950.0" layoutY="181.0" promptText="prenom" />
-      <TextField fx:id="pseudo" layoutX="952.0" layoutY="243.0" promptText="pseudo" />
-      <TextField fx:id="mdp" layoutX="959.0" layoutY="299.0" promptText="mot de passe" />
-      <TextField fx:id="email" layoutX="964.0" layoutY="353.0" promptText="Exp:nom@yahoo.com" />
-      <TextField fx:id="adresse" layoutX="967.0" layoutY="414.0" promptText="adresse" />
-      <TextField fx:id="montant" layoutX="967.0" layoutY="471.0" promptText="montant" />
-      <TextField fx:id="nom_club" layoutX="966.0" layoutY="526.0" promptText="nom du club" />
-      <TextField fx:id="num_tel" layoutX="964.0" layoutY="576.0" promptText="numero téléphone" />
+      <TextField fx:id="cin" layoutX="1127.0" layoutY="168.0" promptText="carte d'identité" />
+      <TextField fx:id="nom" layoutX="1129.0" layoutY="212.0" promptText="nom" />
+      <TextField fx:id="prenom" layoutX="1130.0" layoutY="260.0" promptText="prenom" />
+      <TextField fx:id="pseudo" layoutX="1131.0" layoutY="306.0" promptText="pseudo" />
+      <TextField fx:id="mdp" layoutX="1131.0" layoutY="352.0" promptText="mot de passe" />
+      <TextField fx:id="email" layoutX="1131.0" layoutY="400.0" promptText="Exp:nom@yahoo.com" />
+      <TextField fx:id="adresse" layoutX="1131.0" layoutY="444.0" promptText="adresse" />
+      <TextField fx:id="montant" layoutX="1132.0" layoutY="494.0" promptText="montant" />
+      <TextField fx:id="nom_club" layoutX="1132.0" layoutY="545.0" promptText="nom du club" />
+      <TextField fx:id="num_tel" layoutX="1132.0" layoutY="591.0" promptText="numero téléphone" />
       
       
     <RadioButton fx:id="Rparent" layoutX="477.0" layoutY="72.0" mnemonicParsing="false" onAction="#afficher" selected="true" text="Parent">
@@ -133,30 +126,25 @@
     </RadioButton>
     <RadioButton fx:id="Renseignant" layoutX="339.0" layoutY="72.0" mnemonicParsing="false" onAction="#afficher" text="Enseignant" toggleGroup="$group" />
       <RadioButton fx:id="Babysitter" layoutX="593.0" layoutY="72.0" mnemonicParsing="false" onAction="#afficher" text="Babysitter" toggleGroup="$group" />
-      <Button fx:id="btn1" disable="true" layoutX="907.0" layoutY="628.0" mnemonicParsing="false" onAction="#mod2" text="Valider Modification" />
       <TextField id="id_user" fx:id="id_user" layoutX="23.0" layoutY="112.0" visible="false" />
-      <AnchorPane layoutX="14.0" layoutY="138.0" prefHeight="200.0" prefWidth="200.0" styleClass="arriere" stylesheets="@css/gestionuser.css">
-         <children>
-            <TableView fx:id="table" prefHeight="522.0" prefWidth="793.0" stylesheets="@css/gestionuser.css">
-               <columns>
-                  <TableColumn fx:id="Cid_user" prefWidth="55.554412841796875" text="id_user" />
-                  <TableColumn fx:id="Ccin" prefWidth="65.21270751953125" text="cin" />
-                  <TableColumn fx:id="Cprenom" prefWidth="65.529052734375" text="prenom" />
-                  <TableColumn fx:id="Cpseudo" minWidth="0.0" prefWidth="66.8707275390625" text="pseudo" />
-                  <TableColumn fx:id="Cmdp" prefWidth="63.4273681640625" text="mdp" />
-                  <TableColumn fx:id="Cemail" prefWidth="76.8453369140625" text="email" />
-                  <TableColumn fx:id="Cadresse" prefWidth="73.402099609375" text="adresse" />
-                  <TableColumn fx:id="Cmontant" prefWidth="80.1109619140625" text="montant" />
-                  <TableColumn fx:id="Cnom_club" prefWidth="88.82012939453125" text="nom_club" />
-                  <TableColumn fx:id="Cnum_tel" prefWidth="414.179931640625" text="num_tel" />
-                  <TableColumn fx:id="Ctype" minWidth="0.0" prefWidth="0.0" text="type" />
-                  <TableColumn fx:id="Cnom" prefWidth="64.92156982421875" text="nom" />
-               </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
-      <Button fx:id="btretour" layoutX="1040.0" layoutY="668.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+      <Button fx:id="btretour" layoutX="1224.0" layoutY="791.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
       <RadioButton fx:id="RpropG" layoutX="167.0" layoutY="73.0" mnemonicParsing="false" onAction="#afficher" text="Propriétaire garderie" toggleGroup="$group" />
+      <TableView fx:id="table" layoutX="42.0" layoutY="137.0" prefHeight="552.0" prefWidth="887.0" style="-fx-border-color: #800000;" stylesheets="@css/gestionuser.css">
+         <columns>
+            <TableColumn fx:id="Cid_user" prefWidth="53.797282218933105" text="id_user" visible="false" />
+            <TableColumn fx:id="Ccin" prefWidth="86.20269393920898" text="cin" />
+            <TableColumn fx:id="Cnom" prefWidth="76.52030944824219" text="nom" />
+            <TableColumn fx:id="Cprenom" prefWidth="77.27374267578125" text="prenom" />
+            <TableColumn fx:id="Cpseudo" minWidth="0.0" prefWidth="80.27371215820312" text="pseudo" />
+            <TableColumn fx:id="Cmdp" prefWidth="78.31759643554688" text="mdp" />
+            <TableColumn fx:id="Cemail" prefWidth="107.31756591796875" text="email" />
+            <TableColumn fx:id="Cadresse" prefWidth="86.38870239257812" text="adresse" />
+            <TableColumn fx:id="Cmontant" prefWidth="87.15875244140625" text="montant" />
+            <TableColumn fx:id="Cnom_club" minWidth="0.0" prefWidth="95.8515625" text="nom_club" />
+            <TableColumn fx:id="Cnum_tel" prefWidth="106.85150146484375" text="num_tel" />
+         </columns>
+      </TableView>
+      <Button fx:id="btn1" layoutX="1125.0" layoutY="658.0" mnemonicParsing="false" onAction="#mod2" text="Valider modification" />
 
    </children>
 </AnchorPane>

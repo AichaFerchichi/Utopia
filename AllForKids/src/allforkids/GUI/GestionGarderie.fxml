@@ -9,46 +9,39 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="706.0" prefWidth="1085.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionGarderieController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionGarderieController">
    <children>
-      <ImageView fitHeight="706.0" fitWidth="1148.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/28124998_1762045137180557_1822492796_o.jpg" />
-         </image>
-      </ImageView>
-      <HBox layoutX="18.0" layoutY="11.0" prefHeight="60.0" prefWidth="1036.0" styleClass="box-topo">
+      <HBox layoutX="18.0" layoutY="11.0" prefHeight="60.0" prefWidth="1310.0" styleClass="box-topo">
          <children>
-            <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Gestion des garderies" textFill="#45d328" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+            <Label prefHeight="31.0" prefWidth="1007.0" text="Gestion des garderies" textFill="MAROON">
                <font>
-                  <Font size="24.0" />
+                  <Font name="AdobeHebrew-Regular" size="26.0" />
                </font>
             </Label>
-            <TextField fx:id="entrer" onAction="#rechercher" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
-            <ToggleButton mnemonicParsing="false" onAction="#rechercher" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
+            <TextField fx:id="entrer" onAction="#rechercher" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" style="-fx-border-color: #800000;" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
+            <ToggleButton mnemonicParsing="false" onAction="#rechercher" style="-fx-border-color: #800000;" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="pesquisar" />
                </styleClass>
             </ToggleButton>
-            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" style="-fx-border-color: #800000;" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-add" />
                </styleClass>
             </ToggleButton>
-            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" style="-fx-border-color: #800000;" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-editar" />
                </styleClass>
             </ToggleButton>
-            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" stylesheets="@css/gestionevaluation.css" text="">
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-border-color: #800000;" stylesheets="@css/gestionevaluation.css" text="">
                <styleClass>
                   <String fx:value="menus-tela" />
                   <String fx:value="menu-excluir" />
@@ -61,25 +54,26 @@
       </HBox>
       <Label layoutX="22.0" layoutY="87.0" text="Nom ">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font></Label>
       <Label layoutX="20.0" layoutY="140.0" text="Adresse">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font></Label>
       <Label layoutX="19.0" layoutY="195.0" text="Numero">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font></Label>
-      <Label layoutX="20.0" layoutY="270.0" text="Description">
+      <Label layoutX="20.0" layoutY="314.0" text="Description">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="AdobeHebrew-Regular" size="18.0" />
          </font></Label>
       <TextField fx:id="num_tel" layoutX="128.0" layoutY="196.0" />
       <TextField fx:id="adresse" layoutX="128.0" layoutY="141.0" />
       <TextField fx:id="nom" layoutX="128.0" layoutY="88.0" />
-      <TableView fx:id="table" layoutX="340.0" layoutY="113.0" prefHeight="393.0" prefWidth="738.0">
+      <TableView fx:id="table" layoutX="429.0" layoutY="108.0" prefHeight="513.0" prefWidth="858.0" style="-fx-border-color: #800000;">
          <columns>
+            <TableColumn fx:id="image" prefWidth="92.07455444335938" text="Image" />
             <TableColumn fx:id="Cid" prefWidth="92.07455444335938" text="Id" />
             <TableColumn fx:id="Cnom" prefWidth="167.0" text="Nom" />
             <TableColumn fx:id="Cadresse" prefWidth="138.0" text="Adresse" />
@@ -87,11 +81,19 @@
             <TableColumn fx:id="Cdescription" minWidth="0.0" prefWidth="216.0" text="Description" />
          </columns>
       </TableView>
-      <Button id="btn1" fx:id="btn1" disable="true" layoutX="193.0" layoutY="458.0" mnemonicParsing="false" onAction="#mod2" text="Valider Modification" />
+      <Button id="btn1" fx:id="btn1" disable="true" layoutX="212.0" layoutY="532.0" mnemonicParsing="false" onAction="#mod2" style="-fx-border-color: #800000;" text="Valider Modification" />
       <TextField fx:id="idEva" layoutX="60.0" layoutY="517.0" visible="false" />
-      <TextArea fx:id="description" layoutX="142.0" layoutY="260.0" prefHeight="155.0" prefWidth="163.0" />
-      <Button fx:id="btliste" layoutX="659.0" layoutY="534.0" mnemonicParsing="false" onAction="#chargerListe" text="Liste des enfants" />
+      <TextArea fx:id="description" layoutX="133.0" layoutY="317.0" prefHeight="155.0" prefWidth="163.0" />
+      <Button fx:id="btliste" layoutX="1118.0" layoutY="649.0" mnemonicParsing="false" onAction="#chargerListe" style="-fx-border-color: #800000;" text="ConsulterListe des enfants" />
       <TextField fx:id="id_garderie" disable="true" layoutX="44.0" layoutY="561.0" visible="false" />
-      <Button fx:id="btretour" layoutX="978.0" layoutY="602.0" mnemonicParsing="false" onAction="#retour" onMouseClicked="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+      <Button fx:id="btretour" layoutX="1193.0" layoutY="774.0" mnemonicParsing="false" onAction="#retour" onMouseClicked="#retour" style="-fx-border-color: #800000;" text="Retour" />
+      <TextField fx:id="id_user" layoutX="85.0" layoutY="785.0" visible="false" />
+      <TextField fx:id="imgPath" layoutX="131.0" layoutY="255.0" />
+      <Button layoutX="314.0" layoutY="255.0" mnemonicParsing="false" onAction="#actionBrowser" style="-fx-border-color: #800000;" text="Browse" />
+      <Label layoutX="21.0" layoutY="258.0" text="Image">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
