@@ -134,6 +134,8 @@ private RadioButton Rparent;
     private Label Lnum_tel;
     @FXML
     private Button btretour;
+    @FXML
+    private RadioButton RpropG;
     
     /**
      * Initializes the controller class.
@@ -217,7 +219,32 @@ ToggleGroup group = new ToggleGroup();
       Cmontant.setVisible(false);
 
     }
-    else if(Babysitter.isSelected())
+    else if(Renseignant.isSelected())
+    {
+         
+        EnseignantService ps=new EnseignantService();
+    montant.setDisable(false);
+    adresse.setDisable(true);
+    nom_club.setDisable(false);
+    num_tel.setDisable(true);
+         table.setItems(null);
+                table.setItems(ps.getAll());
+ Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
+        Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+          Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
+              Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
+              Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+              Cmontant.setCellValueFactory(new PropertyValueFactory<>("montant"));
+              Cnom_club.setCellValueFactory(new PropertyValueFactory<>("nom_club"));
+        Cnom_club.setVisible(false);
+        Cadresse.setVisible(false);
+       Cnum_tel.setVisible(true);
+      Cmontant.setVisible(false);
+
+    }
+    else if(RpropG.isSelected())
     {
          
         BabysitterService ps1=BabysitterService.getInstance();

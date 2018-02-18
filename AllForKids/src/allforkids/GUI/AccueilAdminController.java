@@ -46,7 +46,10 @@ public class AccueilAdminController implements Initializable{
     @FXML
     private TextField id_user;
     @FXML
+
     private ToggleButton retire;
+
+    private ToggleButton utilisateur;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -113,4 +116,13 @@ public class AccueilAdminController implements Initializable{
     }
     
 
+    @FXML
+    private void afficher2(ActionEvent event) throws IOException {
+         bt2.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
+           bt2.getChildren().add(newLoadedPane);
+        
+    }
+
+    
 }

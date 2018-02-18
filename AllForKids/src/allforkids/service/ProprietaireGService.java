@@ -6,9 +6,9 @@
 package allforkids.service;
 
 import allforkids.entite.Admin;
-import allforkids.entite.User;
+import allforkids.entite.Enfant;
+import allforkids.entite.ProprietaireG;
 import allforkids.technique.util.DataSource;
-import allforkids.util.BCrypt;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,28 +19,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author MacBook
  */
-public class AdminService implements IAllForKids<Admin> {
-   Connection connexion;
-     public static Admin LoggedUser;
+public class ProprietaireGService implements IAllForKids<ProprietaireG>{
+    
+Connection connexion;
+     public static ProprietaireG LoggedUser;
 Statement st;
 ResultSet result;
-static AdminService instance;
- public static AdminService getInstance()
+static ProprietaireGService instance;
+ public static ProprietaireGService getInstance()
     {
     if(instance==null)
     {
-    instance = new AdminService();}
+    instance = new ProprietaireGService();}
     return instance;
     
     }
-public AdminService() 
+public ProprietaireGService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -50,52 +51,52 @@ public AdminService()
     }
 }
     @Override
-    public void insert(Admin t) {
+    public void insert(ProprietaireG t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
    String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type)values('0','','','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','','0','','0','admin')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
-            Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
-    public  List<Admin> getAll() {
+    public   ObservableList<ProprietaireG> getAll() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     List<Admin> Admins=new ArrayList<>();
+     ObservableList<ProprietaireG> ProprietaireGs=FXCollections.observableArrayList();
         
     try {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         result=st.executeQuery("select * from users");
     } catch (SQLException ex) {
-        Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
     }
   
         System.out.println("");
     try {
         while(result.next()){
-           Admin p=new Admin(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
-            Admins.add(p);
+           ProprietaireG p=new ProprietaireG(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
+            ProprietaireGs.add(p);
         }
     } catch (SQLException ex) {
-        Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
     }
-    return  Admins;
+    return  ProprietaireGs;
     }
 
     @Override
-    public Admin search(int id) {
+    public ProprietaireG search(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    Admin p=null;
+    ProprietaireG p=null;
         try {
        
         result=st.executeQuery("select * from users where id_user="+id);
           if(result.next())
-         p = new Admin(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
+         p = new ProprietaireG(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
     } catch (SQLException ex) {
-        Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
     }
         
     
@@ -105,37 +106,37 @@ public AdminService()
     @Override
     public boolean delete(int id) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   Admin p=search(id);
+   ProprietaireG p=search(id);
    if(p!=null)
    {
        try {
            st.executeUpdate("delete from users where id_user="+id);
             return true;
        } catch (SQLException ex) {
-           Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
        }
   
    }return false;
     }
 
     @Override
-    public boolean update(Admin t) {
+    public boolean update(ProprietaireG t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    Admin p1=search(t.getId_user());
+   ProprietaireG p1=search(t.getId_user());
    if(p1!=null)
    {
         try {
             st.executeUpdate("Update users set  pseudo='"+t.getPseudo()+"', mdp='"+t.getMdp()+"', email='"+t.getEmail()+"' where id_user="+t.getId_user());
         } catch (SQLException ex) {
-            Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
         }
        return true ;
    }
    return false;
     } 
   
-    public Admin findbyLogin(String s) {
-        Admin user = null;
+    public ProprietaireG findbyLogin(String s) {
+        ProprietaireG user = null;
         String req = "select * from users where pseudo =? ";
         PreparedStatement preparedStatement;
         try {
@@ -143,7 +144,7 @@ public AdminService()
             preparedStatement.setString(1, s);
              result = preparedStatement.executeQuery();
             while (result.next()) {
-                user = new Admin(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
+                user = new ProprietaireG(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
                 break;
             }
         } catch (SQLException ex) {
@@ -151,7 +152,7 @@ public AdminService()
         }
         return user;
     }
-public  Admin Login(String pseudo) throws SQLException {
+public  ProprietaireG Login(String pseudo) throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
      // ObservableList<Admin> Evaluations=FXCollections.observableArrayList();
    String requete = "select * from users where pseudo=?";
@@ -168,7 +169,7 @@ public  Admin Login(String pseudo) throws SQLException {
             
  if (result.next()) {
 
-                LoggedUser = new Admin();
+                LoggedUser = new ProprietaireG();
                 LoggedUser.setId_user(result.getInt("id_user"));
                
                 LoggedUser.setPseudo(result.getString("pseudo"));
@@ -183,14 +184,15 @@ return LoggedUser;
 
     
     @Override
-    public Map<String, Admin> getAllMap() {
+    public Map<String, ProprietaireG> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Admin getbyPseudo(String pseudo) {
+    public ProprietaireG getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
 }
+

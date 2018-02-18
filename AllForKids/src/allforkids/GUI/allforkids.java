@@ -24,9 +24,26 @@ public class allforkids extends Application{
     public void start(Stage stage) throws IOException {
 
 
+//Parent root = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
+
+       //Parent root = FXMLLoader.load(getClass().getResource("MoyenTransport.fxml"));
+
+//                Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
 
 
-       Parent root = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
+    //   Parent root = FXMLLoader.load(getClass().getResource("AccueilGeneral.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+
+
+Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
 
       
 

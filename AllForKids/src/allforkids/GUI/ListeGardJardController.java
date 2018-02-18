@@ -5,37 +5,40 @@
  */
 package allforkids.GUI;
 
+import allforkids.entite.Enfant;
 import allforkids.entite.Garderie;
-import allforkids.entite.JardinEnfant;
+import allforkids.entite.Parent;
+import allforkids.service.EnfantService;
+
 import allforkids.service.GarderieService;
-import allforkids.service.IAllForKids;
-import allforkids.service.JardinEnfantService;
-import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
+import allforkids.service.ParentService;
 import java.io.IOException;
+
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
+
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.beans.value.ObservableValue;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+
 
 /**
  * FXML Controller class
@@ -45,32 +48,13 @@ import javafx.stage.Stage;
 public class ListeGardJardController implements Initializable {
     @FXML
     private AnchorPane AnchorPane1;
- @FXML
-    private TableView<Garderie> table;
     @FXML
-    private TableColumn<Garderie, String> garderie;
+    private ListView<Garderie> Lgarderie;
     @FXML
-    private TableColumn<Garderie, String> info;
+    private TextField id_parent;
     @FXML
-    private TableColumn<Garderie, String> adresse;
-    @FXML
-    private TableColumn<Garderie, Integer> num_tel;
-    @FXML
-    private TableView<JardinEnfant> table1;
-    @FXML
-    private TableColumn<JardinEnfant, String> jardin;
-    @FXML
-    private TableColumn<JardinEnfant, String> info1;
-    @FXML
-    private TableColumn<JardinEnfant, String> adresseJ;
-    @FXML
-    private TableColumn<JardinEnfant, Integer> num_telJ;
-    @FXML
-    private Button btinscrit;
-    @FXML
-    private Button btretour;
-    @FXML
-    private Button btretour1;
+    private TextField id_garderie;
+     
  
     /**
      * Initializes the controller class.
@@ -78,78 +62,101 @@ public class ListeGardJardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        afficherGarderie();
-        afficherJardin();
-        
+       afficherId(InscriptionUserController.LoggedParent);
+        afficher();
+        aff();
     }    
-    @FXML
-    public void retour() throws IOException
-    {
+   
+ 
+
+   public void afficher()
+       {
+          GarderieService ps = new GarderieService() ;
+          ObservableList<Garderie> lp = ps.getAll(); 
+          
+          Lgarderie.setCellFactory((ListView<Garderie> param) -> {
+              ListCell<Garderie> cell = new ListCell<Garderie>() {
+                  @Override
+                  protected void updateItem(Garderie p , boolean bl) {
+                      super.updateItem(p, bl);
+                      
+                      if(p!=null){
+                          Image img = new Image(p.getImage(), 200, 200, true, true, true) ;
+                          ImageView imgV = new ImageView(img) ;
+                          setGraphic(imgV);
+                          
+                          setText("id : "+p.getId_garderie()+"\n Nom : "+p.getNom()+"\n Adresse : "+p.getAdresse()+"\n Numero : "+p.getNum_tel()+"\n Description : "+p.getDescription());
+                      }
+                  }
+              } ; return cell ;
+          });
+      Lgarderie.setItems(lp);
+           
+       } 
+   public void IdGard(){
+    Enfant e=new Enfant();
+    Lgarderie.getSelectionModel().selectedItemProperty().addListener(
+        (ObservableValue<? extends Garderie> ov,  Garderie old_val, 
+            Garderie new_val) -> {
+                System.out.println(new_val);
+               
+        e.setId_garderie(new_val.getId_garderie());
+        
+        
+            System.out.println("garderie id:"+e.getId_garderie());
+            id_garderie.setText(Integer.toString(e.getId_garderie()));
+    }); 
     
-    AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
+   }
+   public void aff()
+   {
+   IdGard();
+   }
+public void confirmerEnfant(Enfant e)
+{
+   
+  Enfant p= new Enfant(Integer.parseInt(id_parent.getText()),Integer.parseInt(id_garderie.getText()),e.getNom(),e.getPrenom(),e.getAge());
+          EnfantService es=new EnfantService();
+          es.insert(p);
+}
+
+public void afficherId(Parent e){
+    ParentService ps= new ParentService();
+     
+     Parent pa=ps.findbyLogin(e.getPseudo());
+     id_parent.setText(Integer.toString(pa.getId_user()));
+
+}
+
     @FXML
-     public void afficherGarderie()
-       {
-           
-            GarderieService ips = new GarderieService();
-            table.setItems(null);
-                table.setItems(ips.getAll());
-
-        garderie.setCellValueFactory(new PropertyValueFactory<>("nom"));
-       
-        
-        adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-        num_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
-              info.setCellValueFactory(new PropertyValueFactory<>("description"));
-
-       }
-    @FXML
-     public void afficherJardin()
-       {
-           
-            JardinEnfantService ips = new JardinEnfantService();
-            table1.setItems(null);
-                table1.setItems(ips.getAll());
-
-        jardin.setCellValueFactory(new PropertyValueFactory<>("nom"));
-       
-        
-        adresseJ.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-        num_telJ.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
-              info1.setCellValueFactory(new PropertyValueFactory<>("description"));
-
-       }
-      @FXML
-    public void inscrire(ActionEvent event) {
-        if (!table.getSelectionModel().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Inscription à une garderie");
-            alert.setHeaderText("etes-vous sur que vous voulez s'inscrire à :  "
-                    + table.getSelectionModel().getSelectedItem().getNom());
+    private void choisir(ActionEvent event) throws IOException {
+      
+        confirmerEnfant(InscriptionUserController.LoggedEnfant);
+       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Inscription");
+            alert.setHeaderText("Inscription términée bienvenue à AllForKids");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                try {
-            AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
+                 AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("InscriptionUser.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
-
-        }       catch (IOException ex) { 
-                    Logger.getLogger(ListeGardJardController.class.getName()).log(Level.SEVERE, null, ex);
-                } 
             }
-
-        }
-    
     }
 
     @FXML
-    private void retour2(ActionEvent event) throws IOException {
+    private void retour(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Annuler");
+            alert.setHeaderText("voulez-vous vraiment aanuler l'inscription");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+     ParentService ps=new ParentService();
+        ps.delete(Integer.parseInt(id_parent.getText()));
         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("InscriptionUser.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);}
     }
+    
+    
 }
 

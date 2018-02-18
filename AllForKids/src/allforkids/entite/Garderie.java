@@ -14,19 +14,37 @@ import java.util.List;
  */
 public class Garderie {
     private int id_garderie;
-  
-private String description;
-private List<Enfant> enfants=new ArrayList<>();
-   
-    private String nom;
+   private String nom;
     private  String adresse;
     private int num_tel;
+private String description;
+private String image;
+private List<Enfant> enfants=new ArrayList<>();
 
-    public Garderie(int id_garderie, String nom, String adresse,int num_tel,String description) {
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+   
+   
+public Garderie(int id_garderie, String nom, String adresse,int num_tel,String description) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.id_garderie=id_garderie;
+        
+        
+        this.description=description;
+    }
+    public Garderie(int id_garderie, String nom, String adresse,int num_tel,String description,String image) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.id_garderie=id_garderie;
+        this.image=image;
         
         this.description=description;
     }

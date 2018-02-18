@@ -171,5 +171,22 @@ public  ObservableList<Parent> getAllByName(String nom) {
     public Parent getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+      public Parent findbyLogin(String s) {
+        Parent user = null;
+        String req = "select * from users where pseudo =? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connexion.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             result = preparedStatement.executeQuery();
+            while (result.next()) {
+                user = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9));
+                break;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return user;
+    }
 }
 

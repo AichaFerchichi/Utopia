@@ -48,7 +48,7 @@ public static demande_travailService getInstance()
    
     public void insert1(demandetravail p,int v) {
 String req;
-req = "insert into demande_travail(id_babysitter,niveau_etude,poste_actuel,langue)values('"+v+"','"+p.getNiveau_etude()+"','"+p.getPoste_actuel()+"','"+p.getLangue()+"')";
+req = "insert into demande_travail(id_babysitter,niveau_etude,poste_actuel,langue,nom,prenom,image,num_tel)values('"+v+"','"+p.getNiveau_etude()+"','"+p.getPoste_actuel()+"','"+p.getLangue()+"','"+p.getNom()+"','"+p.getPrenom()+"','"+p.getImage()+"','"+p.getNum_tel()+"')";
 
     try {
         st.executeUpdate(req);
@@ -75,7 +75,7 @@ req = "insert into demande_travail(id_babysitter,niveau_etude,poste_actuel,langu
     try {
         while(rs.next()){
            demandetravail p;
-            p = new demandetravail(rs.getString("niveau_etude"),rs.getString("poste_actuel"),rs.getString("langue"));
+            p = new demandetravail(rs.getInt("id_demandeTravail"),rs.getInt("id_babysitter"),rs.getString("niveau_etude"),rs.getString("poste_actuel"),rs.getString("langue"),rs.getString("nom"),rs.getString("prenom"),rs.getString("image"),rs.getString("num_tel"));
            demandes.add(p);
         }
     } catch (SQLException ex) { 
@@ -95,9 +95,9 @@ req = "insert into demande_travail(id_babysitter,niveau_etude,poste_actuel,langu
 demandetravail p=null;
         try {
        
-        rs=st.executeQuery("select * from demande_travail where id_babysitter="+id);
+        rs=st.executeQuery("select * from demande_travail where id_demandeTravail="+id);
           if(rs.next())
-            p = new demandetravail(rs.getString("niveau_etude"),rs.getString("poste_actuel"),rs.getString("langue"));
+            p = new demandetravail(rs.getString("niveau_etude"),rs.getString("poste_actuel"),rs.getString("langue"),rs.getString("nom"),rs.getString("prenom"),rs.getString("image"),rs.getString("num_tel"));
 
     } catch (SQLException ex) { 
         Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,7 +113,19 @@ demandetravail p=null;
 
     @Override
     public boolean delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+demandetravail p1=search(id);
+        // System.out.println(p1);
+         
+   if(p1!=null)
+   {
+       try {
+           st.executeUpdate("delete from demande_travail where id_demandeTravail="+id);
+            return true;
+       } catch (SQLException ex) {      
+        Logger.getLogger(demande_travailService.class.getName()).log(Level.SEVERE, null, ex);
+    }      
+  
+   }return false;
     }
 
     @Override

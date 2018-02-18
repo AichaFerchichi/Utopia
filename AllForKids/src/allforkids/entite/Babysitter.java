@@ -18,7 +18,7 @@ public class Babysitter extends User{
     private String nom;
     private String prenom;
     private String adresse;
-    private int num_tel;
+    private String num_tel;
     private String image;
 public java.sql.Date convert(String date) throws ParseException {
 
@@ -35,7 +35,7 @@ public java.sql.Date convert(String date) throws ParseException {
     public String getDate_naissance() {
         return date_naissance;
     }
-    public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,int num_tel,String type,String date_naissance,String image ) {
+    public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,String num_tel,String type,String date_naissance,String image ) {
         super(id_user, pseudo, mdp, Email,type);
         this.date_naissance=date_naissance;
         this.image=image;
@@ -45,7 +45,7 @@ public java.sql.Date convert(String date) throws ParseException {
         this.adresse = adresse;
         this.num_tel = num_tel;
     }
-public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,int num_tel,String date_naissance,String image ) {
+public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,String num_tel,String date_naissance,String image ) {
         super(id_user, pseudo, mdp, Email);
         this.date_naissance=date_naissance;
         this.image=image;
@@ -55,7 +55,7 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         this.adresse = adresse;
         this.num_tel = num_tel;
     }
-    public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, int num_tel,String date_naissance,String type,String image) {
+    public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, String num_tel,String date_naissance,String type,String image) {
         super(pseudo, mdp, Email,type);
         this.cin = cin;
      this.image=image;
@@ -65,7 +65,7 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         this.num_tel = num_tel;
     }
 
-    public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, int num_tel,String date_naissance,String image) {
+    public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, String num_tel,String date_naissance,String image) {
         super(pseudo, mdp, Email);
              this.image=image;
 
@@ -97,9 +97,7 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         return adresse;
     }
 
-    public int getNum_tel() {
-        return num_tel;
-    }
+    
 
     public void setDate_naissance(String date_naissance) {
         this.date_naissance = date_naissance;
@@ -125,9 +123,15 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         this.adresse = adresse;
     }
 
-    public void setNum_tel(int num_tel) {
+    public String getNum_tel() {
+        return num_tel;
+    }
+
+    public void setNum_tel(String num_tel) {
         this.num_tel = num_tel;
     }
+
+    
 
     @Override
     public String toString() {
