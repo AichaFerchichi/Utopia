@@ -28,7 +28,7 @@ public class allforkids extends Application{
        // Parent root = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
 
 
-       Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+       //Parent root = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
 
        //Parent root = FXMLLoader.load(getClass().getResource("MoyenTransport.fxml"));
 
@@ -40,7 +40,7 @@ public class allforkids extends Application{
 
 //                Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
 
-//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
 //Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
 
 

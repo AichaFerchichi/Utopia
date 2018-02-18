@@ -77,8 +77,8 @@ public class GestionEnfantController implements Initializable {
     private TextField id_enfant;
        @FXML
     private TextField prenom_enfant;
-      @FXML
-ComboBox<Integer> idCombo;
+       @FXML
+    private TextField id_parent;
      
     /**
      * Initializes the controller class.
@@ -108,15 +108,18 @@ ComboBox<Integer> idCombo;
     }
         afficher(GestionGarderieController.LoggedUser);
        
-     try {
+     /*try {
          buildData();
      } catch (SQLException ex) {
          System.out.println("data nooo");
-     }
+     }*/
     }    
     public void afficher(Garderie u)
        {
-           
+           nom_enfant.setDisable(true);
+           prenom_enfant.setDisable(true);
+           id_parent.setDisable(true);
+           age.setDisable(true);
            EnfantService ips = new EnfantService();
            
             nom.setText(u.getNom());
@@ -136,7 +139,7 @@ ComboBox<Integer> idCombo;
 
        }
     
-public void buildData() throws SQLException{    
+/*public void buildData() throws SQLException{    
     ObservableList<Integer>  data = FXCollections.observableArrayList();
 st= connexion.createStatement(); 
 result = st.executeQuery("Select id_user from users where type='parent'"); 
@@ -147,28 +150,9 @@ while (result.next())
     idCombo.setItems(data);
 }
 
-    }    
+    }  */  
    
-    @FXML
-    public void ajouter2(){
- ajouter(GestionGarderieController.LoggedUser);
-}
-    public void ajouter(Garderie u)
-     {
-     EnfantService ps=new EnfantService();
-     
-         System.out.println(Integer.parseInt(id_garderie.getText()));
-         System.out.println(idCombo.getSelectionModel().getSelectedItem().intValue());
-        Enfant p= new Enfant(idCombo.getSelectionModel().getSelectedItem().intValue(),Integer.parseInt(id_garderie.getText()),nom_enfant.getText(),prenom_enfant.getText(),Integer.parseInt(age.getText()));
-        ps.insert(p);
-        nom_enfant.clear();
-     prenom_enfant.clear();
-        age.clear();
-      
-       
-        afficher(GestionGarderieController.LoggedUser);
-        
-     }
+  
     @FXML
      public void supprimer()
      {
@@ -190,6 +174,11 @@ while (result.next())
      public void modifier()
      {
           btn1.setDisable(false);
+          id_parent.setText(Integer.toString(table.getSelectionModel().getSelectedItem().getId_parent()));
+          id_parent.setDisable(true);
+          nom_enfant.setDisable(false);
+          prenom_enfant.setDisable(false);
+         age.setDisable(false);
           id_enfant.setText(Integer.toString(table.getSelectionModel().getSelectedItem().getId_enfant()));
      nom_enfant.setText(table.getSelectionModel().getSelectedItem().getNom());
      prenom_enfant.setText(table.getSelectionModel().getSelectedItem().getPrenom());
@@ -202,7 +191,7 @@ while (result.next())
      public void mod2()
      {
      EnfantService ps=new EnfantService();
-     Enfant e=new Enfant(Integer.parseInt(id_enfant.getText()),idCombo.getSelectionModel().getSelectedItem().intValue(),Integer.parseInt(id_garderie.getText()),
+     Enfant e=new Enfant(Integer.parseInt(id_enfant.getText()),Integer.parseInt(id_parent.getText()),Integer.parseInt(id_garderie.getText()),
      nom_enfant.getText(),prenom_enfant.getText(),Integer.parseInt(age.getText()));
      ps.update(e);
      afficher(GestionGarderieController.LoggedUser);

@@ -51,7 +51,7 @@ public GarderieService()
     @Override
     public void insert(Garderie t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   String req="insert into garderies(nom,adresse,num_tel,description)values('"+t.getNom()+"','"+t.getAdresse()+"','"+t.getNum_tel()+"','"+t.getDescription()+"')";
+   String req="insert into garderies(id_user,nom,adresse,num_tel,description,image)values('"+t.getId_user()+"','"+t.getNom()+"','"+t.getAdresse()+"','"+t.getNum_tel()+"','"+t.getDescription()+"','"+t.getImage()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -75,7 +75,7 @@ public GarderieService()
         System.out.println("");
     try {
         while(result.next()){
-            Garderie p=new Garderie(result.getInt(1),result.getString(2),result.getString(3),result.getInt(4),result.getString(5),result.getString("image"));
+            Garderie p=new Garderie(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getInt(5),result.getString(6),result.getString(7));
             garderies.add(p);
         }
     } catch (SQLException ex) {
@@ -98,7 +98,7 @@ public GarderieService()
         System.out.println("");
     try {
         while(result.next()){
-            Garderie p=new Garderie(result.getInt(1),result.getString(3),result.getString(4),result.getInt(2),result.getString(5));
+            Garderie p=new Garderie(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getInt(5),result.getString(6),result.getString(7));
             garderies.put(result.getString(1),p);
         }
     } catch (SQLException ex) {
@@ -123,7 +123,7 @@ public  ObservableList<Garderie> getAllByName(String nom) {
            result = preparedStatement.executeQuery();
             while (result.next()) {
 
-            Garderie p=new Garderie(result.getInt(1),result.getString(2),result.getString(3),result.getInt(4),result.getString(5));
+            Garderie p=new Garderie(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getInt(5),result.getString(6),result.getString(7));
             Garderies.add(p);
         }
     } catch (SQLException ex) {
@@ -141,7 +141,24 @@ public  ObservableList<Garderie> getAllByName(String nom) {
         
         result=st.executeQuery("select * from garderies where id_garderie="+id);
           if(result.next())
-         p = new Garderie(result.getInt(1),result.getString(2),result.getString(3),result.getInt(4),result.getString(5));
+         p = new Garderie(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getInt(5),result.getString(6),result.getString(7));
+    } catch (SQLException ex) {
+        Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+    
+        return p; 
+    }
+    public Garderie searchGard(int id) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Garderie p=null;
+        try {
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        
+        result=st.executeQuery("select * from garderies  where id_user="+id);
+          if(result.next())
+         p = new Garderie(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getInt(5),result.getString(6),result.getString(7));
     } catch (SQLException ex) {
         Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
     }

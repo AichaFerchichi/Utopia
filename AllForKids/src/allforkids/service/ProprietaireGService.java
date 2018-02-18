@@ -53,7 +53,7 @@ public ProprietaireGService()
     @Override
     public void insert(ProprietaireG t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type)values('0','','','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','','0','','0','admin')";
+   String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type)values('0','','','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','','0','','0','proprietaireg')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -69,7 +69,7 @@ public ProprietaireGService()
         
     try {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        result=st.executeQuery("select * from users");
+        result=st.executeQuery("select * from users where type='proprietaireg'");
     } catch (SQLException ex) {
         Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -77,7 +77,7 @@ public ProprietaireGService()
         System.out.println("");
     try {
         while(result.next()){
-           ProprietaireG p=new ProprietaireG(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
+           ProprietaireG p=new ProprietaireG(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12));
             ProprietaireGs.add(p);
         }
     } catch (SQLException ex) {
@@ -193,6 +193,30 @@ return LoggedUser;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
+   public  ObservableList<ProprietaireG> getAllByName(String nom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<ProprietaireG> ProprietaireGs=FXCollections.observableArrayList();
+   String requete = "select * from users where type='proprietaireg' and nom=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, nom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+            ProprietaireG p=new ProprietaireG(result.getInt(1),result.getString(5),result.getString(6),result.getString(7));
+            ProprietaireGs.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return ProprietaireGs;
+    }
 }
 

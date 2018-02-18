@@ -19,7 +19,16 @@ public class Garderie {
     private int num_tel;
 private String description;
 private String image;
+private int id_user;
 private List<Enfant> enfants=new ArrayList<>();
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
 
     public String getImage() {
         return image;
@@ -30,30 +39,40 @@ private List<Enfant> enfants=new ArrayList<>();
     }
    
    
-public Garderie(int id_garderie, String nom, String adresse,int num_tel,String description) {
+public Garderie(int id_garderie,int id_user, String nom, String adresse,int num_tel,String description) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.id_garderie=id_garderie;
+        this.id_user=id_user;
         
         
         this.description=description;
     }
-    public Garderie(int id_garderie, String nom, String adresse,int num_tel,String description,String image) {
+    public Garderie(int id_garderie,int id_user, String nom, String adresse,int num_tel,String description,String image) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.id_garderie=id_garderie;
         this.image=image;
-        
+        this.id_user=id_user;
         this.description=description;
     }
-     public Garderie(String nom, String adresse, int num_tel) {
+    public Garderie(int id_user, String nom, String adresse,int num_tel,String description,String image) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+  
+        this.image=image;
+        this.id_user=id_user;
+        this.description=description;
+    }
+     public Garderie(int id_user,String nom, String adresse, int num_tel) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.id_garderie=id_garderie;
-  
+  this.id_user=id_user;
         
     }
 
@@ -64,12 +83,12 @@ public Garderie(int id_garderie, String nom, String adresse,int num_tel,String d
     public void setDescription(String description) {
         this.description = description;
     }
-     public Garderie(String nom, String adresse, int num_tel,String description) {
+     public Garderie(int id_user,String nom, String adresse, int num_tel,String description) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.description=description;
-        
+        this.id_user=id_user;
     }
     
  

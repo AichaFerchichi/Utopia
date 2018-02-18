@@ -8,11 +8,15 @@ package allforkids.GUI;
 import allforkids.entite.Babysitter;
 import allforkids.entite.Enseignant;
 import allforkids.entite.Evaluation;
+import allforkids.entite.Garderie;
 import allforkids.entite.Parent;
+import allforkids.entite.ProprietaireG;
 import allforkids.service.BabysitterService;
 import allforkids.service.EnseignantService;
 import allforkids.service.EvaluationService;
+import allforkids.service.GarderieService;
 import allforkids.service.ParentService;
+import allforkids.service.ProprietaireGService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -169,10 +173,19 @@ ToggleGroup group = new ToggleGroup();
     {
     if(Rparent.isSelected())
         
-    {  adresse.setDisable(false);
+    {  
+        cin.setDisable(false);
+        adresse.setDisable(false);
        montant.setDisable(false);
        nom_club.setDisable(true);
        num_tel.setDisable(true);
+                    Cnom_club.setVisible(false);
+              Cnum_tel.setVisible(false);
+               Cmontant.setVisible(true);
+               Ccin.setVisible(true);
+               Cnom.setVisible(true);
+          Cprenom.setVisible(true);
+          Cadresse.setVisible(true);
         ParentService ps=new ParentService();
     
          table.setItems(null);
@@ -187,22 +200,53 @@ ToggleGroup group = new ToggleGroup();
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
               Cadresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
               Cmontant.setCellValueFactory(new PropertyValueFactory<>("montant"));
-             Cnom_club.setVisible(false);
-              Cnum_tel.setVisible(true);
-               Cmontant.setVisible(false);
-                
-        
-       
-    }
+             table.setPrefWidth(689);
+              //table.setPrefHeight(552);
+//False les champs de saisie
+       cin.setVisible(true);
+       nom.setVisible(true);
+       prenom.setVisible(true);
+       pseudo.setVisible(true);
+       mdp.setVisible(true);
+       email.setVisible(true);
+       adresse.setVisible(true);
+       montant.setVisible(true);
+       nom_club.setVisible(true);
+       num_tel.setVisible(true);
+       //les labels false
+       Lcin.setVisible(true);
+       Lnom.setVisible(true);
+       Lprenom.setVisible(true);
+       Lpseudo.setVisible(true);
+       Lmdp.setVisible(true);
+       Lemail.setVisible(true);
+       Ladresse.setVisible(true);
+       Lmontant.setVisible(true);
+       Lnom_club.setVisible(true);
+       Lnum_tel.setVisible(true);
+             
+      
+                }
     else if(Renseignant.isSelected())
     {
-         
+         // table.setPrefWidth(636);
+            //  table.setPrefHeight(552);
         EnseignantService ps=new EnseignantService();
+        cin.setDisable(false);
     montant.setDisable(false);
     adresse.setDisable(true);
     nom_club.setDisable(false);
     num_tel.setDisable(true);
+    nom.setDisable(false);
+    prenom.setDisable(false);
          table.setItems(null);
+         Cnom_club.setVisible(true);
+        Cadresse.setVisible(false);
+       Cnum_tel.setVisible(false);
+      Cmontant.setVisible(true);
+       Ccin.setVisible(true);
+       Cnom.setVisible(true);
+        Cprenom.setVisible(true);
                 table.setItems(ps.getAll());
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
  Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
@@ -211,48 +255,104 @@ ToggleGroup group = new ToggleGroup();
         Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
               Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
-              Cmontant.setCellValueFactory(new PropertyValueFactory<>("montant"));
+             
               Cnom_club.setCellValueFactory(new PropertyValueFactory<>("nom_club"));
-        Cnom_club.setVisible(false);
-        Cadresse.setVisible(false);
-       Cnum_tel.setVisible(true);
-      Cmontant.setVisible(false);
-
-    }
-    else if(Renseignant.isSelected())
-    {
-         
-        EnseignantService ps=new EnseignantService();
-    montant.setDisable(false);
-    adresse.setDisable(true);
-    nom_club.setDisable(false);
-    num_tel.setDisable(true);
-         table.setItems(null);
-                table.setItems(ps.getAll());
- Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
- Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
-        Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-          Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
-              Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
-              Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
-              Cmontant.setCellValueFactory(new PropertyValueFactory<>("montant"));
-              Cnom_club.setCellValueFactory(new PropertyValueFactory<>("nom_club"));
-        Cnom_club.setVisible(false);
-        Cadresse.setVisible(false);
-       Cnum_tel.setVisible(true);
-      Cmontant.setVisible(false);
-
-    }
+              Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
+              table.setPrefWidth(689);
+        //False les champs de saisie
+       cin.setVisible(true);
+       nom.setVisible(true);
+       prenom.setVisible(true);
+       pseudo.setVisible(true);
+       mdp.setVisible(true);
+       email.setVisible(true);
+       adresse.setVisible(true);
+       montant.setVisible(true);
+       nom_club.setVisible(true);
+       num_tel.setVisible(true);
+       //les labels false
+       Lcin.setVisible(true);
+       Lnom.setVisible(true);
+       Lprenom.setVisible(true);
+       Lpseudo.setVisible(true);
+       Lmdp.setVisible(true);
+       Lemail.setVisible(true);
+       Ladresse.setVisible(true);
+       Lmontant.setVisible(true);
+       Lnom_club.setVisible(true);
+       Lnum_tel.setVisible(true);
+             
+      
+     }
     else if(RpropG.isSelected())
     {
-         
+          table.setPrefWidth(270);
+             // table.setPrefHeight(552);
+        ProprietaireGService ps=new ProprietaireGService();
+    montant.setDisable(true);
+    adresse.setDisable(true);
+    nom_club.setDisable(true);
+    num_tel.setDisable(true);
+    nom.setDisable(true);
+    prenom.setDisable(true);
+     cin.setDisable(true);
+         table.setItems(null);
+                table.setItems(ps.getAll());
+ Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
+              Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
+              Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+             Cmontant.setVisible(false);
+              Cnom_club.setVisible(false);
+       Ccin.setVisible(false);
+        Cnom.setVisible(false);
+          Cprenom.setVisible(false);
+           
+        Cadresse.setVisible(false);
+       Cnum_tel.setVisible(false);
+       //False les champs de saisie
+       cin.setVisible(true);
+       nom.setVisible(true);
+       prenom.setVisible(true);
+       pseudo.setVisible(true);
+       mdp.setVisible(true);
+       email.setVisible(true);
+       adresse.setVisible(true);
+       montant.setVisible(true);
+       nom_club.setVisible(true);
+       num_tel.setVisible(true);
+       //les labels false
+       Lcin.setVisible(true);
+       Lnom.setVisible(true);
+       Lprenom.setVisible(true);
+       Lpseudo.setVisible(true);
+       Lmdp.setVisible(true);
+       Lemail.setVisible(true);
+       Ladresse.setVisible(true);
+       Lmontant.setVisible(true);
+       Lnom_club.setVisible(true);
+       Lnum_tel.setVisible(true);
+             
+     
+
+    }
+    else if(Babysitter.isSelected())
+    {
+          table.setPrefWidth(689);
+          btn1.setVisible(false);
         BabysitterService ps1=BabysitterService.getInstance();
     adresse.setDisable(false);
     nom_club.setDisable(true);
         montant.setDisable(true);
-
+cin.setDisable(false);
     num_tel.setDisable(false);
+     Cnom_club.setVisible(false);
+        Cadresse.setVisible(true);
+       Cnum_tel.setVisible(true);
+       Ccin.setVisible(true);
+        Cnom.setVisible(true);
+          Cprenom.setVisible(true);
+      
          table.setItems(null);
                 table.setItems(ps1.getAll());
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
@@ -263,13 +363,9 @@ ToggleGroup group = new ToggleGroup();
               Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
                 Cadresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-
+Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
                       Cmontant.setVisible(false);
 
-        Cnom_club.setVisible(false);
-        Cadresse.setVisible(true);
-       Cnum_tel.setVisible(true);
-       
        
        //False les champs de saisie
        cin.setVisible(false);
@@ -318,7 +414,7 @@ ToggleGroup group = new ToggleGroup();
         ps.insert(p);
         nom.clear();
         cin.clear();
-        nom.clear();
+        
         prenom.clear();
         pseudo.clear();
         mdp.clear();
@@ -327,6 +423,18 @@ ToggleGroup group = new ToggleGroup();
         montant.clear();
         nom_club.clear();
         num_tel.clear();
+        afficher();
+    
+    }
+     else if(RpropG.isSelected())
+    { ProprietaireGService ps=new  ProprietaireGService();
+        ProprietaireG p= new  ProprietaireG(pseudo.getText(),mdp.getText(),email.getText());
+        ps.insert(p);
+        
+        pseudo.clear();
+        mdp.clear();
+        email.clear();
+        
         afficher();
     
     }}
@@ -361,6 +469,25 @@ ToggleGroup group = new ToggleGroup();
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
      EnseignantService ps=new EnseignantService();
+        
+      ps.delete(i);
+      } afficher();}
+        else if(RpropG.isSelected())
+    {
+        
+   TableView<ProprietaireG> table1=table;
+     int i=table1.getSelectionModel().getSelectedItem().getId_user();
+         System.out.println(i);
+         GarderieService gs=new GarderieService();
+   Garderie g=gs.searchGard(i);
+        //System.out.println(g);
+   gs.delete(g.getId_garderie());
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Suppression");
+            alert.setHeaderText("voulez-vous vraiment effacer ce proprietaire");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+     ProprietaireGService ps=new ProprietaireGService();
         
       ps.delete(i);
       } afficher();}
@@ -410,6 +537,16 @@ ToggleGroup group = new ToggleGroup();
      email.setText(table1.getSelectionModel().getSelectedItem().getEmail());
      montant.setText(Float.toString(table1.getSelectionModel().getSelectedItem().getMontant()));
      nom_club.setText(table1.getSelectionModel().getSelectedItem().getNom_club());
+    }else if(RpropG.isSelected())
+    {
+    TableView<ProprietaireG> table1=table;
+     btn1.setDisable(false);
+          id_user.setText(Integer.toString(table1.getSelectionModel().getSelectedItem().getId_user()));
+         
+     pseudo.setText(table1.getSelectionModel().getSelectedItem().getPseudo());
+     mdp.setText(table1.getSelectionModel().getSelectedItem().getMdp());
+     email.setText(table1.getSelectionModel().getSelectedItem().getEmail());
+     
     }
     
     }
@@ -448,6 +585,17 @@ ToggleGroup group = new ToggleGroup();
         montant.clear();
         nom_club.clear();
         num_tel.clear();
+      }
+     else if(RpropG.isSelected()){
+      ProprietaireGService ps=new ProprietaireGService();
+     ProprietaireG e=new ProprietaireG(Integer.parseInt(id_user.getText()),pseudo.getText(),mdp.getText(),email.getText());
+     ps.update(e);
+     afficher();
+     
+        pseudo.clear();
+        mdp.clear();
+        email.clear();
+        
       }
      
      
@@ -496,6 +644,31 @@ String nom=entrer.getText();
               Cmontant.setCellValueFactory(new PropertyValueFactory<>("montant"));
               Cnom_club.setCellValueFactory(new PropertyValueFactory<>("nom_club"));
         Cnom_club.setVisible(true);
+        Cadresse.setVisible(false);
+       Cnum_tel.setVisible(false);}
+
+               if(entrer.getText().isEmpty()){
+              afficher();
+              }
+               if(RpropG.isSelected())
+    {
+ProprietaireG e=null;
+String nom=entrer.getText();
+ ProprietaireGService ps=new ProprietaireGService();
+
+
+        table.setItems(null);
+                table.setItems(ps.getAllByName(nom));
+ Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
+              Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
+              Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+             Cmontant.setVisible(false);
+              Cnom_club.setVisible(false);
+       Ccin.setVisible(false);
+        Cnom.setVisible(false);
+          Cprenom.setVisible(false);
+           
         Cadresse.setVisible(false);
        Cnum_tel.setVisible(false);}
 

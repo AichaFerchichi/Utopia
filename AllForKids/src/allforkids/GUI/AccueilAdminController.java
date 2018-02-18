@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -46,29 +47,47 @@ public class AccueilAdminController implements Initializable{
     private TextField id_user;
     @FXML
     private ToggleButton utilisateur;
+    @FXML
+    private ImageView retire;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/enfant.jpg"));
+         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/garderie.jpg"));
+         imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/children-4.jpg"));
+    bt1.setDisable(true);
+     bt.setDisable(false);
+    }
+    @FXML
+    private void retirer(ActionEvent event) {
+        AnchorPane2.setVisible(false);
+        retire.setVisible(false);
     }
     
-    
-    /*@FXML
-    public void changerColor()
-     {
-    lb1.setTextFill(Color.RED);
-        lb2.setTextFill(Color.RED);
-    lb3.setTextFill(Color.RED);
-
-     }
     @FXML
-      public void changerColor2()
-     {
-    lb1.setTextFill(Color.BLACK);
-    lb2.setTextFill(Color.BLACK);
-    lb3.setTextFill(Color.BLACK);
-     }
-    */
+    private void changer2(ActionEvent event) {
+       
+        imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/enfant.jpg"));
+         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/garderie.jpg"));
+         imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/children-4.jpg"));
+     bt1.setDisable(true);
+     bt.setDisable(false);
+    }
+    @FXML
+    private void changer1(ActionEvent event) {
+       
+          imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/1.jpg"));
+         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/2.jpg"));
+   imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/3.jpg"));
+    bt1.setDisable(false);
+     bt.setDisable(true);
+    }
+      
+    @FXML
+    private void afficher(ActionEvent event) {
+       AnchorPane2.setVisible(true);
+       retire.setVisible(true);
+    }
 
     @FXML
     private void afficher1(ActionEvent event)throws IOException{
@@ -86,6 +105,10 @@ public class AccueilAdminController implements Initializable{
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
            bt2.getChildren().add(newLoadedPane);
         
+    }
+
+    @FXML
+    private void changer2(MouseEvent event) {
     }
 
     
