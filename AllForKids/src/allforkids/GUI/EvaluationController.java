@@ -5,14 +5,21 @@
  */
 package allforkids.GUI;
 
+import allforkids.entite.Enfant;
+import allforkids.entite.EnfantJ;
+import allforkids.entite.Enseignant;
 import allforkids.entite.Evaluation;
 import allforkids.entite.Garderie;
 import allforkids.entite.JardinEnfant;
+import allforkids.entite.Parent;
+import allforkids.service.EnfantJService;
+import allforkids.service.EnfantService;
 import allforkids.service.EvaluationService;
 import allforkids.service.JardinEnfantService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,6 +52,8 @@ public class EvaluationController implements Initializable {
     private Button btretour;
     @FXML
     private AnchorPane AnchorPane1;
+    @FXML
+    private Label lbnom;
     
    
     /**
@@ -53,22 +62,48 @@ public class EvaluationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        afficherEvaluation();
+        afficherEvaluation(AuthentificationController.LoggedParent);
     }    
-    public void afficherEvaluation()
+    public void afficherEvaluation(Parent u)
        {
-           
+           EnfantService es=new EnfantService();
+            EnfantJService esJ=new EnfantJService();
+           Enfant e=null;
+           EnfantJ en=null;
+           System.out.println(u.getId_user());
+           e=es.searchEnfant(u.getId_user());
+           en=esJ.searchEnfantJ(u.getId_user());
+           // System.out.println(e.getNom());
+           if(e!=null)
+           {
+          lbnom.setText(e.getNom()+" "+e.getPrenom());
             EvaluationService ips = new EvaluationService();
+            
             table1.setItems(null);
-                table1.setItems(ips.getAll());
+                table1.setItems(ips.getAllEvaluations(e.getNom(), e.getPrenom()));
 
         matiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
        
         
         moyenne.setCellValueFactory(new PropertyValueFactory<>("moyenne"));
-        remarque.setCellValueFactory(new PropertyValueFactory<>("remarque"));
+        remarque.setCellValueFactory(new PropertyValueFactory<>("nom_enseignant"));
               
+           }
+           if(en!=null){
+               lbnom.setText(en.getNom()+" "+en.getPrenom());
+            EvaluationService ips = new EvaluationService();
+            
+            table1.setItems(null);
+                table1.setItems(ips.getAllEvaluations(en.getNom(), en.getPrenom()));
 
+        matiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
+       
+        
+        moyenne.setCellValueFactory(new PropertyValueFactory<>("moyenne"));
+        remarque.setCellValueFactory(new PropertyValueFactory<>("nom_enseignant"));
+              
+           
+           }
        }
 
     @FXML

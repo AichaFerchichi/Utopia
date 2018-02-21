@@ -18,40 +18,66 @@ public class Enseignant extends User{
     private String nom_club;
     private float montant;
     static Enseignant instance;
+    private String image;
  
- 
-public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club) {
+ public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club) {
         super(id_user, pseudo, mdp, email);
         this.nom = nom;
         this.prenom = prenom;
         this.cin = cin;
         this.nom_club = nom_club;
         this.montant = montant;
+       
     }
-    public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String type) {
+public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String image) {
+        super(id_user, pseudo, mdp, email);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cin = cin;
+        this.nom_club = nom_club;
+        this.montant = montant;
+        this.image=image;
+    }
+
+    public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String type,String image) {
         super(id_user, pseudo, mdp, email,type);
         this.nom = nom;
         this.prenom = prenom;
         this.cin = cin;
         this.nom_club = nom_club;
         this.montant = montant;
+        this.image=image;
     }
-public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club) {
+public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String image) {
         super(pseudo, mdp, email);
         this.nom = nom;
         this.prenom = prenom;
         this.cin = cin;
         this.nom_club = nom_club;
         this.montant = montant;
+        this.image=image;
     }
 
-    public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String type) {
+    public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String type,String image) {
         super(pseudo, mdp, email,type);
         this.nom = nom;
         this.prenom = prenom;
         this.cin = cin;
         this.nom_club = nom_club;
         this.montant = montant;
+        this.image=image;
+    }
+
+    public Enseignant() {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override

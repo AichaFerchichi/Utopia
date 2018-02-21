@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -59,28 +58,27 @@
             </ToggleButton>
          </children>
       </HBox>
-      <Label layoutX="22.0" layoutY="87.0" text="Nom" />
-      <Label layoutX="23.0" layoutY="126.0" text="Prénom" />
-      <Label layoutX="24.0" layoutY="166.0" text="Matiére" />
-      <Label layoutX="26.0" layoutY="207.0" text="Moyenne" />
-      <Label layoutX="27.0" layoutY="252.0" text="Remarque" />
-      <TextArea fx:id="remarque" layoutX="128.0" layoutY="250.0" prefHeight="126.0" prefWidth="200.0" />
-      <TextField fx:id="moyenne" layoutX="128.0" layoutY="203.0" />
-      <TextField fx:id="matiere" layoutX="129.0" layoutY="163.0" />
-      <TextField fx:id="prenom" layoutX="128.0" layoutY="122.0" />
-      <TextField fx:id="nom" layoutX="128.0" layoutY="82.0" />
-      <TableView fx:id="table" layoutX="340.0" layoutY="113.0" prefHeight="393.0" prefWidth="731.0">
+      <Label layoutX="22.0" layoutY="135.0" text="Nom" />
+      <Label layoutX="23.0" layoutY="203.0" text="Prénom" />
+      <Label layoutX="24.0" layoutY="266.0" text="Matiére" />
+      <Label layoutX="26.0" layoutY="325.0" text="Moyenne" />
+      <TextField fx:id="moyenne" layoutX="128.0" layoutY="321.0" />
+      <TextField fx:id="matiere" layoutX="128.0" layoutY="261.0" />
+      <TextField fx:id="prenom" layoutX="128.0" layoutY="195.0" />
+      <TextField fx:id="nom" layoutX="128.0" layoutY="131.0" />
+      <TableView fx:id="table" layoutX="476.0" layoutY="129.0" prefHeight="393.0" prefWidth="499.0">
         <columns>
-            <TableColumn fx:id="Cid" prefWidth="92.07455444335938" text="Id évaluation" />
+            <TableColumn fx:id="Cid" prefWidth="92.07455444335938" text="Id évaluation" visible="false" />
           <TableColumn fx:id="Cnom" prefWidth="107.55718994140625" text="Nom" />
           <TableColumn fx:id="Cprenom" prefWidth="140.05194091796875" text="Prénom" />
             <TableColumn fx:id="Cmatiere" prefWidth="124.662353515625" text="Matiére" />
             <TableColumn fx:id="Cmoyenne" minWidth="0.0" prefWidth="122.2987060546875" text="Moyenne" />
-            <TableColumn fx:id="Cremarque" prefWidth="177.7012939453125" text="Remarque" />
+            <TableColumn fx:id="Cremarque" prefWidth="177.7012939453125" text="Remarque" visible="false" />
         </columns>
       </TableView>
       <Button id="btn1" fx:id="btn1" disable="true" layoutX="169.0" layoutY="402.0" mnemonicParsing="false" onAction="#mod2" text="Valider Modification" />
       <TextField fx:id="idEva" layoutX="60.0" layoutY="517.0" visible="false" />
       <Button fx:id="btretour" layoutX="957.0" layoutY="611.0" mnemonicParsing="false" onAction="#retour" onMouseClicked="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+      <TextField fx:id="idEns" layoutX="81.0" layoutY="585.0" visible="false" />
    </children>
 </AnchorPane>

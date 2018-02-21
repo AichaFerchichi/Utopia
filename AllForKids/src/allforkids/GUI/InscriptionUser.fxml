@@ -135,7 +135,7 @@
                   </Label>
                </children>
             </HBox>
-            <RadioButton fx:id="Rgarderie" layoutX="314.0" layoutY="37.0" mnemonicParsing="false" selected="true" text="Garderie">
+            <RadioButton fx:id="Rgarderie" layoutX="314.0" layoutY="37.0" mnemonicParsing="false" text="Garderie" toggleGroup="$etude">
                <toggleGroup>
                   <ToggleGroup fx:id="etude" />
                </toggleGroup>
@@ -158,6 +158,6 @@
          </font>
       </Label>
       <Button layoutX="1166.0" layoutY="294.0" mnemonicParsing="false" onAction="#actionBrowser" prefHeight="32.0" prefWidth="100.0" text="Browse" />
-      <ImageView fx:id="imgV" fitHeight="179.0" fitWidth="129.0" layoutX="227.0" layoutY="499.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgV" fitHeight="179.0" fitWidth="312.0" layoutX="873.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

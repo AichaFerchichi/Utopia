@@ -51,8 +51,8 @@ public ParentService()
     @Override
     public void insert(Parent t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type)values('"+t.getCin()+"','"+t.getNom()+"',"
-            + "'"+t.getPrenom()+"','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','"+t.getAdresse()+"','"+t.getMontant()+"','','0','parent')";
+    String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type,image)values('"+t.getCin()+"','"+t.getNom()+"',"
+            + "'"+t.getPrenom()+"','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','"+t.getAdresse()+"','"+t.getMontant()+"','','0','parent','"+t.getImage()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -101,7 +101,23 @@ public ParentService()
     
         return p; 
     }
-
+public Parent findbyMail(String s) {
+       Parent user = null;
+        String req = "select * from users where email =? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connexion.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             result = preparedStatement.executeQuery();
+            while (result.next()) {
+                user = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12),result.getString(13));
+                break;
+            }
+        } catch (SQLException ex) {
+            System.out.println("mail not found ");
+        }
+        return user;
+    }
     @Override
     public boolean delete(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -169,7 +185,30 @@ public  ObservableList<Parent> getAllByName(String nom) {
 
     @Override
     public Parent getbyPseudo(String pseudo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    String requete = "select * from users where pseudo=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        Parent p=null;
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, pseudo);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+                
+                p = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12));
+            }
+       
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des parents " + ex.getMessage());
+            
+        }
+        return p;
     }
 
     

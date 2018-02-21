@@ -83,8 +83,6 @@ public class GestionGarderieController implements Initializable {
     @FXML
     private TableColumn<Garderie, String> Cdescription;
     @FXML
-    private Label lbTitulo1;
-    @FXML
     private ToggleGroup menu;
     @FXML
     private TextField idEva;

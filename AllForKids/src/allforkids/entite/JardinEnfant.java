@@ -5,39 +5,94 @@
  */
 package allforkids.entite;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author MacBook
  */
 public class JardinEnfant {
     private int id_jardinEnfant;
-    private int id_enfant;
+   
     private String nom;
     private  String adresse;
     private int num_tel;
     private String description;
+private String image;
+private int id_user;
+    private List<Enfant> enfants=new ArrayList<>();
 
-    public JardinEnfant(int id_jardinEnfant, int id_enfant, String nom, String adresse, int num_tel,String description) {
-        this.id_jardinEnfant = id_jardinEnfant;
-        this.id_enfant = id_enfant;
-        this.nom = nom;
-        this.adresse = adresse;
-        this.num_tel = num_tel;
+    public int getId_user() {
+        return id_user;
     }
-     public JardinEnfant(int id_enfant,String nom, String adresse, int num_tel) {
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+   
+   
+public JardinEnfant(int id_jardinEnfant,int id_user, String nom, String adresse,int num_tel,String description) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
+        this.id_jardinEnfant=id_jardinEnfant;
+        this.id_user=id_user;
+        
+        
+        this.description=description;
+    }
+    public JardinEnfant(int id_jardinEnfant,int id_user, String nom, String adresse,int num_tel,String description,String image) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.id_jardinEnfant=id_jardinEnfant;
+        this.image=image;
+        this.id_user=id_user;
+        this.description=description;
+    }
+    public JardinEnfant(int id_user, String nom, String adresse,int num_tel,String description,String image) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+  
+        this.image=image;
+        this.id_user=id_user;
+        this.description=description;
+    }
+     public JardinEnfant(int id_user,String nom, String adresse, int num_tel) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.id_jardinEnfant=id_jardinEnfant;
+  this.id_user=id_user;
         
     }
 
-    public JardinEnfant( String nom, String adresse, int num_tel,String description) {
-        this.id_enfant = id_enfant;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+     public JardinEnfant(int id_user,String nom, String adresse, int num_tel,String description) {
         this.nom = nom;
         this.adresse = adresse;
         this.num_tel = num_tel;
+        this.description=description;
+        this.id_user=id_user;
     }
-
+    
+ 
     public int getId_jardinEnfant() {
         return id_jardinEnfant;
     }
@@ -45,21 +100,10 @@ public class JardinEnfant {
     public void setId_jardinEnfant(int id_jardinEnfant) {
         this.id_jardinEnfant = id_jardinEnfant;
     }
-
-    public int getId_enfant() {
-        return id_enfant;
+    public JardinEnfant(){
+    
     }
 
-    public void setId_enfant(int id_enfant) {
-        this.id_enfant = id_enfant;
-    }
-
-    @Override
-    public String toString() {
-        return "est le nom de l'enfant::JardinEnfant{" + " nom=" + nom + ", adresse=" + adresse + ", num_tel=" + num_tel + ", description=" + description + '}';
-    }
-
-   
     public String getNom() {
         return nom;
     }
@@ -84,6 +128,10 @@ public class JardinEnfant {
         this.num_tel = num_tel;
     }
 
+    @Override
+    public String toString() {
+        return "est le nom de l'enfant::JardinEnfant{" + " nom=" + nom + ", adresse=" + adresse + ", num_tel=" + num_tel +", descritpion=" + description + '}';
+    }
   
 }
 

@@ -53,13 +53,30 @@ public ProprietaireGService()
     @Override
     public void insert(ProprietaireG t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type)values('0','','','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','','0','','0','proprietaireg')";
+   String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type,image)values('0','','','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','','0','','0','proprietaireg','"+t.getImage()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
             Logger.getLogger(ProprietaireGService.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public ProprietaireG findbyMail(String s) {
+        ProprietaireG user = null;
+        String req = "select * from users where email =? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connexion.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             result = preparedStatement.executeQuery();
+            while (result.next()) {
+                user = new ProprietaireG(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(13));
+                break;
+            }
+        } catch (SQLException ex) {
+            System.out.println("mail not found ");
+        }
+        return user;
     }
 
     @Override
@@ -210,7 +227,7 @@ return LoggedUser;
            result = preparedStatement.executeQuery();
             while (result.next()) {
 
-            ProprietaireG p=new ProprietaireG(result.getInt(1),result.getString(5),result.getString(6),result.getString(7));
+            ProprietaireG p=new ProprietaireG(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(13));
             ProprietaireGs.add(p);
         }
     } catch (SQLException ex) {

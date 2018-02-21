@@ -51,8 +51,8 @@ public EnseignantService()
     @Override
     public void insert(Enseignant t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type)values('"+t.getCin()+"','"+t.getNom()+"',"
-            + "'"+t.getPrenom()+"','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','','"+t.getMontant()+"','"+t.getNom_club()+"','0','enseignant')";
+    String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type,image)values('"+t.getCin()+"','"+t.getNom()+"',"
+            + "'"+t.getPrenom()+"','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','','"+t.getMontant()+"','"+t.getNom_club()+"','0','enseignant','"+t.getImage()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -76,7 +76,7 @@ public EnseignantService()
         System.out.println("");
     try {
         while(result.next()){
-            Enseignant p=new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12));
+            Enseignant p=new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12),result.getString(13));
             Enseignants.add(p);
         }
     } catch (SQLException ex) {
@@ -93,7 +93,7 @@ public EnseignantService()
        
         result=st.executeQuery("select * from users where id_user="+id);
           if(result.next())
-         p = new Enseignant(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12));
+         p = new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12),result.getString(13));
     } catch (SQLException ex) {
         Logger.getLogger(EnseignantService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -153,7 +153,33 @@ public EnseignantService()
             while (result.next()) {
 
                 
-                p = new Enseignant(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10));
+                p = new Enseignant(result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(13));
+            }
+       
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des enseignants " + ex.getMessage());
+            
+        }
+        return p;
+    }
+    public Enseignant getbyNom(String nom) {
+        
+        String requete = "select * from users where nom=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        Enseignant p=null;
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, nom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+                
+                p = new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(13));
             }
        
         } catch (SQLException ex) {
@@ -191,7 +217,23 @@ public EnseignantService()
     public Map<String, Enseignant> getAllMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+public Enseignant findbyMail(String s) {
+        Enseignant user = null;
+        String req = "select * from users where email =? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connexion.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             result = preparedStatement.executeQuery();
+            while (result.next()) {
+                user = new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12),result.getString(13));
+                break;
+            }
+        } catch (SQLException ex) {
+            System.out.println("mail not found ");
+        }
+        return user;
+    }
     
     }
     

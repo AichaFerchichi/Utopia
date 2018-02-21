@@ -6,18 +6,28 @@
 package allforkids.GUI;
 
 import allforkids.entite.Babysitter;
+import allforkids.entite.Enfant;
+import allforkids.entite.EnfantJ;
 import allforkids.entite.Enseignant;
 import allforkids.entite.Evaluation;
 import allforkids.entite.Garderie;
+import allforkids.entite.JardinEnfant;
 import allforkids.entite.Parent;
 import allforkids.entite.ProprietaireG;
+import allforkids.entite.ProprietaireJ;
 import allforkids.service.BabysitterService;
+import allforkids.service.EnfantJService;
+import allforkids.service.EnfantService;
 import allforkids.service.EnseignantService;
 import allforkids.service.EvaluationService;
 import allforkids.service.GarderieService;
+import allforkids.service.JardinEnfantService;
 import allforkids.service.ParentService;
 import allforkids.service.ProprietaireGService;
+import allforkids.service.ProprietaireJService;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -36,12 +46,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import static javafx.scene.input.KeyCode.T;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -80,8 +93,6 @@ private RadioButton Rparent;
     private TableColumn Cnom_club;
     @FXML
     private TableColumn Cnum_tel;
-    @FXML
-    private TableColumn Ctype;
      @FXML
     private TextField entrer;
     @FXML
@@ -140,6 +151,19 @@ private RadioButton Rparent;
     private Button btretour;
     @FXML
     private RadioButton RpropG;
+    @FXML
+    private TextField imgPath;
+    @FXML
+    private Label Limage;
+    @FXML
+    private ToggleButton ajoutbt;
+    @FXML
+    private Button btbrowse;
+    @FXML
+    private ToggleButton btmod;
+    @FXML
+    private RadioButton RpropJ;
+    
     
     /**
      * Initializes the controller class.
@@ -173,7 +197,10 @@ ToggleGroup group = new ToggleGroup();
     {
     if(Rparent.isSelected())
         
-    {  
+    { ajoutbt.setDisable(true);
+    btmod.setDisable(false);
+    btbrowse.setVisible(false);
+    btn1.setVisible(true);
         cin.setDisable(false);
         adresse.setDisable(false);
        montant.setDisable(false);
@@ -213,6 +240,7 @@ ToggleGroup group = new ToggleGroup();
        montant.setVisible(true);
        nom_club.setVisible(true);
        num_tel.setVisible(true);
+       imgPath.setVisible(false);
        //les labels false
        Lcin.setVisible(true);
        Lnom.setVisible(true);
@@ -224,6 +252,7 @@ ToggleGroup group = new ToggleGroup();
        Lmontant.setVisible(true);
        Lnom_club.setVisible(true);
        Lnum_tel.setVisible(true);
+       Limage.setVisible(false);
              
       
                 }
@@ -231,6 +260,10 @@ ToggleGroup group = new ToggleGroup();
     {
          // table.setPrefWidth(636);
             //  table.setPrefHeight(552);
+        ajoutbt.setDisable(true);
+        btmod.setDisable(false);
+      btbrowse.setVisible(false);
+       btn1.setVisible(true);
         EnseignantService ps=new EnseignantService();
         cin.setDisable(false);
     montant.setDisable(false);
@@ -270,6 +303,8 @@ ToggleGroup group = new ToggleGroup();
        montant.setVisible(true);
        nom_club.setVisible(true);
        num_tel.setVisible(true);
+       imgPath.setVisible(false);
+       
        //les labels false
        Lcin.setVisible(true);
        Lnom.setVisible(true);
@@ -281,11 +316,15 @@ ToggleGroup group = new ToggleGroup();
        Lmontant.setVisible(true);
        Lnom_club.setVisible(true);
        Lnum_tel.setVisible(true);
+       Limage.setVisible(false);
              
       
      }
     else if(RpropG.isSelected())
-    {
+    {ajoutbt.setDisable(false);
+     btmod.setDisable(false);
+    btbrowse.setVisible(true);
+     btn1.setVisible(true);
           table.setPrefWidth(270);
              // table.setPrefHeight(552);
         ProprietaireGService ps=new ProprietaireGService();
@@ -321,6 +360,7 @@ ToggleGroup group = new ToggleGroup();
        montant.setVisible(true);
        nom_club.setVisible(true);
        num_tel.setVisible(true);
+       imgPath.setVisible(true);
        //les labels false
        Lcin.setVisible(true);
        Lnom.setVisible(true);
@@ -332,12 +372,72 @@ ToggleGroup group = new ToggleGroup();
        Lmontant.setVisible(true);
        Lnom_club.setVisible(true);
        Lnum_tel.setVisible(true);
+       Limage.setVisible(true);
+             
+     
+
+    }
+     else if(RpropJ.isSelected())
+    {ajoutbt.setDisable(false);
+     btmod.setDisable(false);
+    btbrowse.setVisible(true);
+     btn1.setVisible(true);
+          table.setPrefWidth(270);
+             // table.setPrefHeight(552);
+        ProprietaireJService ps=new ProprietaireJService();
+    montant.setDisable(true);
+    adresse.setDisable(true);
+    nom_club.setDisable(true);
+    num_tel.setDisable(true);
+    nom.setDisable(true);
+    prenom.setDisable(true);
+     cin.setDisable(true);
+         table.setItems(null);
+                table.setItems(ps.getAll());
+ Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
+              Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
+              Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+             Cmontant.setVisible(false);
+              Cnom_club.setVisible(false);
+       Ccin.setVisible(false);
+        Cnom.setVisible(false);
+          Cprenom.setVisible(false);
+           
+        Cadresse.setVisible(false);
+       Cnum_tel.setVisible(false);
+       //False les champs de saisie
+       cin.setVisible(true);
+       nom.setVisible(true);
+       prenom.setVisible(true);
+       pseudo.setVisible(true);
+       mdp.setVisible(true);
+       email.setVisible(true);
+       adresse.setVisible(true);
+       montant.setVisible(true);
+       nom_club.setVisible(true);
+       num_tel.setVisible(true);
+       imgPath.setVisible(true);
+       //les labels false
+       Lcin.setVisible(true);
+       Lnom.setVisible(true);
+       Lprenom.setVisible(true);
+       Lpseudo.setVisible(true);
+       Lmdp.setVisible(true);
+       Lemail.setVisible(true);
+       Ladresse.setVisible(true);
+       Lmontant.setVisible(true);
+       Lnom_club.setVisible(true);
+       Lnum_tel.setVisible(true);
+       Limage.setVisible(true);
              
      
 
     }
     else if(Babysitter.isSelected())
-    {
+    {ajoutbt.setDisable(true);
+     btmod.setDisable(true);
+    btbrowse.setVisible(false);
           table.setPrefWidth(689);
           btn1.setVisible(false);
         BabysitterService ps1=BabysitterService.getInstance();
@@ -378,6 +478,7 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
        montant.setVisible(false);
        nom_club.setVisible(false);
        num_tel.setVisible(false);
+       imgPath.setVisible(false);
        //les labels false
        Lcin.setVisible(false);
        Lnom.setVisible(false);
@@ -389,13 +490,14 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
        Lmontant.setVisible(false);
        Lnom_club.setVisible(false);
        Lnum_tel.setVisible(false);
+       Limage.setVisible(false);
     }
     }
     @FXML
     public void ajouter()
-    {if(Rparent.isSelected())
+    {/*if(Rparent.isSelected())
     {
-    ParentService ps=new  ParentService();
+ ParentService ps=new  ParentService();
          Parent p= new  Parent(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),email.getText(),adresse.getText(),Float.parseFloat(montant.getText()));
         ps.insert(p);
         nom.clear();
@@ -425,19 +527,32 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
         num_tel.clear();
         afficher();
     
-    }
-     else if(RpropG.isSelected())
+    }*/
+      if(RpropG.isSelected())
     { ProprietaireGService ps=new  ProprietaireGService();
-        ProprietaireG p= new  ProprietaireG(pseudo.getText(),mdp.getText(),email.getText());
+        ProprietaireG p= new  ProprietaireG(pseudo.getText(),mdp.getText(),email.getText(),imgPath.getText());
         ps.insert(p);
         
         pseudo.clear();
         mdp.clear();
         email.clear();
-        
+        imgPath.clear();
         afficher();
     
-    }}
+    }
+      else if(RpropJ.isSelected())
+    { ProprietaireJService ps=new  ProprietaireJService();
+        ProprietaireJ p= new  ProprietaireJ(pseudo.getText(),mdp.getText(),email.getText(),imgPath.getText());
+        ps.insert(p);
+        
+        pseudo.clear();
+        mdp.clear();
+        email.clear();
+        imgPath.clear();
+        afficher();
+    
+    }
+    }
     @FXML
     public void supprimer()
     {
@@ -479,7 +594,13 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
      int i=table1.getSelectionModel().getSelectedItem().getId_user();
          System.out.println(i);
          GarderieService gs=new GarderieService();
-   Garderie g=gs.searchGard(i);
+         Garderie g=gs.searchGard(i);
+         EnfantService es=new EnfantService();
+         Enfant e=null;
+         e=es.searchGard(g.getId_garderie());
+        
+         es.delete(e.getId_enfant());
+   
         //System.out.println(g);
    gs.delete(g.getId_garderie());
          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -488,6 +609,31 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
      ProprietaireGService ps=new ProprietaireGService();
+        
+      ps.delete(i);
+      } afficher();}
+        else if(RpropJ.isSelected())
+    {
+        
+   TableView<ProprietaireJ> table1=table;
+     int i=table1.getSelectionModel().getSelectedItem().getId_user();
+         System.out.println(i);
+         JardinEnfantService gs=new JardinEnfantService();
+        JardinEnfant g=gs.searchGard(i);
+         EnfantJService es=new EnfantJService();
+         EnfantJ e=null;
+         e=es.searchGard(g.getId_jardinEnfant());
+        if(e!=null)
+        {es.delete(e.getId_enfant());}
+   
+        //System.out.println(g);
+   gs.delete(g.getId_jardinEnfant());
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Suppression");
+            alert.setHeaderText("voulez-vous vraiment effacer ce proprietaire");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+     ProprietaireJService ps=new ProprietaireJService();
         
       ps.delete(i);
       } afficher();}
@@ -523,6 +669,7 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
      email.setText(table1.getSelectionModel().getSelectedItem().getEmail());
      montant.setText(Float.toString(table1.getSelectionModel().getSelectedItem().getMontant()));
      adresse.setText(table1.getSelectionModel().getSelectedItem().getAdresse());
+     
     }
         else if(Renseignant.isSelected())
     {
@@ -540,6 +687,17 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
     }else if(RpropG.isSelected())
     {
     TableView<ProprietaireG> table1=table;
+     btn1.setDisable(false);
+          id_user.setText(Integer.toString(table1.getSelectionModel().getSelectedItem().getId_user()));
+         
+     pseudo.setText(table1.getSelectionModel().getSelectedItem().getPseudo());
+     mdp.setText(table1.getSelectionModel().getSelectedItem().getMdp());
+     email.setText(table1.getSelectionModel().getSelectedItem().getEmail());
+     
+    }
+        else if(RpropJ.isSelected())
+    {
+    TableView<ProprietaireJ> table1=table;
      btn1.setDisable(false);
           id_user.setText(Integer.toString(table1.getSelectionModel().getSelectedItem().getId_user()));
          
@@ -589,6 +747,17 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
      else if(RpropG.isSelected()){
       ProprietaireGService ps=new ProprietaireGService();
      ProprietaireG e=new ProprietaireG(Integer.parseInt(id_user.getText()),pseudo.getText(),mdp.getText(),email.getText());
+     ps.update(e);
+     afficher();
+     
+        pseudo.clear();
+        mdp.clear();
+        email.clear();
+        
+      }
+      else if(RpropJ.isSelected()){
+      ProprietaireJService ps=new ProprietaireJService();
+     ProprietaireJ e=new ProprietaireJ(Integer.parseInt(id_user.getText()),pseudo.getText(),mdp.getText(),email.getText());
      ps.update(e);
      afficher();
      
@@ -675,6 +844,31 @@ String nom=entrer.getText();
                if(entrer.getText().isEmpty()){
               afficher();
               }
+               if(RpropJ.isSelected())
+    {
+ProprietaireJ e=null;
+String nom=entrer.getText();
+ ProprietaireJService ps=new ProprietaireJService();
+
+
+        table.setItems(null);
+                table.setItems(ps.getAllByName(nom));
+ Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
+              Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
+              Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+             Cmontant.setVisible(false);
+              Cnom_club.setVisible(false);
+       Ccin.setVisible(false);
+        Cnom.setVisible(false);
+          Cprenom.setVisible(false);
+           
+        Cadresse.setVisible(false);
+       Cnum_tel.setVisible(false);}
+
+               if(entrer.getText().isEmpty()){
+              afficher();
+              }
 if(Babysitter.isSelected())
     {
 Babysitter e=null;
@@ -708,6 +902,25 @@ String nom=entrer.getText();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Acceuilkids2.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
+
+    @FXML
+    public void actionBrowser(ActionEvent event) throws MalformedURLException{  
+        String imageFile;
+      
+        FileChooser fc = new FileChooser();
+        File selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null) {
+            imageFile = selectedFile.toURI().toURL().toString();
+            System.out.println(imageFile);
+            Image image1 = new Image(imageFile);
+           // imgV.setImage(image1);
+            imgPath.setText(imageFile);
+        } else {
+            System.out.println("file doesn't exist");
+        }
+     
+    }
+
 
     
 

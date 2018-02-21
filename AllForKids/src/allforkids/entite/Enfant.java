@@ -13,14 +13,16 @@ public class Enfant {
     private int id_enfant;
     private int id_parent;
     private int id_garderie;
+ 
 
     public int getId_garderie() {
         return id_garderie;
     }
-
-    public void setId_garderie(int id_garderie) {
+public void setId_garderie(int id_garderie) {
         this.id_garderie = id_garderie;
     }
+    
+    
     private String nom;
     private String prenom;
     private int age;
@@ -45,6 +47,7 @@ public Enfant(int id_parent,int id_garderie, String nom, String prenom, int age)
         this.prenom = prenom;
         this.age = age;
         this.id_garderie=id_garderie;
+        
     }
     public Enfant(int id_enfant,int id_garderie, int id_parent, String nom, String prenom, int age) {
         this.id_enfant = id_enfant;
@@ -53,6 +56,7 @@ public Enfant(int id_parent,int id_garderie, String nom, String prenom, int age)
         this.prenom = prenom;
         this.age = age;
         this.id_garderie=id_garderie;
+        
     }
 
     public Enfant() {

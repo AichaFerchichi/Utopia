@@ -4,7 +4,7 @@
 
 .Anchor{
 
-      -fx-background-image: url("../img/back1.png");
+     -fx-prompt-text-fill: black;
      
 }
 .mainFxmlClass {

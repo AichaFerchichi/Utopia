@@ -17,7 +17,11 @@ public class User {
    
     private String email;
     private String type;
+<<<<<<< HEAD
+    
+=======
      private String image ; 
+>>>>>>> 170a8157c3eb983af7d0d03f65717ff4b9959425
 
     public String getImage() {
         return image;

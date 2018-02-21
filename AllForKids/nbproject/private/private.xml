@@ -4,6 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/entite/Evaluation.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/allforkids.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/EvaluationController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/AuthentificationController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/EnfantService.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/EvaluationService.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/service/EnfantJService.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/ListeGardJardController.java</file>
+=======
+<<<<<<< HEAD
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/service/ParentService.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/entite/Commande.java</file>
             <file>file:/C:/Users/Molka/Documents/GitHub/Utopia/AllForKids/src/allforkids/GUI/ListViewTestController.java</file>
@@ -106,6 +116,7 @@
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/css/gestionevaluation.css</file>
             <file>file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/entite/demandetravail.java</file>
 >>>>>>> 2da60c06d91094d6f3f019a43b9afca654d1b80a
+>>>>>>> 170a8157c3eb983af7d0d03f65717ff4b9959425
         </group>
     </open-files>
 </project-private>
