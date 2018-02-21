@@ -55,23 +55,27 @@ private Screen screen = Screen.getPrimary();
 
 //Parent root = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
 
-<<<<<<< HEAD
+
 //                Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
 
 Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+
+
+//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+
+
+<<<<<<< HEAD
+
 =======
-//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
->>>>>>> 170a8157c3eb983af7d0d03f65717ff4b9959425
-//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
-
-
-Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
-//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
-//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
-
-//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
-
-
+>>>>>>> 9342ffef36d38c823354b742536fce49939f2981
       
 
 

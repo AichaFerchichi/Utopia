@@ -20,7 +20,11 @@ import java.util.logging.Logger;
 public class DataSource {
 
 
+<<<<<<< HEAD
+  final String url="jdbc:mysql://localhost:8889/PIDEV";
+=======
   // final String url="jdbc:mysql://localhost:8889/PIDEV";
+>>>>>>> 9342ffef36d38c823354b742536fce49939f2981
    //final String url="jdbc:mysql://127.0.0.1:3306/pidev";
 
    final String url="jdbc:mysql://localhost:8889/PIDEV";
@@ -32,11 +36,18 @@ public class DataSource {
   //final String url="jdbc:mysql://127.0.0.1:3306/pidev";
 
   // final String url="jdbc:mysql://localhost:8889/PIDEV";
+<<<<<<< HEAD
+  
+
    
+
+=======
+   
+>>>>>>> 9342ffef36d38c823354b742536fce49939f2981
 
 
     final String login="root";
-    final String password="";
+    final String password="root";
      Connection connexion=null;
      static DataSource instance;
      
