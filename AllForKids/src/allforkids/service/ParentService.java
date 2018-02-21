@@ -171,7 +171,7 @@ public  ObservableList<Parent> getAllByName(String nom) {
     public Parent getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
+
     
     public ObservableList<Parent> searchId(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -193,8 +193,7 @@ public  ObservableList<Parent> getAllByName(String nom) {
     } catch (SQLException ex) {
         Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
     }
-    return  Parents;
-=======
+    return  Parents;}
       public Parent findbyLogin(String s) {
         Parent user = null;
         String req = "select * from users where pseudo =? ";
@@ -211,7 +210,7 @@ public  ObservableList<Parent> getAllByName(String nom) {
             ex.printStackTrace();
         }
         return user;
->>>>>>> 2da60c06d91094d6f3f019a43b9afca654d1b80a
+
     }
 }
 
