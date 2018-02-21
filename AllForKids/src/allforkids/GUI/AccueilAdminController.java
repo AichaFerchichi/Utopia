@@ -123,7 +123,7 @@ public class AccueilAdminController implements Initializable{
   
     }
      
-    private void changer2(ActionEvent event) {
+    /*private void changer2(ActionEvent event) {
        
         imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/enfant.jpg"));
          imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/garderie.jpg"));
@@ -139,7 +139,7 @@ public class AccueilAdminController implements Initializable{
     bt1.setDisable(false);
      bt.setDisable(true);
     }
-
+*/
     @FXML
     private void retire(ActionEvent event) {
     }
@@ -156,13 +156,8 @@ public class AccueilAdminController implements Initializable{
            bt2.getChildren().add(newLoadedPane);
     }
 
-<<<<<<< HEAD
-    @FXML
-    private void changer2(MouseEvent event) {
-        
-    }
-=======
->>>>>>> 170a8157c3eb983af7d0d03f65717ff4b9959425
+
+  
 
     
 }
