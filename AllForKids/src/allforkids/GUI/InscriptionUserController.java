@@ -8,7 +8,7 @@ package allforkids.GUI;
 import static allforkids.GUI.AuthentificationController.LoggedParent;
 import allforkids.entite.Babysitter;
 import allforkids.entite.Enfant;
-import allforkids.entite.EnfantJ;
+//import allforkids.entite.EnfantJ;
 import allforkids.entite.Enseignant;
 import allforkids.entite.Garderie;
 import allforkids.entite.Parent;

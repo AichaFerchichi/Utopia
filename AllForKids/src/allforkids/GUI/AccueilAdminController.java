@@ -123,7 +123,7 @@ public class AccueilAdminController implements Initializable{
   
     }
      
-<<<<<<< HEAD
+
     /*private void changer2(ActionEvent event) {
 =======
    /* private void changer2(ActionEvent event) {
@@ -145,17 +145,7 @@ public class AccueilAdminController implements Initializable{
 <<<<<<< HEAD
     }
 */
-=======
-    }*/
-
->>>>>>> 90c7bd91ba21313893aff21594d50269c93961b8
-    @FXML
-    private void retire(ActionEvent event) {
-    }
-
-    @FXML
-    private void changer2(MouseEvent event) {
-    }
+   
     
 
     @FXML
@@ -166,11 +156,6 @@ public class AccueilAdminController implements Initializable{
     }
 
 
-<<<<<<< HEAD
-  
-=======
-    
->>>>>>> 90c7bd91ba21313893aff21594d50269c93961b8
 
     
 }
