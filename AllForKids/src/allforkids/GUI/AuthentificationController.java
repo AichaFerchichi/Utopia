@@ -6,7 +6,9 @@
 package allforkids.GUI;
 
 import static allforkids.GUI.AuthentificationController.LoggedUser;
+import allforkids.entite.Babysitter;
 import allforkids.entite.Parent;
+import allforkids.entite.ProprietaireG;
 import allforkids.entite.User;
 import allforkids.service.AdminService;
 import static allforkids.service.AdminService.LoggedUser;
@@ -48,8 +50,11 @@ public class AuthentificationController implements Initializable {
 @FXML
     private PasswordField tfMdp;
 
-public static User LoggedUser;
+
 public static Parent LoggedParent;
+public static ProprietaireG LoggedProprietaireG;
+public static Babysitter LoggedBabysitter;
+public static User LoggedUser;
     @FXML
     private Button btn;
 
@@ -83,7 +88,7 @@ public static Parent LoggedParent;
       System.out.println(type);
           if(type.equals("parent")){
               
-   LoggedParent = new Parent();
+                LoggedParent = new Parent();
                 LoggedParent.setId_user(u.getId_user());
        System.out.println(u);
             AnchorPane1.getChildren().clear();
@@ -110,10 +115,37 @@ public static Parent LoggedParent;
         System.out.println(tfPseudo.getText());
              
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Acceuilkids2.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilAdmin.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
          
 
+       
+    
+    }
+                    else if(type.equals("babysitter")){
+                        LoggedBabysitter = new Babysitter();
+                LoggedBabysitter.setId_user(u.getId_user());
+       //System.out.println(u.getId_user());
+       // System.out.println(tfPseudo.getText());
+             
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilGeneral.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+         
+
+       
+    
+    }
+          
+                    else if(type.equals("proprietaireg")){
+                        LoggedProprietaireG = new ProprietaireG();
+               LoggedProprietaireG.setId_user(u.getId_user());
+       //System.out.println(u.getId_user());
+       // System.out.println(tfPseudo.getText());
+             
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
        
     
     }

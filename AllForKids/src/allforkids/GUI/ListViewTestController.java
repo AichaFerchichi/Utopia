@@ -61,14 +61,9 @@ public class ListViewTestController implements Initializable {
     private AnchorPane AnchorPane1;
     @FXML 
    private ListView<Produit> liste1 ;
-    @FXML 
    private ListView<Produit> liste2 ;
-     @FXML 
    private ListView<Produit> liste3 ;
-      @FXML 
    private ListView<Produit> liste4 ;
-   @FXML 
-   private BorderPane bp  ;
    
      
     @Override
@@ -238,7 +233,6 @@ public class ListViewTestController implements Initializable {
            
        }
   //listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-      @FXML 
       public void onselect(MouseEvent event){
           if(event.getClickCount() == 2){
         try {

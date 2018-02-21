@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,8 +49,12 @@ public static BabysitterService getInstance()
 
     @Override
     public void insert(Babysitter p) {
-    String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type)values('"+p.getCin()+"','"+p.getNom()+"',"
-            + "'"+p.getPrenom()+"','"+p.getPseudo()+"','"+p.getMdp()+"','"+p.getEmail()+"','"+p.getAdresse()+"','0','','"+p.getNum_tel()+"','babysitter')";  
+    String req=null;
+    try {  
+req = "insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type,date_naissance,image)values('"+p.getCin()+"','"+p.getNom()+"','"+p.getPrenom()+"','"+p.getPseudo()+"','"+p.getMdp()+"','"+p.getEmail()+"','"+p.getAdresse()+"','0',' ','"+p.getNum_tel()+"','babysitter','"+p.convert(p.getDate_naissance())+"','"+p.getImage()+"')";
+    } catch (ParseException ex) {
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
      try {
             st.executeUpdate(req);
     } catch (SQLException ex) {
@@ -72,7 +77,7 @@ ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
             Babysitter p;
         
             p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
-                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"),rs.getString("type"));
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("type"),rs.getString("date_naissance"),rs.getString("image"));
              Babysitters.add(p);
         }
     } catch (SQLException ex) { 
@@ -81,6 +86,7 @@ ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
     return  Babysitters;
     }
 
+    
     @Override
     public Babysitter search(int n) {
 Babysitter p=null;
@@ -89,7 +95,7 @@ Babysitter p=null;
         rs=st.executeQuery("select * from users where id_user="+n);
           if(rs.next())
          p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
-                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"),rs.getString(12));
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("date_naissance"),rs.getString("image"));
     } catch (SQLException ex) {  
         Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -121,7 +127,21 @@ Babysitter p=null;
    if(p1!=null)
    {
         try {
-            st.executeUpdate("Update users set cin='"+t.getCin()+"',nom='"+t.getNom()+"', prenom='"+t.getPrenom()+"', pseudo='"+t.getPseudo()+"', mdp='"+t.getMdp()+"', email='"+t.getEmail()+"', adresse='"+t.getAdresse()+"', num_tel='"+t.getNum_tel()+"' where id_user="+t.getId_user());
+            st.executeUpdate("Update users set cin='"+t.getCin()+"',nom='"+t.getNom()+"', prenom='"+t.getPrenom()+"', pseudo='"+t.getPseudo()+"', mdp='"+t.getMdp()+"', email='"+t.getEmail()+"', adresse='"+t.getAdresse()+"', num_tel='"+t.getNum_tel()+"', date_naissance='"+t.getDate_naissance()+"', image='"+t.getImage()+"' where id_user="+t.getId_user());
+        } catch (SQLException ex) { 
+             Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       return true ;
+   }
+   return false;
+    }
+    
+    public boolean update1(int id) {
+     Babysitter p1=search(id);
+   if(p1!=null)
+   {
+        try {
+            st.executeUpdate("Update users set type='babysitterPersonnel' where id_user="+id);
         } catch (SQLException ex) { 
              Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
          }
@@ -144,7 +164,7 @@ Babysitter p=null;
 rs = st.executeQuery("select * from users where type='babysitter' and nom like '%"+pseudo+"%'") ;
       while (rs.next()) { 
            Babysitter p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
-                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getInt("num_tel"),rs.getString("type"));                liste.add(p); 
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("type"),rs.getString("date_naissance"),rs.getString("image"));                liste.add(p); 
     } } catch (SQLException ex) { 
         Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
     }

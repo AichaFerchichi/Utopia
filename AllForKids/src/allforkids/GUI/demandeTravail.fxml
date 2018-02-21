@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.demandeTravailController">
+    <stylesheets>
+        <URL value="@demandetravail.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="866.0" fitWidth="1329.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/b2.jpg" />
+         </image>
+      </ImageView>
+      <Separator layoutX="27.0" layoutY="796.0" prefHeight="11.0" prefWidth="1267.0" style="-fx-background-color: ff2e44;" />
+      <Separator layoutX="56.0" layoutY="12.0" orientation="VERTICAL" prefHeight="829.0" prefWidth="12.0" style="-fx-background-color: ff2e44;" />
+      <TextField fx:id="tnom1" layoutX="236.0" layoutY="43.0" prefHeight="49.0" prefWidth="291.0" promptText="Nom" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: #FFE6C9;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tadresse" layoutX="236.0" layoutY="226.0" prefHeight="49.0" prefWidth="291.0" promptText="Adresse" style="-fx-background-radius: 5em; -fx-background-color: #FFE6C9;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tprenom" layoutX="236.0" layoutY="133.0" prefHeight="49.0" prefWidth="291.0" promptText="Prenom" style="-fx-background-radius: 5em; -fx-background-color: #FFE6C9;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tnum_tel" layoutX="238.0" layoutY="317.0" prefHeight="49.0" prefWidth="291.0" promptText="Numero telephone" style="-fx-background-radius: 5em; -fx-background-color: #FFE6C9;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tmail" layoutX="236.0" layoutY="408.0" prefHeight="49.0" prefWidth="291.0" promptText="Adresse electronique" style="-fx-background-radius: 5em; -fx-background-color: #FFE6C9;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <ComboBox id="tlangue" fx:id="tlangue" layoutX="870.0" layoutY="246.0" prefHeight="47.0" prefWidth="288.0" promptText="Maitrise des langues" style="-fx-background-radius: 5em; -fx-background-color: #FFE6C9;" visibleRowCount="30" />
+      <ImageView fitHeight="65.0" fitWidth="75.0" layoutX="157.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_ID_Card_50px_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="82.0" fitWidth="76.0" layoutX="776.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/216710-200.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="64.0" layoutX="162.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/phone-contact.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="75.0" layoutX="159.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_ID_Card_50px_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="75.0" layoutX="160.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_ID_Card_50px_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="101.0" layoutX="170.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_Calendar_52px_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="41.0" layoutX="176.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_Create_48px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="74.0" layoutX="779.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_Book_48px.png" />
+         </image>
+      </ImageView>
+      <TextField id="tetude" fx:id="tetude" layoutX="869.0" layoutY="55.0" prefHeight="49.0" prefWidth="291.0" promptText="Niveau d'etude" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: #FFE6C9;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="49.0" fitWidth="57.0" layoutX="793.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_Group_64px_2.png" />
+         </image>
+      </ImageView>
+      <TextField id="tposte" fx:id="tposte" layoutX="865.0" layoutY="148.0" prefHeight="49.0" prefWidth="291.0" promptText="Poste actuel" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: #FFE6C9;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="id_user" layoutX="212.0" layoutY="619.0" visible="false" />
+      <DatePicker fx:id="tdate_naissance" layoutX="244.0" layoutY="498.0" prefHeight="41.0" prefWidth="280.0" style="-fx-background-color: #FFE6C9; -fx-border-radius: 5em; -fx-background-radius: 5em;" />
+      <ToggleButton layoutX="992.0" layoutY="594.0" mnemonicParsing="false" onAction="#ajouter" text="ToggleButton" />
+      <TextField fx:id="path" layoutX="264.0" layoutY="607.0" visible="false" />
+   </children>
+</AnchorPane>

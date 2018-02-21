@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
@@ -7,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="bt2" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/accueilgeneral.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="allforkids.GUI.AccueilGeneralController">
+<AnchorPane id="AnchorPane" fx:id="bt2" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilGeneralController">
    <children>
       <ImageView fx:id="imgView" fitHeight="161.0" fitWidth="324.0" layoutX="251.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
       <ToggleButton layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
@@ -26,7 +31,8 @@
                   <Image url="@img/logo.png" />
                </image>
             </ImageView>
-            <ToggleButton layoutX="-2.0" layoutY="162.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="260.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education" textFill="WHITE" />
+            <ToggleButton layoutX="-2.0" layoutY="162.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education" textFill="WHITE" />
+            <ToggleButton layoutY="215.0" mnemonicParsing="false" onMouseClicked="#gotoDemandeTravail" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Postuler demande de travail" textFill="WHITE" />
             <ToggleButton fx:id="retire" layoutX="231.0" layoutY="11.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
@@ -68,5 +74,6 @@
             <Font name="Baoli SC Regular" size="35.0" />
          </font>
       </Label>
+      <TextField fx:id="id_user" layoutX="136.0" layoutY="85.0" visible="false" />
    </children>
 </AnchorPane>

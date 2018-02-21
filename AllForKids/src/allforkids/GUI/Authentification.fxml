@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1130.0" styleClass="back" stylesheets="@css/authentification.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AuthentificationController">
+<AnchorPane fx:id="AnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="866.0" prefWidth="1329.0" styleClass="back" stylesheets="@css/authentification.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AuthentificationController">
 
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1137.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="878.0" fitWidth="1421.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/bd.png" />
          </image>

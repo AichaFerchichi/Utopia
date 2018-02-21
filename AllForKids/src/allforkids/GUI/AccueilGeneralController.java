@@ -5,10 +5,20 @@
  */
 package allforkids.GUI;
 
+import static allforkids.GUI.AuthentificationController.LoggedParent;
+import static allforkids.GUI.ListeProduitsController.LoggedUser;
+import allforkids.entite.Babysitter;
+import allforkids.entite.Produit;
+import allforkids.entite.User;
+import allforkids.service.AdminService;
+import allforkids.service.BabysitterService;
+import java.io.IOException;
 import java.net.URL;
 import static java.nio.file.Files.walk;
 import java.util.Collection;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -17,15 +27,18 @@ import javafx.animation.TranslateTransitionBuilder;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
 
@@ -35,7 +48,6 @@ import javax.imageio.ImageIO;
  * @author MacBook
  */
 public class AccueilGeneralController implements Initializable {
-
     @FXML
     private AnchorPane AnchorPane2;
     @FXML
@@ -53,6 +65,8 @@ public class AccueilGeneralController implements Initializable {
     private AnchorPane bt2;
     @FXML
     private ToggleButton retire;
+    @FXML
+    private TextField id_user;
     
   
 
@@ -96,7 +110,12 @@ public class AccueilGeneralController implements Initializable {
     bt1.setDisable(true);
      bt.setDisable(false);
     }
-
+public void affichage(Babysitter u)
+{
+    BabysitterService B=BabysitterService.getInstance();
+    id_user.setText(Integer.toString(u.getId_user()));
+    
+}
     
 
     @FXML
@@ -108,5 +127,16 @@ public class AccueilGeneralController implements Initializable {
     @FXML
     private void changer2(MouseEvent event) {
     }
+
+    @FXML
+    private void gotoDemandeTravail(MouseEvent event) throws IOException {
+     
+     
+        
+            
+        bt2.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
+            bt2.getChildren().add(newLoadedPane);
+    }}
     
-}
+
