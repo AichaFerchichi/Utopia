@@ -31,17 +31,17 @@ private Screen screen = Screen.getPrimary();
     public void start(Stage stage) throws IOException {
         window = stage;
 
-<<<<<<< HEAD
+
     //Parent root = FXMLLoader.load(getClass().getResource("ListViewTest.fxml")); 
 
-            Parent root = FXMLLoader.load(getClass().getResource("CommandeLivraison.fxml")); 
+           // Parent root = FXMLLoader.load(getClass().getResource("CommandeLivraison.fxml")); 
             
   //  Parent root = FXMLLoader.load(getClass().getResource("ListeProduits.fxml"));
-=======
+
 
 //Parent root = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
        // Parent root = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
->>>>>>> 2da60c06d91094d6f3f019a43b9afca654d1b80a
+
 
 
        //Parent root = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
@@ -55,29 +55,29 @@ private Screen screen = Screen.getPrimary();
 
 //Parent root = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
 
-<<<<<<< HEAD
+
 //                Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
 
 Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
-=======
-//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
->>>>>>> 170a8157c3eb983af7d0d03f65717ff4b9959425
-//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
 
-
-Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
-//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
 //Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
 
 //Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
 
-<<<<<<< HEAD
-=======
+
+//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
+
+
+
       
 
 
 
->>>>>>> 2da60c06d91094d6f3f019a43b9afca654d1b80a
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
