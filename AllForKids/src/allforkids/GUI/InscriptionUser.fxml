@@ -135,7 +135,7 @@
                   </Label>
                </children>
             </HBox>
-            <RadioButton fx:id="Rgarderie" layoutX="314.0" layoutY="37.0" mnemonicParsing="false" selected="true" text="Garderie">
+            <RadioButton fx:id="Rgarderie" layoutX="314.0" layoutY="37.0" mnemonicParsing="false" text="Garderie" toggleGroup="$etude">
                <toggleGroup>
                   <ToggleGroup fx:id="etude" />
                </toggleGroup>

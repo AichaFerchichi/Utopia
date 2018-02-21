@@ -5,7 +5,9 @@
  */
 package allforkids.GUI;
 
+import allforkids.entite.Enseignant;
 import allforkids.entite.Evaluation;
+import allforkids.service.EnseignantService;
 
 import allforkids.service.EvaluationService;
 import java.io.IOException;
@@ -51,8 +53,7 @@ public class GestionEvaluationController implements Initializable {
     private TextField matiere;
     @FXML
     private TextField moyenne;
-     @FXML
-    private TextArea remarque;
+    
     
  @FXML
     private TableView<Evaluation> table;
@@ -76,41 +77,57 @@ public class GestionEvaluationController implements Initializable {
     private Button btretour;
     @FXML
     private AnchorPane AnchorPane1;
+    @FXML
+    private TextField idEns;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        afficherEva();
+        afficherEva(AuthentificationController.LoggedEnseignant);
+         afficher(AuthentificationController.LoggedEnseignant);
     }    
-     public void afficherEva()
+      public void afficher(Enseignant u)
+    {
+        
+        
+    
+    }
+     public void afficherEva(Enseignant u)
        {
-           
+           EnseignantService ius = new EnseignantService();
+        //System.out.println(u.getId_user());
+        idEns.setText(Integer.toString(u.getId_user()));
+        System.out.println("iddddddd"+idEns.getText());
             EvaluationService ips = new EvaluationService();
+            
+            System.out.println("iddd="+idEns.getText());
+            Enseignant e=ius.search(Integer.parseInt(idEns.getText()));
             table.setItems(null);
-                table.setItems(ips.getAll());
+                table.setItems(ips.getAllByIDEns(e.getId_user()));
  Cid.setCellValueFactory(new PropertyValueFactory<>("id_evaluation"));
         Cnom.setCellValueFactory(new PropertyValueFactory<>("nom_enfant"));
           
         Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom_enfant"));
         Cmatiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
               Cmoyenne.setCellValueFactory(new PropertyValueFactory<>("moyenne"));
-              Cremarque.setCellValueFactory(new PropertyValueFactory<>("remarque"));
+              Cremarque.setCellValueFactory(new PropertyValueFactory<>("nom_enseignant"));
 
        }
     @FXML
      public void ajouter()
-     {
+     {EnseignantService es=new EnseignantService();
+            Enseignant e=es.search(Integer.parseInt(idEns.getText()));
      EvaluationService ps=new EvaluationService();
-        Evaluation p= new Evaluation(matiere.getText(),Float.parseFloat(moyenne.getText()),remarque.getText(),nom.getText(),prenom.getText());
+        Evaluation p= new Evaluation(Integer.parseInt(idEns.getText()),matiere.getText(),Float.parseFloat(moyenne.getText()),e.getNom(),nom.getText(),prenom.getText());
         ps.insert(p);
         nom.clear();
         prenom.clear();
         matiere.clear();
         moyenne.clear();
-        remarque.clear();
-        afficherEva();
+        
+        afficherEva(AuthentificationController.LoggedEnseignant);
         
      }
     @FXML
@@ -126,7 +143,7 @@ public class GestionEvaluationController implements Initializable {
      EvaluationService ps=new EvaluationService();
         
       ps.delete(i);
-      afficherEva();}
+      afficherEva(AuthentificationController.LoggedEnseignant);}
         
      }
     @FXML
@@ -138,18 +155,19 @@ public class GestionEvaluationController implements Initializable {
      prenom.setText(table.getSelectionModel().getSelectedItem().getPrenom_enfant());
      matiere.setText(table.getSelectionModel().getSelectedItem().getMatiere());
      moyenne.setText(Float.toString(table.getSelectionModel().getSelectedItem().getMoyenne()));
-     remarque.setText(table.getSelectionModel().getSelectedItem().getRemarque());
+    
     
      }
     @FXML
      public void mod2()
-     {
+     {EnseignantService es=new EnseignantService();
+            Enseignant p=es.search(Integer.parseInt(idEns.getText()));
      EvaluationService ps=new EvaluationService();
-     Evaluation e=new Evaluation(Integer.parseInt(idEva.getText()),
-     matiere.getText(),Float.parseFloat(moyenne.getText()),remarque.getText(),nom.getText(),
+     Evaluation e=new Evaluation(Integer.parseInt(idEva.getText()),Integer.parseInt(idEns.getText()),
+     matiere.getText(),Float.parseFloat(moyenne.getText()),p.getNom(),nom.getText(),
     prenom.getText());
      ps.update(e);
-     afficherEva();
+     afficherEva(AuthentificationController.LoggedEnseignant);
      }
     @FXML
     public void rechercher()
@@ -167,9 +185,9 @@ String nom=entrer.getText();
         Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom_enfant"));
         Cmatiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
               Cmoyenne.setCellValueFactory(new PropertyValueFactory<>("moyenne"));
-              Cremarque.setCellValueFactory(new PropertyValueFactory<>("remarque"));
+              Cremarque.setCellValueFactory(new PropertyValueFactory<>("nom_enseignant"));
               if(entrer.getText().isEmpty()){
-              afficherEva();
+              afficherEva(AuthentificationController.LoggedEnseignant);
               }
 
 }
@@ -180,6 +198,10 @@ String nom=entrer.getText();
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void retour(MouseEvent event) {
     }
 
     

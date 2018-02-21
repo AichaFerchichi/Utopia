@@ -56,6 +56,23 @@ public EnfantService()
             Logger.getLogger(EnfantService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public Enfant searchGard(int id) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Enfant p=null;
+        try {
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        
+        result=st.executeQuery("select * from enfants  where id_garderie="+id);
+          if(result.next())
+         p = new Enfant(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+    } catch (SQLException ex) {
+        Logger.getLogger(EnfantService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+    
+        return p; 
+    }
  public  ObservableList<Enfant> getAllByName(String nom) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
       ObservableList<Enfant> Enfants=FXCollections.observableArrayList();
@@ -97,7 +114,8 @@ public EnfantService()
         System.out.println("");
     try {
         while(result.next()){
-            Enfant p=new Enfant(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5));
+            //Enfant p=new Enfant(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5));
+            Enfant p=new Enfant(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
             Enfants.add(p);
         }
     } catch (SQLException ex) {
@@ -121,6 +139,22 @@ public EnfantService()
         
     
         return p; 
+    }
+    public Enfant searchEnfant(int id) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+       Enfant p=null;
+        try {
+       
+        result=st.executeQuery("select * from enfants where id_parent="+id);
+          while(result.next())
+          {  p=new Enfant(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+          } 
+        } catch (SQLException ex) {
+        Logger.getLogger(EnfantService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+       return  p;
     }
 
     @Override
@@ -190,4 +224,28 @@ public EnfantService()
     }
     return  garderies;
     }
+    /*public  ObservableList<Enfant> getListeEnfantJ(String nom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     ObservableList<Enfant> garderies=FXCollections.observableArrayList();
+        System.out.println(nom);
+    try {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        result=st.executeQuery("select * from enfants g join jardinEnfants e on g.id_jardinEnfant=e.id_jardinEnfant where e.nom like '%"+nom+"'");
+    } catch (SQLException ex) {
+        Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  
+        
+    try {
+        while(result.next()){
+            Enfant p=new Enfant(result.getInt(1),result.getInt(2),result.getInt(3),result.getInt(4),result.getString(5),result.getString(6),result.getInt(7));
+            
+            System.out.println(p.toString());
+            garderies.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(GarderieService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return  garderies;
+    }*/
 }

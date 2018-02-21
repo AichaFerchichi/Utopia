@@ -152,6 +152,7 @@
             <Font name="AdobeHebrew-Regular" size="18.0" />
          </font>
       </Label>
+      <RadioButton fx:id="RpropJ" layoutX="720.0" layoutY="73.0" mnemonicParsing="false" onAction="#afficher" text="Propriétaire jardin d'enfant" toggleGroup="$group" />
 
    </children>
 </AnchorPane>

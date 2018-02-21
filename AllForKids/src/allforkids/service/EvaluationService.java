@@ -54,8 +54,8 @@ public EvaluationService()
     @Override
     public void insert(Evaluation t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    String req="insert into evaluations(matiere,moyenne,remarque,nom_enfant,prenom_enfant)values('"+t.getMatiere()+"','"+t.getMoyenne()+"',"
-            + "'"+t.getRemarque()+"','"+t.getNom_enfant()+"','"+t.getPrenom_enfant()+"')";
+    String req="insert into evaluations(id_enseignant,matiere,moyenne,nom_enseignant,nom_enfant,prenom_enfant)values('"+t.getId_enseignant()+"','"+t.getMatiere()+"','"+t.getMoyenne()+"',"
+            + "'"+t.getNom_enseignant()+"','"+t.getNom_enfant()+"','"+t.getPrenom_enfant()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -79,7 +79,7 @@ public EvaluationService()
         System.out.println("");
     try {
         while(result.next()){
-            Evaluation p=new Evaluation(result.getInt(1),result.getString(2),result.getFloat(3),result.getString(4),result.getString(5),result.getString(6));
+            Evaluation p=new Evaluation(result.getInt(1),result.getInt(2),result.getString(3),result.getFloat(4),result.getString(5),result.getString(6),result.getString(7));
             Evaluations.add(p);
         }
     } catch (SQLException ex) {
@@ -105,7 +105,24 @@ public EvaluationService()
            result = preparedStatement.executeQuery();
             while (result.next()) {
 
-            Evaluation p=new Evaluation(result.getInt(1),result.getString(2),result.getFloat(3),result.getString(4),result.getString(5),result.getString(6));
+            Evaluation p=new Evaluation(result.getInt(1),result.getInt(2),result.getString(3),result.getFloat(4),result.getString(5),result.getString(6),result.getString(7));
+            Evaluations.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(EvaluationService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return Evaluations;
+    }
+    public  ObservableList<Evaluation> getAllByIDEns(int id) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<Evaluation> Evaluations=FXCollections.observableArrayList();
+   try {
+       
+        result=st.executeQuery("select * from evaluations where id_enseignant="+id);
+          
+            while (result.next()) {
+
+            Evaluation p=new Evaluation(result.getInt(1),result.getInt(2),result.getString(3),result.getFloat(4),result.getString(5),result.getString(6),result.getString(7));
             Evaluations.add(p);
         }
     } catch (SQLException ex) {
@@ -122,7 +139,7 @@ public EvaluationService()
        
         result=st.executeQuery("select * from evaluations where id_evaluation="+id);
           if(result.next())
-         p = new Evaluation(result.getString(2),result.getFloat(3),result.getString(4),result.getString(5),result.getString(6));
+         p = new Evaluation(result.getInt(1),result.getInt(2),result.getString(3),result.getFloat(4),result.getString(5),result.getString(6),result.getString(7));
     } catch (SQLException ex) {
         Logger.getLogger(EvaluationService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -154,7 +171,7 @@ public EvaluationService()
    if(p1!=null)
    {
         try {
-            st.executeUpdate("Update evaluations set  matiere='"+t.getMatiere()+"',moyenne='"+t.getMoyenne()+"', remarque='"+t.getRemarque()+"',nom_enfant='"
+            st.executeUpdate("Update evaluations set  matiere='"+t.getMatiere()+"',moyenne='"+t.getMoyenne()+"', nom_enseignant='"+t.getNom_enseignant()+"',nom_enfant='"
                     +t.getNom_enfant()+"', prenom_enfant='"
                     +t.getPrenom_enfant()+"' where id_evaluation="+t.getId_evaluation());
         } catch (SQLException ex) {
@@ -175,6 +192,31 @@ public EvaluationService()
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     
     }
+ public  ObservableList<Evaluation> getAllEvaluations(String nom,String prenom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<Evaluation> Evaluations=FXCollections.observableArrayList();
+   String requete = "select * from evaluations where nom_enfant=? and prenom_enfant=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
 
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, nom);
+            preparedStatement.setString(2, prenom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+            Evaluation p=new Evaluation(result.getInt(1),result.getInt(2),result.getString(3),result.getFloat(4),result.getString(5),result.getString(6),result.getString(7));
+            Evaluations.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(EvaluationService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return Evaluations;
+    }
     
     }

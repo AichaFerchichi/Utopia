@@ -185,7 +185,30 @@ public  ObservableList<Parent> getAllByName(String nom) {
 
     @Override
     public Parent getbyPseudo(String pseudo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    String requete = "select * from users where pseudo=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        Parent p=null;
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, pseudo);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+                
+                p = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12));
+            }
+       
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des parents " + ex.getMessage());
+            
+        }
+        return p;
     }
       public Parent findbyLogin(String s) {
         Parent user = null;

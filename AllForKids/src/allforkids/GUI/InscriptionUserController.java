@@ -8,6 +8,7 @@ package allforkids.GUI;
 import static allforkids.GUI.AuthentificationController.LoggedParent;
 import allforkids.entite.Babysitter;
 import allforkids.entite.Enfant;
+import allforkids.entite.EnfantJ;
 import allforkids.entite.Enseignant;
 import allforkids.entite.Garderie;
 import allforkids.entite.Parent;
@@ -24,6 +25,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -133,6 +136,7 @@ private AnchorPane AnchorPane1;
     private ToggleGroup etude;
     @FXML
     private RadioButton Rjardin;
+     public static EnfantJ LoggedEnfantJ;
      public static Enfant LoggedEnfant;
       public static Parent LoggedParent;
     @FXML
@@ -185,7 +189,7 @@ ToggleGroup group = new ToggleGroup();
     ToggleGroup etude = new ToggleGroup();
     RadioButton Rgarderie = new RadioButton("select first");
    Rgarderie.setToggleGroup(etude);
-   Rgarderie.setSelected(true);
+   //Rgarderie.setSelected(true);
     RadioButton Rjardin = new RadioButton("select second");
     Rjardin.setToggleGroup(etude);
     etude.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
@@ -266,8 +270,14 @@ ToggleGroup etude = new ToggleGroup();
     {
         
      if(Renseignant.isSelected()){
-        
-    Enseignant p=new Enseignant (Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
+         
+         EnseignantService es=new EnseignantService();
+         Enseignant e=null;
+         Enseignant p4=null;
+         e=es.findbyMail(email.getText());
+         p4=es.getbyPseudo(pseudo.getText());
+        if((controMail(email.getText()))&&(e==null)&&(p4==null)){
+              Enseignant p=new Enseignant (Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
       email.getText(),Float.parseFloat(montant.getText()),club.getText(),imgPath.getText());
       EnseignantService ps= new EnseignantService();
       ps.insert(p);
@@ -281,10 +291,35 @@ ToggleGroup etude = new ToggleGroup();
       club.clear();
       num_tel.clear();
        num_tel.setDisable(false);
-       afficher();
-   
-    }
-     else if(Rbabysitter.isSelected()){
+       afficher();}
+         else{
+             if (((p4!=null)&&(!controMail(email.getText())))||((p4!=null)&&(e!=null))){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Pseudo");
+            alert.setHeaderText("Pseudo et email invalides");
+            Optional<ButtonType> result = alert.showAndWait();
+            pseudo.clear();
+            email.clear();
+            
+            }
+             else if((!controMail(email.getText()))||(e!=null)){Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Email");
+            alert.setHeaderText("Email invalide");
+            email.clear();
+           Optional<ButtonType> result = alert.showAndWait();
+        }
+             else if (p4!=null){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Pseudo");
+            alert.setHeaderText("Pseudo déjà trouvé");
+            Optional<ButtonType> result = alert.showAndWait();
+            pseudo.clear();
+            }
+           
+        }
+        }
+    
+    if(Rbabysitter.isSelected()){
        
       
       Babysitter p=new Babysitter(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
@@ -316,6 +351,7 @@ ToggleGroup etude = new ToggleGroup();
     @FXML
 
     private void listegarderie(ActionEvent event) throws IOException {
+       if(Rgarderie.isSelected()){
         
         LoggedEnfant = new Enfant();
        
@@ -336,15 +372,108 @@ ToggleGroup etude = new ToggleGroup();
         LoggedParent.setMontant(Float.parseFloat(age.getText())); 
          LoggedParent.setAdresse(adresse.getText());
         System.out.println(LoggedParent.getNom());
-        
+        ParentService es=new ParentService();
+         Parent e=null;
+         Parent p4=null;
+         e=es.findbyMail(email.getText());
+         p4=es.getbyPseudo(pseudo.getText());
+        if((controMail(email.getText()))&&(e==null)&&(p4==null)){
+           
         Parent p=new Parent(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
       email.getText(),adresse.getText(),Float.parseFloat(montant.getText()),imgPath.getText());
       ParentService ps= new ParentService();
       ps.insert(p);
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
+            AnchorPane1.getChildren().add(newLoadedPane);}else{
+           
+             if (((p4!=null)&&(!controMail(email.getText())))||((p4!=null)&&(e!=null))){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Pseudo");
+            alert.setHeaderText("Pseudo et email invalides");
+            Optional<ButtonType> result = alert.showAndWait();
+            pseudo.clear();
+            email.clear();
+            
+            }
+             else if((!controMail(email.getText()))||(e!=null)){Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Email");
+            alert.setHeaderText("Email invalide");
+            email.clear();
+           Optional<ButtonType> result = alert.showAndWait();
+        }
+             else if (p4!=null){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Pseudo");
+            alert.setHeaderText("Pseudo déjà trouvé");
+            Optional<ButtonType> result = alert.showAndWait();
+            pseudo.clear();
+            }
+           
+        }}
+       else if(Rjardin.isSelected()){
         
+        LoggedEnfantJ = new EnfantJ();
+       
+        LoggedEnfantJ.setNom(nom_enfant.getText());
+        LoggedEnfantJ.setPrenom(prenom_enfant.getText());
+        LoggedEnfantJ.setAge(Integer.parseInt(age.getText())); 
+        System.out.println(LoggedEnfantJ.getNom());
+      
+         
+      LoggedParent = new Parent();
+        LoggedParent.setCin(Integer.parseInt(cin.getText()));
+        LoggedParent.setImage(imgPath.getText());
+        LoggedParent.setNom(nom.getText());
+        LoggedParent.setPrenom(prenom.getText());
+         LoggedParent.setPseudo(pseudo.getText());
+          LoggedParent.setMdp(mdp.getText());
+           LoggedParent.setEmail(email.getText());
+        LoggedParent.setMontant(Float.parseFloat(age.getText())); 
+         LoggedParent.setAdresse(adresse.getText());
+        System.out.println(LoggedParent.getNom());
+        ParentService es=new ParentService();
+         Parent e=null;
+         Parent p4=null;
+         e=es.findbyMail(email.getText());
+         p4=es.getbyPseudo(pseudo.getText());
+        if((controMail(email.getText()))&&(e==null)&&(p4==null)){
+           
+        Parent p=new Parent(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
+      email.getText(),adresse.getText(),Float.parseFloat(montant.getText()),imgPath.getText());
+      ParentService ps= new ParentService();
+      ps.insert(p);
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeJardin.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);}else{
+           
+             if (((p4!=null)&&(!controMail(email.getText())))||((p4!=null)&&(e!=null))){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Pseudo");
+            alert.setHeaderText("Pseudo et email invalides");
+            Optional<ButtonType> result = alert.showAndWait();
+            pseudo.clear();
+            email.clear();
+            
+            }
+             else if((!controMail(email.getText()))||(e!=null)){Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Email");
+            alert.setHeaderText("Email invalide");
+            email.clear();
+           Optional<ButtonType> result = alert.showAndWait();
+        }
+             else if (p4!=null){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Pseudo");
+            alert.setHeaderText("Pseudo déjà trouvé");
+            Optional<ButtonType> result = alert.showAndWait();
+            pseudo.clear();
+            }
+           
+        
+        
+    }}
+    
     }
 
  @FXML
@@ -363,7 +492,23 @@ ToggleGroup etude = new ToggleGroup();
             System.out.println("file doesn't exist");
         }
      
-    }
+        
+        }
+        
+    
+    public boolean controMail(String mail){
+String masque = "^[a-zA-Z]+[a-zA-Z0-9\\._-]*[a-zA-Z0-9]@[a-zA-Z]+"
+                        + "[a-zA-Z0-9\\._-]*[a-zA-Z0-9]+\\.[a-zA-Z]{2,4}$";
+Pattern pattern = Pattern.compile(masque);
+Matcher controler = pattern.matcher(mail);
+if (controler.matches()){
+return true;
+ 
+}else{
+return false;
+}
+
+}
 
 }
 

@@ -11,29 +11,41 @@ package allforkids.entite;
  */
 public class Evaluation {
     private int id_evaluation;
+    private int id_enseignant;
     private String matiere;
     private float moyenne;
-    private String remarque;
+    private String nom_enseignant;
     private String nom_enfant;
 
   private String prenom_enfant;
-    public Evaluation(int id_evaluation, String matiere, float moyenne, String remarque,String nom_enfant,String prenom_enfant) {
+    public Evaluation(int id_evaluation,int id_enseignant, String matiere, float moyenne, String nom_enseignant,String nom_enfant,String prenom_enfant) {
         this.id_evaluation = id_evaluation;
         this.matiere = matiere;
         this.moyenne = moyenne;
-        this.remarque = remarque;
+        this.nom_enseignant = nom_enseignant;
          this.nom_enfant=nom_enfant;
         this.prenom_enfant=prenom_enfant;
+        this.id_enseignant=id_enseignant;
     }
 
-    public Evaluation(String matiere, float moyenne, String remarque,String nom_enfant,String prenom_enfant) {
+    public Evaluation(int id_enseignant,String matiere, float moyenne, String nom_enseignant,String nom_enfant,String prenom_enfant) {
         this.matiere = matiere;
         this.moyenne = moyenne;
-        this.remarque = remarque;
+        this.nom_enseignant = nom_enseignant;
         this.nom_enfant=nom_enfant;
         this.prenom_enfant=prenom_enfant;
+        this.id_enseignant=id_enseignant;
     }
 
+    public int getId_enseignant() {
+        return id_enseignant;
+    }
+
+    public void setId_enseignant(int id_enseignant) {
+        this.id_enseignant = id_enseignant;
+    }
+
+    
     public int getId_evaluation() {
         return id_evaluation;
     }
@@ -74,17 +86,17 @@ public class Evaluation {
         this.moyenne = moyenne;
     }
 
-    public String getRemarque() {
-        return remarque;
+    public String getNom_enseignant() {
+        return nom_enseignant;
     }
 
-    public void setRemarque(String remarque) {
-        this.remarque = remarque;
+    public void setNom_enseignant(String nom_enseignant) {
+        this.nom_enseignant = nom_enseignant;
     }
 
     @Override
     public String toString() {
-        return "Evaluation{" + "id_evaluation=" + id_evaluation + ", matiere=" + matiere + ", moyenne=" + moyenne + ", remarque=" + remarque + ", nom_enfant=" + nom_enfant + ", prenom_enfant=" + prenom_enfant + '}';
+        return "Evaluation{" + "id_evaluation=" + id_evaluation + ", matiere=" + matiere + ", moyenne=" + moyenne + ", nom_enseignant=" + nom_enseignant + ", nom_enfant=" + nom_enfant + ", prenom_enfant=" + prenom_enfant + '}';
     }
 
     

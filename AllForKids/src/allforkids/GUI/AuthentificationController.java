@@ -5,11 +5,13 @@
  */
 package allforkids.GUI;
 
+import Browser.Browser;
 import static allforkids.GUI.AuthentificationController.LoggedUser;
 import allforkids.entite.Babysitter;
 import allforkids.entite.Enseignant;
 import allforkids.entite.Parent;
 import allforkids.entite.ProprietaireG;
+import allforkids.entite.ProprietaireJ;
 import allforkids.entite.User;
 import allforkids.service.AdminService;
 import static allforkids.service.AdminService.LoggedUser;
@@ -17,7 +19,10 @@ import allforkids.service.Email;
 import allforkids.service.EnseignantService;
 import allforkids.service.ParentService;
 import allforkids.service.ProprietaireGService;
+import allforkids.service.ProprietaireJService;
 import allforkids.service.UserService;
+import java.awt.Dimension;
+import java.awt.Point;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -43,6 +48,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 /**
  * FXML Controller class
@@ -61,6 +67,8 @@ public class AuthentificationController implements Initializable {
 
 public static Parent LoggedParent;
 public static ProprietaireG LoggedProprietaireG;
+public static Enseignant LoggedEnseignant;
+public static ProprietaireJ LoggedProprietaireJ;
 public static Babysitter LoggedBabysitter;
 public static User LoggedUser;
     @FXML
@@ -118,7 +126,7 @@ public static User LoggedUser;
                 LoggedParent.setId_user(u.getId_user());
        System.out.println(u);
             AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilGeneral.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evaluation.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
             
 
@@ -126,7 +134,10 @@ public static User LoggedUser;
 
               }
           else if(type.equals("enseignant")){
-           
+           LoggedEnseignant = new Enseignant();
+                LoggedEnseignant.setId_user(u.getId_user());
+                
+      // System.out.println(u);
         System.out.println(tfPseudo.getText());
        
             AnchorPane1.getChildren().clear();
@@ -170,6 +181,19 @@ public static User LoggedUser;
              
             AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+       
+    
+    }
+             else if(type.equals("proprietairej")){
+                        LoggedProprietaireJ = new ProprietaireJ();
+               LoggedProprietaireJ.setId_user(u.getId_user());
+               System.out.println("id:"+LoggedProprietaireJ.getId_user());
+       //System.out.println(u.getId_user());
+       // System.out.println(tfPseudo.getText());
+             
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionJardin.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
        
     
@@ -297,7 +321,11 @@ public static Image image1=null;
         Parent p=ps.findbyMail(Mail);
         
         Image image1 = new Image(p.getImage());
-            img.setImage(image1);
+        final Circle clip = new Circle(50, 40, 40);
+        img.setClip(clip); 
+        img.setImage(image1);
+        
+            
         
         }
           else if(u.getType().equals("enseignant")){
@@ -305,6 +333,8 @@ public static Image image1=null;
         Enseignant p=ps.findbyMail(Mail);
          
         Image image1 = new Image(p.getImage());
+        final Circle clip = new Circle(50, 40, 40);
+        img.setClip(clip); 
             img.setImage(image1);
         
         }
@@ -313,10 +343,28 @@ public static Image image1=null;
         ProprietaireG p=ps.findbyMail(Mail);
          
         Image image1 = new Image(p.getImage());
+        final Circle clip = new Circle(50, 40, 40);
+        img.setClip(clip); 
+            img.setImage(image1);
+        
+        }
+          else if(u.getType().equals("proprietairej")){
+        ProprietaireJService ps=new ProprietaireJService();
+        ProprietaireJ p=ps.findbyMail(Mail);
+         
+        Image image1 = new Image(p.getImage());
+        final Circle clip = new Circle(50, 40, 40);
+        img.setClip(clip); 
             img.setImage(image1);
         
         }
         }
+
+    }
+
+    @FXML
+    private void google(ActionEvent event) {
+                Browser.load("http://www.google.com", new Dimension(1329, 866), new Point(30, 20));
 
     }
    

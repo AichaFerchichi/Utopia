@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="bt2" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilAdminController">
+<AnchorPane id="AnchorPane" fx:id="bt2" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilAdminController">
    <children>
       <ImageView fx:id="imgView" fitHeight="161.0" fitWidth="324.0" layoutX="251.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
       <ToggleButton layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
@@ -75,4 +76,8 @@
          </graphic>
       </ToggleButton>
    </children>
+   <stylesheets>
+      <URL value="@css/accueilgeneral.css" />
+      <URL value="@css/acceuilkids2.css" />
+   </stylesheets>
 </AnchorPane>

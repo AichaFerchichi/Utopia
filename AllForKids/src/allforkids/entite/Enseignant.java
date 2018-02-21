@@ -68,6 +68,10 @@ public Enseignant(int cin,String nom, String prenom, String pseudo, String mdp,S
         this.image=image;
     }
 
+    public Enseignant() {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getImage() {
         return image;
     }
