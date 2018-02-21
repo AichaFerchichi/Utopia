@@ -232,8 +232,12 @@ public  ObservableList<Parent> getAllByName(String nom) {
     } catch (SQLException ex) {
         Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
     }
+<<<<<<< HEAD
     return  Parents;
     }
+=======
+    return  Parents;}
+>>>>>>> 9342ffef36d38c823354b742536fce49939f2981
       public Parent findbyLogin(String s) {
         Parent user = null;
         String req = "select * from users where pseudo =? ";

@@ -72,7 +72,10 @@ Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
 //Parent root = FXMLLoader.load(getClass().getResource("acceuilkids2.fxml"));
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9342ffef36d38c823354b742536fce49939f2981
       
 
 
