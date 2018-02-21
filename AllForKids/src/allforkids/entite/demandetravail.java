@@ -15,6 +15,11 @@ public class demandetravail {
     private String niveau_etude;
     private String poste_actuel;
     private String langue;
+    private String nom;
+    private String prenom;
+    private String image;
+       private String num_tel;
+
 
     public demandetravail(int id_babysitter, int id_demandeTravail, String niveau_etude, String poste_actuel, String langue) {
         this.id_babysitter = id_babysitter;
@@ -28,6 +33,44 @@ public class demandetravail {
         this.niveau_etude = niveau_etude;
         this.poste_actuel = poste_actuel;
         this.langue = langue;
+    }
+
+    public demandetravail(String niveau_etude, String poste_actuel, String langue, String nom, String prenom, String image, String num_tel) {
+        this.id_babysitter = id_babysitter;
+        this.id_demandeTravail = id_demandeTravail;
+        this.niveau_etude = niveau_etude;
+        this.poste_actuel = poste_actuel;
+        this.langue = langue;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.image = image;
+        this.num_tel = num_tel;
+    }
+
+    public demandetravail(int id_babysitter, int id_demandeTravail, String niveau_etude, String poste_actuel, String langue, String nom, String prenom, String image, String num_tel) {
+        this.id_babysitter = id_babysitter;
+        this.id_demandeTravail = id_demandeTravail;
+        this.niveau_etude = niveau_etude;
+        this.poste_actuel = poste_actuel;
+        this.langue = langue;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.image = image;
+        this.num_tel = num_tel;
+    }
+
+ 
+ 
+
+   
+
+   
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
     }
 
     public int getId_babysitter() {
@@ -72,7 +115,17 @@ public class demandetravail {
 
     @Override
     public String toString() {
-        return "demande_travail{" + "id_babysitter=" + id_babysitter + ", id_demandeTravail=" + id_demandeTravail + ", niveau_etude=" + niveau_etude + ", poste_actuel=" + poste_actuel + ", langue=" + langue + '}';
+        return "demandetravail{" + "id_babysitter=" + id_babysitter + ", id_demandeTravail=" + id_demandeTravail + ", niveau_etude=" + niveau_etude + ", poste_actuel=" + poste_actuel + ", langue=" + langue + ", nom=" + nom + ", prenom=" + prenom + ", image=" + image + '}';
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getNum_tel() {
+        return num_tel;
+    }
+
+   
     
 }

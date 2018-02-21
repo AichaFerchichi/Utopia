@@ -17,6 +17,9 @@ import allforkids.entite.*;
 
 import allforkids.technique.util.DataSource;
 import java.util.Map;
+import java.util.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -37,7 +40,7 @@ public class LigneCommandeService implements IAllForKids<LigneCommande>{
     
     }
  
-private LigneCommandeService() 
+public LigneCommandeService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -59,7 +62,7 @@ private LigneCommandeService()
         return p ; 
     }*/
 
-    public void insertPrix(Produit p1) {
+   /* public void insertPrix(Produit p1) {
        String req = "update ligneCommandes set prix_produit = '" +p1.getPrix_produit()+ "' where id_produit = '" +p1.getId_produit()+ "' " ; 
         //String req = "insert into ligneCommandes(prix_produit) values ('" +p1.getPrix_produit()+ "') where id_produit='2'";
         //System.out.println(req);
@@ -68,11 +71,11 @@ private LigneCommandeService()
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-    }
+    }*/
 
     @Override
     public void insert(LigneCommande p) {
-         String req = "insert into ligneCommandes(id_produit,quantite) values ('" +p.getId_produit()+ "','" +p.getQuantite()+ "')";
+         String req = "insert into ligneCommandes(id_produit,prix_produit,quantite) values ('" +p.getId_produit()+ "','" +p.getPrix_produit()+ "','" +p.getQuantite()+ "')";
         //System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -82,16 +85,41 @@ private LigneCommandeService()
     }
 
     @Override
-    public List<LigneCommande> getAll() {
-                List<LigneCommande> list = new ArrayList<>();
+    public ObservableList<LigneCommande> getAll() {
+                ObservableList<LigneCommande> list = FXCollections.observableArrayList();
         try {
             result = st.executeQuery("select * from ligneCommandes");
-           /* ResultSetMetaData resultMeta = result.getMetaData() ; 
-            System.out.println("**********");
-            for(int i = 1 ; i<= resultMeta.getColumnCount() ; i++){
-                System.out.println(resultMeta.getColumnName(i).toUpperCase());
+           
+            while (result.next()) {
+                LigneCommande p = new LigneCommande(result.getInt("id_ligne"),result.getInt("id_produit"), result.getFloat("prix_produit"), result.getInt("quantite"));
+                list.add(p);
             }
-            System.out.println("***********"); */
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
+    
+    public ObservableList<LigneCommande> seachId(int id) {
+                ObservableList<LigneCommande> list = FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select * from ligneCommandes where id_produit="+id);
+           
+            while (result.next()) {
+                LigneCommande p = new LigneCommande(result.getInt("id_ligne"),result.getInt("id_produit"), result.getFloat("prix_produit"), result.getInt("quantite"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
+    
+     public ObservableList<LigneCommande> seachCategorie(String c) {
+                ObservableList<LigneCommande> list = FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select * from ligneCommandes join produits on ligneCommandes.id_produit = produits.id_produit where produits.categorie like '"+c+"' ");
+           
             while (result.next()) {
                 LigneCommande p = new LigneCommande(result.getInt("id_ligne"),result.getInt("id_produit"), result.getFloat("prix_produit"), result.getInt("quantite"));
                 list.add(p);
@@ -115,6 +143,19 @@ private LigneCommandeService()
         }
     return p ; 
     }
+    
+    /* public LigneCommande searchId(int id) {
+        LigneCommande p = null ; 
+    String req = "select * from ligneCommandes where id_produit="+id ; 
+    try{
+        result = st.executeQuery(req) ; 
+        result.next() ; 
+        p = new LigneCommande(result.getInt("id_ligne"),result.getInt("id_produit"), result.getFloat("prix_produit"), result.getInt("quantite")) ; 
+    }   catch (SQLException ex) {
+            Logger.getLogger(LigneCommandeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return p ; 
+    }*/
 
     @Override
     public boolean delete(int id) {

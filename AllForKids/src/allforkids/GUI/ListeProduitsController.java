@@ -83,6 +83,8 @@ public class ListeProduitsController implements Initializable {
     private TableColumn<Produit, Float> Prix;
     @FXML
     private TableColumn<Produit, String> Description;
+    @FXML
+    private TableColumn<Produit, String> Quantite;
      @FXML
      private ComboBox<String> comBox ; 
      @FXML
@@ -102,13 +104,22 @@ public class ListeProduitsController implements Initializable {
      @FXML 
      private Text textSearch ;
      String id ; 
+     @FXML
+     private ComboBox<Integer> comBox3 ; 
+     
+     
     // int id_prod ; 
      
      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-
+       //initialisation quantite
+       ObservableList<Integer> ol3 = FXCollections.observableArrayList();
+        ol3.add(1) ; 
+        ol3.add(2) ; 
+        ol3.add(3) ; 
+        ol3.add(4) ; 
+        ol3.add(5) ; 
 
 //initialisation comBox2
         ObservableList<Float> ol2 = FXCollections.observableArrayList();
@@ -124,6 +135,7 @@ public class ListeProduitsController implements Initializable {
         
         comBox.setItems(ol);
         comBox2.setItems(ol2);
+        comBox3.setItems(ol3);
        
         listeP.getSelectionModel().selectedItemProperty().
                 addListener((observable, oldValue, newValue) -> {
@@ -147,6 +159,7 @@ public class ListeProduitsController implements Initializable {
         comBox2.setValue(e.getPrix_produit());
         Desc.setText(e.getDescription());
         imgPath.setText(e.getImage());
+        comBox3.setValue(e.getQuantite());
         
         
     }
@@ -196,6 +209,8 @@ public class ListeProduitsController implements Initializable {
         Prix.setCellValueFactory(new PropertyValueFactory<>("prix_produit"));
      
         Description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        
+        Quantite.setCellValueFactory(new PropertyValueFactory<>("quantite"));
       
       
        }
@@ -220,7 +235,7 @@ public class ListeProduitsController implements Initializable {
      @FXML
     public void ajouterProduit(ActionEvent event)throws IOException, InterruptedException{
         ProduitService ps = new ProduitService(); 
-        Produit p = new Produit(NomP.getText() ,comBox.getValue(),comBox2.getValue(),Desc.getText(),imgPath.getText()); 
+        Produit p = new Produit(NomP.getText() ,comBox.getValue(),comBox2.getValue(),Desc.getText(),imgPath.getText(),comBox3.getValue()); 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
        alert.setHeaderText("produit ajouté, merci.");
        Optional<ButtonType> result = alert.showAndWait();
@@ -278,7 +293,7 @@ public class ListeProduitsController implements Initializable {
                     + listeP.getSelectionModel().getSelectedItem().getNom());
      Optional<ButtonType> result = alert.showAndWait();
      if (result.get() == ButtonType.OK) {
-            Produit n = new Produit(NomP.getText(), comBox.getValue(),comBox2.getValue(),Desc.getText(),imgPath.getText());
+            Produit n = new Produit(NomP.getText(), comBox.getValue(),comBox2.getValue(),Desc.getText(),imgPath.getText(),comBox3.getValue());
             n.setId_produit(Integer.parseInt(id));
             ProduitService ps = new ProduitService();
             ps.update(n);
@@ -300,6 +315,7 @@ public class ListeProduitsController implements Initializable {
         Cat.setCellValueFactory(new PropertyValueFactory<>("catégorie"));
         Prix.setCellValueFactory(new PropertyValueFactory<>("prix_produit"));
         Description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        Quantite.setCellValueFactory(new PropertyValueFactory<>("quantite"));
         
     }
     
@@ -344,6 +360,30 @@ public class ListeProduitsController implements Initializable {
         } 
     } 
     }
+    
+    @FXML
+    public void onclickComment(ActionEvent event){
+        if(!listeP.getSelectionModel().isEmpty()){
+         LoggedUser = new Produit();
+       
+        LoggedUser.setId_produit(listeP.getSelectionModel().getSelectedItem().getId_produit());
+        LoggedUser.setImage(listeP.getSelectionModel().getSelectedItem().getImage());
+        LoggedUser.setCatégorie(listeP.getSelectionModel().getSelectedItem().getCatégorie());
+         LoggedUser.setNom(listeP.getSelectionModel().getSelectedItem().getNom());
+          LoggedUser.setDescription(listeP.getSelectionModel().getSelectedItem().getDescription());
+           LoggedUser.setPrix_produit(listeP.getSelectionModel().getSelectedItem().getPrix_produit());
+            LoggedUser.setQuantite(listeP.getSelectionModel().getSelectedItem().getQuantite());
+        try {
+       
+            AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ViewComments.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+
+        } catch (IOException ex) {
+            Logger.getLogger(AuthentificationController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    } 
+    }
            
     /*public int returnId(){
         if(!listeP.getSelectionModel().isEmpty()){
@@ -359,6 +399,26 @@ public class ListeProduitsController implements Initializable {
             event.consume();
         }
     }*/
+    
+        @FXML 
+    public void OnZoomIn2(MouseEvent event){
+        
+            double w =imgV.getFitWidth() ;
+            double h = imgV.getFitHeight() ; 
+            imgV.setFitHeight(h+50);
+            imgV.setFitWidth(w+50);
+        
+    }
+    
+     @FXML 
+    public void OnZoomOut2(MouseEvent event){
+        
+            double w =imgV.getFitWidth() ;
+            double h = imgV.getFitHeight() ; 
+            imgV.setFitHeight(h-50);
+            imgV.setFitWidth(w-50);
+        
+    }
     
     
 }

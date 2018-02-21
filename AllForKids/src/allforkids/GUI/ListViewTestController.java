@@ -61,14 +61,9 @@ public class ListViewTestController implements Initializable {
     private AnchorPane AnchorPane1;
     @FXML 
    private ListView<Produit> liste1 ;
-    @FXML 
    private ListView<Produit> liste2 ;
-     @FXML 
    private ListView<Produit> liste3 ;
-      @FXML 
    private ListView<Produit> liste4 ;
-   @FXML 
-   private BorderPane bp  ;
    
      
     @Override
@@ -91,12 +86,13 @@ public class ListViewTestController implements Initializable {
         (ObservableValue<? extends Produit> ov,  Produit old_val, 
             Produit new_val) -> {
                 System.out.println(new_val);
-               
+                LoggedUser.setId_produit(new_val.getId_produit());
         LoggedUser.setNom(new_val.getNom());
         LoggedUser.setCatégorie(new_val.getCatégorie());
         LoggedUser.setPrix_produit(new_val.getPrix_produit()); 
         LoggedUser.setDescription(new_val.getDescription());
         LoggedUser.setImage(new_val.getImage());
+        LoggedUser.setQuantite(new_val.getQuantite());
         
             System.out.println(LoggedUser.getNom());
     }); 
@@ -105,12 +101,13 @@ public class ListViewTestController implements Initializable {
         (ObservableValue<? extends Produit> ov,  Produit old_val, 
             Produit new_val) -> {
                 System.out.println(new_val);
-               
+                 LoggedUser.setId_produit(new_val.getId_produit());
         LoggedUser.setNom(new_val.getNom());
         LoggedUser.setCatégorie(new_val.getCatégorie());
         LoggedUser.setPrix_produit(new_val.getPrix_produit()); 
         LoggedUser.setDescription(new_val.getDescription());
         LoggedUser.setImage(new_val.getImage());
+        LoggedUser.setQuantite(new_val.getQuantite());
         
             System.out.println(LoggedUser.getNom());
     }); 
@@ -119,12 +116,13 @@ public class ListViewTestController implements Initializable {
         (ObservableValue<? extends Produit> ov,  Produit old_val, 
             Produit new_val) -> {
                 System.out.println(new_val);
-               
+                 LoggedUser.setId_produit(new_val.getId_produit());
         LoggedUser.setNom(new_val.getNom());
         LoggedUser.setCatégorie(new_val.getCatégorie());
         LoggedUser.setPrix_produit(new_val.getPrix_produit()); 
         LoggedUser.setDescription(new_val.getDescription());
         LoggedUser.setImage(new_val.getImage());
+        LoggedUser.setQuantite(new_val.getQuantite());
         
             System.out.println(LoggedUser.getNom());
     }); 
@@ -132,12 +130,13 @@ public class ListViewTestController implements Initializable {
         (ObservableValue<? extends Produit> ov,  Produit old_val, 
             Produit new_val) -> {
                 System.out.println(new_val);
-               
+                 LoggedUser.setId_produit(new_val.getId_produit());
         LoggedUser.setNom(new_val.getNom());
         LoggedUser.setCatégorie(new_val.getCatégorie());
         LoggedUser.setPrix_produit(new_val.getPrix_produit()); 
         LoggedUser.setDescription(new_val.getDescription());
         LoggedUser.setImage(new_val.getImage());
+        LoggedUser.setQuantite(new_val.getQuantite());
         
             System.out.println(LoggedUser.getNom());
     }); 
@@ -160,7 +159,7 @@ public class ListViewTestController implements Initializable {
                           Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
-                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
+                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
                       }
                   }
               } ; return cell ;
@@ -183,8 +182,7 @@ public class ListViewTestController implements Initializable {
                           Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
-                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
-                      }
+                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());                      }
                   }
               } ; return cell ;
           });
@@ -205,8 +203,7 @@ public class ListViewTestController implements Initializable {
                           Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
-                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
-                      }
+                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());                      }
                   }
               } ; return cell ;
           });
@@ -228,8 +225,7 @@ public class ListViewTestController implements Initializable {
                           Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
-                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
-                      }
+                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());                      }
                   }
               } ; return cell ;
           });
@@ -237,7 +233,6 @@ public class ListViewTestController implements Initializable {
            
        }
   //listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-      @FXML 
       public void onselect(MouseEvent event){
           if(event.getClickCount() == 2){
         try {

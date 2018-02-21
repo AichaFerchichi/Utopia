@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="609.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ViewCommentsController">
+   <children>
+      <ImageView fx:id="image" fitHeight="165.0" fitWidth="167.0" layoutX="43.0" layoutY="37.0" onMouseEntered="#OnZoomIn2" onMouseExited="#OnZoomOut2" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="nom" layoutX="247.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom : " />
+      <Text fx:id="categorie" layoutX="247.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catégorie : " />
+      <Text fx:id="prix" layoutX="247.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix : " />
+      <ListView fx:id="listeC" layoutX="27.0" layoutY="250.0" prefHeight="343.0" prefWidth="774.0" />
+      <Text fx:id="description" layoutX="250.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description : " />
+      <Text fx:id="count" layoutX="43.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="648.13671875" />
+   </children>
+</AnchorPane>

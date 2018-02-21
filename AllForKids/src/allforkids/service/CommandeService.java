@@ -14,9 +14,12 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import allforkids.entite.Commande;
+import allforkids.entite.Produit;
 
 import allforkids.technique.util.DataSource;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -38,7 +41,7 @@ public class CommandeService implements IAllForKids<Commande> {
     
     }
  
-private CommandeService() 
+public CommandeService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -81,7 +84,7 @@ public void insertTotal(Commande p) {
             }
             System.out.println("***********"); */
             while (result.next()) {
-                Commande p = new Commande(result.getInt("id_commande"),result.getInt("id_parent"), result.getInt("id_ligne"), result.getFloat("total"));
+                Commande p = new Commande(result.getInt("id_commande"),result.getInt("id_parent"), result.getInt("id_ligne"), result.getFloat("total"),result.getString("date"));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -89,6 +92,35 @@ public void insertTotal(Commande p) {
         }
         return list;
     }
+    
+     public ObservableList<Commande> getAll2() {
+         ObservableList<Commande> list=FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select * from commandes");
+          
+            while (result.next()) {
+                 Commande p = new Commande(result.getInt("id_commande"),result.getInt("id_parent"), result.getInt("id_ligne"), result.getFloat("total"),result.getString("date"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
+     public ObservableList<Commande> getDate(){
+         ObservableList<Commande> list=FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select date from commandes");
+          
+            while (result.next()) {
+                 Commande p = new Commande(result.getInt("id_commande"),result.getString("date"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+     }
 
     @Override
     public Commande search(int id) {

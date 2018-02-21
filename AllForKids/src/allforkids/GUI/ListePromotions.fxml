@@ -44,7 +44,7 @@
       <Button fx:id="ajouter" layoutX="446.0" layoutY="265.0" mnemonicParsing="false" onAction="#ajouterPromotion" text="Ajouter" />
       <Button fx:id="supprimer" layoutX="597.0" layoutY="266.0" mnemonicParsing="false" onAction="#supprimerPromotion" text="Supprimer" />
       <Button fx:id="modifier" layoutX="521.0" layoutY="266.0" mnemonicParsing="false" onAction="#modifierProduit" text="Modifier" />
-      <ImageView fx:id="imgV" fitHeight="209.0" fitWidth="165.0" layoutX="469.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgV" fitHeight="209.0" fitWidth="165.0" layoutX="469.0" layoutY="46.0" onMouseEntered="#OnZoomIn2" onMouseExited="#OnZoomOut2" pickOnBounds="true" preserveRatio="true" />
       <Text fx:id="textSearch" layoutX="37.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="524.9999967217445" />
       <TextField fx:id="imagePath" layoutX="477.0" layoutY="304.0" visible="false" />
       <TextField fx:id="prod" disable="true" layoutX="148.0" layoutY="58.0" />

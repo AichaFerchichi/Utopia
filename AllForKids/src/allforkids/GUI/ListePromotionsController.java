@@ -279,4 +279,23 @@ public class ListePromotionsController implements Initializable {
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeProduits.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
+         @FXML 
+    public void OnZoomIn2(MouseEvent event){
+        
+            double w =imgV.getFitWidth() ;
+            double h = imgV.getFitHeight() ; 
+            imgV.setFitHeight(h+50);
+            imgV.setFitWidth(w+50);
+        
+    }
+    
+     @FXML 
+    public void OnZoomOut2(MouseEvent event){
+        
+            double w =imgV.getFitWidth() ;
+            double h = imgV.getFitHeight() ; 
+            imgV.setFitHeight(h-50);
+            imgV.setFitWidth(w-50);
+        
+    }
 }

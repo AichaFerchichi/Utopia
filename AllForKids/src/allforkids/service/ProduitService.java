@@ -51,7 +51,7 @@ public ProduitService()
 }
     @Override
     public void insert(Produit p) {
-         String req = "insert into produits(nom,categorie,prix_produit,description,image) values ('" + p.getNom() + "','" + p.getCatégorie()+ "','" + p.getPrix_produit()+ "','" + p.getDescription()+ "','" + p.getImage()+ "')";
+         String req = "insert into produits(nom,categorie,prix_produit,description,image,quantite) values ('" + p.getNom() + "','" + p.getCatégorie()+ "','" + p.getPrix_produit()+ "','" + p.getDescription()+ "','" + p.getImage()+ "','" + p.getQuantite()+ "')";
         //System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -67,7 +67,7 @@ public ProduitService()
             result = st.executeQuery("select * from produits");
           
             while (result.next()) {
-                Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"));
+                Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"),result.getInt("quantite"));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -82,7 +82,7 @@ public ProduitService()
             result = st.executeQuery("select * from produits");
           
             while (result.next()) {
-                Produit p = new Produit(result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"));
+                Produit p = new Produit(result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"),result.getInt("quantite"));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -115,7 +115,7 @@ public ProduitService()
     try{
         result = st.executeQuery(req) ; 
         result.next() ; 
-        p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description")) ; 
+        p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"),result.getInt("quantite")) ; 
     }   catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -124,11 +124,11 @@ public ProduitService()
     
     public Produit searchImg(String img) {
         Produit p = null ; 
-    String req = "select * from produits where image   '"+img+"' "; 
+    String req = "select * from produits where image like '"+img+"' "; 
     try{
         result = st.executeQuery(req) ; 
         result.next() ; 
-        p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description")) ; 
+        p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getInt("quantite")) ; 
     }   catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -155,7 +155,7 @@ public ProduitService()
         Produit p1 = search(p.getId_produit()) ; 
     if(p1!=null){
         try{
-            st.executeUpdate("update produits set nom='"+p.getNom()+"', categorie='"+p.getCatégorie()+"', prix_produit='"+p.getPrix_produit()+"', description='"+p.getDescription()+"', image='"+p.getImage()+"' where id_produit="+p.getId_produit()) ; 
+            st.executeUpdate("update produits set nom='"+p.getNom()+"', categorie='"+p.getCatégorie()+"', prix_produit='"+p.getPrix_produit()+"', description='"+p.getDescription()+"', image='"+p.getImage()+"', quantite='"+p.getQuantite()+"' where id_produit="+p.getId_produit()) ; 
         } catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -177,7 +177,7 @@ public ProduitService()
     try{
         result = st.executeQuery("select * from produits where categorie like '"+s+"' ") ; 
       while (result.next()) { 
-        Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"));
+        Produit p = new Produit(result.getInt("id_produit"),result.getString("nom"), result.getString("categorie"), result.getFloat("prix_produit"),result.getString("description"),result.getString("image"),result.getInt("quantite"));
                 liste.add(p); 
     } }  catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);

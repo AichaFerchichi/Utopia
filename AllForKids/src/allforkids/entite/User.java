@@ -17,8 +17,19 @@ public class User {
    
     private String email;
     private String type;
+<<<<<<< HEAD
     
+=======
+     private String image ; 
+>>>>>>> 170a8157c3eb983af7d0d03f65717ff4b9959425
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
     public String getType() {
         return type;
     }
@@ -49,6 +60,19 @@ public class User {
         
         this.email = email;
        this.type=type;
+       
+    }
+    
+     public User(int id_user, String pseudo, String mdp, String email,String type,String image) {
+        this.id_user = id_user;
+       
+        this.pseudo = pseudo;
+        this.mdp = mdp;
+        
+        this.email = email;
+       this.type=type;
+       
+       this.image = image ; 
        
     }
     

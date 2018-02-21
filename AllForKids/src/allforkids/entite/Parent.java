@@ -16,9 +16,34 @@ public class Parent extends User{
     private String prenom;
      private String adresse;
     private float montant;
+<<<<<<< HEAD
     private String image;
    
 public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant,String type,String image) {
+=======
+
+    
+public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant,String type,String image) {
+        super(id_user, pseudo, mdp, email,type,image);
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.montant = montant;
+    }
+
+    public Parent(int cin, String nom, String prenom, String adresse, float montant, int id_user, String pseudo, String mdp, String email, String type, String image) {
+        super(id_user, pseudo, mdp, email, type, image);
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.montant = montant;
+    }
+
+
+public Parent(int id_user,int cin, String nom, String prenom,String pseudo, String mdp,String email,String adresse, float montant,String type) {
+>>>>>>> 170a8157c3eb983af7d0d03f65717ff4b9959425
         super(id_user, pseudo, mdp, email,type);
         this.image=image;
         this.cin = cin;
@@ -26,6 +51,7 @@ public Parent(int id_user,int cin, String nom, String prenom,String pseudo, Stri
         this.prenom = prenom;
         this.adresse = adresse;
         this.montant = montant;
+        
     }
     public Parent(String pseudo, String mdp,String email) {
         super( pseudo, mdp, email);

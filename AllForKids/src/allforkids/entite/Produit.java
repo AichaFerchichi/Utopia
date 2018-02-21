@@ -19,13 +19,17 @@ public class Produit {
     private float prix_produit ; 
     private String description ; 
     private String image;
+    private int quantite ; 
 
-    public Produit(int id_produit, String nom, String catégorie, float prix_produit, String description) {
+   
+
+    public Produit(int id_produit, String nom, String catégorie, float prix_produit, String description,int quantite) {
         this.id_produit = id_produit;
         this.nom = nom;
         this.catégorie = catégorie;
         this.prix_produit = prix_produit;
         this.description = description;
+         this.quantite = quantite ; 
     }        
 
     public Produit(int id_produit, float prix_produit) {
@@ -37,11 +41,12 @@ public class Produit {
         this.prix_produit = prix_produit;
     }
 
-    public Produit(String nom, String catégorie, float prix_produit, String description) {
+    public Produit(String nom, String catégorie, float prix_produit, String description,int quantite) {
         this.nom = nom;
         this.catégorie = catégorie;
         this.prix_produit = prix_produit;
         this.description = description;
+         this.quantite = quantite ; 
     }
 
     public Produit(int id_produit,String nom, String catégorie, float prix_produit, String description,String image) {
@@ -53,7 +58,17 @@ public class Produit {
         this.description = description;
         this.image = image;
     }
-    public Produit(String nom, String catégorie, float prix_produit, String description,String image) {
+     public Produit(int id_produit,String nom, String catégorie, float prix_produit, String description,String image,int quantite) {
+        
+        this.id_produit = id_produit;
+        this.nom = nom;
+        this.catégorie = catégorie;
+        this.prix_produit = prix_produit;
+        this.description = description;
+        this.image = image;
+        this.quantite = quantite ; 
+    }
+    public Produit(String nom, String catégorie, float prix_produit, String description,String image,int quantite) {
         
         
         this.nom = nom;
@@ -61,6 +76,7 @@ public class Produit {
         this.prix_produit = prix_produit;
         this.description = description;
         this.image = image;
+        this.quantite = quantite ;
     }
 
     public Produit() {
@@ -97,6 +113,13 @@ public class Produit {
 
     public String getDescription() {
         return description;
+    }
+     public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
 
     public void setId_produit(int id_produit) {
