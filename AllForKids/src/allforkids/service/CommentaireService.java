@@ -17,6 +17,8 @@ import allforkids.entite.Commentaire;
 
 import allforkids.technique.util.DataSource;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -37,7 +39,7 @@ public class CommentaireService implements IAllForKids<Commentaire> {
     
     }
  
-private CommentaireService() 
+public CommentaireService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -58,6 +60,26 @@ private CommentaireService()
         }
     }
 
+    public ObservableList<Commentaire> getAllById(int id) {
+       ObservableList<Commentaire> list = FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select * from commentaires where id_produit="+id);
+           /* ResultSetMetaData resultMeta = result.getMetaData() ; 
+            System.out.println("**********");
+            for(int i = 1 ; i<= resultMeta.getColumnCount() ; i++){
+                System.out.println(resultMeta.getColumnName(i).toUpperCase());
+            }
+            System.out.println("***********"); */
+            while (result.next()) {
+                Commentaire p = new Commentaire(result.getInt("id_commentaire"),result.getInt("id_produit"), result.getInt("id_parent"), result.getString("contenu"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
+    
     @Override
     public List<Commentaire> getAll() {
         List<Commentaire> list = new ArrayList<>();

@@ -15,11 +15,25 @@ public class Commande {
     private int id_parent ; 
     private int id_ligne ; 
     private float total ; 
+    private String date ; 
+
+    public Commande(int id_commande, String date) {
+        this.id_commande = id_commande;
+        this.date = date;
+    }
 
     public Commande(int id_parent, int id_ligne, float total) {
         this.id_parent = id_parent;
         this.id_ligne = id_ligne;
         this.total = total;
+    }
+
+    public Commande(int id_commande, int id_parent, int id_ligne, float total,String date) {
+        this.id_commande = id_commande;
+        this.id_parent = id_parent;
+        this.id_ligne = id_ligne;
+        this.total = total;
+        this.date=date ; 
     }
 
     public Commande(int id_commande, int id_parent, int id_ligne, float total) {

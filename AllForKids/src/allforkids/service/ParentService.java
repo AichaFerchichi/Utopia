@@ -93,7 +93,7 @@ public ParentService()
             System.out.println(id);
         result=st.executeQuery("select * from users where id_user="+id);
           if(result.next())
-         p = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12));
+         p = new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12),result.getString("image"));
     } catch (SQLException ex) {
         Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -170,6 +170,29 @@ public  ObservableList<Parent> getAllByName(String nom) {
     @Override
     public Parent getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public ObservableList<Parent> searchId(int id) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ObservableList<Parent> Parents=FXCollections.observableArrayList();
+        
+    try {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        result=st.executeQuery("select * from users where type='parent' and id_user="+id);
+    } catch (SQLException ex) {
+        Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  
+        System.out.println("");
+    try {
+        while(result.next()){
+            Parent p=new Parent(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getFloat(9),result.getString(12));
+            Parents.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return  Parents;
     }
 }
 

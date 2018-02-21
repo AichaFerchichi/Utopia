@@ -18,13 +18,13 @@ import java.util.logging.Logger;
  * @author MacBook
  */
 public class DataSource {
-<<<<<<< HEAD
+
   // final String url="jdbc:mysql://localhost:8889/PIDEV";
    final String url="jdbc:mysql://127.0.0.1:3306/pidev";
-=======
-   final String url="jdbc:mysql://localhost:8889/PIDEV";
+
+ //  final String url="jdbc:mysql://localhost:8889/PIDEV";
   //final String url="jdbc:mysql://127.0.0.1:3306/pidev";
->>>>>>> 1c57996ee1dcd81b3c48bcc3e19e967c96402bb1
+
 
     final String login="root";
     final String password="";

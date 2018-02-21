@@ -16,6 +16,7 @@ public class LigneCommande {
     private float prix_produit ; 
     private int quantite ; 
 
+    
     public LigneCommande(int id_produit, int quantite) {
         this.id_produit = id_produit;
         this.quantite = quantite;
@@ -25,13 +26,22 @@ public class LigneCommande {
         this.prix_produit = prix_produit;
     }
     
-    
+    public LigneCommande( int id_produit, float prix_produit, int quantite) {
+       // this.id_ligne = id_ligne;
+        this.id_produit = id_produit;
+        this.prix_produit = prix_produit;
+        this.quantite = quantite;
+    }
 
     public LigneCommande(int id_ligne, int id_produit, float prix_produit, int quantite) {
         this.id_ligne = id_ligne;
         this.id_produit = id_produit;
         this.prix_produit = prix_produit;
         this.quantite = quantite;
+    }
+
+    
+    public LigneCommande() {
     }
 
     public int getId_ligne() {
